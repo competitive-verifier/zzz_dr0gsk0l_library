@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: algebra
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: algebra/group_add.cpp
       title: algebra/group_add.cpp
     - icon: ':warning:'
@@ -47,12 +47,15 @@ data:
       title: mod/modint.cpp
   - name: segtree
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: segtree/segtree.cpp
       title: segtree/segtree.cpp
   verificationCategories:
   - name: test/library-checker/DataStructure
     pages:
+    - icon: ':x:'
+      path: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
+      title: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/StaticRangeSum.test.cpp
       title: test/library-checker/DataStructure/StaticRangeSum.test.cpp

@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
+    title: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links:
     - https://codeforces.com/contest/1401/problem/F
@@ -96,8 +99,9 @@ data:
   path: segtree/segtree.cpp
   requiredBy: []
   timestamp: '2022-09-06 17:27:38+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/library-checker/DataStructure/PointAddRangeSum.test.cpp
 documentation_of: segtree/segtree.cpp
 layout: document
 redirect_from:
