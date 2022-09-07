@@ -83,5 +83,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Polynomial/Inv.test.cpp
       title: test/library-checker/Polynomial/Inv.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library-checker/Polynomial/Log.test.cpp
+      title: test/library-checker/Polynomial/Log.test.cpp
 layout: toppage
 ---

@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/Polynomial/Inv.test.cpp
     title: test/library-checker/Polynomial/Inv.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/Polynomial/Log.test.cpp
+    title: test/library-checker/Polynomial/Log.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -101,6 +104,7 @@ data:
   timestamp: '2022-09-07 20:08:38+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library-checker/Polynomial/Log.test.cpp
   - test/library-checker/Polynomial/Inv.test.cpp
 documentation_of: formalpowerseries/base.cpp
 layout: document
