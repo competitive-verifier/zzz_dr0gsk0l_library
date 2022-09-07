@@ -35,6 +35,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/dsu.cpp
       title: datastructure/dsu.cpp
+  - name: formalpowerseries
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: formalpowerseries/base.cpp
+      title: formalpowerseries/base.cpp
   - name: graph
     pages:
     - icon: ':warning:'
@@ -73,5 +78,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/unionfind.test.cpp
       title: test/library-checker/DataStructure/unionfind.test.cpp
+  - name: test/library-checker/Polynomial
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library-checker/Polynomial/Inv.test.cpp
+      title: test/library-checker/Polynomial/Inv.test.cpp
 layout: toppage
 ---
