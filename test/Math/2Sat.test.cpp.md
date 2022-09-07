@@ -1,15 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: ac-library/atcoder/internal_csr.hpp
-    title: ac-library/atcoder/internal_csr.hpp
-  - icon: ':heavy_check_mark:'
-    path: ac-library/atcoder/internal_scc.hpp
-    title: ac-library/atcoder/internal_scc.hpp
-  - icon: ':heavy_check_mark:'
-    path: ac-library/atcoder/twosat.hpp
-    title: ac-library/atcoder/twosat.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -35,10 +26,7 @@ data:
     \  }\n  if(ts.satisfiable()){\n    cout<<\"s SATISFIABLE\\n\";\n    cout<<\"v\
     \ \";\n    auto A=ts.answer();\n    for(int i=0;i<n;i++)cout<<(A[i]?i+1:-(i+1))<<\"\
     \ \";\n    cout<<\"0\\n\";\n  }\n  else cout<<\"s UNSATISFIABLE\\n\";\n}"
-  dependsOn:
-  - ac-library/atcoder/twosat.hpp
-  - ac-library/atcoder/internal_scc.hpp
-  - ac-library/atcoder/internal_csr.hpp
+  dependsOn: []
   isVerificationFile: true
   path: test/Math/2Sat.test.cpp
   requiredBy: []
