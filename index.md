@@ -54,6 +54,11 @@ data:
       path: segtree/segtree.cpp
       title: segtree/segtree.cpp
   verificationCategories:
+  - name: test/Math
+    pages:
+    - icon: ':x:'
+      path: test/Math/2Sat.test.cpp
+      title: test/Math/2Sat.test.cpp
   - name: test/library-checker/DataStructure
     pages:
     - icon: ':heavy_check_mark:'
