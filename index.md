@@ -4,9 +4,12 @@ data:
   - name: algebra
     pages:
     - icon: ':heavy_check_mark:'
+      path: algebra/algebra_reverse.cpp
+      title: algebra/algebra_reverse.cpp
+    - icon: ':heavy_check_mark:'
       path: algebra/group_add.cpp
       title: algebra/group_add.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: algebra/group_linear.cpp
       title: algebra/group_linear.cpp
     - icon: ':warning:'
@@ -42,7 +45,7 @@ data:
     - icon: ':warning:'
       path: mod/mint_utility.cpp
       title: mod/mint_utility.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: mod/modint.cpp
       title: mod/modint.cpp
   - name: segtree
@@ -56,6 +59,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
       title: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
+      title: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/StaticRangeSum.test.cpp
       title: test/library-checker/DataStructure/StaticRangeSum.test.cpp
