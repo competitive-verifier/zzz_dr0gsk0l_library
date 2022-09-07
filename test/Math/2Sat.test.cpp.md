@@ -1,12 +1,25 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: ac-library/atcoder/internal_csr.hpp
+    title: ac-library/atcoder/internal_csr.hpp
+  - icon: ':heavy_check_mark:'
+    path: ac-library/atcoder/internal_scc.hpp
+    title: ac-library/atcoder/internal_scc.hpp
+  - icon: ':heavy_check_mark:'
+    path: ac-library/atcoder/twosat.hpp
+    title: ac-library/atcoder/twosat.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
-  attributes: {}
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/two_sat
+    links:
+    - https://judge.yosupo.jp/problem/two_sat
   bundledCode: "#line 1 \"test/Math/2Sat.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/two_sat\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include <atcoder/twosat>\n\
     using namespace atcoder;\n\nint main(){\n  string hoge;cin>>hoge>>hoge;\n  int\
@@ -22,12 +35,15 @@ data:
     \  }\n  if(ts.satisfiable()){\n    cout<<\"s SATISFIABLE\\n\";\n    cout<<\"v\
     \ \";\n    auto A=ts.answer();\n    for(int i=0;i<n;i++)cout<<(A[i]?i+1:-(i+1))<<\"\
     \ \";\n    cout<<\"0\\n\";\n  }\n  else cout<<\"s UNSATISFIABLE\\n\";\n}"
-  dependsOn: []
+  dependsOn:
+  - ac-library/atcoder/twosat.hpp
+  - ac-library/atcoder/internal_scc.hpp
+  - ac-library/atcoder/internal_csr.hpp
   isVerificationFile: true
   path: test/Math/2Sat.test.cpp
   requiredBy: []
   timestamp: '2022-09-07 15:30:31+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/Math/2Sat.test.cpp
 layout: document
