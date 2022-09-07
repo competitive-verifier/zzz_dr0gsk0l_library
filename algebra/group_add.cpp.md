@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
     title: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"algebra/group_add.cpp\"\ntemplate<typename X>\nstruct Group_Add\
@@ -27,7 +27,7 @@ data:
   path: algebra/group_add.cpp
   requiredBy: []
   timestamp: '2022-09-07 12:14:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library-checker/DataStructure/PointAddRangeSum.test.cpp
 documentation_of: algebra/group_add.cpp
