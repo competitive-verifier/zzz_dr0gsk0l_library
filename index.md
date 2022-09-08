@@ -35,9 +35,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/dsu.cpp
       title: datastructure/dsu.cpp
+  - name: flow
+    pages:
+    - icon: ':warning:'
+      path: flow/dinic.cpp
+      title: flow/dinic.cpp
   - name: formalpowerseries
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: formalpowerseries/base.cpp
       title: formalpowerseries/base.cpp
   - name: graph
@@ -60,7 +65,7 @@ data:
       title: segtree/segtree.cpp
   - name: string
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: string/run_enumerate.cpp
       title: string/run_enumerate.cpp
   verificationCategories:
@@ -88,15 +93,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Polynomial/Exp.test.cpp
       title: test/library-checker/Polynomial/Exp.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Polynomial/Inv.test.cpp
       title: test/library-checker/Polynomial/Inv.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Polynomial/Log.test.cpp
       title: test/library-checker/Polynomial/Log.test.cpp
   - name: test/library-checker/String
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/String/RunEnumerate.test.cpp
       title: test/library-checker/String/RunEnumerate.test.cpp
 layout: toppage

@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/String/RunEnumerate.test.cpp
     title: test/library-checker/String/RunEnumerate.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"string/run_enumerate.cpp\"\n#include <atcoder/string>\n\
@@ -77,7 +77,7 @@ data:
   path: string/run_enumerate.cpp
   requiredBy: []
   timestamp: '2022-09-08 17:20:23+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library-checker/String/RunEnumerate.test.cpp
 documentation_of: string/run_enumerate.cpp
