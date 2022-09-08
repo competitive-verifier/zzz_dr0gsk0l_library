@@ -37,7 +37,7 @@ data:
       title: datastructure/dsu.cpp
   - name: formalpowerseries
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: formalpowerseries/base.cpp
       title: formalpowerseries/base.cpp
   - name: graph
@@ -58,12 +58,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: segtree/segtree.cpp
       title: segtree/segtree.cpp
-  verificationCategories:
-  - name: test/Math
+  - name: string
     pages:
-    - icon: ':heavy_check_mark:'
-      path: test/Math/2Sat.test.cpp
-      title: test/Math/2Sat.test.cpp
+    - icon: ':x:'
+      path: string/run_enumerate.cpp
+      title: string/run_enumerate.cpp
+  verificationCategories:
   - name: test/library-checker/DataStructure
     pages:
     - icon: ':heavy_check_mark:'
@@ -78,13 +78,26 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/unionfind.test.cpp
       title: test/library-checker/DataStructure/unionfind.test.cpp
+  - name: test/library-checker/Math
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library-checker/Math/2Sat.test.cpp
+      title: test/library-checker/Math/2Sat.test.cpp
   - name: test/library-checker/Polynomial
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/library-checker/Polynomial/Exp.test.cpp
+      title: test/library-checker/Polynomial/Exp.test.cpp
+    - icon: ':x:'
       path: test/library-checker/Polynomial/Inv.test.cpp
       title: test/library-checker/Polynomial/Inv.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library-checker/Polynomial/Log.test.cpp
       title: test/library-checker/Polynomial/Log.test.cpp
+  - name: test/library-checker/String
+    pages:
+    - icon: ':x:'
+      path: test/library-checker/String/RunEnumerate.test.cpp
+      title: test/library-checker/String/RunEnumerate.test.cpp
 layout: toppage
 ---

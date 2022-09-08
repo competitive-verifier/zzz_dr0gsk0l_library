@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: formalpowerseries/base.cpp
     title: formalpowerseries/base.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/inv_of_formal_power_series
@@ -38,8 +38,8 @@ data:
   isVerificationFile: true
   path: test/library-checker/Polynomial/Inv.test.cpp
   requiredBy: []
-  timestamp: '2022-09-07 20:08:38+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-09-08 17:20:23+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library-checker/Polynomial/Inv.test.cpp
 layout: document
