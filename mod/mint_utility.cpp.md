@@ -17,7 +17,7 @@ data:
     \  }\n \npublic:\n  mint_utility() = delete;\n \n  static MINT fact(const int\
     \ n){\n    assert(n>=0);\n    extend(n);\n    return fact_[n];\n  }\n \n  static\
     \ MINT inv_fact(const int n){\n    assert(n>=0);\n    extend(n);\n    return inv_fact_[n];\n\
-    \  }\n \n  static MINT nCk(const int n,const int k){\n    if(k<0||n<k)return T::raw(0);\n\
+    \  }\n \n  static MINT nCk(const int n,const int k){\n    if(k<0||n<k)return MINT::raw(0);\n\
     \    extend(n);\n    return fact_[n] * inv_fact_[k] * inv_fact_[n - k];\n  }\n\
     };\n"
   code: "template<typename MINT>\nclass mint_utility {\n  vector<MINT> fact_={MINT::raw(1)};\n\
@@ -29,14 +29,14 @@ data:
     \  mint_utility() = delete;\n \n  static MINT fact(const int n){\n    assert(n>=0);\n\
     \    extend(n);\n    return fact_[n];\n  }\n \n  static MINT inv_fact(const int\
     \ n){\n    assert(n>=0);\n    extend(n);\n    return inv_fact_[n];\n  }\n \n \
-    \ static MINT nCk(const int n,const int k){\n    if(k<0||n<k)return T::raw(0);\n\
+    \ static MINT nCk(const int n,const int k){\n    if(k<0||n<k)return MINT::raw(0);\n\
     \    extend(n);\n    return fact_[n] * inv_fact_[k] * inv_fact_[n - k];\n  }\n\
     };"
   dependsOn: []
   isVerificationFile: false
   path: mod/mint_utility.cpp
   requiredBy: []
-  timestamp: '2022-09-06 17:15:40+09:00'
+  timestamp: '2022-09-09 14:42:58+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: mod/mint_utility.cpp

@@ -37,7 +37,7 @@ data:
       title: datastructure/dsu.cpp
   - name: flow
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: flow/dinic.cpp
       title: flow/dinic.cpp
   - name: formalpowerseries
@@ -69,6 +69,11 @@ data:
       path: string/run_enumerate.cpp
       title: string/run_enumerate.cpp
   verificationCategories:
+  - name: test/AOJ
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/AOJ/GRL_6_A.test.cpp
+      title: test/AOJ/GRL_6_A.test.cpp
   - name: test/library-checker/DataStructure
     pages:
     - icon: ':heavy_check_mark:'
