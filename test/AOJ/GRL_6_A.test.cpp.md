@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: flow/dinic.cpp
     title: flow/dinic.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A
@@ -44,7 +44,7 @@ data:
     \   T f=dfs(s,lim);\n        if(f==0)break;\n        fl+=f;\n        lim-=f;\n\
     \      }\n    }\n    return fl;\n  }\n  T flow(){ return flow(numeric_limits<T>::max()/2);\
     \ }\n  \n  T st_flow(int s_,int t_,T lim){ s=s_;t=t_; return flow(lim);}\n  T\
-    \ st_flow(int s_,int _t){ s=s_;t=t_; return flow(); }\n};\n#line 6 \"test/AOJ/GRL_6_A.test.cpp\"\
+    \ st_flow(int s_,int t_){ s=s_;t=t_; return flow(); }\n};\n#line 6 \"test/AOJ/GRL_6_A.test.cpp\"\
     \n\nint main(){\n  int n,m;cin>>n>>m;\n  Dinic<int> fl(n,0,n-1);\n  while(m--){\n\
     \    int u,v,c;cin>>u>>v>>c;\n    fl.add_edge(u,v,c);\n  }\n  cout<<fl.flow()<<endl;\n\
     }\n"
@@ -58,8 +58,8 @@ data:
   isVerificationFile: true
   path: test/AOJ/GRL_6_A.test.cpp
   requiredBy: []
-  timestamp: '2022-09-09 16:02:39+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-09-09 16:16:59+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/GRL_6_A.test.cpp
 layout: document

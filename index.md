@@ -37,7 +37,7 @@ data:
       title: datastructure/dsu.cpp
   - name: flow
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: flow/dinic.cpp
       title: flow/dinic.cpp
   - name: formalpowerseries
@@ -71,7 +71,7 @@ data:
   verificationCategories:
   - name: test/AOJ
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_6_A.test.cpp
       title: test/AOJ/GRL_6_A.test.cpp
   - name: test/library-checker/DataStructure

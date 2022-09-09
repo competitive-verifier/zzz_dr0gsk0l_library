@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/AOJ/GRL_6_A.test.cpp
     title: test/AOJ/GRL_6_A.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://misawa.github.io/others/flow/dinic_time_complexity.html
@@ -40,7 +40,7 @@ data:
     \   T f=dfs(s,lim);\n        if(f==0)break;\n        fl+=f;\n        lim-=f;\n\
     \      }\n    }\n    return fl;\n  }\n  T flow(){ return flow(numeric_limits<T>::max()/2);\
     \ }\n  \n  T st_flow(int s_,int t_,T lim){ s=s_;t=t_; return flow(lim);}\n  T\
-    \ st_flow(int s_,int _t){ s=s_;t=t_; return flow(); }\n};\n"
+    \ st_flow(int s_,int t_){ s=s_;t=t_; return flow(); }\n};\n"
   code: "// https://misawa.github.io/others/flow/dinic_time_complexity.html\ntemplate<typename\
     \ T>\nclass Dinic{\n  struct edge{\n    const int to,rev;\n    T cap;\n    edge(){}\n\
     \    edge(int to,int cap,int rev):to(to),cap(cap),rev(rev){} \n  };\n  vector<vector<edge>>\
@@ -69,13 +69,13 @@ data:
     \   T f=dfs(s,lim);\n        if(f==0)break;\n        fl+=f;\n        lim-=f;\n\
     \      }\n    }\n    return fl;\n  }\n  T flow(){ return flow(numeric_limits<T>::max()/2);\
     \ }\n  \n  T st_flow(int s_,int t_,T lim){ s=s_;t=t_; return flow(lim);}\n  T\
-    \ st_flow(int s_,int _t){ s=s_;t=t_; return flow(); }\n};"
+    \ st_flow(int s_,int t_){ s=s_;t=t_; return flow(); }\n};"
   dependsOn: []
   isVerificationFile: false
   path: flow/dinic.cpp
   requiredBy: []
-  timestamp: '2022-09-09 16:02:39+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-09-09 16:16:59+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/GRL_6_A.test.cpp
 documentation_of: flow/dinic.cpp
