@@ -27,6 +27,11 @@ data:
     - icon: ':warning:'
       path: algebra/monoid_min.cpp
       title: algebra/monoid_min.cpp
+  - name: bitwise
+    pages:
+    - icon: ':warning:'
+      path: bitwise/convolution.cpp
+      title: bitwise/convolution.cpp
   - name: datastructure
     pages:
     - icon: ':heavy_check_mark:'
