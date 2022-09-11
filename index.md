@@ -70,9 +70,15 @@ data:
       title: segtree/segtree.cpp
   - name: string
     pages:
+    - icon: ':warning:'
+      path: string/ahocorasick.cpp
+      title: string/ahocorasick.cpp
     - icon: ':heavy_check_mark:'
       path: string/run_enumerate.cpp
       title: string/run_enumerate.cpp
+    - icon: ':warning:'
+      path: string/trie.cpp
+      title: string/trie.cpp
   verificationCategories:
   - name: test/AOJ
     pages:
