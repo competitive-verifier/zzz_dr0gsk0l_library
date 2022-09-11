@@ -72,7 +72,7 @@ data:
     pages:
     - icon: ':warning:'
       path: string/ahocorasick.cpp
-      title: string/ahocorasick.cpp
+      title: AhoCorasick
     - icon: ':heavy_check_mark:'
       path: string/run_enumerate.cpp
       title: string/run_enumerate.cpp

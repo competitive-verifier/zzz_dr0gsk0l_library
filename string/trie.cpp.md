@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':warning:'
     path: string/ahocorasick.cpp
-    title: string/ahocorasick.cpp
+    title: AhoCorasick
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
