@@ -79,6 +79,17 @@ data:
     - icon: ':warning:'
       path: string/trie.cpp
       title: string/trie.cpp
+  - name: superstd
+    pages:
+    - icon: ':warning:'
+      path: superstd/map.cpp
+      title: superstd/map.cpp
+    - icon: ':warning:'
+      path: superstd/multiset.cpp
+      title: superstd/multiset.cpp
+    - icon: ':warning:'
+      path: superstd/set.cpp
+      title: superstd/set.cpp
   verificationCategories:
   - name: test/AOJ
     pages:
