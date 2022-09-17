@@ -90,6 +90,14 @@ data:
     - icon: ':warning:'
       path: superstd/set.cpp
       title: superstd/set.cpp
+  - name: tree
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: tree/lca.cpp
+      title: tree/lca.cpp
+    - icon: ':heavy_check_mark:'
+      path: tree/tree.cpp
+      title: tree/tree.cpp
   verificationCategories:
   - name: test/AOJ
     pages:
@@ -131,5 +139,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/String/RunEnumerate.test.cpp
       title: test/library-checker/String/RunEnumerate.test.cpp
+  - name: test/library-checker/Tree
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
+      title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
 layout: toppage
 ---
