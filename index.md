@@ -74,6 +74,9 @@ data:
       path: string/ahocorasick.cpp
       title: AhoCorasick
     - icon: ':heavy_check_mark:'
+      path: string/rollinghash.cpp
+      title: string/rollinghash.cpp
+    - icon: ':heavy_check_mark:'
       path: string/run_enumerate.cpp
       title: string/run_enumerate.cpp
     - icon: ':warning:'
@@ -101,6 +104,9 @@ data:
   verificationCategories:
   - name: test/AOJ
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/AOJ/ALDS1_14_B.test.cpp
+      title: test/AOJ/ALDS1_14_B.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_6_A.test.cpp
       title: test/AOJ/GRL_6_A.test.cpp
