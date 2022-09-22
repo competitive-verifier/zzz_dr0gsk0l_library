@@ -101,12 +101,26 @@ data:
     - icon: ':heavy_check_mark:'
       path: tree/tree.cpp
       title: tree/tree.cpp
+  - name: util
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: util/compress.cpp
+      title: util/compress.cpp
+    - icon: ':heavy_check_mark:'
+      path: util/inversion_number.cpp
+      title: util/inversion_number.cpp
+    - icon: ':warning:'
+      path: util/subsequence.cpp
+      title: "\u90E8\u5206\u5217\u306E\u7A2E\u985E\u6570"
   verificationCategories:
   - name: test/AOJ
     pages:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/ALDS1_14_B.test.cpp
       title: test/AOJ/ALDS1_14_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/AOJ/ALDS1_5_D.test.cpp
+      title: test/AOJ/ALDS1_5_D.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_6_A.test.cpp
       title: test/AOJ/GRL_6_A.test.cpp
