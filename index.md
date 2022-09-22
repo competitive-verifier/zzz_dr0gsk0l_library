@@ -55,6 +55,12 @@ data:
     - icon: ':warning:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
+    - icon: ':heavy_check_mark:'
+      path: graph/WeightedGraph.cpp
+      title: graph/WeightedGraph.cpp
+    - icon: ':heavy_check_mark:'
+      path: graph/dijkstra.cpp
+      title: graph/dijkstra.cpp
   - name: mod
     pages:
     - icon: ':warning:'
@@ -154,6 +160,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Polynomial/Log.test.cpp
       title: test/library-checker/Polynomial/Log.test.cpp
+  - name: test/library-checker
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library-checker/ShortestPath.test.cpp
+      title: test/library-checker/ShortestPath.test.cpp
   - name: test/library-checker/String
     pages:
     - icon: ':heavy_check_mark:'
