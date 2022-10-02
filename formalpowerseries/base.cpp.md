@@ -114,8 +114,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library-checker/Polynomial/Log.test.cpp
-  - test/library-checker/Polynomial/Inv.test.cpp
   - test/library-checker/Polynomial/Exp.test.cpp
+  - test/library-checker/Polynomial/Inv.test.cpp
 documentation_of: formalpowerseries/base.cpp
 layout: document
 redirect_from:

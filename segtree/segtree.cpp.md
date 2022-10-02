@@ -104,8 +104,8 @@ data:
   timestamp: '2022-09-07 13:56:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library-checker/DataStructure/PointAddRangeSum.test.cpp
   - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
+  - test/library-checker/DataStructure/PointAddRangeSum.test.cpp
 documentation_of: segtree/segtree.cpp
 layout: document
 redirect_from:

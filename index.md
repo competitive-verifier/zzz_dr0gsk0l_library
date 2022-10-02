@@ -61,6 +61,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/dijkstra.cpp
       title: graph/dijkstra.cpp
+  - name: linearalgebra
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: linearalgebra/matrix.cpp
+      title: linearalgebra/matrix.cpp
   - name: mod
     pages:
     - icon: ':warning:'
@@ -149,6 +154,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Math/2Sat.test.cpp
       title: test/library-checker/Math/2Sat.test.cpp
+  - name: test/library-checker/Matrix
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library-checker/Matrix/MatrixProduct.test.cpp
+      title: test/library-checker/Matrix/MatrixProduct.test.cpp
   - name: test/library-checker/Polynomial
     pages:
     - icon: ':heavy_check_mark:'
