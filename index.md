@@ -16,6 +16,9 @@ data:
       path: algebra/group_mul.cpp
       title: algebra/group_mul.cpp
     - icon: ':warning:'
+      path: algebra/group_xor.cpp
+      title: algebra/group_xor.cpp
+    - icon: ':warning:'
       path: algebra/monoid_gcd.cpp
       title: algebra/monoid_gcd.cpp
     - icon: ':warning:'
@@ -117,6 +120,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: util/compress.cpp
       title: util/compress.cpp
+    - icon: ':warning:'
+      path: util/for_all_pareto.cpp
+      title: for_all_pareto
     - icon: ':heavy_check_mark:'
       path: util/inversion_number.cpp
       title: util/inversion_number.cpp
