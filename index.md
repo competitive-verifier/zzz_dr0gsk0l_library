@@ -43,6 +43,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/dsu.cpp
       title: datastructure/dsu.cpp
+    - icon: ':warning:'
+      path: datastructure/slopetrick.cpp
+      title: datastructure/slopetrick.cpp
   - name: flow
     pages:
     - icon: ':heavy_check_mark:'
