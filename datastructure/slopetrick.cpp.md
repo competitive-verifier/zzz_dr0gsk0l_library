@@ -2,10 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/AtCoder/abc127f.test.cpp
+    title: test/AtCoder/abc127f.test.cpp
+  - icon: ':x:'
+    path: test/AtCoder/abc217h.test.cpp
+    title: test/AtCoder/abc217h.test.cpp
+  - icon: ':x:'
+    path: test/AtCoder/arc123d.test.cpp
+    title: test/AtCoder/arc123d.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links:
     - "https://maspypy.com/slope-trick-1-\u89E3\u8AAC\u7DE8"
@@ -76,8 +85,11 @@ data:
   path: datastructure/slopetrick.cpp
   requiredBy: []
   timestamp: '2022-11-03 18:08:02+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/AtCoder/abc217h.test.cpp
+  - test/AtCoder/abc127f.test.cpp
+  - test/AtCoder/arc123d.test.cpp
 documentation_of: datastructure/slopetrick.cpp
 layout: document
 title: SlopeTrick
@@ -85,18 +97,18 @@ title: SlopeTrick
 
 基本的な用語などは reference と同じ  
 
-* ```tuple<T,T,T> get_min_range()```
+* ```tuple<T,T,T> get_min_range()```  
 最小値とそれを取る閉区間が返る  
 最小値だけ取得したい時は ```min_f``` を直接参照する  
 
-* ```void operator+=(const T&a)```
+* ```void operator+=(const T&a)```  
 定数加算
 
-* ```T operator()(T x)```
+* ```T operator()(T x)```  
 $f(x)$ を返す  
 priority_queue を走査するので時間がかかる  
 
-* ```Slope_Trick& operator+=(Slope_Trick g)```
+* ```Slope_Trick& operator+=(Slope_Trick g)```  
 $f(x)+=g(x)$  
 マージテクでは ```size()``` の大きい方をメインにする
 
