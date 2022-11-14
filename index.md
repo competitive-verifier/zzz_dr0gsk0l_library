@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: algebra/algebra_reverse.cpp
       title: algebra/algebra_reverse.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/group_add.cpp
       title: algebra/group_add.cpp
     - icon: ':heavy_check_mark:'
@@ -40,6 +40,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/cumulativesum.cpp
       title: datastructure/cumulativesum.cpp
+    - icon: ':x:'
+      path: datastructure/doubling.cpp
+      title: datastructure/doubling.cpp
     - icon: ':heavy_check_mark:'
       path: datastructure/dsu.cpp
       title: datastructure/dsu.cpp
@@ -205,5 +208,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
       title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
+  - name: test/yukicoder
+    pages:
+    - icon: ':x:'
+      path: test/yukicoder/1097.test.cpp
+      title: test/yukicoder/1097.test.cpp
 layout: toppage
 ---

@@ -6,9 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
     title: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/yukicoder/1097.test.cpp
+    title: test/yukicoder/1097.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"algebra/group_add.cpp\"\ntemplate<typename X>\nstruct Group_Add\
@@ -27,9 +30,10 @@ data:
   path: algebra/group_add.cpp
   requiredBy: []
   timestamp: '2022-09-07 12:14:03+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library-checker/DataStructure/PointAddRangeSum.test.cpp
+  - test/yukicoder/1097.test.cpp
 documentation_of: algebra/group_add.cpp
 layout: document
 redirect_from:
