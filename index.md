@@ -110,7 +110,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: superstd/multiset.cpp
       title: superstd/multiset.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: superstd/set.cpp
       title: superstd/set.cpp
   - name: tree
@@ -164,6 +164,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/double_ended_priority_queue.test.cpp
       title: test/library-checker/DataStructure/double_ended_priority_queue.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library-checker/DataStructure/predecessor_problem.test.cpp
+      title: test/library-checker/DataStructure/predecessor_problem.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/unionfind.test.cpp
       title: test/library-checker/DataStructure/unionfind.test.cpp
