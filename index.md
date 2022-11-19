@@ -64,10 +64,10 @@ data:
     - icon: ':question:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/WeightedGraph.cpp
       title: graph/WeightedGraph.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/dijkstra.cpp
       title: graph/dijkstra.cpp
   - name: linearalgebra
@@ -164,6 +164,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/unionfind.test.cpp
       title: test/library-checker/DataStructure/unionfind.test.cpp
+  - name: test/library-checker/Graph
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library-checker/Graph/ShortestPath.test.cpp
+      title: test/library-checker/Graph/ShortestPath.test.cpp
   - name: test/library-checker/Math
     pages:
     - icon: ':heavy_check_mark:'
@@ -185,11 +190,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Polynomial/Log.test.cpp
       title: test/library-checker/Polynomial/Log.test.cpp
-  - name: test/library-checker
-    pages:
-    - icon: ':x:'
-      path: test/library-checker/ShortestPath.test.cpp
-      title: test/library-checker/ShortestPath.test.cpp
   - name: test/library-checker/String
     pages:
     - icon: ':heavy_check_mark:'

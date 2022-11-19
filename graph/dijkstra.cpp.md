@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/library-checker/ShortestPath.test.cpp
-    title: test/library-checker/ShortestPath.test.cpp
-  _isVerificationFailed: true
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/Graph/ShortestPath.test.cpp
+    title: test/library-checker/Graph/ShortestPath.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/WeightedGraph.cpp\"\ntemplate<typename T>\nstruct\
@@ -25,7 +25,7 @@ data:
     \ }\n    const edge_type* operator[](int i)const{ return &(g->edges[l+i]); }\n\
     \    int size()const{ return r-l; }\n  };\npublic:\n  OutgoingEdges operator[](int\
     \ v)const{\n    assert(prepared);\n    return { this,in_deg[v],in_deg[v+1] };\n\
-    \  }\n\n  bool is_prepared() { return prepared; }\n\n  WeightedGraph():n(0),in_deg(1,0),prepared(false){}\n\
+    \  }\n\n  bool is_prepared()const{ return prepared; }\n\n  WeightedGraph():n(0),in_deg(1,0),prepared(false){}\n\
     \  WeightedGraph(int n):n(n),in_deg(n+1,0),prepared(false){}\n  WeightedGraph(int\
     \ n,int m,bool directed=false,int indexed=1):\n    n(n),in_deg(n+1,0),prepared(false){\
     \ scan(m,directed,indexed); }\n\n  void resize(int n){n=n;}\n\n  void add_arc(int\
@@ -38,7 +38,7 @@ data:
     \    build();\n  }\n\n  void build(){\n    assert(!prepared);prepared=true;\n\
     \    for(int v=0;v<n;v++)in_deg[v+1]+=in_deg[v];\n    vector<edge_type> new_edges(in_deg.back());\n\
     \    auto counter=in_deg;\n    for(auto&&e:edges)new_edges[ counter[e.from]++\
-    \ ]=e;\n    edges=new_edges;\n  }\n\n  void graph_debug(){\n  #ifndef __LOCAL\n\
+    \ ]=e;\n    edges=new_edges;\n  }\n\n  void graph_debug()const{\n  #ifndef __LOCAL\n\
     \    return;\n  #endif\n    assert(prepared);\n    for(int from=0;from<n;from++){\n\
     \      cerr<<from<<\";\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n\
     \        cerr<<\"(\"<<edges[i].to<<\",\"<<edges[i].cost<<\")\";\n      cerr<<\"\
@@ -63,10 +63,10 @@ data:
   isVerificationFile: false
   path: graph/dijkstra.cpp
   requiredBy: []
-  timestamp: '2022-11-19 13:06:23+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-11-19 18:47:47+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library-checker/ShortestPath.test.cpp
+  - test/library-checker/Graph/ShortestPath.test.cpp
 documentation_of: graph/dijkstra.cpp
 layout: document
 redirect_from:
