@@ -1,40 +1,39 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/algebra_reverse.cpp
     title: algebra/algebra_reverse.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/group_linear.cpp
     title: algebra/group_linear.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/Graph.cpp
     title: graph/Graph.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: segtree/segtree.cpp
     title: segtree/segtree.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/TreeMonoid.cpp
     title: tree/TreeMonoid.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: tree/hld.cpp
     title: tree/hld.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: tree/tree.cpp
     title: tree/tree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_GCC: ''
+    PROBLEM: https://judge.yosupo.jp/problem/vertex_set_path_composite
     links:
     - https://judge.yosupo.jp/problem/vertex_set_path_composite
   bundledCode: "#line 1 \"test/library-checker/Tree/vertex_set_path_composite.test.cpp\"\
-    \n#define IGNORE\n#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_set_path_composite\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_set_path_composite\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 1 \"algebra/group_linear.cpp\"\
     \n// op(f,g) = f(g(x))\ntemplate<typename K>\nstruct Group_Affine{\n  using F\
     \ = pair<K, K>;\n  using value_type = F;\n  static constexpr F op(const F &f,\
@@ -167,7 +166,7 @@ data:
     \    for(const auto&[l,r]:path_v){\n      X val=seg.prod(r,l+1);\n      prod_v=Monoid::op(val,prod_v);\n\
     \    }\n    return Monoid::op(prod_u,prod_v);\n  }\n  // root -> path\n  X path_root(int\
     \ v){ return path(T.root,v); }\n\n  X subtree_prod(int v){\n    assert(Monoid::commute);\n\
-    \    auto [l,r]=hld.subtree(v);\n    return seg.prod(l,r);\n  }\n};\n#line 12\
+    \    auto [l,r]=hld.subtree(v);\n    return seg.prod(l,r);\n  }\n};\n#line 11\
     \ \"test/library-checker/Tree/vertex_set_path_composite.test.cpp\"\n\n#include\
     \ <atcoder/modint>\n#include <atcoder/convolution>\nusing namespace atcoder;\n\
     using mint=modint998244353;\nostream& operator<<(ostream &os,mint a){os<<a.val();return\
@@ -179,7 +178,7 @@ data:
     \ TM(t,f);\n\n  while(q--){\n    int c;cin>>c;\n    if(c){\n      int u,v,x;cin>>u>>v>>x;\n\
     \      F g=TM.path_prod(u,v);\n      cout<<G::eval(g,x)<<endl;\n    }\n    else{\n\
     \      int p,c,d;cin>>p>>c>>d;\n      TM.set(p,{c,d});\n    }\n  }\n}\n"
-  code: "#define IGNORE\n#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_set_path_composite\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_set_path_composite\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/group_linear.cpp\"\
     \n#include \"algebra/algebra_reverse.cpp\"\n#include \"segtree/segtree.cpp\"\n\
     #include \"tree/tree.cpp\"\n#include \"tree/hld.cpp\"\n#include \"tree/TreeMonoid.cpp\"\
@@ -205,8 +204,8 @@ data:
   isVerificationFile: true
   path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-11-19 18:31:33+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-19 18:53:40+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/Tree/vertex_set_path_composite.test.cpp
 layout: document

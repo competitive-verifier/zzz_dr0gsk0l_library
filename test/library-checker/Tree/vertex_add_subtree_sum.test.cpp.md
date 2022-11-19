@@ -1,41 +1,40 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/algebra_reverse.cpp
     title: algebra/algebra_reverse.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/group_add.cpp
     title: algebra/group_add.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/Graph.cpp
     title: graph/Graph.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: segtree/segtree.cpp
     title: segtree/segtree.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/TreeMonoid.cpp
     title: tree/TreeMonoid.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: tree/hld.cpp
     title: tree/hld.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: tree/tree.cpp
     title: tree/tree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_GCC: ''
+    PROBLEM: https://judge.yosupo.jp/problem/vertex_add_subtree_sum
     links:
     - https://judge.yosupo.jp/problem/vertex_add_subtree_sum
   bundledCode: "#line 1 \"test/library-checker/Tree/vertex_add_subtree_sum.test.cpp\"\
-    \n#define IGNORE\n#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"algebra/group_add.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\n\
+    #include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"algebra/group_add.cpp\"\
     \ntemplate<typename X>\nstruct Group_Add {\n  using value_type = X;\n  static\
     \ constexpr X op(const X &x, const X &y) noexcept { return x + y; }\n  static\
     \ constexpr X inverse(const X &x) noexcept { return -x; }\n  static constexpr\
@@ -163,7 +162,7 @@ data:
     \    for(const auto&[l,r]:path_v){\n      X val=seg.prod(r,l+1);\n      prod_v=Monoid::op(val,prod_v);\n\
     \    }\n    return Monoid::op(prod_u,prod_v);\n  }\n  // root -> path\n  X path_root(int\
     \ v){ return path(T.root,v); }\n\n  X subtree_prod(int v){\n    assert(Monoid::commute);\n\
-    \    auto [l,r]=hld.subtree(v);\n    return seg.prod(l,r);\n  }\n};\n#line 12\
+    \    auto [l,r]=hld.subtree(v);\n    return seg.prod(l,r);\n  }\n};\n#line 11\
     \ \"test/library-checker/Tree/vertex_add_subtree_sum.test.cpp\"\n\nint main(){\n\
     \  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n  using G=Group_Add<long\
     \ long>;\n\n  int n,q;cin>>n>>q; \n  vector<long long> a(n);\n  for(int i=0;i<n;i++)cin>>a[i];\n\
@@ -171,7 +170,7 @@ data:
     \    int c;cin>>c;\n    if(c){\n      int u;cin>>u;\n      cout<< TM.subtree_prod(u)\
     \ <<\"\\n\";\n    }\n    else{\n      int u,x;cin>>u>>x;\n      TM.multiply(u,x);\n\
     \    }\n  }\n}\n"
-  code: "#define IGNORE\n#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/group_add.cpp\"\
     \n#include \"algebra/algebra_reverse.cpp\"\n#include \"segtree/segtree.cpp\"\n\
     #include \"tree/tree.cpp\"\n#include \"tree/hld.cpp\"\n#include \"tree/TreeMonoid.cpp\"\
@@ -192,8 +191,8 @@ data:
   isVerificationFile: true
   path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-11-19 18:31:33+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-19 18:53:40+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
 layout: document

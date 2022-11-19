@@ -1,77 +1,75 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/algebra_reverse.cpp
     title: algebra/algebra_reverse.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/group_add.cpp
     title: algebra/group_add.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/Graph.cpp
     title: graph/Graph.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: segtree/segtree.cpp
     title: segtree/segtree.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/TreeMonoid.cpp
     title: tree/TreeMonoid.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: tree/hld.cpp
     title: tree/hld.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: tree/tree.cpp
     title: tree/tree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_GCC: ''
+    PROBLEM: https://judge.yosupo.jp/problem/vertex_add_path_sum
     links:
-    - https://judge.yosupo.jp/problem/vertex_add_subtree_sum
+    - https://judge.yosupo.jp/problem/vertex_add_path_sum
   bundledCode: "#line 1 \"test/library-checker/Tree/vertex_add_path_sum.test.cpp\"\
-    \n#define IGNORE\n#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"algebra/group_add.cpp\"\
-    \ntemplate<typename X>\nstruct Group_Add {\n  using value_type = X;\n  static\
-    \ constexpr X op(const X &x, const X &y) noexcept { return x + y; }\n  static\
-    \ constexpr X inverse(const X &x) noexcept { return -x; }\n  static constexpr\
-    \ X power(const X &x, long long n) noexcept { return X(n) * x; }\n  static constexpr\
-    \ X unit() { return X(0); }\n  static constexpr bool commute = true;\n};\n#line\
-    \ 2 \"algebra/algebra_reverse.cpp\"\ntemplate<typename Algebra>\nstruct Algebra_Reverse:Algebra{\n\
-    \  using X=typename Algebra::value_type;\n  static constexpr X op(const X& x,\
-    \ const X& y){ return Algebra::op(y,x); }\n};\n#line 2 \"segtree/segtree.cpp\"\
-    \ntemplate<class Monoid>\nstruct SegmentTree{\n  using X = typename Monoid::value_type;\n\
-    \  using value_type = X;\n  vector<X> dat;\n  int n, log, size;\n\n  SegmentTree()\
-    \ : SegmentTree(0) {}\n  SegmentTree(int n) : SegmentTree(vector<X>(n, Monoid::unit()))\
-    \ {}\n  SegmentTree(vector<X> v) : n(v.size()) {\n    log = 1;\n    while ((1\
-    \ << log) < n) ++log;\n    size = 1 << log;\n    dat.assign(size << 1, Monoid::unit());\n\
-    \    for (int i = 0; i < n; ++i) dat[size + i] = v[i];\n    for (int i = size\
-    \ - 1; i >= 1; --i) update(i);\n  }\n\n  X operator[](int i) { return dat[size\
-    \ + i]; }\n\n  void update(int i) { dat[i] = Monoid::op(dat[2 * i], dat[2 * i\
-    \ + 1]); }\n\n  void set(int i, const X& x) {\n    assert(i < n);\n    dat[i +=\
-    \ size] = x;\n    while (i >>= 1) update(i);\n  }\n\n  void multiply(int i, const\
-    \ X& x) {\n    set(i, Monoid::op(dat[i+size],x));\n  }\n\n  X prod(int L, int\
-    \ R) {\n    assert(L <= R);\n    assert(R <= n);\n    X vl = Monoid::unit(), vr\
-    \ = Monoid::unit();\n    L += size, R += size;\n    while (L < R) {\n      if\
-    \ (L & 1) vl = Monoid::op(vl, dat[L++]);\n      if (R & 1) vr = Monoid::op(dat[--R],\
-    \ vr);\n      L >>= 1, R >>= 1;\n    }\n    return Monoid::op(vl, vr);\n  }\n\n\
-    \  X prod_all() { return dat[1]; }\n\n  template <class F>\n  int max_right(F&\
-    \ check, int L) {\n    assert(0 <= L && L <= n && check(Monoid::unit()));\n  \
-    \  if (L == n) return n;\n    L += size;\n    X sm = Monoid::unit();\n    do {\n\
-    \      while (L % 2 == 0) L >>= 1;\n      if (!check(Monoid::op(sm, dat[L])))\
-    \ {\n        while (L < size) {\n          L = 2 * L;\n          if (check(Monoid::op(sm,\
-    \ dat[L]))) {\n            sm = Monoid::op(sm, dat[L]);\n            L++;\n  \
-    \        }\n        }\n        return L - size;\n      }\n      sm = Monoid::op(sm,\
-    \ dat[L]);\n      L++;\n    } while ((L & -L) != L);\n    return n;\n  }\n\n \
-    \ template <class F>\n  int min_left(F& check, int R) {\n    assert(0 <= R &&\
-    \ R <= n && check(Monoid::unit()));\n    if (R == 0) return 0;\n    R += size;\n\
-    \    X sm = Monoid::unit();\n    do {\n      --R;\n      while (R > 1 && (R %\
-    \ 2)) R >>= 1;\n      if (!check(Monoid::op(dat[R], sm))) {\n        while (R\
-    \ < size) {\n          R = 2 * R + 1;\n          if (check(Monoid::op(dat[R],\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_path_sum\"\n#include\
+    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"algebra/group_add.cpp\"\n\
+    template<typename X>\nstruct Group_Add {\n  using value_type = X;\n  static constexpr\
+    \ X op(const X &x, const X &y) noexcept { return x + y; }\n  static constexpr\
+    \ X inverse(const X &x) noexcept { return -x; }\n  static constexpr X power(const\
+    \ X &x, long long n) noexcept { return X(n) * x; }\n  static constexpr X unit()\
+    \ { return X(0); }\n  static constexpr bool commute = true;\n};\n#line 2 \"algebra/algebra_reverse.cpp\"\
+    \ntemplate<typename Algebra>\nstruct Algebra_Reverse:Algebra{\n  using X=typename\
+    \ Algebra::value_type;\n  static constexpr X op(const X& x, const X& y){ return\
+    \ Algebra::op(y,x); }\n};\n#line 2 \"segtree/segtree.cpp\"\ntemplate<class Monoid>\n\
+    struct SegmentTree{\n  using X = typename Monoid::value_type;\n  using value_type\
+    \ = X;\n  vector<X> dat;\n  int n, log, size;\n\n  SegmentTree() : SegmentTree(0)\
+    \ {}\n  SegmentTree(int n) : SegmentTree(vector<X>(n, Monoid::unit())) {}\n  SegmentTree(vector<X>\
+    \ v) : n(v.size()) {\n    log = 1;\n    while ((1 << log) < n) ++log;\n    size\
+    \ = 1 << log;\n    dat.assign(size << 1, Monoid::unit());\n    for (int i = 0;\
+    \ i < n; ++i) dat[size + i] = v[i];\n    for (int i = size - 1; i >= 1; --i) update(i);\n\
+    \  }\n\n  X operator[](int i) { return dat[size + i]; }\n\n  void update(int i)\
+    \ { dat[i] = Monoid::op(dat[2 * i], dat[2 * i + 1]); }\n\n  void set(int i, const\
+    \ X& x) {\n    assert(i < n);\n    dat[i += size] = x;\n    while (i >>= 1) update(i);\n\
+    \  }\n\n  void multiply(int i, const X& x) {\n    set(i, Monoid::op(dat[i+size],x));\n\
+    \  }\n\n  X prod(int L, int R) {\n    assert(L <= R);\n    assert(R <= n);\n \
+    \   X vl = Monoid::unit(), vr = Monoid::unit();\n    L += size, R += size;\n \
+    \   while (L < R) {\n      if (L & 1) vl = Monoid::op(vl, dat[L++]);\n      if\
+    \ (R & 1) vr = Monoid::op(dat[--R], vr);\n      L >>= 1, R >>= 1;\n    }\n   \
+    \ return Monoid::op(vl, vr);\n  }\n\n  X prod_all() { return dat[1]; }\n\n  template\
+    \ <class F>\n  int max_right(F& check, int L) {\n    assert(0 <= L && L <= n &&\
+    \ check(Monoid::unit()));\n    if (L == n) return n;\n    L += size;\n    X sm\
+    \ = Monoid::unit();\n    do {\n      while (L % 2 == 0) L >>= 1;\n      if (!check(Monoid::op(sm,\
+    \ dat[L]))) {\n        while (L < size) {\n          L = 2 * L;\n          if\
+    \ (check(Monoid::op(sm, dat[L]))) {\n            sm = Monoid::op(sm, dat[L]);\n\
+    \            L++;\n          }\n        }\n        return L - size;\n      }\n\
+    \      sm = Monoid::op(sm, dat[L]);\n      L++;\n    } while ((L & -L) != L);\n\
+    \    return n;\n  }\n\n  template <class F>\n  int min_left(F& check, int R) {\n\
+    \    assert(0 <= R && R <= n && check(Monoid::unit()));\n    if (R == 0) return\
+    \ 0;\n    R += size;\n    X sm = Monoid::unit();\n    do {\n      --R;\n     \
+    \ while (R > 1 && (R % 2)) R >>= 1;\n      if (!check(Monoid::op(dat[R], sm)))\
+    \ {\n        while (R < size) {\n          R = 2 * R + 1;\n          if (check(Monoid::op(dat[R],\
     \ sm))) {\n            sm = Monoid::op(dat[R], sm);\n            R--;\n      \
     \    }\n        }\n        return R + 1 - size;\n      }\n      sm = Monoid::op(dat[R],\
     \ sm);\n    } while ((R & -R) != R);\n    return 0;\n  }\n\n  // \u30E2\u30CE\u30A4\
@@ -163,7 +161,7 @@ data:
     \    for(const auto&[l,r]:path_v){\n      X val=seg.prod(r,l+1);\n      prod_v=Monoid::op(val,prod_v);\n\
     \    }\n    return Monoid::op(prod_u,prod_v);\n  }\n  // root -> path\n  X path_root(int\
     \ v){ return path(T.root,v); }\n\n  X subtree_prod(int v){\n    assert(Monoid::commute);\n\
-    \    auto [l,r]=hld.subtree(v);\n    return seg.prod(l,r);\n  }\n};\n#line 12\
+    \    auto [l,r]=hld.subtree(v);\n    return seg.prod(l,r);\n  }\n};\n#line 11\
     \ \"test/library-checker/Tree/vertex_add_path_sum.test.cpp\"\n\nint main(){\n\
     \  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n  using G=Group_Add<long\
     \ long>;\n\n  int n,q;cin>>n>>q; \n  vector<long long> a(n);\n  for(int i=0;i<n;i++)cin>>a[i];\n\
@@ -171,8 +169,8 @@ data:
     \    int c;cin>>c;\n    if(c){\n      int u,v;cin>>u>>v;\n      cout<< TM.path_prod(u,v)\
     \ <<\"\\n\";\n    }\n    else{\n      int p,x;cin>>p>>x;\n      TM.multiply(p,x);\n\
     \    }\n  }\n}\n"
-  code: "#define IGNORE\n#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/group_add.cpp\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_path_sum\"\n\
+    #include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/group_add.cpp\"\
     \n#include \"algebra/algebra_reverse.cpp\"\n#include \"segtree/segtree.cpp\"\n\
     #include \"tree/tree.cpp\"\n#include \"tree/hld.cpp\"\n#include \"tree/TreeMonoid.cpp\"\
     \n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n  using\
@@ -192,8 +190,8 @@ data:
   isVerificationFile: true
   path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-11-19 18:31:33+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-19 19:00:16+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/Tree/vertex_add_path_sum.test.cpp
 layout: document

@@ -3,13 +3,13 @@ data:
   libraryCategories:
   - name: algebra
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: algebra/algebra_reverse.cpp
       title: algebra/algebra_reverse.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: algebra/group_add.cpp
       title: algebra/group_add.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: algebra/group_linear.cpp
       title: algebra/group_linear.cpp
     - icon: ':warning:'
@@ -61,7 +61,7 @@ data:
       title: formalpowerseries/base.cpp
   - name: graph
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
     - icon: ':heavy_check_mark:'
@@ -85,7 +85,7 @@ data:
       title: mod/modint.cpp
   - name: segtree
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: segtree/segtree.cpp
       title: segtree/segtree.cpp
   - name: string
@@ -115,13 +115,13 @@ data:
       title: superstd/set.cpp
   - name: tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tree/TreeMonoid.cpp
       title: tree/TreeMonoid.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: tree/hld.cpp
       title: tree/hld.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: tree/tree.cpp
       title: tree/tree.cpp
   - name: util
@@ -200,13 +200,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
       title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
       title: test/library-checker/Tree/vertex_add_path_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
       title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
       title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
 layout: toppage

@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/algebra_reverse.cpp
     title: algebra/algebra_reverse.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/group_linear.cpp
     title: algebra/group_linear.cpp
   - icon: ':heavy_check_mark:'
     path: mod/modint.cpp
     title: mod/modint.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: segtree/segtree.cpp
     title: segtree/segtree.cpp
   _extendedRequiredBy: []
