@@ -84,7 +84,7 @@ data:
     \    os<<\"(\";\n    for(int L=1;L<=size;L<<=1){\n      os<<\"[\";\n      for(int\
     \ j=L;j<(L<<1);j++){\n        os<<dat[j];\n        if(j+1<(L<<1))os<<\",\";\n\
     \      }\n      os<<\"]\";\n    }\n    os<<\")\";\n    return os;\n  }\n};\n#line\
-    \ 1 \"graph/Graph.cpp\"\nstruct Edge{\n  int from,to;\n  Edge()=default;\n  Edge(int\
+    \ 2 \"graph/Graph.cpp\"\nstruct Edge{\n  int from,to;\n  Edge()=default;\n  Edge(int\
     \ from,int to):from(from),to(to){}\n};\n\nstruct Graph{\n  int n;\n  using edge_type=Edge;\n\
     private:\n  vector<edge_type> edges;\n  vector<int> in_deg;\n  bool prepared;\n\
     \  class OutgoingEdges{\n    const Graph* g;\n    int l,r;\n  public:\n    OutgoingEdges(const\
@@ -93,7 +93,7 @@ data:
     \    const edge_type* operator[](int i)const{ return &(g->edges[l+i]); }\n   \
     \ int size()const{ return r-l; }\n  };\npublic:\n  OutgoingEdges operator[](int\
     \ v)const{\n    assert(prepared);\n    return { this,in_deg[v],in_deg[v+1] };\n\
-    \  }\n\n  bool is_prepared() { return prepared; }\n\n  Graph():n(0),in_deg(1,0),prepared(false){}\n\
+    \  }\n\n  bool is_prepared()const{ return prepared; }\n\n  Graph():n(0),in_deg(1,0),prepared(false){}\n\
     \  Graph(int n):n(n),in_deg(n+1,0),prepared(false){}\n  Graph(int n,int m,bool\
     \ directed=false,int indexed=1):\n    n(n),in_deg(n+1,0),prepared(false){ scan(m,directed,indexed);\
     \ }\n\n  void resize(int n){n=n;}\n\n  void add_arc(int from,int to){\n    assert(!prepared);\n\
@@ -105,13 +105,14 @@ data:
     \  }\n\n  void build(){\n    assert(!prepared);prepared=true;\n    for(int v=0;v<n;v++)in_deg[v+1]+=in_deg[v];\n\
     \    vector<edge_type> new_edges(in_deg.back());\n    auto counter=in_deg;\n \
     \   for(auto&&e:edges)new_edges[ counter[e.from]++ ]=e;\n    edges=new_edges;\n\
-    \  }\n\n  void graph_debug(){\n  #ifndef __LOCAL\n    return;\n  #endif\n    assert(prepared);\n\
-    \    for(int from=0;from<n;from++){\n      cerr<<from<<\";\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n\
-    \        cerr<<edges[i].to<<\" \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n#line\
-    \ 2 \"tree/tree.cpp\"\nstruct Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n\
-    \  vector<vector<int>> son;\n  vector<int> DFS,BFS,parent,depth;\n\n  void scan_root(int\
-    \ indexed=1){\n    for(int i=1;i<n;i++){\n      int p;cin>>p;\n      add_edge(p-indexed,i);\n\
-    \    }\n    build();\n  }\n  void scan(int indexed=1){\n    Graph::scan(n-1,false,indexed);\n\
+    \  }\n\n  void graph_debug()const{\n  #ifndef __LOCAL\n    return;\n  #endif\n\
+    \    assert(prepared);\n    for(int from=0;from<n;from++){\n      cerr<<from<<\"\
+    ;\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n        cerr<<edges[i].to<<\"\
+    \ \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n#line 3 \"tree/tree.cpp\"\nstruct\
+    \ Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n  vector<vector<int>> son;\n\
+    \  vector<int> DFS,BFS,parent,depth;\n\n  void scan_root(int indexed=1){\n   \
+    \ for(int i=1;i<n;i++){\n      int p;cin>>p;\n      add_edge(p-indexed,i);\n \
+    \   }\n    build();\n  }\n  void scan(int indexed=1){\n    Graph::scan(n-1,false,indexed);\n\
     \    build();\n  }\n\nprivate:\n  void dfs(int idx,int pre=-1){\n    parent[idx]=pre;\n\
     \    for(const auto&e:(*this)[idx])if(e.to!=pre){\n      depth[e.to]=depth[idx]+1;\n\
     \      dfs(e.to,idx);\n      son[idx].push_back(e.to);\n    }\n    DFS.push_back(idx);\n\
@@ -120,7 +121,7 @@ data:
     \   son.resize(n);parent.resize(n);depth.resize(n);\n    DFS.reserve(n);BFS.reserve(n);\n\
     \    depth[root]=0;\n    dfs(root);\n    queue<int> que;\n    que.push(root);\n\
     \    while(que.size()){\n      int p=que.front();que.pop();\n      BFS.push_back(p);\n\
-    \      for(int c:son[p])que.push(c);\n    }\n  }\n};\n#line 1 \"tree/hld.cpp\"\
+    \      for(int c:son[p])que.push(c);\n    }\n  }\n};\n#line 2 \"tree/hld.cpp\"\
     \ntemplate<typename TREE>\nstruct HLD{\n  int n;\n  TREE T;\n  vector<int> sz,head,id,id2;\n\
     \  bool prepared;\n  HLD(TREE T_):T(T_),n(T_.n),sz(n),head(n),id(n),id2(n),prepared(false){}\n\
     private:\n  void dfs_sz(int v){\n    sz[v]=1;\n    for(int c:T.son[v]){\n    \
@@ -186,34 +187,11 @@ data:
     \      }\n      os<<\"]\";\n    }\n    os<<\")\";\n    return os;\n  }\n};\n#line\
     \ 1 \"algebra/algebra_reverse.cpp\"\ntemplate<typename Algebra>\nstruct Algebra_Reverse:Algebra{\n\
     \  using X=typename Algebra::value_type;\n  static constexpr X op(const X& x,\
-    \ const X& y){ return Algebra::op(y,x); }\n};\n#line 1 \"tree/hld.cpp\"\ntemplate<typename\
-    \ TREE>\nstruct HLD{\n  int n;\n  TREE T;\n  vector<int> sz,head,id,id2;\n  bool\
-    \ prepared;\n  HLD(TREE T_):T(T_),n(T_.n),sz(n),head(n),id(n),id2(n),prepared(false){}\n\
-    private:\n  void dfs_sz(int v){\n    sz[v]=1;\n    for(int c:T.son[v]){\n    \
-    \  sz[v]+=sz[c];\n      if(sz[c]>sz[T.son[v][0]])swap(c,T.son[v][0]);\n    }\n\
-    \  }\n  void dfs_hld(int v,int& k){\n    id[v]=k++;\n    for(int c:T.son[v]){\n\
-    \      head[c]=(c==T.son[v][0]?head[v]:c);\n      dfs_hld(c,k);\n    }\n    id2[v]=k;\n\
-    \  }\npublic:\n  vector<int> build(int r=0){\n    assert(!prepared);prepared=true;\n\
-    \    if(~T.root)assert(T.root==r);\n    else T.build(r);\n    head[r]=r;\n   \
-    \ dfs_sz(r);\n    int k=0;\n    dfs_hld(r,k);\n    return id;\n  }\n\n  int lca(int\
-    \ u,int v){\n    assert(prepared);\n    while(head[u]!=head[v]){\n      if(T.depth[head[u]]>T.depth[head[v]])u=T.parent[head[u]];\n\
-    \      else v=T.parent[head[v]];\n    }\n    return (T.depth[u]<T.depth[v]?u:v);\n\
-    \  }\n\n  // l=lca(u,v) \u3068\u3057\u305F\u6642\u3001[u,l] \u30D1\u30B9\u3068\
-    \ [v,l] \u30D1\u30B9 \u3092\u9589\u533A\u9593\u306E\u7D44\u307F\u3067\u8FD4\u3059\
-    \n  using path_t=vector<pair<int,int>>;\n  pair<path_t,path_t> path(int u,int\
-    \ v){\n    assert(prepared);\n    path_t path_u,path_v;\n    while(u!=v){\n  \
-    \    if(head[u]==head[v]){\n        if(T.depth[u]<T.depth[v])\n          path_v.emplace_back(id[v],id[u]);\n\
-    \        else\n          path_u.emplace_back(id[u],id[v]);\n        break;\n \
-    \     }\n      if(T.depth[head[u]]<T.depth[head[v]]){\n        path_v.emplace_back(id[v],id[head[v]]);\n\
-    \        v=T.parent[head[v]];\n      }\n      else{\n        path_u.emplace_back(id[u],id[head[u]]);\n\
-    \        u=T.parent[head[u]];\n      }\n    }\n    if(u==v)path_u.emplace_back(id[u],id[u]);\n\
-    \    return {path_u,path_v};\n  }\n\n  // [l,r) \u304C v \u306E\u90E8\u5206\u6728\
-    \n  pair<int,int> subtree(int v){\n    assert(prepared);\n    return {id[v],id2[v]};\
-    \ \n  }\n};\n#line 4 \"tree/TreeMonoid.cpp\"\ntemplate<typename TREE,typename\
-    \ Monoid>\nstruct TreeMonoid{\n  using X=typename Monoid::value_type;\n  using\
-    \ Monoid_r=Algebra_Reverse<Monoid>;\n  int n;\n  TREE T;\n  HLD<Tree> hld;\n \
-    \ vector<int> hld_id,euler_in,euler_out;\n  SegmentTree<Monoid> seg;\n  SegmentTree<Monoid_r>\
-    \ seg_r; \n  \n  TreeMonoid(TREE T,int r=0):T(T),hld(T),n(T.n),seg(n),seg_r(n){\n\
+    \ const X& y){ return Algebra::op(y,x); }\n};\n#line 4 \"tree/TreeMonoid.cpp\"\
+    \ntemplate<typename TREE,typename Monoid>\nstruct TreeMonoid{\n  using X=typename\
+    \ Monoid::value_type;\n  using Monoid_r=Algebra_Reverse<Monoid>;\n  int n;\n \
+    \ TREE T;\n  HLD<Tree> hld;\n  vector<int> hld_id,euler_in,euler_out;\n  SegmentTree<Monoid>\
+    \ seg;\n  SegmentTree<Monoid_r> seg_r; \n  \n  TreeMonoid(TREE T,int r=0):T(T),hld(T),n(T.n),seg(n),seg_r(n){\n\
     \    T.build(r);\n    hld_id=hld.build(r);\n  }\n  TreeMonoid(TREE T,vector<X>\
     \ a,int r=0):T(T),hld(T),n(T.n){\n    T.build(r);\n    hld_id=hld.build(r);\n\
     \    vector<X> hld_a(n);\n    for(int v=0;v<n;v++)hld_a[hld_id[v]]=a[v];\n   \
@@ -256,7 +234,7 @@ data:
   isVerificationFile: true
   path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-11-19 10:38:58+09:00'
+  timestamp: '2022-11-19 13:06:23+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library-checker/Tree/vertex_add_path_sum.test.cpp

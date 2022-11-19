@@ -23,7 +23,7 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"tree/hld.cpp\"\ntemplate<typename TREE>\nstruct HLD{\n \
+  bundledCode: "#line 2 \"tree/hld.cpp\"\ntemplate<typename TREE>\nstruct HLD{\n \
     \ int n;\n  TREE T;\n  vector<int> sz,head,id,id2;\n  bool prepared;\n  HLD(TREE\
     \ T_):T(T_),n(T_.n),sz(n),head(n),id(n),id2(n),prepared(false){}\nprivate:\n \
     \ void dfs_sz(int v){\n    sz[v]=1;\n    for(int c:T.son[v]){\n      sz[v]+=sz[c];\n\
@@ -47,8 +47,8 @@ data:
     \    return {path_u,path_v};\n  }\n\n  // [l,r) \u304C v \u306E\u90E8\u5206\u6728\
     \n  pair<int,int> subtree(int v){\n    assert(prepared);\n    return {id[v],id2[v]};\
     \ \n  }\n};\n"
-  code: "template<typename TREE>\nstruct HLD{\n  int n;\n  TREE T;\n  vector<int>\
-    \ sz,head,id,id2;\n  bool prepared;\n  HLD(TREE T_):T(T_),n(T_.n),sz(n),head(n),id(n),id2(n),prepared(false){}\n\
+  code: "#pragma once\ntemplate<typename TREE>\nstruct HLD{\n  int n;\n  TREE T;\n\
+    \  vector<int> sz,head,id,id2;\n  bool prepared;\n  HLD(TREE T_):T(T_),n(T_.n),sz(n),head(n),id(n),id2(n),prepared(false){}\n\
     private:\n  void dfs_sz(int v){\n    sz[v]=1;\n    for(int c:T.son[v]){\n    \
     \  sz[v]+=sz[c];\n      if(sz[c]>sz[T.son[v][0]])swap(c,T.son[v][0]);\n    }\n\
     \  }\n  void dfs_hld(int v,int& k){\n    id[v]=k++;\n    for(int c:T.son[v]){\n\
@@ -75,7 +75,7 @@ data:
   path: tree/hld.cpp
   requiredBy:
   - tree/TreeMonoid.cpp
-  timestamp: '2022-11-18 23:47:02+09:00'
+  timestamp: '2022-11-19 13:06:23+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library-checker/Tree/vertex_add_subtree_sum.test.cpp

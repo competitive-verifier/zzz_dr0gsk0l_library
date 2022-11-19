@@ -14,7 +14,7 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"graph/WeightedGraph.cpp\"\ntemplate<typename T>\nstruct\
+  bundledCode: "#line 2 \"graph/WeightedGraph.cpp\"\ntemplate<typename T>\nstruct\
     \ WeightedEdge{\n  WeightedEdge()=default;\n  WeightedEdge(int from,int to,T cost):from(from),to(to),cost(cost){}\n\
     \  int from,to;\n  T cost;\n};\n\ntemplate<typename T>\nstruct WeightedGraph{\n\
     \  int n;\n  using cost_type=T;\n  using edge_type=WeightedEdge<T>;\nprivate:\n\
@@ -45,16 +45,16 @@ data:
     \\n\";\n    }\n  }\n};\n#line 2 \"graph/dijkstra.cpp\"\ntemplate<typename WG,typename\
     \ T=typename WG::cost_type>\npair<vector<T>,vector<int>> dijkstra(const WG&g,int\
     \ s=0){\n  assert(g.is_prepared());\n  vector<T> d(g.n,-1);\n  vector<int> pre(g.n,-1);\n\
-    \  priority_queue< pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>;\n  d[s]=0;\n\
-    \  que.emplace(0,s);\n  while(que.size()){\n    auto [now,id]=que.top();que.pop();\n\
+    \  priority_queue< pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>> que;\n\
+    \  d[s]=0;\n  que.emplace(0,s);\n  while(que.size()){\n    auto [now,id]=que.top();que.pop();\n\
     \    if(d[id]<now)continue;\n    for(const auto&e:g[id])\n      if(d[e.to]==-1\
     \ || d[e.to]>now+e.cost){\n        d[e.to]=now+e.cost;\n        pre[e.to]=id;\n\
     \        que.emplace(d[e.to],e.to);\n      }\n  }\n  return {d,pre};\n}\n"
   code: "#include \"graph/WeightedGraph.cpp\"\ntemplate<typename WG,typename T=typename\
     \ WG::cost_type>\npair<vector<T>,vector<int>> dijkstra(const WG&g,int s=0){\n\
     \  assert(g.is_prepared());\n  vector<T> d(g.n,-1);\n  vector<int> pre(g.n,-1);\n\
-    \  priority_queue< pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>;\n  d[s]=0;\n\
-    \  que.emplace(0,s);\n  while(que.size()){\n    auto [now,id]=que.top();que.pop();\n\
+    \  priority_queue< pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>> que;\n\
+    \  d[s]=0;\n  que.emplace(0,s);\n  while(que.size()){\n    auto [now,id]=que.top();que.pop();\n\
     \    if(d[id]<now)continue;\n    for(const auto&e:g[id])\n      if(d[e.to]==-1\
     \ || d[e.to]>now+e.cost){\n        d[e.to]=now+e.cost;\n        pre[e.to]=id;\n\
     \        que.emplace(d[e.to],e.to);\n      }\n  }\n  return {d,pre};\n}"
@@ -63,7 +63,7 @@ data:
   isVerificationFile: false
   path: graph/dijkstra.cpp
   requiredBy: []
-  timestamp: '2022-11-19 10:38:58+09:00'
+  timestamp: '2022-11-19 13:06:23+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library-checker/ShortestPath.test.cpp

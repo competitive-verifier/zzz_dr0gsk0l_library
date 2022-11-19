@@ -69,7 +69,7 @@ data:
     \      }\n      os<<\"]\";\n    }\n    os<<\")\";\n    return os;\n  }\n};\n#line\
     \ 1 \"algebra/algebra_reverse.cpp\"\ntemplate<typename Algebra>\nstruct Algebra_Reverse:Algebra{\n\
     \  using X=typename Algebra::value_type;\n  static constexpr X op(const X& x,\
-    \ const X& y){ return Algebra::op(y,x); }\n};\n#line 1 \"tree/hld.cpp\"\ntemplate<typename\
+    \ const X& y){ return Algebra::op(y,x); }\n};\n#line 2 \"tree/hld.cpp\"\ntemplate<typename\
     \ TREE>\nstruct HLD{\n  int n;\n  TREE T;\n  vector<int> sz,head,id,id2;\n  bool\
     \ prepared;\n  HLD(TREE T_):T(T_),n(T_.n),sz(n),head(n),id(n),id2(n),prepared(false){}\n\
     private:\n  void dfs_sz(int v){\n    sz[v]=1;\n    for(int c:T.son[v]){\n    \
@@ -137,7 +137,7 @@ data:
   isVerificationFile: false
   path: tree/TreeMonoid.cpp
   requiredBy: []
-  timestamp: '2022-11-19 10:38:58+09:00'
+  timestamp: '2022-11-19 13:06:23+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library-checker/Tree/vertex_add_subtree_sum.test.cpp

@@ -14,7 +14,7 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"graph/WeightedGraph.cpp\"\ntemplate<typename T>\nstruct\
+  bundledCode: "#line 2 \"graph/WeightedGraph.cpp\"\ntemplate<typename T>\nstruct\
     \ WeightedEdge{\n  WeightedEdge()=default;\n  WeightedEdge(int from,int to,T cost):from(from),to(to),cost(cost){}\n\
     \  int from,to;\n  T cost;\n};\n\ntemplate<typename T>\nstruct WeightedGraph{\n\
     \  int n;\n  using cost_type=T;\n  using edge_type=WeightedEdge<T>;\nprivate:\n\
@@ -43,10 +43,10 @@ data:
     \      cerr<<from<<\";\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n\
     \        cerr<<\"(\"<<edges[i].to<<\",\"<<edges[i].cost<<\")\";\n      cerr<<\"\
     \\n\";\n    }\n  }\n};\n"
-  code: "template<typename T>\nstruct WeightedEdge{\n  WeightedEdge()=default;\n \
-    \ WeightedEdge(int from,int to,T cost):from(from),to(to),cost(cost){}\n  int from,to;\n\
-    \  T cost;\n};\n\ntemplate<typename T>\nstruct WeightedGraph{\n  int n;\n  using\
-    \ cost_type=T;\n  using edge_type=WeightedEdge<T>;\nprivate:\n  vector<edge_type>\
+  code: "#pragma once\ntemplate<typename T>\nstruct WeightedEdge{\n  WeightedEdge()=default;\n\
+    \  WeightedEdge(int from,int to,T cost):from(from),to(to),cost(cost){}\n  int\
+    \ from,to;\n  T cost;\n};\n\ntemplate<typename T>\nstruct WeightedGraph{\n  int\
+    \ n;\n  using cost_type=T;\n  using edge_type=WeightedEdge<T>;\nprivate:\n  vector<edge_type>\
     \ edges;\n  vector<int> in_deg;\n  bool prepared;\n  class OutgoingEdges{\n  \
     \  const WeightedGraph* g;\n    int l,r;\n  public:\n    OutgoingEdges(const WeightedGraph*\
     \ g,int l,int r):g(g),l(l),r(r){}\n    const edge_type* begin()const{ return &(g->edges[l]);\
@@ -77,7 +77,7 @@ data:
   path: graph/WeightedGraph.cpp
   requiredBy:
   - graph/dijkstra.cpp
-  timestamp: '2022-11-18 23:47:02+09:00'
+  timestamp: '2022-11-19 13:06:23+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library-checker/ShortestPath.test.cpp

@@ -23,7 +23,7 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"graph/Graph.cpp\"\nstruct Edge{\n  int from,to;\n  Edge()=default;\n\
+  bundledCode: "#line 2 \"graph/Graph.cpp\"\nstruct Edge{\n  int from,to;\n  Edge()=default;\n\
     \  Edge(int from,int to):from(from),to(to){}\n};\n\nstruct Graph{\n  int n;\n\
     \  using edge_type=Edge;\nprivate:\n  vector<edge_type> edges;\n  vector<int>\
     \ in_deg;\n  bool prepared;\n  class OutgoingEdges{\n    const Graph* g;\n   \
@@ -32,7 +32,7 @@ data:
     \ end()const{ return &(g->edges[r]); }\n    const edge_type* operator[](int i)const{\
     \ return &(g->edges[l+i]); }\n    int size()const{ return r-l; }\n  };\npublic:\n\
     \  OutgoingEdges operator[](int v)const{\n    assert(prepared);\n    return {\
-    \ this,in_deg[v],in_deg[v+1] };\n  }\n\n  bool is_prepared() { return prepared;\
+    \ this,in_deg[v],in_deg[v+1] };\n  }\n\n  bool is_prepared()const{ return prepared;\
     \ }\n\n  Graph():n(0),in_deg(1,0),prepared(false){}\n  Graph(int n):n(n),in_deg(n+1,0),prepared(false){}\n\
     \  Graph(int n,int m,bool directed=false,int indexed=1):\n    n(n),in_deg(n+1,0),prepared(false){\
     \ scan(m,directed,indexed); }\n\n  void resize(int n){n=n;}\n\n  void add_arc(int\
@@ -44,11 +44,11 @@ data:
     \      else add_edge(u,v);\n    }\n    build();\n  }\n\n  void build(){\n    assert(!prepared);prepared=true;\n\
     \    for(int v=0;v<n;v++)in_deg[v+1]+=in_deg[v];\n    vector<edge_type> new_edges(in_deg.back());\n\
     \    auto counter=in_deg;\n    for(auto&&e:edges)new_edges[ counter[e.from]++\
-    \ ]=e;\n    edges=new_edges;\n  }\n\n  void graph_debug(){\n  #ifndef __LOCAL\n\
+    \ ]=e;\n    edges=new_edges;\n  }\n\n  void graph_debug()const{\n  #ifndef __LOCAL\n\
     \    return;\n  #endif\n    assert(prepared);\n    for(int from=0;from<n;from++){\n\
     \      cerr<<from<<\";\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n\
     \        cerr<<edges[i].to<<\" \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n#line\
-    \ 2 \"tree/tree.cpp\"\nstruct Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n\
+    \ 3 \"tree/tree.cpp\"\nstruct Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n\
     \  vector<vector<int>> son;\n  vector<int> DFS,BFS,parent,depth;\n\n  void scan_root(int\
     \ indexed=1){\n    for(int i=1;i<n;i++){\n      int p;cin>>p;\n      add_edge(p-indexed,i);\n\
     \    }\n    build();\n  }\n  void scan(int indexed=1){\n    Graph::scan(n-1,false,indexed);\n\
@@ -61,7 +61,7 @@ data:
     \    depth[root]=0;\n    dfs(root);\n    queue<int> que;\n    que.push(root);\n\
     \    while(que.size()){\n      int p=que.front();que.pop();\n      BFS.push_back(p);\n\
     \      for(int c:son[p])que.push(c);\n    }\n  }\n};\n"
-  code: "#include \"graph/Graph.cpp\"\nstruct Tree:Graph{\n  using Graph::Graph;\n\
+  code: "#pragma once\n#include \"graph/Graph.cpp\"\nstruct Tree:Graph{\n  using Graph::Graph;\n\
     \  int root=-1;\n  vector<vector<int>> son;\n  vector<int> DFS,BFS,parent,depth;\n\
     \n  void scan_root(int indexed=1){\n    for(int i=1;i<n;i++){\n      int p;cin>>p;\n\
     \      add_edge(p-indexed,i);\n    }\n    build();\n  }\n  void scan(int indexed=1){\n\
@@ -79,7 +79,7 @@ data:
   isVerificationFile: false
   path: tree/tree.cpp
   requiredBy: []
-  timestamp: '2022-11-18 23:47:02+09:00'
+  timestamp: '2022-11-19 13:06:23+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
