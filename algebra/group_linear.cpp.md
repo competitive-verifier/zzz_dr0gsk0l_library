@@ -6,9 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
     title: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
+    title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"algebra/group_linear.cpp\"\n// op(f,g) = f(g(x))\ntemplate<typename\
@@ -36,8 +39,9 @@ data:
   path: algebra/group_linear.cpp
   requiredBy: []
   timestamp: '2022-09-06 17:29:05+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/library-checker/Tree/vertex_set_path_composite.test.cpp
   - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
 documentation_of: algebra/group_linear.cpp
 layout: document

@@ -7,6 +7,12 @@ data:
     path: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
     title: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
   - icon: ':x:'
+    path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
+    title: test/library-checker/Tree/vertex_add_path_sum.test.cpp
+  - icon: ':x:'
+    path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
+    title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
+  - icon: ':x:'
     path: test/yukicoder/1097.test.cpp
     title: test/yukicoder/1097.test.cpp
   _isVerificationFailed: true
@@ -32,6 +38,8 @@ data:
   timestamp: '2022-09-07 12:14:03+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
+  - test/library-checker/Tree/vertex_add_path_sum.test.cpp
   - test/library-checker/DataStructure/PointAddRangeSum.test.cpp
   - test/yukicoder/1097.test.cpp
 documentation_of: algebra/group_add.cpp

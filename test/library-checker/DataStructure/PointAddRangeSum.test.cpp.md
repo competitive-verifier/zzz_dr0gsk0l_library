@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: algebra/group_add.cpp
     title: algebra/group_add.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: segtree/segtree.cpp
     title: segtree/segtree.cpp
   _extendedRequiredBy: []

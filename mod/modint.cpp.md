@@ -61,8 +61,8 @@ data:
   timestamp: '2022-09-06 21:25:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
   - test/library-checker/Matrix/MatrixProduct.test.cpp
+  - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
 documentation_of: mod/modint.cpp
 layout: document
 redirect_from:

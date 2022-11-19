@@ -3,13 +3,13 @@ data:
   libraryCategories:
   - name: algebra
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/algebra_reverse.cpp
       title: algebra/algebra_reverse.cpp
     - icon: ':question:'
       path: algebra/group_add.cpp
       title: algebra/group_add.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/group_linear.cpp
       title: algebra/group_linear.cpp
     - icon: ':warning:'
@@ -61,13 +61,13 @@ data:
       title: formalpowerseries/base.cpp
   - name: graph
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: graph/WeightedGraph.cpp
       title: graph/WeightedGraph.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: graph/dijkstra.cpp
       title: graph/dijkstra.cpp
   - name: linearalgebra
@@ -85,7 +85,7 @@ data:
       title: mod/modint.cpp
   - name: segtree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: segtree/segtree.cpp
       title: segtree/segtree.cpp
   - name: string
@@ -115,10 +115,13 @@ data:
       title: superstd/set.cpp
   - name: tree
     pages:
-    - icon: ':heavy_check_mark:'
-      path: tree/lca.cpp
-      title: tree/lca.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
+      path: tree/TreeMonoid.cpp
+      title: tree/TreeMonoid.cpp
+    - icon: ':x:'
+      path: tree/hld.cpp
+      title: tree/hld.cpp
+    - icon: ':x:'
       path: tree/tree.cpp
       title: tree/tree.cpp
   - name: util
@@ -195,7 +198,7 @@ data:
       title: test/library-checker/Polynomial/Log.test.cpp
   - name: test/library-checker
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library-checker/ShortestPath.test.cpp
       title: test/library-checker/ShortestPath.test.cpp
   - name: test/library-checker/String
@@ -205,9 +208,18 @@ data:
       title: test/library-checker/String/RunEnumerate.test.cpp
   - name: test/library-checker/Tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
       title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
+    - icon: ':x:'
+      path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
+      title: test/library-checker/Tree/vertex_add_path_sum.test.cpp
+    - icon: ':x:'
+      path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
+      title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
+    - icon: ':x:'
+      path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
+      title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
   - name: test/yukicoder
     pages:
     - icon: ':x:'
