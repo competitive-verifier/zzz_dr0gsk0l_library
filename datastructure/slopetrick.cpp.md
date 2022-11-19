@@ -2,19 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/AtCoder/abc127f.test.cpp
-    title: test/AtCoder/abc127f.test.cpp
-  - icon: ':x:'
-    path: test/AtCoder/abc217h.test.cpp
-    title: test/AtCoder/abc217h.test.cpp
-  - icon: ':x:'
-    path: test/AtCoder/arc123d.test.cpp
-    title: test/AtCoder/arc123d.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links:
     - "https://maspypy.com/slope-trick-1-\u89E3\u8AAC\u7DE8"
@@ -85,11 +76,8 @@ data:
   path: datastructure/slopetrick.cpp
   requiredBy: []
   timestamp: '2022-11-03 18:08:02+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/AtCoder/abc127f.test.cpp
-  - test/AtCoder/arc123d.test.cpp
-  - test/AtCoder/abc217h.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: datastructure/slopetrick.cpp
 layout: document
 title: SlopeTrick

@@ -46,7 +46,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/dsu.cpp
       title: datastructure/dsu.cpp
-    - icon: ':x:'
+    - icon: ':warning:'
       path: datastructure/slopetrick.cpp
       title: SlopeTrick
   - name: flow
@@ -150,17 +150,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_6_A.test.cpp
       title: test/AOJ/GRL_6_A.test.cpp
-  - name: test/AtCoder
-    pages:
-    - icon: ':x:'
-      path: test/AtCoder/abc127f.test.cpp
-      title: test/AtCoder/abc127f.test.cpp
-    - icon: ':x:'
-      path: test/AtCoder/abc217h.test.cpp
-      title: test/AtCoder/abc217h.test.cpp
-    - icon: ':x:'
-      path: test/AtCoder/arc123d.test.cpp
-      title: test/AtCoder/arc123d.test.cpp
   - name: test/library-checker/DataStructure
     pages:
     - icon: ':heavy_check_mark:'
