@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/Graph.cpp
     title: graph/Graph.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: tree/hld.cpp
     title: tree/hld.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: tree/tree.cpp
     title: tree/tree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/lca
@@ -84,13 +84,13 @@ data:
     \n  pair<int,int> subtree(int v){\n    assert(prepared);\n    return {id[v],id2[v]};\
     \ \n  }\n};\n#line 7 \"test/library-checker/Tree/LowestCommonAncestor.test.cpp\"\
     \n\nint main(){\n  int n,q;cin>>n>>q;\n  Tree t(n);\n  t.scan_root(0);\n  HLD\
-    \ hld(t);\n  while(q--){\n    int u,v;cin>>u>>v;\n    cout<<hld.lca(u,v)<<\"\\\
-    n\";\n  }\n}\n"
+    \ hld(t);\n  hld.build();\n  while(q--){\n    int u,v;cin>>u>>v;\n    cout<<hld.lca(u,v)<<\"\
+    \\n\";\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#include \"tree/tree.cpp\"\n#include \"tree/hld.cpp\"\n\
     \nint main(){\n  int n,q;cin>>n>>q;\n  Tree t(n);\n  t.scan_root(0);\n  HLD hld(t);\n\
-    \  while(q--){\n    int u,v;cin>>u>>v;\n    cout<<hld.lca(u,v)<<\"\\n\";\n  }\n\
-    }"
+    \  hld.build();\n  while(q--){\n    int u,v;cin>>u>>v;\n    cout<<hld.lca(u,v)<<\"\
+    \\n\";\n  }\n}"
   dependsOn:
   - tree/tree.cpp
   - graph/Graph.cpp
@@ -98,8 +98,8 @@ data:
   isVerificationFile: true
   path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
   requiredBy: []
-  timestamp: '2022-11-19 13:06:23+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-19 13:22:40+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/Tree/LowestCommonAncestor.test.cpp
 layout: document

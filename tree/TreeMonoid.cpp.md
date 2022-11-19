@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: segtree/segtree.cpp
     title: segtree/segtree.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: tree/hld.cpp
     title: tree/hld.cpp
   _extendedRequiredBy: []
@@ -26,7 +26,7 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"segtree/segtree.cpp\"\ntemplate<class Monoid>\nstruct SegmentTree{\n\
+  bundledCode: "#line 2 \"segtree/segtree.cpp\"\ntemplate<class Monoid>\nstruct SegmentTree{\n\
     \  using X = typename Monoid::value_type;\n  using value_type = X;\n  vector<X>\
     \ dat;\n  int n, log, size;\n\n  SegmentTree() : SegmentTree(0) {}\n  SegmentTree(int\
     \ n) : SegmentTree(vector<X>(n, Monoid::unit())) {}\n  SegmentTree(vector<X> v)\
@@ -67,7 +67,7 @@ data:
     \    os<<\"(\";\n    for(int L=1;L<=size;L<<=1){\n      os<<\"[\";\n      for(int\
     \ j=L;j<(L<<1);j++){\n        os<<dat[j];\n        if(j+1<(L<<1))os<<\",\";\n\
     \      }\n      os<<\"]\";\n    }\n    os<<\")\";\n    return os;\n  }\n};\n#line\
-    \ 1 \"algebra/algebra_reverse.cpp\"\ntemplate<typename Algebra>\nstruct Algebra_Reverse:Algebra{\n\
+    \ 2 \"algebra/algebra_reverse.cpp\"\ntemplate<typename Algebra>\nstruct Algebra_Reverse:Algebra{\n\
     \  using X=typename Algebra::value_type;\n  static constexpr X op(const X& x,\
     \ const X& y){ return Algebra::op(y,x); }\n};\n#line 2 \"tree/hld.cpp\"\ntemplate<typename\
     \ TREE>\nstruct HLD{\n  int n;\n  TREE T;\n  vector<int> sz,head,id,id2;\n  bool\
@@ -92,7 +92,7 @@ data:
     \        u=T.parent[head[u]];\n      }\n    }\n    if(u==v)path_u.emplace_back(id[u],id[u]);\n\
     \    return {path_u,path_v};\n  }\n\n  // [l,r) \u304C v \u306E\u90E8\u5206\u6728\
     \n  pair<int,int> subtree(int v){\n    assert(prepared);\n    return {id[v],id2[v]};\
-    \ \n  }\n};\n#line 4 \"tree/TreeMonoid.cpp\"\ntemplate<typename TREE,typename\
+    \ \n  }\n};\n#line 5 \"tree/TreeMonoid.cpp\"\ntemplate<typename TREE,typename\
     \ Monoid>\nstruct TreeMonoid{\n  using X=typename Monoid::value_type;\n  using\
     \ Monoid_r=Algebra_Reverse<Monoid>;\n  int n;\n  TREE T;\n  HLD<Tree> hld;\n \
     \ vector<int> hld_id,euler_in,euler_out;\n  SegmentTree<Monoid> seg;\n  SegmentTree<Monoid_r>\
@@ -111,7 +111,7 @@ data:
     \    }\n    return Monoid::op(prod_u,prod_v);\n  }\n  // root -> path\n  X path_root(int\
     \ v){ return path(T.root,v); }\n\n  X subtree_prod(int v){\n    assert(Monoid::commute);\n\
     \    auto [l,r]=hld.subtree(v);\n    return seg.prod(l,r);\n  }\n};\n"
-  code: "#include \"segtree/segtree.cpp\"\n#include \"algebra/algebra_reverse.cpp\"\
+  code: "#pragma once\n#include \"segtree/segtree.cpp\"\n#include \"algebra/algebra_reverse.cpp\"\
     \n#include \"tree/hld.cpp\"\ntemplate<typename TREE,typename Monoid>\nstruct TreeMonoid{\n\
     \  using X=typename Monoid::value_type;\n  using Monoid_r=Algebra_Reverse<Monoid>;\n\
     \  int n;\n  TREE T;\n  HLD<Tree> hld;\n  vector<int> hld_id,euler_in,euler_out;\n\
@@ -137,7 +137,7 @@ data:
   isVerificationFile: false
   path: tree/TreeMonoid.cpp
   requiredBy: []
-  timestamp: '2022-11-19 13:06:23+09:00'
+  timestamp: '2022-11-19 18:31:33+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library-checker/Tree/vertex_add_subtree_sum.test.cpp

@@ -6,7 +6,7 @@ data:
     path: tree/TreeMonoid.cpp
     title: tree/TreeMonoid.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
     title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
   - icon: ':x:'
@@ -20,7 +20,7 @@ data:
     title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"tree/hld.cpp\"\ntemplate<typename TREE>\nstruct HLD{\n \
@@ -76,7 +76,7 @@ data:
   requiredBy:
   - tree/TreeMonoid.cpp
   timestamp: '2022-11-19 13:06:23+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
   - test/library-checker/Tree/LowestCommonAncestor.test.cpp

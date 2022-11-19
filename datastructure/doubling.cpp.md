@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/yukicoder/1097.test.cpp
-    title: test/yukicoder/1097.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 1 \"datastructure/doubling.cpp\"\ntemplate<typename Monoid,int\
@@ -46,9 +43,8 @@ data:
   path: datastructure/doubling.cpp
   requiredBy: []
   timestamp: '2022-11-15 08:40:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/yukicoder/1097.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: datastructure/doubling.cpp
 layout: document
 redirect_from:

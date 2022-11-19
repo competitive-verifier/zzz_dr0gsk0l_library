@@ -19,7 +19,7 @@ data:
     - https://judge.yosupo.jp/problem/point_add_range_sum
   bundledCode: "#line 1 \"test/library-checker/DataStructure/PointAddRangeSum.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 1 \"segtree/segtree.cpp\"\ntemplate<class\
+    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"segtree/segtree.cpp\"\ntemplate<class\
     \ Monoid>\nstruct SegmentTree{\n  using X = typename Monoid::value_type;\n  using\
     \ value_type = X;\n  vector<X> dat;\n  int n, log, size;\n\n  SegmentTree() :\
     \ SegmentTree(0) {}\n  SegmentTree(int n) : SegmentTree(vector<X>(n, Monoid::unit()))\
@@ -61,7 +61,7 @@ data:
     \    os<<\"(\";\n    for(int L=1;L<=size;L<<=1){\n      os<<\"[\";\n      for(int\
     \ j=L;j<(L<<1);j++){\n        os<<dat[j];\n        if(j+1<(L<<1))os<<\",\";\n\
     \      }\n      os<<\"]\";\n    }\n    os<<\")\";\n    return os;\n  }\n};\n#line\
-    \ 1 \"algebra/group_add.cpp\"\ntemplate<typename X>\nstruct Group_Add {\n  using\
+    \ 2 \"algebra/group_add.cpp\"\ntemplate<typename X>\nstruct Group_Add {\n  using\
     \ value_type = X;\n  static constexpr X op(const X &x, const X &y) noexcept {\
     \ return x + y; }\n  static constexpr X inverse(const X &x) noexcept { return\
     \ -x; }\n  static constexpr X power(const X &x, long long n) noexcept { return\
@@ -83,7 +83,7 @@ data:
   isVerificationFile: true
   path: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
   requiredBy: []
-  timestamp: '2022-09-07 13:56:05+09:00'
+  timestamp: '2022-11-19 13:22:40+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/DataStructure/PointAddRangeSum.test.cpp

@@ -40,7 +40,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/cumulativesum.cpp
       title: datastructure/cumulativesum.cpp
-    - icon: ':x:'
+    - icon: ':warning:'
       path: datastructure/doubling.cpp
       title: datastructure/doubling.cpp
     - icon: ':heavy_check_mark:'
@@ -61,7 +61,7 @@ data:
       title: formalpowerseries/base.cpp
   - name: graph
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
     - icon: ':x:'
@@ -118,10 +118,10 @@ data:
     - icon: ':x:'
       path: tree/TreeMonoid.cpp
       title: tree/TreeMonoid.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: tree/hld.cpp
       title: tree/hld.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: tree/tree.cpp
       title: tree/tree.cpp
   - name: util
@@ -197,7 +197,7 @@ data:
       title: test/library-checker/String/RunEnumerate.test.cpp
   - name: test/library-checker/Tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
       title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
     - icon: ':x:'
@@ -209,10 +209,5 @@ data:
     - icon: ':x:'
       path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
       title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
-  - name: test/yukicoder
-    pages:
-    - icon: ':x:'
-      path: test/yukicoder/1097.test.cpp
-      title: test/yukicoder/1097.test.cpp
 layout: toppage
 ---

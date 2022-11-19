@@ -25,7 +25,7 @@ data:
     - https://judge.yosupo.jp/problem/point_set_range_composite
   bundledCode: "#line 1 \"test/library-checker/DataStructure/PointSetRangeComposite.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_composite\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 1 \"segtree/segtree.cpp\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"segtree/segtree.cpp\"\
     \ntemplate<class Monoid>\nstruct SegmentTree{\n  using X = typename Monoid::value_type;\n\
     \  using value_type = X;\n  vector<X> dat;\n  int n, log, size;\n\n  SegmentTree()\
     \ : SegmentTree(0) {}\n  SegmentTree(int n) : SegmentTree(vector<X>(n, Monoid::unit()))\
@@ -76,7 +76,7 @@ data:
     \ {\n    if(a==1)return {1,n*b};\n    K an=power(a,n);\n    return {an,b*((1-an)/(1-a))};\n\
     \  }\n  */\n  static constexpr F unit() { return {K(1), K(0)}; }\n  static constexpr\
     \ bool commute = false;\n\n  static constexpr K eval(const F &f, K x) noexcept\
-    \ {\n    return f.first * x + f.second;\n  }\n};\n#line 1 \"algebra/algebra_reverse.cpp\"\
+    \ {\n    return f.first * x + f.second;\n  }\n};\n#line 2 \"algebra/algebra_reverse.cpp\"\
     \ntemplate<typename Algebra>\nstruct Algebra_Reverse:Algebra{\n  using X=typename\
     \ Algebra::value_type;\n  static constexpr X op(const X& x, const X& y){ return\
     \ Algebra::op(y,x); }\n};\n#line 1 \"mod/modint.cpp\"\ntemplate<typename T,T MOD=998244353>\n\
@@ -121,7 +121,7 @@ data:
   isVerificationFile: true
   path: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
   requiredBy: []
-  timestamp: '2022-09-07 14:33:13+09:00'
+  timestamp: '2022-11-19 13:22:40+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
