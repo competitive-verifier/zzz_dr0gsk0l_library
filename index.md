@@ -35,8 +35,19 @@ data:
     - icon: ':warning:'
       path: bitwise/convolution.cpp
       title: bitwise/convolution.cpp
+  - name: datastructure/2D
+    pages:
+    - icon: ':warning:'
+      path: datastructure/2D/cumulativesum.cpp
+      title: datastructure/2D/cumulativesum.cpp
   - name: datastructure
     pages:
+    - icon: ':warning:'
+      path: datastructure/CumulativeGroup.cpp
+      title: datastructure/CumulativeGroup.cpp
+    - icon: ':warning:'
+      path: datastructure/CumulativeMonoid.cpp
+      title: datastructure/CumulativeMonoid.cpp
     - icon: ':heavy_check_mark:'
       path: datastructure/cumulativesum.cpp
       title: datastructure/cumulativesum.cpp
