@@ -9,20 +9,19 @@ data:
     title: mod/modint.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/matrix_product
-    links:
-    - https://judge.yosupo.jp/problem/matrix_product
-  bundledCode: "#line 1 \"test/library-checker/Matrix/MatrixProduct.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\n#line 1 \"linearalgebra/matrix.cpp\"\n#define REP_(i,n)\
-    \ for(int i=0;i<(n);i++)\n#define REP2_(i,s,n) for(int i=(s);i<(n);i++)\ntemplate<typename\
-    \ K>\nstruct Matrix{\n  using value_type=K;\n  using vec=vector<K>;\n  using mat=vector<vec>;\n\
-    \  size_t r,c;\n  mat M;\n\n  Matrix(size_t r,size_t c):r(r),c(c),M(r,vec(c,K())){}\n\
+    PROBLEM: matrix_det
+    links: []
+  bundledCode: "#line 1 \"test/library-checker/Matrix/matrix_det.test.cpp\"\n#define\
+    \ PROBLEM \"matrix_det\"\n#include <bits/stdc++.h>\nusing namespace std;\n\n#line\
+    \ 1 \"linearalgebra/matrix.cpp\"\n#define REP_(i,n) for(int i=0;i<(n);i++)\n#define\
+    \ REP2_(i,s,n) for(int i=(s);i<(n);i++)\ntemplate<typename K>\nstruct Matrix{\n\
+    \  using value_type=K;\n  using vec=vector<K>;\n  using mat=vector<vec>;\n  size_t\
+    \ r,c;\n  mat M;\n\n  Matrix(size_t r,size_t c):r(r),c(c),M(r,vec(c,K())){}\n\
     \  Matrix(mat A):M(A),r(A.size()),c(A[0].size()){}\n\n  vec& operator[](size_t\
     \ k){return M[k];}\n  const vec& operator[](size_t k)const{return M[k];}\n\n \
     \ \n  Matrix& operator+=(const Matrix &A){\n    assert(r==A.r&&c==A.c);\n    REP_(i,r)REP_(j,c)M[i][j]+=A[i][j];\n\
@@ -71,30 +70,26 @@ data:
     \ Mint num(1),dom(1);\n    for(int i=0;i<k;i++){\n      num*=Mint(n-i);\n    \
     \  dom*=Mint(i+1);\n    }\n    return num/dom;\n  }\n\n  friend ostream& operator<<(ostream&os,const\
     \ Mint &m){os<<m.v;return os;}\n  friend istream& operator>>(istream&is,Mint &m){is>>m.v;m.v%=MOD;if(m.v<0)m.v+=MOD;return\
-    \ is;}\n};\n#line 7 \"test/library-checker/Matrix/MatrixProduct.test.cpp\"\n\n\
-    using mint=Mint<long long,998244353>;\nusing M=Matrix<mint>;\n\n#define REP(i,n)\
-    \ for(int i=0;i<(n);i++)\n\nint main(){\n  int n,m,k;cin>>n>>m>>k;\n  M A(n,m),B(m,k);\n\
-    \  cin>>A>>B;\n  M C=A*B;\n  REP(i,n)REP(j,k)cout<<C[i][j]<<\"\\n \"[j+1<k];\n\
-    }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"linearalgebra/matrix.cpp\"\
-    \n#include \"mod/modint.cpp\"\n\nusing mint=Mint<long long,998244353>;\nusing\
-    \ M=Matrix<mint>;\n\n#define REP(i,n) for(int i=0;i<(n);i++)\n\nint main(){\n\
-    \  int n,m,k;cin>>n>>m>>k;\n  M A(n,m),B(m,k);\n  cin>>A>>B;\n  M C=A*B;\n  REP(i,n)REP(j,k)cout<<C[i][j]<<\"\
-    \\n \"[j+1<k];\n}"
+    \ is;}\n};\n#line 7 \"test/library-checker/Matrix/matrix_det.test.cpp\"\n\nusing\
+    \ mint=Mint<long long,998244353>;\nusing M=Matrix<mint>;\n\nint main(){\n\tint\
+    \ n;cin>>n;\n\tM A(n,n);\n\tcin>>A;\n\tcout<<A.det()<<endl;\n}\n"
+  code: "#define PROBLEM \"matrix_det\"\n#include <bits/stdc++.h>\nusing namespace\
+    \ std;\n\n#include \"linearalgebra/matrix.cpp\"\n#include \"mod/modint.cpp\"\n\
+    \nusing mint=Mint<long long,998244353>;\nusing M=Matrix<mint>;\n\nint main(){\n\
+    \tint n;cin>>n;\n\tM A(n,n);\n\tcin>>A;\n\tcout<<A.det()<<endl;\n}"
   dependsOn:
   - linearalgebra/matrix.cpp
   - mod/modint.cpp
   isVerificationFile: true
-  path: test/library-checker/Matrix/MatrixProduct.test.cpp
+  path: test/library-checker/Matrix/matrix_det.test.cpp
   requiredBy: []
   timestamp: '2022-11-23 17:46:48+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/library-checker/Matrix/MatrixProduct.test.cpp
+documentation_of: test/library-checker/Matrix/matrix_det.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library-checker/Matrix/MatrixProduct.test.cpp
-- /verify/test/library-checker/Matrix/MatrixProduct.test.cpp.html
-title: test/library-checker/Matrix/MatrixProduct.test.cpp
+- /verify/test/library-checker/Matrix/matrix_det.test.cpp
+- /verify/test/library-checker/Matrix/matrix_det.test.cpp.html
+title: test/library-checker/Matrix/matrix_det.test.cpp
 ---

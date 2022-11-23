@@ -41,8 +41,8 @@ data:
   timestamp: '2022-09-06 17:29:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library-checker/Tree/vertex_set_path_composite.test.cpp
   - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
+  - test/library-checker/Tree/vertex_set_path_composite.test.cpp
 documentation_of: algebra/group_linear.cpp
 layout: document
 redirect_from:

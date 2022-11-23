@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: algebra/group_linear.cpp
     title: algebra/group_linear.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: mod/modint.cpp
     title: mod/modint.cpp
   - icon: ':heavy_check_mark:'

@@ -14,11 +14,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/matrix_product
+    PROBLEM: https://judge.yosupo.jp/problem/inverse_matrix
     links:
-    - https://judge.yosupo.jp/problem/matrix_product
-  bundledCode: "#line 1 \"test/library-checker/Matrix/MatrixProduct.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\n#include <bits/stdc++.h>\n\
+    - https://judge.yosupo.jp/problem/inverse_matrix
+  bundledCode: "#line 1 \"test/library-checker/Matrix/InverseMatrix.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/inverse_matrix\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#line 1 \"linearalgebra/matrix.cpp\"\n#define REP_(i,n)\
     \ for(int i=0;i<(n);i++)\n#define REP2_(i,s,n) for(int i=(s);i<(n);i++)\ntemplate<typename\
     \ K>\nstruct Matrix{\n  using value_type=K;\n  using vec=vector<K>;\n  using mat=vector<vec>;\n\
@@ -71,30 +71,31 @@ data:
     \ Mint num(1),dom(1);\n    for(int i=0;i<k;i++){\n      num*=Mint(n-i);\n    \
     \  dom*=Mint(i+1);\n    }\n    return num/dom;\n  }\n\n  friend ostream& operator<<(ostream&os,const\
     \ Mint &m){os<<m.v;return os;}\n  friend istream& operator>>(istream&is,Mint &m){is>>m.v;m.v%=MOD;if(m.v<0)m.v+=MOD;return\
-    \ is;}\n};\n#line 7 \"test/library-checker/Matrix/MatrixProduct.test.cpp\"\n\n\
+    \ is;}\n};\n#line 7 \"test/library-checker/Matrix/InverseMatrix.test.cpp\"\n\n\
     using mint=Mint<long long,998244353>;\nusing M=Matrix<mint>;\n\n#define REP(i,n)\
-    \ for(int i=0;i<(n);i++)\n\nint main(){\n  int n,m,k;cin>>n>>m>>k;\n  M A(n,m),B(m,k);\n\
-    \  cin>>A>>B;\n  M C=A*B;\n  REP(i,n)REP(j,k)cout<<C[i][j]<<\"\\n \"[j+1<k];\n\
-    }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\n#include\
+    \ for(int i=0;i<(n);i++)\n\nint main(){\n\tint n;cin>>n;\n\tM A(n,n);\n\tcin>>A;\n\
+    \tauto B=A.inv();\n\tif(B.has_value())\n\t\tREP(i,n)REP(j,n)cout<<B.value()[i][j]<<\"\
+    \\n \"[j+1<n];\n\telse\n\t\tcout<<-1<<\"\\n\";\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/inverse_matrix\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"linearalgebra/matrix.cpp\"\
     \n#include \"mod/modint.cpp\"\n\nusing mint=Mint<long long,998244353>;\nusing\
-    \ M=Matrix<mint>;\n\n#define REP(i,n) for(int i=0;i<(n);i++)\n\nint main(){\n\
-    \  int n,m,k;cin>>n>>m>>k;\n  M A(n,m),B(m,k);\n  cin>>A>>B;\n  M C=A*B;\n  REP(i,n)REP(j,k)cout<<C[i][j]<<\"\
-    \\n \"[j+1<k];\n}"
+    \ M=Matrix<mint>;\n\n#define REP(i,n) for(int i=0;i<(n);i++)\n\nint main(){\n\t\
+    int n;cin>>n;\n\tM A(n,n);\n\tcin>>A;\n\tauto B=A.inv();\n\tif(B.has_value())\n\
+    \t\tREP(i,n)REP(j,n)cout<<B.value()[i][j]<<\"\\n \"[j+1<n];\n\telse\n\t\tcout<<-1<<\"\
+    \\n\";\n}"
   dependsOn:
   - linearalgebra/matrix.cpp
   - mod/modint.cpp
   isVerificationFile: true
-  path: test/library-checker/Matrix/MatrixProduct.test.cpp
+  path: test/library-checker/Matrix/InverseMatrix.test.cpp
   requiredBy: []
   timestamp: '2022-11-23 17:46:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library-checker/Matrix/MatrixProduct.test.cpp
+documentation_of: test/library-checker/Matrix/InverseMatrix.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library-checker/Matrix/MatrixProduct.test.cpp
-- /verify/test/library-checker/Matrix/MatrixProduct.test.cpp.html
-title: test/library-checker/Matrix/MatrixProduct.test.cpp
+- /verify/test/library-checker/Matrix/InverseMatrix.test.cpp
+- /verify/test/library-checker/Matrix/InverseMatrix.test.cpp.html
+title: test/library-checker/Matrix/InverseMatrix.test.cpp
 ---
