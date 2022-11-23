@@ -117,11 +117,11 @@ data:
   timestamp: '2022-11-19 13:22:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
+  - test/library-checker/Tree/vertex_set_path_composite.test.cpp
+  - test/library-checker/Tree/vertex_add_path_sum.test.cpp
   - test/library-checker/DataStructure/PointAddRangeSum.test.cpp
   - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
-  - test/library-checker/Tree/vertex_add_path_sum.test.cpp
-  - test/library-checker/Tree/vertex_set_path_composite.test.cpp
-  - test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
 documentation_of: segtree/segtree.cpp
 layout: document
 redirect_from:

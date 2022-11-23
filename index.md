@@ -83,7 +83,7 @@ data:
       title: graph/dijkstra.cpp
   - name: linearalgebra
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: linearalgebra/matrix.cpp
       title: linearalgebra/matrix.cpp
   - name: mod
@@ -91,7 +91,7 @@ data:
     - icon: ':warning:'
       path: mod/mint_utility.cpp
       title: mod/mint_utility.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: mod/modint.cpp
       title: mod/modint.cpp
   - name: segtree
@@ -199,7 +199,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Matrix/MatrixProduct.test.cpp
       title: test/library-checker/Matrix/MatrixProduct.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Matrix/matrix_det.test.cpp
       title: test/library-checker/Matrix/matrix_det.test.cpp
   - name: test/library-checker/Polynomial

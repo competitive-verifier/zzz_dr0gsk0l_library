@@ -12,12 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/Matrix/MatrixProduct.test.cpp
     title: test/library-checker/Matrix/MatrixProduct.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Matrix/matrix_det.test.cpp
     title: test/library-checker/Matrix/matrix_det.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"mod/modint.cpp\"\ntemplate<typename T,T MOD=998244353>\n\
@@ -65,12 +65,12 @@ data:
   path: mod/modint.cpp
   requiredBy: []
   timestamp: '2022-09-06 21:25:54+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
-  - test/library-checker/Matrix/InverseMatrix.test.cpp
   - test/library-checker/Matrix/matrix_det.test.cpp
   - test/library-checker/Matrix/MatrixProduct.test.cpp
+  - test/library-checker/Matrix/InverseMatrix.test.cpp
+  - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
 documentation_of: mod/modint.cpp
 layout: document
 redirect_from:
