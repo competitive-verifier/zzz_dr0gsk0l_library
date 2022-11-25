@@ -10,6 +10,9 @@ data:
       path: algebra/group_add.cpp
       title: algebra/group_add.cpp
     - icon: ':heavy_check_mark:'
+      path: algebra/group_cntsum.cpp
+      title: algebra/group_cntsum.cpp
+    - icon: ':heavy_check_mark:'
       path: algebra/group_linear.cpp
       title: algebra/group_linear.cpp
     - icon: ':warning:'
@@ -18,6 +21,9 @@ data:
     - icon: ':warning:'
       path: algebra/group_xor.cpp
       title: algebra/group_xor.cpp
+    - icon: ':heavy_check_mark:'
+      path: algebra/lazy_range_affine_range_sum.cpp
+      title: algebra/lazy_range_affine_range_sum.cpp
     - icon: ':warning:'
       path: algebra/monoid_gcd.cpp
       title: algebra/monoid_gcd.cpp
@@ -97,6 +103,9 @@ data:
   - name: segtree
     pages:
     - icon: ':heavy_check_mark:'
+      path: segtree/lazysegtree.cpp
+      title: segtree/lazysegtree.cpp
+    - icon: ':heavy_check_mark:'
       path: segtree/segtree.cpp
       title: segtree/segtree.cpp
   - name: string
@@ -169,6 +178,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
       title: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+      title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/StaticRangeSum.test.cpp
       title: test/library-checker/DataStructure/StaticRangeSum.test.cpp

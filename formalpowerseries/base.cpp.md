@@ -113,9 +113,9 @@ data:
   timestamp: '2022-09-08 17:20:23+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library-checker/Polynomial/Log.test.cpp
   - test/library-checker/Polynomial/Inv.test.cpp
   - test/library-checker/Polynomial/Exp.test.cpp
+  - test/library-checker/Polynomial/Log.test.cpp
 documentation_of: formalpowerseries/base.cpp
 layout: document
 redirect_from:

@@ -1,11 +1,17 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: algebra/lazy_range_affine_range_sum.cpp
+    title: algebra/lazy_range_affine_range_sum.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
     title: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+    title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
     title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
@@ -37,12 +43,14 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: algebra/group_linear.cpp
-  requiredBy: []
+  requiredBy:
+  - algebra/lazy_range_affine_range_sum.cpp
   timestamp: '2022-09-06 17:29:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library-checker/Tree/vertex_set_path_composite.test.cpp
+  - test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
   - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
+  - test/library-checker/Tree/vertex_set_path_composite.test.cpp
 documentation_of: algebra/group_linear.cpp
 layout: document
 redirect_from:

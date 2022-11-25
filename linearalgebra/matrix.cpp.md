@@ -92,9 +92,9 @@ data:
   timestamp: '2022-11-23 17:46:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library-checker/Matrix/InverseMatrix.test.cpp
   - test/library-checker/Matrix/matrix_det.test.cpp
   - test/library-checker/Matrix/MatrixProduct.test.cpp
-  - test/library-checker/Matrix/InverseMatrix.test.cpp
 documentation_of: linearalgebra/matrix.cpp
 layout: document
 redirect_from:
