@@ -68,7 +68,7 @@ data:
       title: datastructure/Doubling.cpp
     - icon: ':warning:'
       path: datastructure/SlopeTrick.cpp
-      title: datastructure/SlopeTrick.cpp
+      title: SlopeTrick
     - icon: ':heavy_check_mark:'
       path: datastructure/UnionFind.cpp
       title: datastructure/UnionFind.cpp
@@ -118,7 +118,7 @@ data:
     pages:
     - icon: ':warning:'
       path: string/AhoCorasick.cpp
-      title: string/AhoCorasick.cpp
+      title: AhoCorasick
     - icon: ':heavy_check_mark:'
       path: string/RollingHash.cpp
       title: string/RollingHash.cpp
@@ -157,13 +157,13 @@ data:
       title: util/Compress.cpp
     - icon: ':warning:'
       path: util/ForAllPareto.cpp
-      title: util/ForAllPareto.cpp
+      title: for_all_pareto
     - icon: ':heavy_check_mark:'
       path: util/InversionNumber.cpp
       title: util/InversionNumber.cpp
     - icon: ':warning:'
       path: util/Subsequence.cpp
-      title: util/Subsequence.cpp
+      title: "\u90E8\u5206\u5217\u306E\u7A2E\u985E\u6570"
   verificationCategories:
   - name: test/AOJ
     pages:
