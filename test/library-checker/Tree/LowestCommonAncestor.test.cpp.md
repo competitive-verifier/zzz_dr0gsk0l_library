@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/Graph.cpp
     title: graph/Graph.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: tree/HLD.cpp
     title: tree/HLD.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: tree/Tree.cpp
     title: tree/Tree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/lca
@@ -25,14 +25,12 @@ data:
     using namespace std;\n\n#line 2 \"graph/Graph.cpp\"\nstruct Edge{\n  int from,to;\n\
     \  Edge()=default;\n  Edge(int from,int to):from(from),to(to){}\n};\n\nstruct\
     \ Graph{\n  int n;\n  using edge_type=Edge;\nprivate:\n  vector<edge_type> edges;\n\
-    \  vector<int> in_deg;\n  bool prepared;\n  class OutgoingEdges{\n    const Graph*\
-    \ g;\n    int l,r;\n  public:\n    OutgoingEdges(const Graph* g,int l,int r):g(g),l(l),r(r){}\n\
-    \    const edge_type* begin()const{ return &(g->edges[l]); }\n    const edge_type*\
-    \ end()const{ return &(g->edges[r]); }\n    const edge_type* operator[](int i)const{\
-    \ return &(g->edges[l+i]); }\n    int size()const{ return r-l; }\n  };\npublic:\n\
-    \  OutgoingEdges operator[](int v)const{\n    assert(prepared);\n    return {\
-    \ this,in_deg[v],in_deg[v+1] };\n  }\n  edge_type* mutable_edge(int v,int edge_id){\n\
-    \    assert(prepared);\n    return &edges[in_deg[v]+edge_id];\n  }\n\n  bool is_prepared()const{\
+    \  vector<int> in_deg;\n  bool prepared;\n class OutgoingEdges{\n    Graph* g;\n\
+    \    int l,r;\n  public:\n    OutgoingEdges(Graph* g,int l,int r):g(g),l(l),r(r){}\n\
+    \    edge_type& begin(){ return g->edges[l]; }\n    edge_type& end(){ return g->edges[r];\
+    \ }\n    edge_type& operator[](int i){ return g->edges[l+i]; }\n    int size()const{\
+    \ return r-l; }\n  };\npublic:\n  OutgoingEdges operator[](int v){\n    assert(prepared);\n\
+    \    return { this,in_deg[v],in_deg[v+1] };\n  }\n\n  bool is_prepared()const{\
     \ return prepared; }\n\n  Graph():n(0),in_deg(1,0),prepared(false){}\n  Graph(int\
     \ n):n(n),in_deg(n+1,0),prepared(false){}\n  Graph(int n,int m,bool directed=false,int\
     \ indexed=1):\n    n(n),in_deg(n+1,0),prepared(false){ scan(m,directed,indexed);\
@@ -100,8 +98,8 @@ data:
   isVerificationFile: true
   path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
   requiredBy: []
-  timestamp: '2022-11-26 19:44:21+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-11-26 20:03:05+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library-checker/Tree/LowestCommonAncestor.test.cpp
 layout: document

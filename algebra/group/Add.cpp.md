@@ -6,15 +6,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
     title: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_path_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"algebra/group/Add.cpp\"\ntemplate<typename X>\nstruct GroupAdd\
@@ -34,7 +34,7 @@ data:
   path: algebra/group/Add.cpp
   requiredBy: []
   timestamp: '2022-11-26 09:11:25+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library-checker/DataStructure/PointAddRangeSum.test.cpp
   - test/library-checker/Tree/vertex_add_path_sum.test.cpp

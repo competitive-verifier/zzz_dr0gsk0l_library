@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/Reverse.cpp
     title: algebra/Reverse.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: segtree/SegmentTree.cpp
     title: segtree/SegmentTree.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: tree/HLD.cpp
     title: tree/HLD.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_path_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
     title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"segtree/SegmentTree.cpp\"\ntemplate<class Monoid>\nclass\
@@ -136,7 +136,7 @@ data:
   path: tree/TreeMonoid.cpp
   requiredBy: []
   timestamp: '2022-11-26 10:38:42+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library-checker/Tree/vertex_add_path_sum.test.cpp
   - test/library-checker/Tree/vertex_set_path_composite.test.cpp
