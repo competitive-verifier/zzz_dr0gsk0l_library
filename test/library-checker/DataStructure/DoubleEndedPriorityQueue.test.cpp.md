@@ -17,28 +17,26 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: mod/Modint.cpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: superstd/Multiset.cpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/RangeAffineRangeSum.cpp\"\
-    \n#include \"segtree/LazySegmentTree.cpp\"\n#include \"mod/Modint.cpp\"\n\nusing\
-    \ mint=Mint<long long>;\n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\
-    \  \n  int n,q;cin>>n>>q;\n\n  vector<pair<mint,mint>> v(n);\n  for(auto&[a,b]:v){\
-    \ cin>>a; b=1; }\n  LazySegTree< LazyRangeAffineRangeSum<mint> > seg(v);\n\n \
-    \ while(q--){\n    int t,l,r;cin>>t>>l>>r;\n    if(t)cout<<seg.prod(l,r).first<<'\\\
-    n';\n    else{\n      int b,c;cin>>b>>c;\n      seg.apply(l,r,{b,c});\n    }\n\
-    \  }\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/double_ended_priority_queue\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"superstd/Multiset.cpp\"\
+    \n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int\
+    \ n,q;cin>>n>>q;\n  Multiset<int> s;\n  s.scan(n);\n  while(q--){\n    int t;cin>>t;\n\
+    \    if(t==0){\n      int x;cin>>x;\n      s.insert(x);\n    }\n    if(t==1){\n\
+    \      int a=s.pick_mn();\n      cout<<a<<\"\\n\";\n    }\n    if(t==2){\n   \
+    \   int a=s.pick_mx();\n      cout<<a<<\"\\n\";\n    }\n  }\n}"
   dependsOn: []
   isVerificationFile: true
-  path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+  path: test/library-checker/DataStructure/DoubleEndedPriorityQueue.test.cpp
   requiredBy: []
   timestamp: '1970-01-01 00:00:00+00:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+documentation_of: test/library-checker/DataStructure/DoubleEndedPriorityQueue.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
-- /verify/test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp.html
-title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+- /verify/test/library-checker/DataStructure/DoubleEndedPriorityQueue.test.cpp
+- /verify/test/library-checker/DataStructure/DoubleEndedPriorityQueue.test.cpp.html
+title: test/library-checker/DataStructure/DoubleEndedPriorityQueue.test.cpp
 ---

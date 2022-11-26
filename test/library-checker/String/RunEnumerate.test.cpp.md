@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: string/run_enumerate.cpp
-    title: string/run_enumerate.cpp
+    path: string/RunEnumerate.cpp
+    title: string/RunEnumerate.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -16,7 +16,7 @@ data:
     - https://judge.yosupo.jp/problem/runenumerate
   bundledCode: "#line 1 \"test/library-checker/String/RunEnumerate.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/runenumerate\"\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\n#line 1 \"string/run_enumerate.cpp\"\n#include <atcoder/string>\n\
+    using namespace std;\n\n#line 1 \"string/RunEnumerate.cpp\"\n#include <atcoder/string>\n\
     using namespace atcoder;\n\n#define SIZE_(s) int(s.size())\nstruct RunEnumerate{\n\
     \  string s;\n  RunEnumerate(string s):s(s){ build(); }\n\n  struct Run{\n   \
     \ int t,l,r;\n    Run()=default;\n    Run(int t,int l,int r):t(t),l(l),r(r){}\n\
@@ -51,16 +51,16 @@ data:
     \ s;cin>>s;\n  RunEnumerate RE(s);\n  cout<<RE.ans.size()<<\"\\n\";\n  for(const\
     \ auto&[t,l,r]:RE.ans)cout<<t<<\" \"<<l<<\" \"<<r<<\"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/runenumerate\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"string/run_enumerate.cpp\"\
+    \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"string/RunEnumerate.cpp\"\
     \n\nint main(){\n  string s;cin>>s;\n  RunEnumerate RE(s);\n  cout<<RE.ans.size()<<\"\
     \\n\";\n  for(const auto&[t,l,r]:RE.ans)cout<<t<<\" \"<<l<<\" \"<<r<<\"\\n\";\n\
     }"
   dependsOn:
-  - string/run_enumerate.cpp
+  - string/RunEnumerate.cpp
   isVerificationFile: true
   path: test/library-checker/String/RunEnumerate.test.cpp
   requiredBy: []
-  timestamp: '2022-09-08 17:20:23+09:00'
+  timestamp: '2022-11-26 09:11:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/String/RunEnumerate.test.cpp

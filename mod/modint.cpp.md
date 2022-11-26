@@ -2,25 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
-    title: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
-    title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/Matrix/InverseMatrix.test.cpp
-    title: test/library-checker/Matrix/InverseMatrix.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/Matrix/MatrixProduct.test.cpp
-    title: test/library-checker/Matrix/MatrixProduct.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/Matrix/matrix_det.test.cpp
-    title: test/library-checker/Matrix/matrix_det.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 1 \"mod/modint.cpp\"\ntemplate<typename T,T MOD=998244353>\n\
@@ -68,13 +53,8 @@ data:
   path: mod/modint.cpp
   requiredBy: []
   timestamp: '2022-09-06 21:25:54+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
-  - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
-  - test/library-checker/Matrix/InverseMatrix.test.cpp
-  - test/library-checker/Matrix/matrix_det.test.cpp
-  - test/library-checker/Matrix/MatrixProduct.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: mod/modint.cpp
 layout: document
 redirect_from:

@@ -1,17 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/Graph/ShortestPath.test.cpp
-    title: test/library-checker/Graph/ShortestPath.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/WeightedGraph.cpp\"\ntemplate<typename T>\nstruct\
@@ -64,9 +61,8 @@ data:
   path: graph/dijkstra.cpp
   requiredBy: []
   timestamp: '2022-11-19 18:47:47+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library-checker/Graph/ShortestPath.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: graph/dijkstra.cpp
 layout: document
 redirect_from:

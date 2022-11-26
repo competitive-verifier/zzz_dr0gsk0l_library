@@ -17,28 +17,24 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: mod/Modint.cpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: linearalgebra/Matrix.cpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/RangeAffineRangeSum.cpp\"\
-    \n#include \"segtree/LazySegmentTree.cpp\"\n#include \"mod/Modint.cpp\"\n\nusing\
-    \ mint=Mint<long long>;\n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\
-    \  \n  int n,q;cin>>n>>q;\n\n  vector<pair<mint,mint>> v(n);\n  for(auto&[a,b]:v){\
-    \ cin>>a; b=1; }\n  LazySegTree< LazyRangeAffineRangeSum<mint> > seg(v);\n\n \
-    \ while(q--){\n    int t,l,r;cin>>t>>l>>r;\n    if(t)cout<<seg.prod(l,r).first<<'\\\
-    n';\n    else{\n      int b,c;cin>>b>>c;\n      seg.apply(l,r,{b,c});\n    }\n\
-    \  }\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_det\"\n#include\
+    \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"linearalgebra/Matrix.cpp\"\
+    \n#include \"mod/Modint.cpp\"\n\nusing mint=Mint<long long,998244353>;\nusing\
+    \ M=Matrix<mint>;\n\nint main(){\n  int n;cin>>n;\n  M A(n,n);\n  cin>>A;\n  cout<<A.det()<<endl;\n\
+    }"
   dependsOn: []
   isVerificationFile: true
-  path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+  path: test/library-checker/Matrix/Det.test.cpp
   requiredBy: []
   timestamp: '1970-01-01 00:00:00+00:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+documentation_of: test/library-checker/Matrix/Det.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
-- /verify/test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp.html
-title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+- /verify/test/library-checker/Matrix/Det.test.cpp
+- /verify/test/library-checker/Matrix/Det.test.cpp.html
+title: test/library-checker/Matrix/Det.test.cpp
 ---

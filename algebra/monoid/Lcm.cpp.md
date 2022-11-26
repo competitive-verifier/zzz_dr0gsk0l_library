@@ -8,25 +8,25 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"algebra/monoid_lcm.cpp\"\ntemplate<typename X>\nstruct Monoid_Lcm{\n\
+  bundledCode: "#line 1 \"algebra/monoid/Lcm.cpp\"\ntemplate<typename X>\nstruct MonoidLcm{\n\
     \  using value_type = X;\n  static constexpr X op(const X &x, const X &y) noexcept\
     \ { return x/gcd(x,y)*y; }\n  static constexpr X unit() { return 1; }\n  static\
     \ constexpr bool commute = true;\n};\n"
-  code: "template<typename X>\nstruct Monoid_Lcm{\n  using value_type = X;\n  static\
+  code: "template<typename X>\nstruct MonoidLcm{\n  using value_type = X;\n  static\
     \ constexpr X op(const X &x, const X &y) noexcept { return x/gcd(x,y)*y; }\n \
     \ static constexpr X unit() { return 1; }\n  static constexpr bool commute = true;\n\
     };"
   dependsOn: []
   isVerificationFile: false
-  path: algebra/monoid_lcm.cpp
+  path: algebra/monoid/Lcm.cpp
   requiredBy: []
-  timestamp: '2022-09-07 12:14:03+09:00'
+  timestamp: '2022-11-26 09:11:25+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: algebra/monoid_lcm.cpp
+documentation_of: algebra/monoid/Lcm.cpp
 layout: document
 redirect_from:
-- /library/algebra/monoid_lcm.cpp
-- /library/algebra/monoid_lcm.cpp.html
-title: algebra/monoid_lcm.cpp
+- /library/algebra/monoid/Lcm.cpp
+- /library/algebra/monoid/Lcm.cpp.html
+title: algebra/monoid/Lcm.cpp
 ---

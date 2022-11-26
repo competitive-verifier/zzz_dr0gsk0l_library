@@ -2,19 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/Polynomial/Exp.test.cpp
-    title: test/library-checker/Polynomial/Exp.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/Polynomial/Inv.test.cpp
-    title: test/library-checker/Polynomial/Inv.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/Polynomial/Log.test.cpp
-    title: test/library-checker/Polynomial/Log.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 1 \"formalpowerseries/base.cpp\"\n#define REP_(i,n) for(int\
@@ -111,11 +102,8 @@ data:
   path: formalpowerseries/base.cpp
   requiredBy: []
   timestamp: '2022-09-08 17:20:23+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library-checker/Polynomial/Inv.test.cpp
-  - test/library-checker/Polynomial/Exp.test.cpp
-  - test/library-checker/Polynomial/Log.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: formalpowerseries/base.cpp
 layout: document
 redirect_from:

@@ -11,8 +11,8 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"string/run_enumerate.cpp\"\n#include <atcoder/string>\n\
-    using namespace atcoder;\n\n#define SIZE_(s) int(s.size())\nstruct RunEnumerate{\n\
+  bundledCode: "#line 1 \"string/RunEnumerate.cpp\"\n#include <atcoder/string>\nusing\
+    \ namespace atcoder;\n\n#define SIZE_(s) int(s.size())\nstruct RunEnumerate{\n\
     \  string s;\n  RunEnumerate(string s):s(s){ build(); }\n\n  struct Run{\n   \
     \ int t,l,r;\n    Run()=default;\n    Run(int t,int l,int r):t(t),l(l),r(r){}\n\
     \  };\n  vector<Run> ans;\n\n  queue<pair<int,int>> que;\n  string REV(string\
@@ -74,16 +74,16 @@ data:
     \      solve(l,r);\n    }\n    arrangement();\n  }\n};\n#undef SIZE_"
   dependsOn: []
   isVerificationFile: false
-  path: string/run_enumerate.cpp
+  path: string/RunEnumerate.cpp
   requiredBy: []
-  timestamp: '2022-09-08 17:20:23+09:00'
+  timestamp: '2022-11-26 09:11:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library-checker/String/RunEnumerate.test.cpp
-documentation_of: string/run_enumerate.cpp
+documentation_of: string/RunEnumerate.cpp
 layout: document
 redirect_from:
-- /library/string/run_enumerate.cpp
-- /library/string/run_enumerate.cpp.html
-title: string/run_enumerate.cpp
+- /library/string/RunEnumerate.cpp
+- /library/string/RunEnumerate.cpp.html
+title: string/RunEnumerate.cpp
 ---

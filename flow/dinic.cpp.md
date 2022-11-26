@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/AOJ/GRL_6_A.test.cpp
-    title: test/AOJ/GRL_6_A.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links:
     - https://misawa.github.io/others/flow/dinic_time_complexity.html
@@ -75,9 +72,8 @@ data:
   path: flow/dinic.cpp
   requiredBy: []
   timestamp: '2022-09-09 16:16:59+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/AOJ/GRL_6_A.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: flow/dinic.cpp
 layout: document
 redirect_from:

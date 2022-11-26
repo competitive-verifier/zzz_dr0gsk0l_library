@@ -2,11 +2,11 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: algebra/group_add.cpp
-    title: algebra/group_add.cpp
+    path: algebra/group/Add.cpp
+    title: algebra/group/Add.cpp
   - icon: ':heavy_check_mark:'
-    path: segtree/segtree.cpp
-    title: segtree/segtree.cpp
+    path: segtree/SegmentTree.cpp
+    title: segtree/SegmentTree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -19,9 +19,9 @@ data:
     - https://judge.yosupo.jp/problem/point_add_range_sum
   bundledCode: "#line 1 \"test/library-checker/DataStructure/PointAddRangeSum.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"segtree/segtree.cpp\"\ntemplate<class\
-    \ Monoid>\nclass SegmentTree{\n  using X=typename Monoid::value_type;\n  vector<X>\
-    \ dat;\n  int n,log,size;\n\n  void update(int i){ dat[i]=Monoid::op(dat[2*i],dat[2*i+1]);\
+    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"segtree/SegmentTree.cpp\"\
+    \ntemplate<class Monoid>\nclass SegmentTree{\n  using X=typename Monoid::value_type;\n\
+    \  vector<X> dat;\n  int n,log,size;\n\n  void update(int i){ dat[i]=Monoid::op(dat[2*i],dat[2*i+1]);\
     \ }\npublic:\n  SegmentTree():SegmentTree(0){}\n  SegmentTree(int n):SegmentTree(vector<X>(n,\
     \ Monoid::unit())){}\n  SegmentTree(vector<X> v):n(v.size()){\n    for(log=1;(1<<log)<n;log++){}\n\
     \    size=1<<log;\n    dat.assign(size<<1,Monoid::unit());\n    for (int i=0;i<n;++i)dat[size+i]=v[i];\n\
@@ -58,29 +58,29 @@ data:
     \    os<<\"(\";\n    for(int L=1;L<=size;L<<=1){\n      os<<\"[\";\n      for(int\
     \ j=L;j<(L<<1);j++){\n        os<<dat[j];\n        if(j+1<(L<<1))os<<\",\";\n\
     \      }\n      os<<\"]\";\n    }\n    os<<\")\";\n    return os;\n  }\n};\n#line\
-    \ 2 \"algebra/group_add.cpp\"\ntemplate<typename X>\nstruct Group_Add {\n  using\
+    \ 2 \"algebra/group/Add.cpp\"\ntemplate<typename X>\nstruct GroupAdd {\n  using\
     \ value_type = X;\n  static constexpr X op(const X &x, const X &y) noexcept {\
     \ return x + y; }\n  static constexpr X inverse(const X &x) noexcept { return\
     \ -x; }\n  static constexpr X power(const X &x, long long n) noexcept { return\
     \ X(n) * x; }\n  static constexpr X unit() { return X(0); }\n  static constexpr\
     \ bool commute = true;\n};\n#line 7 \"test/library-checker/DataStructure/PointAddRangeSum.test.cpp\"\
-    \n\nusing ll=long long;\nusing G=Group_Add<ll>;\n\nint main(){\n  int n,q;cin>>n>>q;\n\
+    \n\nusing ll=long long;\nusing G=GroupAdd<ll>;\n\nint main(){\n  int n,q;cin>>n>>q;\n\
     \  vector<ll> v(n);\n  for(int i=0;i<n;i++)cin>>v[i];\n  SegmentTree<G> seg(v);\n\
     \  while(q--){\n    int t,l,r;cin>>t>>l>>r;\n    if(t)cout<<seg.prod(l,r)<<\"\\\
     n\";\n    else seg.multiply(l,r);\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\
-    #include <bits/stdc++.h>\nusing namespace std;\n\n#include \"segtree/segtree.cpp\"\
-    \n#include \"algebra/group_add.cpp\"\n\nusing ll=long long;\nusing G=Group_Add<ll>;\n\
+    #include <bits/stdc++.h>\nusing namespace std;\n\n#include \"segtree/SegmentTree.cpp\"\
+    \n#include \"algebra/group/Add.cpp\"\n\nusing ll=long long;\nusing G=GroupAdd<ll>;\n\
     \nint main(){\n  int n,q;cin>>n>>q;\n  vector<ll> v(n);\n  for(int i=0;i<n;i++)cin>>v[i];\n\
     \  SegmentTree<G> seg(v);\n  while(q--){\n    int t,l,r;cin>>t>>l>>r;\n    if(t)cout<<seg.prod(l,r)<<\"\
     \\n\";\n    else seg.multiply(l,r);\n  }\n}"
   dependsOn:
-  - segtree/segtree.cpp
-  - algebra/group_add.cpp
+  - segtree/SegmentTree.cpp
+  - algebra/group/Add.cpp
   isVerificationFile: true
   path: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
   requiredBy: []
-  timestamp: '2022-11-25 19:28:01+09:00'
+  timestamp: '2022-11-26 09:11:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/DataStructure/PointAddRangeSum.test.cpp

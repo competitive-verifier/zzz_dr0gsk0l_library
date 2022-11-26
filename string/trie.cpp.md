@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: string/ahocorasick.cpp
-    title: AhoCorasick
+  _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
@@ -54,8 +51,7 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: string/trie.cpp
-  requiredBy:
-  - string/ahocorasick.cpp
+  requiredBy: []
   timestamp: '2022-09-11 17:55:07+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

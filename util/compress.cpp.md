@@ -1,17 +1,11 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: util/inversion_number.cpp
-    title: util/inversion_number.cpp
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/AOJ/ALDS1_5_D.test.cpp
-    title: test/AOJ/ALDS1_5_D.test.cpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 1 \"util/compress.cpp\"\ntemplate<typename T>\nstruct Compress{\n\
@@ -37,12 +31,10 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: util/compress.cpp
-  requiredBy:
-  - util/inversion_number.cpp
+  requiredBy: []
   timestamp: '2022-09-22 11:37:14+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/AOJ/ALDS1_5_D.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: util/compress.cpp
 layout: document
 redirect_from:

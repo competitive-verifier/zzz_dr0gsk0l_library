@@ -1,22 +1,15 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: formalpowerseries/base.cpp
-    title: formalpowerseries/base.cpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
-  attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/log_of_formal_power_series
-    links:
-    - https://judge.yosupo.jp/problem/log_of_formal_power_series
+  _verificationStatusIcon: ':x:'
+  attributes: {}
   bundledCode: "#line 1 \"test/library-checker/Polynomial/Log.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/log_of_formal_power_series\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#include <formalpowerseries/base.cpp>\n\
+    \ <bits/stdc++.h>\nusing namespace std;\n\n#include <formalpowerseries/Base.cpp>\n\
     \n#include <atcoder/modint>\n#include <atcoder/convolution>\nusing namespace atcoder;\n\
     using mint=modint998244353;\nostream& operator<<(ostream &os,mint a){os<<a.val();return\
     \ os;}\nistream& operator>>(istream &is,mint &a){\n  long long b;is>>b;a=b;\n\
@@ -25,7 +18,7 @@ data:
     \ f(n);\n  for(int i=0;i<n;i++)cin>>f[i];\n  auto g=FPS::log(f);\n  for(int i=0;i<n;i++)cout<<g[i]<<\"\
     \\n \"[i+1<n];\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/log_of_formal_power_series\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include <formalpowerseries/base.cpp>\n\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include <formalpowerseries/Base.cpp>\n\
     \n#include <atcoder/modint>\n#include <atcoder/convolution>\nusing namespace atcoder;\n\
     using mint=modint998244353;\nostream& operator<<(ostream &os,mint a){os<<a.val();return\
     \ os;}\nistream& operator>>(istream &is,mint &a){\n  long long b;is>>b;a=b;\n\
@@ -33,13 +26,12 @@ data:
     \  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n  \n  int n;cin>>n;\n  FPS\
     \ f(n);\n  for(int i=0;i<n;i++)cin>>f[i];\n  auto g=FPS::log(f);\n  for(int i=0;i<n;i++)cout<<g[i]<<\"\
     \\n \"[i+1<n];\n}"
-  dependsOn:
-  - formalpowerseries/base.cpp
+  dependsOn: []
   isVerificationFile: true
   path: test/library-checker/Polynomial/Log.test.cpp
   requiredBy: []
-  timestamp: '2022-09-08 17:20:23+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-11-26 09:11:25+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library-checker/Polynomial/Log.test.cpp
 layout: document

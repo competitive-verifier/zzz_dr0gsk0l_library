@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/DataStructure/predecessor_problem.test.cpp
-    title: test/library-checker/DataStructure/predecessor_problem.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 1 \"superstd/set.cpp\"\ntemplate<typename T>\nstruct Set:set<T>{\n\
@@ -47,9 +44,8 @@ data:
   path: superstd/set.cpp
   requiredBy: []
   timestamp: '2022-09-13 16:00:41+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library-checker/DataStructure/predecessor_problem.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: superstd/set.cpp
 layout: document
 redirect_from:

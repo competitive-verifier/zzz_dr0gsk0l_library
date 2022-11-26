@@ -1,36 +1,21 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: tree/TreeMonoid.cpp
-    title: tree/TreeMonoid.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
     title: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
-    title: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
-    title: test/library-checker/Tree/vertex_add_path_sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-    title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
-    title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://codeforces.com/contest/1401/problem/F
-  bundledCode: "#line 2 \"segtree/segtree.cpp\"\ntemplate<class Monoid>\nclass SegmentTree{\n\
-    \  using X=typename Monoid::value_type;\n  vector<X> dat;\n  int n,log,size;\n\
-    \n  void update(int i){ dat[i]=Monoid::op(dat[2*i],dat[2*i+1]); }\npublic:\n \
-    \ SegmentTree():SegmentTree(0){}\n  SegmentTree(int n):SegmentTree(vector<X>(n,\
+  bundledCode: "#line 2 \"segtree/SegmentTree.cpp\"\ntemplate<class Monoid>\nclass\
+    \ SegmentTree{\n  using X=typename Monoid::value_type;\n  vector<X> dat;\n  int\
+    \ n,log,size;\n\n  void update(int i){ dat[i]=Monoid::op(dat[2*i],dat[2*i+1]);\
+    \ }\npublic:\n  SegmentTree():SegmentTree(0){}\n  SegmentTree(int n):SegmentTree(vector<X>(n,\
     \ Monoid::unit())){}\n  SegmentTree(vector<X> v):n(v.size()){\n    for(log=1;(1<<log)<n;log++){}\n\
     \    size=1<<log;\n    dat.assign(size<<1,Monoid::unit());\n    for (int i=0;i<n;++i)dat[size+i]=v[i];\n\
     \    for (int i=size-1;i>=1;--i) update(i);\n  }\n\n  X operator[](int i)const{\
@@ -106,21 +91,16 @@ data:
     \      }\n      os<<\"]\";\n    }\n    os<<\")\";\n    return os;\n  }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: segtree/segtree.cpp
-  requiredBy:
-  - tree/TreeMonoid.cpp
-  timestamp: '2022-11-25 19:28:01+09:00'
+  path: segtree/SegmentTree.cpp
+  requiredBy: []
+  timestamp: '2022-11-26 09:11:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library-checker/DataStructure/PointAddRangeSum.test.cpp
-  - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
-  - test/library-checker/Tree/vertex_add_path_sum.test.cpp
-  - test/library-checker/Tree/vertex_set_path_composite.test.cpp
-  - test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-documentation_of: segtree/segtree.cpp
+documentation_of: segtree/SegmentTree.cpp
 layout: document
 redirect_from:
-- /library/segtree/segtree.cpp
-- /library/segtree/segtree.cpp.html
-title: segtree/segtree.cpp
+- /library/segtree/SegmentTree.cpp
+- /library/segtree/SegmentTree.cpp.html
+title: segtree/SegmentTree.cpp
 ---

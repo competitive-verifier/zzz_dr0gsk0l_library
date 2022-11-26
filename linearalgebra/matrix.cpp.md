@@ -2,19 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/Matrix/InverseMatrix.test.cpp
-    title: test/library-checker/Matrix/InverseMatrix.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/Matrix/MatrixProduct.test.cpp
-    title: test/library-checker/Matrix/MatrixProduct.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/Matrix/matrix_det.test.cpp
-    title: test/library-checker/Matrix/matrix_det.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 1 \"linearalgebra/matrix.cpp\"\n#define REP_(i,n) for(int i=0;i<(n);i++)\n\
@@ -90,11 +81,8 @@ data:
   path: linearalgebra/matrix.cpp
   requiredBy: []
   timestamp: '2022-11-23 17:46:48+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library-checker/Matrix/InverseMatrix.test.cpp
-  - test/library-checker/Matrix/matrix_det.test.cpp
-  - test/library-checker/Matrix/MatrixProduct.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: linearalgebra/matrix.cpp
 layout: document
 redirect_from:

@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"mod/mint_utility.cpp\"\ntemplate<typename MINT>\nclass mint_utility\
+  bundledCode: "#line 1 \"mod/MintUtility.cpp\"\ntemplate<typename MINT>\nclass mint_utility\
     \ {\n  vector<MINT> fact_={MINT::raw(1)};\n  vector<MINT> inv_fact_{MINT::raw(1)};\n\
     \  int S=1;//\u4ECA\u306E\u30B5\u30A4\u30BA\n \n  void extend(const int n){\n\
     \    if(n<S)return;\n    const int preS=S;\n    do{S<<=1}while(S<=n);\n\n    fact_.resize(S);\n\
@@ -34,15 +34,15 @@ data:
     };"
   dependsOn: []
   isVerificationFile: false
-  path: mod/mint_utility.cpp
+  path: mod/MintUtility.cpp
   requiredBy: []
-  timestamp: '2022-09-09 14:42:58+09:00'
+  timestamp: '2022-11-26 09:11:25+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: mod/mint_utility.cpp
+documentation_of: mod/MintUtility.cpp
 layout: document
 redirect_from:
-- /library/mod/mint_utility.cpp
-- /library/mod/mint_utility.cpp.html
-title: mod/mint_utility.cpp
+- /library/mod/MintUtility.cpp
+- /library/mod/MintUtility.cpp.html
+title: mod/MintUtility.cpp
 ---

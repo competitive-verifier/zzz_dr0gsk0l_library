@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/library-checker/DataStructure/double_ended_priority_queue.test.cpp
-    title: test/library-checker/DataStructure/double_ended_priority_queue.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 1 \"superstd/multiset.cpp\"\ntemplate<typename T>\nstruct Multiset:map<T,int>{\n\
@@ -54,9 +51,8 @@ data:
   path: superstd/multiset.cpp
   requiredBy: []
   timestamp: '2022-11-19 20:41:34+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library-checker/DataStructure/double_ended_priority_queue.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: superstd/multiset.cpp
 layout: document
 redirect_from:

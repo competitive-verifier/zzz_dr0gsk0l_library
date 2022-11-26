@@ -3,10 +3,11 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
-  attributes: {}
+  _verificationStatusIcon: ':warning:'
+  attributes:
+    links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -17,28 +18,24 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: mod/Modint.cpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: util/Compress.cpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/RangeAffineRangeSum.cpp\"\
-    \n#include \"segtree/LazySegmentTree.cpp\"\n#include \"mod/Modint.cpp\"\n\nusing\
-    \ mint=Mint<long long>;\n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\
-    \  \n  int n,q;cin>>n>>q;\n\n  vector<pair<mint,mint>> v(n);\n  for(auto&[a,b]:v){\
-    \ cin>>a; b=1; }\n  LazySegTree< LazyRangeAffineRangeSum<mint> > seg(v);\n\n \
-    \ while(q--){\n    int t,l,r;cin>>t>>l>>r;\n    if(t)cout<<seg.prod(l,r).first<<'\\\
-    n';\n    else{\n      int b,c;cin>>b>>c;\n      seg.apply(l,r,{b,c});\n    }\n\
-    \  }\n}"
+  code: "#include <atcoder/fenwicktree>\nusing namespace atcoder;\n\n#include \"util/Compress.cpp\"\
+    \n\ntemplate <typename T>\nlong long inversion_number(const vector<T> &v){\n \
+    \ Compress cmp(v);\n  fenwick_tree<int> ft(cmp.size());\n  long long res=0;\n\
+    \  for(int i=int(v.size())-1;i>=0;i--){\n    int j=cmp[v[i]];\n    res+=ft.sum(0,j);\n\
+    \    ft.add(j,1);\n  }\n  return res;\n}"
   dependsOn: []
-  isVerificationFile: true
-  path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+  isVerificationFile: false
+  path: util/InversionNumber.cpp
   requiredBy: []
   timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+documentation_of: util/InversionNumber.cpp
 layout: document
 redirect_from:
-- /verify/test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
-- /verify/test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp.html
-title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+- /library/util/InversionNumber.cpp
+- /library/util/InversionNumber.cpp.html
+title: util/InversionNumber.cpp
 ---

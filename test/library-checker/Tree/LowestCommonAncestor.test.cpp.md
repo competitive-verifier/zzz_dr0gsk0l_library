@@ -1,105 +1,35 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/Graph.cpp
-    title: graph/Graph.cpp
-  - icon: ':heavy_check_mark:'
-    path: tree/hld.cpp
-    title: tree/hld.cpp
-  - icon: ':heavy_check_mark:'
-    path: tree/tree.cpp
-    title: tree/tree.cpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
-  attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/lca
-    links:
-    - https://judge.yosupo.jp/problem/lca
-  bundledCode: "#line 1 \"test/library-checker/Tree/LowestCommonAncestor.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\n#line 2 \"graph/Graph.cpp\"\nstruct Edge{\n  int from,to;\n\
-    \  Edge()=default;\n  Edge(int from,int to):from(from),to(to){}\n};\n\nstruct\
-    \ Graph{\n  int n;\n  using edge_type=Edge;\nprivate:\n  vector<edge_type> edges;\n\
-    \  vector<int> in_deg;\n  bool prepared;\n  class OutgoingEdges{\n    const Graph*\
-    \ g;\n    int l,r;\n  public:\n    OutgoingEdges(const Graph* g,int l,int r):g(g),l(l),r(r){}\n\
-    \    const edge_type* begin()const{ return &(g->edges[l]); }\n    const edge_type*\
-    \ end()const{ return &(g->edges[r]); }\n    const edge_type* operator[](int i)const{\
-    \ return &(g->edges[l+i]); }\n    int size()const{ return r-l; }\n  };\npublic:\n\
-    \  OutgoingEdges operator[](int v)const{\n    assert(prepared);\n    return {\
-    \ this,in_deg[v],in_deg[v+1] };\n  }\n\n  bool is_prepared()const{ return prepared;\
-    \ }\n\n  Graph():n(0),in_deg(1,0),prepared(false){}\n  Graph(int n):n(n),in_deg(n+1,0),prepared(false){}\n\
-    \  Graph(int n,int m,bool directed=false,int indexed=1):\n    n(n),in_deg(n+1,0),prepared(false){\
-    \ scan(m,directed,indexed); }\n\n  void resize(int n){n=n;}\n\n  void add_arc(int\
-    \ from,int to){\n    assert(!prepared);\n    assert(0<=from and from<n and 0<=to\
-    \ and to<n);\n    edges.emplace_back(from,to);\n    in_deg[from+1]++;\n  }\n \
-    \ void add_edge(int u,int v){\n    add_arc(u,v);\n    add_arc(v,u);\n  }\n\n \
-    \ void scan(int m,bool directed=false,int indexed=1){\n    edges.reserve(directed?m:2*m);\n\
-    \    while(m--){\n      int u,v;cin>>u>>v;u-=indexed;v-=indexed;\n      if(directed)add_arc(u,v);\n\
-    \      else add_edge(u,v);\n    }\n    build();\n  }\n\n  void build(){\n    assert(!prepared);prepared=true;\n\
-    \    for(int v=0;v<n;v++)in_deg[v+1]+=in_deg[v];\n    vector<edge_type> new_edges(in_deg.back());\n\
-    \    auto counter=in_deg;\n    for(auto&&e:edges)new_edges[ counter[e.from]++\
-    \ ]=e;\n    edges=new_edges;\n  }\n\n  void graph_debug()const{\n  #ifndef __LOCAL\n\
-    \    return;\n  #endif\n    assert(prepared);\n    for(int from=0;from<n;from++){\n\
-    \      cerr<<from<<\";\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n\
-    \        cerr<<edges[i].to<<\" \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n#line\
-    \ 3 \"tree/tree.cpp\"\nstruct Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n\
-    \  vector<vector<int>> son;\n  vector<int> DFS,BFS,parent,depth;\n\n  void scan_root(int\
-    \ indexed=1){\n    for(int i=1;i<n;i++){\n      int p;cin>>p;\n      add_edge(p-indexed,i);\n\
-    \    }\n    build();\n  }\n  void scan(int indexed=1){\n    Graph::scan(n-1,false,indexed);\n\
-    \    build();\n  }\n\nprivate:\n  void dfs(int idx,int pre=-1){\n    parent[idx]=pre;\n\
-    \    for(const auto&e:(*this)[idx])if(e.to!=pre){\n      depth[e.to]=depth[idx]+1;\n\
-    \      dfs(e.to,idx);\n      son[idx].push_back(e.to);\n    }\n    DFS.push_back(idx);\n\
-    \  }\npublic:\n  void build(int r=0){\n    if(!is_prepared())Graph::build();\n\
-    \    if(~root){\n      assert(r==root);\n      return;\n    }\n    root=r;\n \
-    \   son.resize(n);parent.resize(n);depth.resize(n);\n    DFS.reserve(n);BFS.reserve(n);\n\
-    \    depth[root]=0;\n    dfs(root);\n    queue<int> que;\n    que.push(root);\n\
-    \    while(que.size()){\n      int p=que.front();que.pop();\n      BFS.push_back(p);\n\
-    \      for(int c:son[p])que.push(c);\n    }\n  }\n};\n#line 2 \"tree/hld.cpp\"\
-    \ntemplate<typename TREE>\nstruct HLD{\n  int n;\n  TREE T;\n  vector<int> sz,head,id,id2;\n\
-    \  bool prepared;\n  HLD(TREE T_):T(T_),n(T_.n),sz(n),head(n),id(n),id2(n),prepared(false){}\n\
-    private:\n  void dfs_sz(int v){\n    sz[v]=1;\n    for(int c:T.son[v]){\n    \
-    \  sz[v]+=sz[c];\n      if(sz[c]>sz[T.son[v][0]])swap(c,T.son[v][0]);\n    }\n\
-    \  }\n  void dfs_hld(int v,int& k){\n    id[v]=k++;\n    for(int c:T.son[v]){\n\
-    \      head[c]=(c==T.son[v][0]?head[v]:c);\n      dfs_hld(c,k);\n    }\n    id2[v]=k;\n\
-    \  }\npublic:\n  vector<int> build(int r=0){\n    assert(!prepared);prepared=true;\n\
-    \    if(~T.root)assert(T.root==r);\n    else T.build(r);\n    head[r]=r;\n   \
-    \ dfs_sz(r);\n    int k=0;\n    dfs_hld(r,k);\n    return id;\n  }\n\n  int lca(int\
-    \ u,int v){\n    assert(prepared);\n    while(head[u]!=head[v]){\n      if(T.depth[head[u]]>T.depth[head[v]])u=T.parent[head[u]];\n\
-    \      else v=T.parent[head[v]];\n    }\n    return (T.depth[u]<T.depth[v]?u:v);\n\
-    \  }\n\n  // l=lca(u,v) \u3068\u3057\u305F\u6642\u3001[u,l] \u30D1\u30B9\u3068\
-    \ [v,l] \u30D1\u30B9 \u3092\u9589\u533A\u9593\u306E\u7D44\u307F\u3067\u8FD4\u3059\
-    \n  using path_t=vector<pair<int,int>>;\n  pair<path_t,path_t> path(int u,int\
-    \ v){\n    assert(prepared);\n    path_t path_u,path_v;\n    while(u!=v){\n  \
-    \    if(head[u]==head[v]){\n        if(T.depth[u]<T.depth[v])\n          path_v.emplace_back(id[v],id[u]);\n\
-    \        else\n          path_u.emplace_back(id[u],id[v]);\n        break;\n \
-    \     }\n      if(T.depth[head[u]]<T.depth[head[v]]){\n        path_v.emplace_back(id[v],id[head[v]]);\n\
-    \        v=T.parent[head[v]];\n      }\n      else{\n        path_u.emplace_back(id[u],id[head[u]]);\n\
-    \        u=T.parent[head[u]];\n      }\n    }\n    if(u==v)path_u.emplace_back(id[u],id[u]);\n\
-    \    return {path_u,path_v};\n  }\n\n  // [l,r) \u304C v \u306E\u90E8\u5206\u6728\
-    \n  pair<int,int> subtree(int v){\n    assert(prepared);\n    return {id[v],id2[v]};\
-    \ \n  }\n};\n#line 7 \"test/library-checker/Tree/LowestCommonAncestor.test.cpp\"\
-    \n\nint main(){\n  int n,q;cin>>n>>q;\n  Tree t(n);\n  t.scan_root(0);\n  HLD\
-    \ hld(t);\n  hld.build();\n  while(q--){\n    int u,v;cin>>u>>v;\n    cout<<hld.lca(u,v)<<\"\
-    \\n\";\n  }\n}\n"
+  _verificationStatusIcon: ':x:'
+  attributes: {}
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
+    \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
+    \  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
+    \ File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: tree/Tree.cpp:\
+    \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\n#include \"tree/tree.cpp\"\n#include \"tree/hld.cpp\"\n\
+    using namespace std;\n\n#include \"tree/Tree.cpp\"\n#include \"tree/HLD.cpp\"\n\
     \nint main(){\n  int n,q;cin>>n>>q;\n  Tree t(n);\n  t.scan_root(0);\n  HLD hld(t);\n\
     \  hld.build();\n  while(q--){\n    int u,v;cin>>u>>v;\n    cout<<hld.lca(u,v)<<\"\
     \\n\";\n  }\n}"
-  dependsOn:
-  - tree/tree.cpp
-  - graph/Graph.cpp
-  - tree/hld.cpp
+  dependsOn: []
   isVerificationFile: true
   path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
   requiredBy: []
-  timestamp: '2022-11-19 13:22:40+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '1970-01-01 00:00:00+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library-checker/Tree/LowestCommonAncestor.test.cpp
 layout: document
