@@ -11,10 +11,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: algebra/group/Add.cpp
       title: algebra/group/Add.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: algebra/group/Affine.cpp
       title: algebra/group/Affine.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: algebra/group/CntSum.cpp
       title: algebra/group/CntSum.cpp
     - icon: ':warning:'
@@ -25,7 +25,7 @@ data:
       title: algebra/group/Xor.cpp
   - name: algebra/lazy
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: algebra/lazy/RangeAffineRangeSum.cpp
       title: algebra/lazy/RangeAffineRangeSum.cpp
   - name: algebra/monoid
@@ -74,12 +74,12 @@ data:
       title: datastructure/UnionFind.cpp
   - name: flow
     pages:
-    - icon: ':warning:'
-      path: flow/dinic.cpp
-      title: flow/dinic.cpp
+    - icon: ':heavy_check_mark:'
+      path: flow/Dinic.cpp
+      title: flow/Dinic.cpp
   - name: formalpowerseries
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: formalpowerseries/Base.cpp
       title: formalpowerseries/Base.cpp
   - name: graph
@@ -87,7 +87,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/Dijkstra.cpp
       title: graph/Dijkstra.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
     - icon: ':heavy_check_mark:'
@@ -103,12 +103,12 @@ data:
     - icon: ':warning:'
       path: mod/MintUtility.cpp
       title: mod/MintUtility.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: mod/Modint.cpp
       title: mod/Modint.cpp
   - name: segtree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: segtree/LazySegmentTree.cpp
       title: segtree/LazySegmentTree.cpp
     - icon: ':heavy_check_mark:'
@@ -141,24 +141,24 @@ data:
       title: superstd/Set.cpp
   - name: tree
     pages:
+    - icon: ':heavy_check_mark:'
+      path: tree/HLD.cpp
+      title: tree/HLD.cpp
+    - icon: ':heavy_check_mark:'
+      path: tree/Tree.cpp
+      title: tree/Tree.cpp
     - icon: ':warning:'
       path: tree/TreeMonoid.cpp
       title: tree/TreeMonoid.cpp
-    - icon: ':warning:'
-      path: tree/hld.cpp
-      title: tree/hld.cpp
-    - icon: ':warning:'
-      path: tree/tree.cpp
-      title: tree/tree.cpp
   - name: util
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: util/Compress.cpp
       title: util/Compress.cpp
     - icon: ':warning:'
       path: util/ForAllPareto.cpp
       title: util/ForAllPareto.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: util/InversionNumber.cpp
       title: util/InversionNumber.cpp
     - icon: ':warning:'
@@ -170,10 +170,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/ALDS1_14_B.test.cpp
       title: test/AOJ/ALDS1_14_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/AOJ/ALDS1_5_D.test.cpp
       title: test/AOJ/ALDS1_5_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_6_A.test.cpp
       title: test/AOJ/GRL_6_A.test.cpp
   - name: test/library-checker/DataStructure
@@ -190,7 +190,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/PredecessorProblem.test.cpp
       title: test/library-checker/DataStructure/PredecessorProblem.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
       title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
     - icon: ':heavy_check_mark:'
@@ -217,7 +217,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Matrix/Inverse.test.cpp
       title: test/library-checker/Matrix/Inverse.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Matrix/Product.test.cpp
       title: test/library-checker/Matrix/Product.test.cpp
   - name: test/library-checker/Polynomial
@@ -225,10 +225,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Polynomial/Exp.test.cpp
       title: test/library-checker/Polynomial/Exp.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Polynomial/Inv.test.cpp
       title: test/library-checker/Polynomial/Inv.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Polynomial/Log.test.cpp
       title: test/library-checker/Polynomial/Log.test.cpp
   - name: test/library-checker/String
@@ -238,7 +238,7 @@ data:
       title: test/library-checker/String/RunEnumerate.test.cpp
   - name: test/library-checker/Tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
       title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
     - icon: ':x:'

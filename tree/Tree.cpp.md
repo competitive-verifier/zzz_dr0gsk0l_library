@@ -1,14 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: graph/Graph.cpp
     title: graph/Graph.cpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
+    title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/Graph.cpp\"\nstruct Edge{\n  int from,to;\n  Edge()=default;\n\
@@ -36,7 +39,7 @@ data:
     \    return;\n  #endif\n    assert(prepared);\n    for(int from=0;from<n;from++){\n\
     \      cerr<<from<<\";\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n\
     \        cerr<<edges[i].to<<\" \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n#line\
-    \ 3 \"tree/tree.cpp\"\nstruct Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n\
+    \ 3 \"tree/Tree.cpp\"\nstruct Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n\
     \  vector<vector<int>> son;\n  vector<int> DFS,BFS,parent,depth;\n\n  void scan_root(int\
     \ indexed=1){\n    for(int i=1;i<n;i++){\n      int p;cin>>p;\n      add_edge(p-indexed,i);\n\
     \    }\n    build();\n  }\n  void scan(int indexed=1){\n    Graph::scan(n-1,false,indexed);\n\
@@ -65,15 +68,16 @@ data:
   dependsOn:
   - graph/Graph.cpp
   isVerificationFile: false
-  path: tree/tree.cpp
+  path: tree/Tree.cpp
   requiredBy: []
-  timestamp: '2022-11-19 13:06:23+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
-documentation_of: tree/tree.cpp
+  timestamp: '2022-11-26 10:16:59+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library-checker/Tree/LowestCommonAncestor.test.cpp
+documentation_of: tree/Tree.cpp
 layout: document
 redirect_from:
-- /library/tree/tree.cpp
-- /library/tree/tree.cpp.html
-title: tree/tree.cpp
+- /library/tree/Tree.cpp
+- /library/tree/Tree.cpp.html
+title: tree/Tree.cpp
 ---

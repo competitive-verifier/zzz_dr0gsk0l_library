@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: linearalgebra/Matrix.cpp
     title: linearalgebra/Matrix.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: mod/Modint.cpp
     title: mod/Modint.cpp
   _extendedRequiredBy: []

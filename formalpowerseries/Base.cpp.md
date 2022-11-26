@@ -6,15 +6,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/Polynomial/Exp.test.cpp
     title: test/library-checker/Polynomial/Exp.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Polynomial/Inv.test.cpp
     title: test/library-checker/Polynomial/Inv.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Polynomial/Log.test.cpp
     title: test/library-checker/Polynomial/Log.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"formalpowerseries/Base.cpp\"\n#define REP_(i,n) for(int\
@@ -111,7 +111,7 @@ data:
   path: formalpowerseries/Base.cpp
   requiredBy: []
   timestamp: '2022-11-26 09:34:53+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library-checker/Polynomial/Inv.test.cpp
   - test/library-checker/Polynomial/Exp.test.cpp

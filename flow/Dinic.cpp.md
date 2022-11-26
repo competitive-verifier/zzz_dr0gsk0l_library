@@ -2,14 +2,17 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/AOJ/GRL_6_A.test.cpp
+    title: test/AOJ/GRL_6_A.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://misawa.github.io/others/flow/dinic_time_complexity.html
-  bundledCode: "#line 1 \"flow/dinic.cpp\"\n// https://misawa.github.io/others/flow/dinic_time_complexity.html\n\
+  bundledCode: "#line 1 \"flow/Dinic.cpp\"\n// https://misawa.github.io/others/flow/dinic_time_complexity.html\n\
     template<typename T>\nclass Dinic{\n  struct edge{\n    const int to,rev;\n  \
     \  T cap;\n    edge(){}\n    edge(int to,int cap,int rev):to(to),cap(cap),rev(rev){}\
     \ \n  };\n  vector<vector<edge>> G;\n  vector<int> lavel,current_edge;\n  int\
@@ -69,15 +72,16 @@ data:
     \ st_flow(int s_,int t_){ s=s_;t=t_; return flow(); }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: flow/dinic.cpp
+  path: flow/Dinic.cpp
   requiredBy: []
-  timestamp: '2022-09-09 16:16:59+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
-documentation_of: flow/dinic.cpp
+  timestamp: '2022-11-26 10:16:59+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/AOJ/GRL_6_A.test.cpp
+documentation_of: flow/Dinic.cpp
 layout: document
 redirect_from:
-- /library/flow/dinic.cpp
-- /library/flow/dinic.cpp.html
-title: flow/dinic.cpp
+- /library/flow/Dinic.cpp
+- /library/flow/Dinic.cpp.html
+title: flow/Dinic.cpp
 ---

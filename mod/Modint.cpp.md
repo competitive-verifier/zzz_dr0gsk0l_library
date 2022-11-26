@@ -6,7 +6,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
     title: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
     title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -15,9 +15,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/Matrix/Inverse.test.cpp
     title: test/library-checker/Matrix/Inverse.test.cpp
-  _isVerificationFailed: true
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/Matrix/Product.test.cpp
+    title: test/library-checker/Matrix/Product.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"mod/Modint.cpp\"\ntemplate<typename T,T MOD=998244353>\n\
@@ -65,10 +68,11 @@ data:
   path: mod/Modint.cpp
   requiredBy: []
   timestamp: '2022-11-26 09:34:53+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
   - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
+  - test/library-checker/Matrix/Product.test.cpp
   - test/library-checker/Matrix/Det.test.cpp
   - test/library-checker/Matrix/Inverse.test.cpp
 documentation_of: mod/Modint.cpp

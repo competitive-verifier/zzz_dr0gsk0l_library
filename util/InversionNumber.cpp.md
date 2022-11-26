@@ -1,14 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: util/Compress.cpp
     title: util/Compress.cpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/AOJ/ALDS1_5_D.test.cpp
+    title: test/AOJ/ALDS1_5_D.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"util/InversionNumber.cpp\"\n#include <atcoder/fenwicktree>\n\
@@ -38,8 +41,9 @@ data:
   path: util/InversionNumber.cpp
   requiredBy: []
   timestamp: '2022-11-26 09:34:53+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/AOJ/ALDS1_5_D.test.cpp
 documentation_of: util/InversionNumber.cpp
 layout: document
 redirect_from:

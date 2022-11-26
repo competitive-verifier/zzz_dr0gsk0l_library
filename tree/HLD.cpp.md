@@ -2,13 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
+    title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"tree/hld.cpp\"\ntemplate<typename TREE>\nstruct HLD{\n \
+  bundledCode: "#line 2 \"tree/HLD.cpp\"\ntemplate<typename TREE>\nstruct HLD{\n \
     \ int n;\n  TREE T;\n  vector<int> sz,head,id,id2;\n  bool prepared;\n  HLD(TREE\
     \ T_):T(T_),n(T_.n),sz(n),head(n),id(n),id2(n),prepared(false){}\nprivate:\n \
     \ void dfs_sz(int v){\n    sz[v]=1;\n    for(int c:T.son[v]){\n      sz[v]+=sz[c];\n\
@@ -57,15 +60,16 @@ data:
     \ \n  }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: tree/hld.cpp
+  path: tree/HLD.cpp
   requiredBy: []
-  timestamp: '2022-11-19 13:06:23+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
-documentation_of: tree/hld.cpp
+  timestamp: '2022-11-26 10:16:59+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library-checker/Tree/LowestCommonAncestor.test.cpp
+documentation_of: tree/HLD.cpp
 layout: document
 redirect_from:
-- /library/tree/hld.cpp
-- /library/tree/hld.cpp.html
-title: tree/hld.cpp
+- /library/tree/HLD.cpp
+- /library/tree/HLD.cpp.html
+title: tree/HLD.cpp
 ---

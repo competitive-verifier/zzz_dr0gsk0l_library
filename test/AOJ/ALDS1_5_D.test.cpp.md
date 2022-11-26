@@ -1,34 +1,53 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: util/Compress.cpp
+    title: util/Compress.cpp
+  - icon: ':heavy_check_mark:'
+    path: util/InversionNumber.cpp
+    title: util/InversionNumber.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
-  attributes: {}
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
-    \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
-    \ File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: util/inversion_number.cpp:\
-    \ line -1: no such header\n"
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D&lang=ja
+    links:
+    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D&lang=ja
+  bundledCode: "#line 1 \"test/AOJ/ALDS1_5_D.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D&lang=ja\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 1 \"util/InversionNumber.cpp\"\
+    \n#include <atcoder/fenwicktree>\nusing namespace atcoder;\n\n#line 1 \"util/Compress.cpp\"\
+    \ntemplate<typename T>\nstruct Compress{\n  map<T,int> mp;\n  vector<T> rev;\n\
+    \n  Compress()=default;\n  Compress(const vector<T>&v,bool banpei=false){\n  \
+    \  for(const T&a:v)mp[a];\n    if(banpei)mp[numeric_limits<T>::max()],mp[numeric_limits<T>::min()];\n\
+    \    build();\n  }\n  \n  void add(T a){ mp[a]; }\n  void build(){\n    int cnt=0;\n\
+    \    rev.resize(mp.size());\n    for(auto&[val,id]:mp){\n      rev[cnt]=val;\n\
+    \      id=cnt++;\n    }\n  }\n\n  int operator[](T a)const{return mp.at(a);}\n\
+    \  int geq(T a)const{return mp.lower_bound(a)->second;}\n  int leq(T a)const{return\
+    \ (--mp.upper_bound(a))->second;}\n  int gt(T a)const{return mp.upper_bound(a)->second;}\n\
+    \  int lt(T a)const{return (--mp.lower_bound(a))->second;}\n\n  T r(int id)const{return\
+    \ rev[id];}\n\n  int size()const{return mp.size();}\n};\n#line 5 \"util/InversionNumber.cpp\"\
+    \n\ntemplate <typename T>\nlong long inversion_number(const vector<T> &v){\n \
+    \ Compress cmp(v);\n  fenwick_tree<int> ft(cmp.size());\n  long long res=0;\n\
+    \  for(int i=int(v.size())-1;i>=0;i--){\n    int j=cmp[v[i]];\n    res+=ft.sum(0,j);\n\
+    \    ft.add(j,1);\n  }\n  return res;\n}\n#line 6 \"test/AOJ/ALDS1_5_D.test.cpp\"\
+    \n\nint main(){\n  int n;cin>>n;\n  vector<int> v(n);\n  for(int i=0;i<n;i++)cin>>v[i];\n\
+    \  cout<<inversion_number(v)<<endl;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D&lang=ja\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"util/inversion_number.cpp\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"util/InversionNumber.cpp\"\
     \n\nint main(){\n  int n;cin>>n;\n  vector<int> v(n);\n  for(int i=0;i<n;i++)cin>>v[i];\n\
     \  cout<<inversion_number(v)<<endl;\n}"
-  dependsOn: []
+  dependsOn:
+  - util/InversionNumber.cpp
+  - util/Compress.cpp
   isVerificationFile: true
   path: test/AOJ/ALDS1_5_D.test.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-26 10:16:59+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/ALDS1_5_D.test.cpp
 layout: document

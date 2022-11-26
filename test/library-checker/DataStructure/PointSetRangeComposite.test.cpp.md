@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: algebra/Reverse.cpp
     title: algebra/Reverse.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/group/Affine.cpp
     title: algebra/group/Affine.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: mod/Modint.cpp
     title: mod/Modint.cpp
   - icon: ':heavy_check_mark:'

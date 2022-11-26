@@ -9,6 +9,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/Matrix/Inverse.test.cpp
     title: test/library-checker/Matrix/Inverse.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/Matrix/Product.test.cpp
+    title: test/library-checker/Matrix/Product.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -89,6 +92,7 @@ data:
   timestamp: '2022-11-26 09:34:53+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library-checker/Matrix/Product.test.cpp
   - test/library-checker/Matrix/Det.test.cpp
   - test/library-checker/Matrix/Inverse.test.cpp
 documentation_of: linearalgebra/Matrix.cpp
