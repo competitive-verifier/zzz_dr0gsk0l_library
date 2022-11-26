@@ -30,8 +30,9 @@ data:
     \ }\n    const edge_type* end()const{ return &(g->edges[r]); }\n    const edge_type*\
     \ operator[](int i)const{ return &(g->edges[l+i]); }\n    int size()const{ return\
     \ r-l; }\n  };\npublic:\n  OutgoingEdges operator[](int v)const{\n    assert(prepared);\n\
-    \    return { this,in_deg[v],in_deg[v+1] };\n  }\n\n  bool is_prepared()const{\
-    \ return prepared; }\n\n  WeightedGraph():n(0),in_deg(1,0),prepared(false){}\n\
+    \    return { this,in_deg[v],in_deg[v+1] };\n  }\n  edge_type* mutable_edge(int\
+    \ from,int edge_id){\n    assert(prepared);\n    return &edges[in_deg[from]+edge_id];\n\
+    \  }\n\n  bool is_prepared()const{ return prepared; }\n\n  WeightedGraph():n(0),in_deg(1,0),prepared(false){}\n\
     \  WeightedGraph(int n):n(n),in_deg(n+1,0),prepared(false){}\n  WeightedGraph(int\
     \ n,int m,bool directed=false,int indexed=1):\n    n(n),in_deg(n+1,0),prepared(false){\
     \ scan(m,directed,indexed); }\n\n  void resize(int n){n=n;}\n\n  void add_arc(int\
@@ -47,8 +48,8 @@ data:
     \ ]=e;\n    edges=new_edges;\n  }\n\n  void graph_debug()const{\n  #ifndef __LOCAL\n\
     \    return;\n  #endif\n    assert(prepared);\n    for(int from=0;from<n;from++){\n\
     \      cerr<<from<<\";\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n\
-    \        cerr<<\"(\"<<edges[i].to<<\",\"<<edges[i].cost<<\")\";\n      cerr<<\"\
-    \\n\";\n    }\n  }\n};\n#line 2 \"graph/Dijkstra.cpp\"\ntemplate<typename WG,typename\
+    \        cerr<<\"(\"<<edges[i].to<<\",\"<<edges[i].cost<<\")\";\n      cerr<<endl;\n\
+    \    }\n  }\n};\n#line 2 \"graph/Dijkstra.cpp\"\ntemplate<typename WG,typename\
     \ T=typename WG::cost_type>\npair<vector<T>,vector<int>> dijkstra(const WG&g,int\
     \ s=0){\n  assert(g.is_prepared());\n  vector<T> d(g.n,-1);\n  vector<int> pre(g.n,-1);\n\
     \  priority_queue< pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>> que;\n\
@@ -77,7 +78,7 @@ data:
   isVerificationFile: true
   path: test/library-checker/Graph/ShortestPath.test.cpp
   requiredBy: []
-  timestamp: '2022-11-26 09:34:53+09:00'
+  timestamp: '2022-11-26 19:38:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/Graph/ShortestPath.test.cpp

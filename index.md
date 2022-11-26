@@ -3,15 +3,15 @@ data:
   libraryCategories:
   - name: algebra
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/Reverse.cpp
       title: algebra/Reverse.cpp
   - name: algebra/group
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/group/Add.cpp
       title: algebra/group/Add.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/group/Affine.cpp
       title: algebra/group/Affine.cpp
     - icon: ':heavy_check_mark:'
@@ -67,6 +67,9 @@ data:
       path: datastructure/Doubling.cpp
       title: datastructure/Doubling.cpp
     - icon: ':warning:'
+      path: datastructure/SWAG.cpp
+      title: datastructure/SWAG.cpp
+    - icon: ':warning:'
       path: datastructure/SlopeTrick.cpp
       title: SlopeTrick
     - icon: ':heavy_check_mark:'
@@ -77,6 +80,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/Dinic.cpp
       title: flow/Dinic.cpp
+    - icon: ':heavy_check_mark:'
+      path: flow/MCF.cpp
+      title: flow/MCF.cpp
   - name: formalpowerseries
     pages:
     - icon: ':heavy_check_mark:'
@@ -87,7 +93,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/Dijkstra.cpp
       title: graph/Dijkstra.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
     - icon: ':heavy_check_mark:'
@@ -111,7 +117,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: segtree/LazySegmentTree.cpp
       title: segtree/LazySegmentTree.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: segtree/SegmentTree.cpp
       title: segtree/SegmentTree.cpp
   - name: string
@@ -141,13 +147,13 @@ data:
       title: superstd/Set.cpp
   - name: tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: tree/HLD.cpp
       title: tree/HLD.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: tree/Tree.cpp
       title: tree/Tree.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: tree/TreeMonoid.cpp
       title: tree/TreeMonoid.cpp
   - name: util
@@ -176,6 +182,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_6_A.test.cpp
       title: test/AOJ/GRL_6_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/AOJ/GRL_6_B.test.cpp
+      title: test/AOJ/GRL_6_B.test.cpp
   - name: test/library-checker/DataStructure
     pages:
     - icon: ':heavy_check_mark:'
@@ -238,16 +247,16 @@ data:
       title: test/library-checker/String/RunEnumerate.test.cpp
   - name: test/library-checker/Tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
       title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
       title: test/library-checker/Tree/vertex_add_path_sum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
       title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
       title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
 layout: toppage
