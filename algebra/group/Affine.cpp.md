@@ -12,6 +12,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
     title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
+    title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -47,6 +50,7 @@ data:
   verifiedWith:
   - test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
   - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
+  - test/library-checker/Tree/vertex_set_path_composite.test.cpp
 documentation_of: algebra/group/Affine.cpp
 layout: document
 redirect_from:

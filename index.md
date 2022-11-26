@@ -147,7 +147,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: tree/Tree.cpp
       title: tree/Tree.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: tree/TreeMonoid.cpp
       title: tree/TreeMonoid.cpp
   - name: util
@@ -241,13 +241,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
       title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
       title: test/library-checker/Tree/vertex_add_path_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
       title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
       title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
 layout: toppage
