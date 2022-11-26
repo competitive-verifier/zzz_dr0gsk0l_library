@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
   _extendedRequiredBy: []
@@ -20,8 +20,8 @@ data:
     \  int n;\n  using cost_type=T;\n  using edge_type=WeightedEdge<T>;\nprivate:\n\
     \  vector<edge_type> edges;\n  vector<int> in_deg;\n  bool prepared;\n  class\
     \ OutgoingEdges{\n    WeightedGraph* g;\n    int l,r;\n  public:\n    OutgoingEdges(WeightedGraph*\
-    \ g,int l,int r):g(g),l(l),r(r){}\n    edge_type& begin(){ return g->edges[l];\
-    \ }\n    edge_type& end(){ return g->edges[r]; }\n    edge_type& operator[](int\
+    \ g,int l,int r):g(g),l(l),r(r){}\n    edge_type* begin(){ return &(g->edges[l]);\
+    \ }\n    edge_type* end(){ return &(g->edges[r]); }\n    edge_type& operator[](int\
     \ i){ return g->edges[l+i]; }\n    int size()const{ return r-l; }\n  };\npublic:\n\
     \  OutgoingEdges operator[](int v){\n    assert(prepared);\n    return { this,in_deg[v],in_deg[v+1]\
     \ };\n  }\n\n  bool is_prepared()const{ return prepared; }\n\n  WeightedGraph():n(0),in_deg(1,0),prepared(false){}\n\
@@ -122,7 +122,7 @@ data:
   isVerificationFile: false
   path: flow/MCF.cpp
   requiredBy: []
-  timestamp: '2022-11-26 20:03:05+09:00'
+  timestamp: '2022-11-26 20:25:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/GRL_6_B.test.cpp

@@ -5,19 +5,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: flow/MCF.cpp
     title: flow/MCF.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/Dijkstra.cpp
     title: graph/Dijkstra.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/AOJ/GRL_6_B.test.cpp
     title: test/AOJ/GRL_6_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Graph/ShortestPath.test.cpp
     title: test/library-checker/Graph/ShortestPath.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/WeightedGraph.cpp\"\ntemplate<typename T>\nstruct\
@@ -26,8 +26,8 @@ data:
     \  int n;\n  using cost_type=T;\n  using edge_type=WeightedEdge<T>;\nprivate:\n\
     \  vector<edge_type> edges;\n  vector<int> in_deg;\n  bool prepared;\n  class\
     \ OutgoingEdges{\n    WeightedGraph* g;\n    int l,r;\n  public:\n    OutgoingEdges(WeightedGraph*\
-    \ g,int l,int r):g(g),l(l),r(r){}\n    edge_type& begin(){ return g->edges[l];\
-    \ }\n    edge_type& end(){ return g->edges[r]; }\n    edge_type& operator[](int\
+    \ g,int l,int r):g(g),l(l),r(r){}\n    edge_type* begin(){ return &(g->edges[l]);\
+    \ }\n    edge_type* end(){ return &(g->edges[r]); }\n    edge_type& operator[](int\
     \ i){ return g->edges[l+i]; }\n    int size()const{ return r-l; }\n  };\npublic:\n\
     \  OutgoingEdges operator[](int v){\n    assert(prepared);\n    return { this,in_deg[v],in_deg[v+1]\
     \ };\n  }\n\n  bool is_prepared()const{ return prepared; }\n\n  WeightedGraph():n(0),in_deg(1,0),prepared(false){}\n\
@@ -54,8 +54,8 @@ data:
     \ n;\n  using cost_type=T;\n  using edge_type=WeightedEdge<T>;\nprivate:\n  vector<edge_type>\
     \ edges;\n  vector<int> in_deg;\n  bool prepared;\n  class OutgoingEdges{\n  \
     \  WeightedGraph* g;\n    int l,r;\n  public:\n    OutgoingEdges(WeightedGraph*\
-    \ g,int l,int r):g(g),l(l),r(r){}\n    edge_type& begin(){ return g->edges[l];\
-    \ }\n    edge_type& end(){ return g->edges[r]; }\n    edge_type& operator[](int\
+    \ g,int l,int r):g(g),l(l),r(r){}\n    edge_type* begin(){ return &(g->edges[l]);\
+    \ }\n    edge_type* end(){ return &(g->edges[r]); }\n    edge_type& operator[](int\
     \ i){ return g->edges[l+i]; }\n    int size()const{ return r-l; }\n  };\npublic:\n\
     \  OutgoingEdges operator[](int v){\n    assert(prepared);\n    return { this,in_deg[v],in_deg[v+1]\
     \ };\n  }\n\n  bool is_prepared()const{ return prepared; }\n\n  WeightedGraph():n(0),in_deg(1,0),prepared(false){}\n\
@@ -82,8 +82,8 @@ data:
   requiredBy:
   - flow/MCF.cpp
   - graph/Dijkstra.cpp
-  timestamp: '2022-11-26 20:03:05+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-11-26 20:25:33+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/GRL_6_B.test.cpp
   - test/library-checker/Graph/ShortestPath.test.cpp

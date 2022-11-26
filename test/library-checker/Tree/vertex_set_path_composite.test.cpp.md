@@ -1,32 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/Reverse.cpp
     title: algebra/Reverse.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/group/Affine.cpp
     title: algebra/group/Affine.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/Graph.cpp
     title: graph/Graph.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: segtree/SegmentTree.cpp
     title: segtree/SegmentTree.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/HLD.cpp
     title: tree/HLD.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/Tree.cpp
     title: tree/Tree.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/TreeMonoid.cpp
     title: tree/TreeMonoid.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/vertex_set_path_composite
@@ -90,8 +90,8 @@ data:
     \ from,int to):from(from),to(to){}\n};\n\nstruct Graph{\n  int n;\n  using edge_type=Edge;\n\
     private:\n  vector<edge_type> edges;\n  vector<int> in_deg;\n  bool prepared;\n\
     \ class OutgoingEdges{\n    Graph* g;\n    int l,r;\n  public:\n    OutgoingEdges(Graph*\
-    \ g,int l,int r):g(g),l(l),r(r){}\n    edge_type& begin(){ return g->edges[l];\
-    \ }\n    edge_type& end(){ return g->edges[r]; }\n    edge_type& operator[](int\
+    \ g,int l,int r):g(g),l(l),r(r){}\n    edge_type* begin(){ return &(g->edges[l]);\
+    \ }\n    edge_type* end(){ return &(g->edges[r]); }\n    edge_type& operator[](int\
     \ i){ return g->edges[l+i]; }\n    int size()const{ return r-l; }\n  };\npublic:\n\
     \  OutgoingEdges operator[](int v){\n    assert(prepared);\n    return { this,in_deg[v],in_deg[v+1]\
     \ };\n  }\n\n  bool is_prepared()const{ return prepared; }\n\n  Graph():n(0),in_deg(1,0),prepared(false){}\n\
@@ -200,8 +200,8 @@ data:
   isVerificationFile: true
   path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-11-26 20:03:05+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-26 20:25:33+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/Tree/vertex_set_path_composite.test.cpp
 layout: document

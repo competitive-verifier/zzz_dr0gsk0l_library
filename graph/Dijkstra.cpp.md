@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Graph/ShortestPath.test.cpp
     title: test/library-checker/Graph/ShortestPath.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/WeightedGraph.cpp\"\ntemplate<typename T>\nstruct\
@@ -20,8 +20,8 @@ data:
     \  int n;\n  using cost_type=T;\n  using edge_type=WeightedEdge<T>;\nprivate:\n\
     \  vector<edge_type> edges;\n  vector<int> in_deg;\n  bool prepared;\n  class\
     \ OutgoingEdges{\n    WeightedGraph* g;\n    int l,r;\n  public:\n    OutgoingEdges(WeightedGraph*\
-    \ g,int l,int r):g(g),l(l),r(r){}\n    edge_type& begin(){ return g->edges[l];\
-    \ }\n    edge_type& end(){ return g->edges[r]; }\n    edge_type& operator[](int\
+    \ g,int l,int r):g(g),l(l),r(r){}\n    edge_type* begin(){ return &(g->edges[l]);\
+    \ }\n    edge_type* end(){ return &(g->edges[r]); }\n    edge_type& operator[](int\
     \ i){ return g->edges[l+i]; }\n    int size()const{ return r-l; }\n  };\npublic:\n\
     \  OutgoingEdges operator[](int v){\n    assert(prepared);\n    return { this,in_deg[v],in_deg[v+1]\
     \ };\n  }\n\n  bool is_prepared()const{ return prepared; }\n\n  WeightedGraph():n(0),in_deg(1,0),prepared(false){}\n\
@@ -42,18 +42,17 @@ data:
     \      cerr<<from<<\";\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n\
     \        cerr<<\"(\"<<edges[i].to<<\",\"<<edges[i].cost<<\")\";\n      cerr<<\"\
     \\n\";\n    }\n  }\n};\n#line 2 \"graph/Dijkstra.cpp\"\ntemplate<typename WG,typename\
-    \ T=typename WG::cost_type>\npair<vector<T>,vector<int>> dijkstra(const WG&g,int\
-    \ s=0){\n  assert(g.is_prepared());\n  vector<T> d(g.n,-1);\n  vector<int> pre(g.n,-1);\n\
+    \ T=typename WG::cost_type>\npair<vector<T>,vector<int>> dijkstra(WG&g,int s=0){\n\
+    \  assert(g.is_prepared());\n  vector<T> d(g.n,-1);\n  vector<int> pre(g.n,-1);\n\
     \  priority_queue< pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>> que;\n\
     \  d[s]=0;\n  que.emplace(0,s);\n  while(que.size()){\n    auto [now,id]=que.top();que.pop();\n\
     \    if(d[id]<now)continue;\n    for(const auto&e:g[id])\n      if(d[e.to]==-1\
     \ || d[e.to]>now+e.cost){\n        d[e.to]=now+e.cost;\n        pre[e.to]=id;\n\
     \        que.emplace(d[e.to],e.to);\n      }\n  }\n  return {d,pre};\n}\n"
   code: "#include \"graph/WeightedGraph.cpp\"\ntemplate<typename WG,typename T=typename\
-    \ WG::cost_type>\npair<vector<T>,vector<int>> dijkstra(const WG&g,int s=0){\n\
-    \  assert(g.is_prepared());\n  vector<T> d(g.n,-1);\n  vector<int> pre(g.n,-1);\n\
-    \  priority_queue< pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>> que;\n\
-    \  d[s]=0;\n  que.emplace(0,s);\n  while(que.size()){\n    auto [now,id]=que.top();que.pop();\n\
+    \ WG::cost_type>\npair<vector<T>,vector<int>> dijkstra(WG&g,int s=0){\n  assert(g.is_prepared());\n\
+    \  vector<T> d(g.n,-1);\n  vector<int> pre(g.n,-1);\n  priority_queue< pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>\
+    \ que;\n  d[s]=0;\n  que.emplace(0,s);\n  while(que.size()){\n    auto [now,id]=que.top();que.pop();\n\
     \    if(d[id]<now)continue;\n    for(const auto&e:g[id])\n      if(d[e.to]==-1\
     \ || d[e.to]>now+e.cost){\n        d[e.to]=now+e.cost;\n        pre[e.to]=id;\n\
     \        que.emplace(d[e.to],e.to);\n      }\n  }\n  return {d,pre};\n}"
@@ -62,8 +61,8 @@ data:
   isVerificationFile: false
   path: graph/Dijkstra.cpp
   requiredBy: []
-  timestamp: '2022-11-26 20:03:05+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-11-26 20:25:33+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library-checker/Graph/ShortestPath.test.cpp
 documentation_of: graph/Dijkstra.cpp
