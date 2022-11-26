@@ -18,9 +18,9 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: segtree/Segtree.cpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: segtree/Segmenttree.cpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"segtree/Segtree.cpp\"\n#include \"algebra/AlgebraReverse.cpp\"\
+  code: "#pragma once\n#include \"segtree/Segmenttree.cpp\"\n#include \"algebra/Reverse.cpp\"\
     \n#include \"tree/HLD.cpp\"\ntemplate<typename TREE,typename Monoid>\nstruct TreeMonoid{\n\
     \  using X=typename Monoid::value_type;\n  using Monoid_r=AlgebraReverse<Monoid>;\n\
     \  int n;\n  TREE T;\n  HLD<Tree> hld;\n  vector<int> hld_id,euler_in,euler_out;\n\
