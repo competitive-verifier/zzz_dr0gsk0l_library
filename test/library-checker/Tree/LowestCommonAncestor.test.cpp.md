@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/Graph.cpp
     title: graph/Graph.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/HLD.cpp
     title: tree/HLD.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/Tree.cpp
     title: tree/Tree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/lca
@@ -31,11 +31,11 @@ data:
     \ end()const{ return &(g->edges[r]); }\n    const edge_type* operator[](int i)const{\
     \ return &(g->edges[l+i]); }\n    int size()const{ return r-l; }\n  };\npublic:\n\
     \  OutgoingEdges operator[](int v)const{\n    assert(prepared);\n    return {\
-    \ this,in_deg[v],in_deg[v+1] };\n  }\n  edge_type& mutable_edge(int v,int edge_id){\n\
-    \    assert(prepared);\n    return edges[v][in_deg[v]+edge_id];\n  }\n\n  bool\
-    \ is_prepared()const{ return prepared; }\n\n  Graph():n(0),in_deg(1,0),prepared(false){}\n\
-    \  Graph(int n):n(n),in_deg(n+1,0),prepared(false){}\n  Graph(int n,int m,bool\
-    \ directed=false,int indexed=1):\n    n(n),in_deg(n+1,0),prepared(false){ scan(m,directed,indexed);\
+    \ this,in_deg[v],in_deg[v+1] };\n  }\n  edge_type* mutable_edge(int v,int edge_id){\n\
+    \    assert(prepared);\n    return &edges[in_deg[v]+edge_id];\n  }\n\n  bool is_prepared()const{\
+    \ return prepared; }\n\n  Graph():n(0),in_deg(1,0),prepared(false){}\n  Graph(int\
+    \ n):n(n),in_deg(n+1,0),prepared(false){}\n  Graph(int n,int m,bool directed=false,int\
+    \ indexed=1):\n    n(n),in_deg(n+1,0),prepared(false){ scan(m,directed,indexed);\
     \ }\n\n  void resize(int n){n=n;}\n\n  void add_arc(int from,int to){\n    assert(!prepared);\n\
     \    assert(0<=from and from<n and 0<=to and to<n);\n    edges.emplace_back(from,to);\n\
     \    in_deg[from+1]++;\n  }\n  void add_edge(int u,int v){\n    add_arc(u,v);\n\
@@ -100,8 +100,8 @@ data:
   isVerificationFile: true
   path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
   requiredBy: []
-  timestamp: '2022-11-26 19:38:09+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-26 19:44:21+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/Tree/LowestCommonAncestor.test.cpp
 layout: document

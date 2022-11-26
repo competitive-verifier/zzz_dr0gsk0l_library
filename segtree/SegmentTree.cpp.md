@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/TreeMonoid.cpp
     title: tree/TreeMonoid.cpp
   _extendedVerifiedWith:
@@ -12,18 +12,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
     title: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_path_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
     title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://codeforces.com/contest/1401/problem/F
@@ -110,7 +110,7 @@ data:
   requiredBy:
   - tree/TreeMonoid.cpp
   timestamp: '2022-11-26 09:11:25+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library-checker/DataStructure/PointAddRangeSum.test.cpp
   - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp

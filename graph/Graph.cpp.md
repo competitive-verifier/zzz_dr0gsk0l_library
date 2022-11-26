@@ -2,25 +2,25 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/Tree.cpp
     title: tree/Tree.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
     title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_path_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
     title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/Graph.cpp\"\nstruct Edge{\n  int from,to;\n  Edge()=default;\n\
@@ -32,11 +32,11 @@ data:
     \ end()const{ return &(g->edges[r]); }\n    const edge_type* operator[](int i)const{\
     \ return &(g->edges[l+i]); }\n    int size()const{ return r-l; }\n  };\npublic:\n\
     \  OutgoingEdges operator[](int v)const{\n    assert(prepared);\n    return {\
-    \ this,in_deg[v],in_deg[v+1] };\n  }\n  edge_type& mutable_edge(int v,int edge_id){\n\
-    \    assert(prepared);\n    return edges[v][in_deg[v]+edge_id];\n  }\n\n  bool\
-    \ is_prepared()const{ return prepared; }\n\n  Graph():n(0),in_deg(1,0),prepared(false){}\n\
-    \  Graph(int n):n(n),in_deg(n+1,0),prepared(false){}\n  Graph(int n,int m,bool\
-    \ directed=false,int indexed=1):\n    n(n),in_deg(n+1,0),prepared(false){ scan(m,directed,indexed);\
+    \ this,in_deg[v],in_deg[v+1] };\n  }\n  edge_type* mutable_edge(int v,int edge_id){\n\
+    \    assert(prepared);\n    return &edges[in_deg[v]+edge_id];\n  }\n\n  bool is_prepared()const{\
+    \ return prepared; }\n\n  Graph():n(0),in_deg(1,0),prepared(false){}\n  Graph(int\
+    \ n):n(n),in_deg(n+1,0),prepared(false){}\n  Graph(int n,int m,bool directed=false,int\
+    \ indexed=1):\n    n(n),in_deg(n+1,0),prepared(false){ scan(m,directed,indexed);\
     \ }\n\n  void resize(int n){n=n;}\n\n  void add_arc(int from,int to){\n    assert(!prepared);\n\
     \    assert(0<=from and from<n and 0<=to and to<n);\n    edges.emplace_back(from,to);\n\
     \    in_deg[from+1]++;\n  }\n  void add_edge(int u,int v){\n    add_arc(u,v);\n\
@@ -59,8 +59,8 @@ data:
     \    const edge_type* operator[](int i)const{ return &(g->edges[l+i]); }\n   \
     \ int size()const{ return r-l; }\n  };\npublic:\n  OutgoingEdges operator[](int\
     \ v)const{\n    assert(prepared);\n    return { this,in_deg[v],in_deg[v+1] };\n\
-    \  }\n  edge_type& mutable_edge(int v,int edge_id){\n    assert(prepared);\n \
-    \   return edges[v][in_deg[v]+edge_id];\n  }\n\n  bool is_prepared()const{ return\
+    \  }\n  edge_type* mutable_edge(int v,int edge_id){\n    assert(prepared);\n \
+    \   return &edges[in_deg[v]+edge_id];\n  }\n\n  bool is_prepared()const{ return\
     \ prepared; }\n\n  Graph():n(0),in_deg(1,0),prepared(false){}\n  Graph(int n):n(n),in_deg(n+1,0),prepared(false){}\n\
     \  Graph(int n,int m,bool directed=false,int indexed=1):\n    n(n),in_deg(n+1,0),prepared(false){\
     \ scan(m,directed,indexed); }\n\n  void resize(int n){n=n;}\n\n  void add_arc(int\
@@ -81,8 +81,8 @@ data:
   path: graph/Graph.cpp
   requiredBy:
   - tree/Tree.cpp
-  timestamp: '2022-11-26 19:38:09+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-11-26 19:44:21+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library-checker/Tree/LowestCommonAncestor.test.cpp
   - test/library-checker/Tree/vertex_add_path_sum.test.cpp

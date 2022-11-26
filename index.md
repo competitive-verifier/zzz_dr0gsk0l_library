@@ -3,15 +3,15 @@ data:
   libraryCategories:
   - name: algebra
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: algebra/Reverse.cpp
       title: algebra/Reverse.cpp
   - name: algebra/group
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: algebra/group/Add.cpp
       title: algebra/group/Add.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: algebra/group/Affine.cpp
       title: algebra/group/Affine.cpp
     - icon: ':heavy_check_mark:'
@@ -93,7 +93,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/Dijkstra.cpp
       title: graph/Dijkstra.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
     - icon: ':heavy_check_mark:'
@@ -117,7 +117,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: segtree/LazySegmentTree.cpp
       title: segtree/LazySegmentTree.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: segtree/SegmentTree.cpp
       title: segtree/SegmentTree.cpp
   - name: string
@@ -147,13 +147,13 @@ data:
       title: superstd/Set.cpp
   - name: tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tree/HLD.cpp
       title: tree/HLD.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tree/Tree.cpp
       title: tree/Tree.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tree/TreeMonoid.cpp
       title: tree/TreeMonoid.cpp
   - name: util
@@ -247,16 +247,16 @@ data:
       title: test/library-checker/String/RunEnumerate.test.cpp
   - name: test/library-checker/Tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
       title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
       title: test/library-checker/Tree/vertex_add_path_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
       title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
       title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
 layout: toppage

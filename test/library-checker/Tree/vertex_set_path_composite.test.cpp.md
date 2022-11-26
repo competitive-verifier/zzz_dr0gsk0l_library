@@ -1,32 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/Reverse.cpp
     title: algebra/Reverse.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/group/Affine.cpp
     title: algebra/group/Affine.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/Graph.cpp
     title: graph/Graph.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: segtree/SegmentTree.cpp
     title: segtree/SegmentTree.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/HLD.cpp
     title: tree/HLD.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/Tree.cpp
     title: tree/Tree.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/TreeMonoid.cpp
     title: tree/TreeMonoid.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/vertex_set_path_composite
@@ -95,8 +95,8 @@ data:
     \    const edge_type* operator[](int i)const{ return &(g->edges[l+i]); }\n   \
     \ int size()const{ return r-l; }\n  };\npublic:\n  OutgoingEdges operator[](int\
     \ v)const{\n    assert(prepared);\n    return { this,in_deg[v],in_deg[v+1] };\n\
-    \  }\n  edge_type& mutable_edge(int v,int edge_id){\n    assert(prepared);\n \
-    \   return edges[v][in_deg[v]+edge_id];\n  }\n\n  bool is_prepared()const{ return\
+    \  }\n  edge_type* mutable_edge(int v,int edge_id){\n    assert(prepared);\n \
+    \   return &edges[in_deg[v]+edge_id];\n  }\n\n  bool is_prepared()const{ return\
     \ prepared; }\n\n  Graph():n(0),in_deg(1,0),prepared(false){}\n  Graph(int n):n(n),in_deg(n+1,0),prepared(false){}\n\
     \  Graph(int n,int m,bool directed=false,int indexed=1):\n    n(n),in_deg(n+1,0),prepared(false){\
     \ scan(m,directed,indexed); }\n\n  void resize(int n){n=n;}\n\n  void add_arc(int\
@@ -202,8 +202,8 @@ data:
   isVerificationFile: true
   path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-11-26 19:38:09+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-26 19:44:21+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/Tree/vertex_set_path_composite.test.cpp
 layout: document
