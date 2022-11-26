@@ -2,13 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/DataStructure/PredecessorProblem.test.cpp
+    title: test/library-checker/DataStructure/PredecessorProblem.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"superstd/set.cpp\"\ntemplate<typename T>\nstruct Set:set<T>{\n\
+  bundledCode: "#line 1 \"superstd/Set.cpp\"\ntemplate<typename T>\nstruct Set:set<T>{\n\
     \  using set<T>::size;\n  using set<T>::begin;\n  using set<T>::rbegin;\n  using\
     \ set<T>::insert;\n  using set<T>::erase;\n  using set<T>::lower_bound;\n  using\
     \ set<T>::upper_bound;\n  \n  T mn()const{ assert(size());return *begin(); }\n\
@@ -41,15 +44,16 @@ data:
     \   insert(numeric_limits<T>::min()/2);\n  }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: superstd/set.cpp
+  path: superstd/Set.cpp
   requiredBy: []
-  timestamp: '2022-09-13 16:00:41+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
-documentation_of: superstd/set.cpp
+  timestamp: '2022-11-26 09:34:53+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library-checker/DataStructure/PredecessorProblem.test.cpp
+documentation_of: superstd/Set.cpp
 layout: document
 redirect_from:
-- /library/superstd/set.cpp
-- /library/superstd/set.cpp.html
-title: superstd/set.cpp
+- /library/superstd/Set.cpp
+- /library/superstd/Set.cpp.html
+title: superstd/Set.cpp
 ---

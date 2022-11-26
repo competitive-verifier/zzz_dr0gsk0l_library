@@ -1,14 +1,17 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: string/AhoCorasick.cpp
+    title: string/AhoCorasick.cpp
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"string/trie.cpp\"\ntemplate<int char_size,int margin>\n\
+  bundledCode: "#line 1 \"string/Trie.cpp\"\ntemplate<int char_size,int margin>\n\
     struct Trie{\n  struct Node{\n    array<int,char_size> nxt;\n    int pre,//\u624B\
     \u524D\n        count,//\u81EA\u5206\u306E\u500B\u6570\n        ancestor_count;//\uFF08\
     \u81EA\u5206\u3092\u542B\u307E\u306A\u3044\uFF09\u5B50\u5B6B\u306E\u500B\u6570\
@@ -50,15 +53,16 @@ data:
     \  }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: string/trie.cpp
-  requiredBy: []
-  timestamp: '2022-09-11 17:55:07+09:00'
+  path: string/Trie.cpp
+  requiredBy:
+  - string/AhoCorasick.cpp
+  timestamp: '2022-11-26 09:34:53+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: string/trie.cpp
+documentation_of: string/Trie.cpp
 layout: document
 redirect_from:
-- /library/string/trie.cpp
-- /library/string/trie.cpp.html
-title: string/trie.cpp
+- /library/string/Trie.cpp
+- /library/string/Trie.cpp.html
+title: string/Trie.cpp
 ---

@@ -2,13 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: algebra/lazy/RangeAffineRangeSum.cpp
     title: algebra/lazy/RangeAffineRangeSum.cpp
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
+    title: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
+  - icon: ':x:'
+    path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+    title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"algebra/group/Affine.cpp\"\n// op(f,g) = f(g(x))\ntemplate<typename\
@@ -37,8 +43,10 @@ data:
   requiredBy:
   - algebra/lazy/RangeAffineRangeSum.cpp
   timestamp: '2022-11-26 09:11:25+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_SOME_WA
+  verifiedWith:
+  - test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+  - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
 documentation_of: algebra/group/Affine.cpp
 layout: document
 redirect_from:

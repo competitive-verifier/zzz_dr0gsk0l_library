@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"datastructure/doubling.cpp\"\ntemplate<typename Monoid,int\
+  bundledCode: "#line 1 \"datastructure/Doubling.cpp\"\ntemplate<typename Monoid,int\
     \ LOG>\nclass Doubling{\n  using X=typename Monoid::value_type;\n  int n;\n  bool\
     \ is_prepared;\n  \n  using P=pair<int,X>;\n  static constexpr P unit={-1,Monoid::unit()};\n\
     \  vector<vector<P>> DP;\n\n  P k_move(const P&a,int k){\n    if(a.first==-1)return\
@@ -40,15 +40,15 @@ data:
     \ res;\n  }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: datastructure/doubling.cpp
+  path: datastructure/Doubling.cpp
   requiredBy: []
-  timestamp: '2022-11-15 08:40:03+09:00'
+  timestamp: '2022-11-26 09:34:53+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: datastructure/doubling.cpp
+documentation_of: datastructure/Doubling.cpp
 layout: document
 redirect_from:
-- /library/datastructure/doubling.cpp
-- /library/datastructure/doubling.cpp.html
-title: datastructure/doubling.cpp
+- /library/datastructure/Doubling.cpp
+- /library/datastructure/Doubling.cpp.html
+title: datastructure/Doubling.cpp
 ---

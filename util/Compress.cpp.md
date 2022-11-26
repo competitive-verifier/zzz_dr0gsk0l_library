@@ -1,14 +1,17 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: util/InversionNumber.cpp
+    title: util/InversionNumber.cpp
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"util/compress.cpp\"\ntemplate<typename T>\nstruct Compress{\n\
+  bundledCode: "#line 1 \"util/Compress.cpp\"\ntemplate<typename T>\nstruct Compress{\n\
     \  map<T,int> mp;\n  vector<T> rev;\n\n  Compress()=default;\n  Compress(const\
     \ vector<T>&v,bool banpei=false){\n    for(const T&a:v)mp[a];\n    if(banpei)mp[numeric_limits<T>::max()],mp[numeric_limits<T>::min()];\n\
     \    build();\n  }\n  \n  void add(T a){ mp[a]; }\n  void build(){\n    int cnt=0;\n\
@@ -30,15 +33,16 @@ data:
     \ rev[id];}\n\n  int size()const{return mp.size();}\n};"
   dependsOn: []
   isVerificationFile: false
-  path: util/compress.cpp
-  requiredBy: []
-  timestamp: '2022-09-22 11:37:14+09:00'
+  path: util/Compress.cpp
+  requiredBy:
+  - util/InversionNumber.cpp
+  timestamp: '2022-11-26 09:34:53+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: util/compress.cpp
+documentation_of: util/Compress.cpp
 layout: document
 redirect_from:
-- /library/util/compress.cpp
-- /library/util/compress.cpp.html
-title: util/compress.cpp
+- /library/util/Compress.cpp
+- /library/util/Compress.cpp.html
+title: util/Compress.cpp
 ---

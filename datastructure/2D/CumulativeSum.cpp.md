@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"datastructure/2D/cumulativesum.cpp\"\ntemplate<typename\
+  bundledCode: "#line 1 \"datastructure/2D/CumulativeSum.cpp\"\ntemplate<typename\
     \ T>\nclass CumulativeSum{\n  using U=conditional_t< is_same_v<T,int>,long long,T\
     \ >;\n  int h,w;\n  vector<vector<U>> A;\n  bool prepared;\npublic:\n  CumulativeSum(int\
     \ h=0,int w=0):h(h),w(w),A(h+1,vector<U>(w+1,0)),prepared(false){}\n  CumulativeSum(const\
@@ -35,15 +35,15 @@ data:
     \  }\n  U sum(){\n    assert(prepared);\n    return A.back().back();\n  }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: datastructure/2D/cumulativesum.cpp
+  path: datastructure/2D/CumulativeSum.cpp
   requiredBy: []
-  timestamp: '2022-11-21 16:20:33+09:00'
+  timestamp: '2022-11-26 09:34:53+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: datastructure/2D/cumulativesum.cpp
+documentation_of: datastructure/2D/CumulativeSum.cpp
 layout: document
 redirect_from:
-- /library/datastructure/2D/cumulativesum.cpp
-- /library/datastructure/2D/cumulativesum.cpp.html
-title: datastructure/2D/cumulativesum.cpp
+- /library/datastructure/2D/CumulativeSum.cpp
+- /library/datastructure/2D/CumulativeSum.cpp.html
+title: datastructure/2D/CumulativeSum.cpp
 ---

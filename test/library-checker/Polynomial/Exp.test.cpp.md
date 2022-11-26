@@ -1,12 +1,19 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: formalpowerseries/Base.cpp
+    title: formalpowerseries/Base.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
-  attributes: {}
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/exp_of_formal_power_series
+    links:
+    - https://judge.yosupo.jp/problem/exp_of_formal_power_series
   bundledCode: "#line 1 \"test/library-checker/Polynomial/Exp.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/exp_of_formal_power_series\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#include <formalpowerseries/Base.cpp>\n\
@@ -26,12 +33,13 @@ data:
     \  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n  \n  int n;cin>>n;\n  FPS\
     \ f(n);\n  for(int i=0;i<n;i++)cin>>f[i];\n  auto g=FPS::exp(f);\n  for(int i=0;i<n;i++)cout<<g[i]<<\"\
     \\n \"[i+1<n];\n}"
-  dependsOn: []
+  dependsOn:
+  - formalpowerseries/Base.cpp
   isVerificationFile: true
   path: test/library-checker/Polynomial/Exp.test.cpp
   requiredBy: []
-  timestamp: '2022-11-26 09:11:25+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-26 09:34:53+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/Polynomial/Exp.test.cpp
 layout: document

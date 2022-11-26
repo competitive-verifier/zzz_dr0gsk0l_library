@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: algebra
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: algebra/Reverse.cpp
       title: algebra/Reverse.cpp
   - name: algebra/group
@@ -11,10 +11,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: algebra/group/Add.cpp
       title: algebra/group/Add.cpp
-    - icon: ':warning:'
+    - icon: ':question:'
       path: algebra/group/Affine.cpp
       title: algebra/group/Affine.cpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: algebra/group/CntSum.cpp
       title: algebra/group/CntSum.cpp
     - icon: ':warning:'
@@ -25,7 +25,7 @@ data:
       title: algebra/group/Xor.cpp
   - name: algebra/lazy
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: algebra/lazy/RangeAffineRangeSum.cpp
       title: algebra/lazy/RangeAffineRangeSum.cpp
   - name: algebra/monoid
@@ -45,13 +45,13 @@ data:
   - name: bitwise
     pages:
     - icon: ':warning:'
-      path: bitwise/convolution.cpp
-      title: bitwise/convolution.cpp
+      path: bitwise/Convolution.cpp
+      title: bitwise/Convolution.cpp
   - name: datastructure/2D
     pages:
     - icon: ':warning:'
-      path: datastructure/2D/cumulativesum.cpp
-      title: datastructure/2D/cumulativesum.cpp
+      path: datastructure/2D/CumulativeSum.cpp
+      title: datastructure/2D/CumulativeSum.cpp
   - name: datastructure
     pages:
     - icon: ':warning:'
@@ -61,17 +61,17 @@ data:
       path: datastructure/CumulativeMonoid.cpp
       title: datastructure/CumulativeMonoid.cpp
     - icon: ':heavy_check_mark:'
+      path: datastructure/CumulativeSum.cpp
+      title: datastructure/CumulativeSum.cpp
+    - icon: ':warning:'
+      path: datastructure/Doubling.cpp
+      title: datastructure/Doubling.cpp
+    - icon: ':warning:'
+      path: datastructure/SlopeTrick.cpp
+      title: datastructure/SlopeTrick.cpp
+    - icon: ':heavy_check_mark:'
       path: datastructure/UnionFind.cpp
       title: datastructure/UnionFind.cpp
-    - icon: ':warning:'
-      path: datastructure/cumulativesum.cpp
-      title: datastructure/cumulativesum.cpp
-    - icon: ':warning:'
-      path: datastructure/doubling.cpp
-      title: datastructure/doubling.cpp
-    - icon: ':warning:'
-      path: datastructure/slopetrick.cpp
-      title: SlopeTrick
   - name: flow
     pages:
     - icon: ':warning:'
@@ -79,36 +79,36 @@ data:
       title: flow/dinic.cpp
   - name: formalpowerseries
     pages:
-    - icon: ':warning:'
-      path: formalpowerseries/base.cpp
-      title: formalpowerseries/base.cpp
+    - icon: ':question:'
+      path: formalpowerseries/Base.cpp
+      title: formalpowerseries/Base.cpp
   - name: graph
     pages:
+    - icon: ':heavy_check_mark:'
+      path: graph/Dijkstra.cpp
+      title: graph/Dijkstra.cpp
     - icon: ':warning:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/WeightedGraph.cpp
       title: graph/WeightedGraph.cpp
-    - icon: ':warning:'
-      path: graph/dijkstra.cpp
-      title: graph/dijkstra.cpp
   - name: linearalgebra
     pages:
-    - icon: ':warning:'
-      path: linearalgebra/matrix.cpp
-      title: linearalgebra/matrix.cpp
+    - icon: ':heavy_check_mark:'
+      path: linearalgebra/Matrix.cpp
+      title: linearalgebra/Matrix.cpp
   - name: mod
     pages:
     - icon: ':warning:'
       path: mod/MintUtility.cpp
       title: mod/MintUtility.cpp
-    - icon: ':warning:'
-      path: mod/modint.cpp
-      title: mod/modint.cpp
+    - icon: ':question:'
+      path: mod/Modint.cpp
+      title: mod/Modint.cpp
   - name: segtree
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: segtree/LazySegmentTree.cpp
       title: segtree/LazySegmentTree.cpp
     - icon: ':heavy_check_mark:'
@@ -116,29 +116,29 @@ data:
       title: segtree/SegmentTree.cpp
   - name: string
     pages:
+    - icon: ':warning:'
+      path: string/AhoCorasick.cpp
+      title: string/AhoCorasick.cpp
+    - icon: ':heavy_check_mark:'
+      path: string/RollingHash.cpp
+      title: string/RollingHash.cpp
     - icon: ':heavy_check_mark:'
       path: string/RunEnumerate.cpp
       title: string/RunEnumerate.cpp
     - icon: ':warning:'
-      path: string/ahocorasick.cpp
-      title: AhoCorasick
-    - icon: ':warning:'
-      path: string/rollinghash.cpp
-      title: string/rollinghash.cpp
-    - icon: ':warning:'
-      path: string/trie.cpp
-      title: string/trie.cpp
+      path: string/Trie.cpp
+      title: string/Trie.cpp
   - name: superstd
     pages:
     - icon: ':warning:'
-      path: superstd/map.cpp
-      title: superstd/map.cpp
-    - icon: ':warning:'
-      path: superstd/multiset.cpp
-      title: superstd/multiset.cpp
-    - icon: ':warning:'
-      path: superstd/set.cpp
-      title: superstd/set.cpp
+      path: superstd/Map.cpp
+      title: superstd/Map.cpp
+    - icon: ':heavy_check_mark:'
+      path: superstd/Multiset.cpp
+      title: superstd/Multiset.cpp
+    - icon: ':heavy_check_mark:'
+      path: superstd/Set.cpp
+      title: superstd/Set.cpp
   - name: tree
     pages:
     - icon: ':warning:'
@@ -153,21 +153,21 @@ data:
   - name: util
     pages:
     - icon: ':warning:'
+      path: util/Compress.cpp
+      title: util/Compress.cpp
+    - icon: ':warning:'
       path: util/ForAllPareto.cpp
       title: util/ForAllPareto.cpp
     - icon: ':warning:'
       path: util/InversionNumber.cpp
       title: util/InversionNumber.cpp
     - icon: ':warning:'
-      path: util/compress.cpp
-      title: util/compress.cpp
-    - icon: ':warning:'
-      path: util/subsequence.cpp
-      title: "\u90E8\u5206\u5217\u306E\u7A2E\u985E\u6570"
+      path: util/Subsequence.cpp
+      title: util/Subsequence.cpp
   verificationCategories:
   - name: test/AOJ
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/AOJ/ALDS1_14_B.test.cpp
       title: test/AOJ/ALDS1_14_B.test.cpp
     - icon: ':x:'
@@ -178,22 +178,22 @@ data:
       title: test/AOJ/GRL_6_A.test.cpp
   - name: test/library-checker/DataStructure
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/DoubleEndedPriorityQueue.test.cpp
       title: test/library-checker/DataStructure/DoubleEndedPriorityQueue.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
       title: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
       title: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/PredecessorProblem.test.cpp
       title: test/library-checker/DataStructure/PredecessorProblem.test.cpp
     - icon: ':x:'
       path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
       title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/DataStructure/StaticRangeSum.test.cpp
       title: test/library-checker/DataStructure/StaticRangeSum.test.cpp
     - icon: ':heavy_check_mark:'
@@ -201,7 +201,7 @@ data:
       title: test/library-checker/DataStructure/unionfind.test.cpp
   - name: test/library-checker/Graph
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Graph/ShortestPath.test.cpp
       title: test/library-checker/Graph/ShortestPath.test.cpp
   - name: test/library-checker/Math
@@ -211,10 +211,10 @@ data:
       title: test/library-checker/Math/2Sat.test.cpp
   - name: test/library-checker/Matrix
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Matrix/Det.test.cpp
       title: test/library-checker/Matrix/Det.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Matrix/Inverse.test.cpp
       title: test/library-checker/Matrix/Inverse.test.cpp
     - icon: ':x:'
@@ -222,7 +222,7 @@ data:
       title: test/library-checker/Matrix/Product.test.cpp
   - name: test/library-checker/Polynomial
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library-checker/Polynomial/Exp.test.cpp
       title: test/library-checker/Polynomial/Exp.test.cpp
     - icon: ':x:'

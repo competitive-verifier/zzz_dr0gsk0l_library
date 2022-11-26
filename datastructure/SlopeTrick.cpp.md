@@ -9,7 +9,7 @@ data:
   attributes:
     links:
     - "https://maspypy.com/slope-trick-1-\u89E3\u8AAC\u7DE8"
-  bundledCode: "#line 1 \"datastructure/slopetrick.cpp\"\n// reference:https://maspypy.com/slope-trick-1-\u89E3\
+  bundledCode: "#line 1 \"datastructure/SlopeTrick.cpp\"\n// reference:https://maspypy.com/slope-trick-1-\u89E3\
     \u8AAC\u7DE8\ntemplate<typename T>\nclass SlopeTrick{\n  static constexpr T MIN=numeric_limits<T>::lowest()/2;\n\
     \  static constexpr T MAX=numeric_limits<T>::max()/2;\n  priority_queue<T> L;\n\
     \  priority_queue<T,vector<T>,greater<T>> R;\n  T add_l,add_r;\n  \n  T L0()const{\
@@ -73,33 +73,15 @@ data:
     \ }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: datastructure/slopetrick.cpp
+  path: datastructure/SlopeTrick.cpp
   requiredBy: []
-  timestamp: '2022-11-26 09:11:25+09:00'
+  timestamp: '2022-11-26 09:34:53+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: datastructure/slopetrick.cpp
+documentation_of: datastructure/SlopeTrick.cpp
 layout: document
-title: SlopeTrick
+redirect_from:
+- /library/datastructure/SlopeTrick.cpp
+- /library/datastructure/SlopeTrick.cpp.html
+title: datastructure/SlopeTrick.cpp
 ---
-
-基本的な用語などは reference と同じ  
-
-* ```tuple<T,T,T> get_min_range()```  
-最小値とそれを取る閉区間が返る  
-最小値だけ取得したい時は ```min_f``` を直接参照する  
-
-* ```void operator+=(const T&a)```  
-定数加算
-
-* ```T operator()(T x)```  
-$f(x)$ を返す  
-priority_queue を走査するので時間がかかる  
-
-* ```Slope_Trick& operator+=(Slope_Trick g)```  
-$f(x)+=g(x)$  
-マージテクでは ```size()``` の大きい方をメインにする
-
-
-
- 

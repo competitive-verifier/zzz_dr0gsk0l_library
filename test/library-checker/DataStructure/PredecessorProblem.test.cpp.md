@@ -1,24 +1,44 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: superstd/Set.cpp
+    title: superstd/Set.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
-  attributes: {}
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
-    \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
-    \ File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: superstd/Set.cpp:\
-    \ line -1: no such header\n"
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/predecessor_problem
+    links:
+    - https://judge.yosupo.jp/problem/predecessor_problem
+  bundledCode: "#line 1 \"test/library-checker/DataStructure/PredecessorProblem.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/predecessor_problem\"\n#include\
+    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 1 \"superstd/Set.cpp\"\ntemplate<typename\
+    \ T>\nstruct Set:set<T>{\n  using set<T>::size;\n  using set<T>::begin;\n  using\
+    \ set<T>::rbegin;\n  using set<T>::insert;\n  using set<T>::erase;\n  using set<T>::lower_bound;\n\
+    \  using set<T>::upper_bound;\n  \n  T mn()const{ assert(size());return *begin();\
+    \ }\n  T mx()const{ assert(size());return *rbegin(); }\n  \n  T pop_front(){\n\
+    \    assert(size());\n    T mn=*begin();\n    erase(begin());\n    return mn;\n\
+    \  }\n  T pop_back(){\n    assert(size());\n    T mx=*rbegin();\n    erase(mx);\n\
+    \    return mx;\n  }\n\n  T lt(const T&a)const{\n    assert(mn()<a);\n    if(mx()<a)return\
+    \ mx();\n    return *--lower_bound(a);\n  }\n  T leq(const T&a)const{\n    assert(mn()<=a);\n\
+    \    if(mx()<=a)return mx();\n    return *--upper_bound(a);\n  }\n  T gt(const\
+    \ T&a)const{\n    assert(mx()>a);\n    return *upper_bound(a);\n  }\n  T geq(const\
+    \ T&a){\n    assert(mx()>=a);\n    return *lower_bound(a);\n  }\n  \n  Set()=default;\n\
+    \  Set(const vector<T>&v){ for(const auto&p:v)insert(p); }\n  \n  void scan(int\
+    \ n){\n    while(n--){\n      T a;cin>>a;\n      insert(a);\n    }\n  }\n  \n\
+    \  void banpei(){\n    insert(numeric_limits<T>::max()/2);\n    insert(numeric_limits<T>::min()/2);\n\
+    \  }\n};\n#line 6 \"test/library-checker/DataStructure/PredecessorProblem.test.cpp\"\
+    \n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int\
+    \ n,q;cin>>n>>q;\n  Set<int> se;\n  se.banpei();\n\n  for(int i=0;i<n;i++){\n\
+    \    char c;cin>>c;\n    if(c=='1')se.insert(i);\n  }\n\n  while(q--){\n    int\
+    \ c,k;cin>>c>>k;\n    if(c==0)se.insert(k);\n    if(c==1)se.erase(k);\n    if(c==2)cout<<se.count(k)<<\"\
+    \\n\";\n    if(c==3){\n      int x=se.geq(k);\n      cout<<(x<n?x:-1)<<\"\\n\"\
+    ;\n    }\n    if(c==4){\n      int x=se.leq(k);\n      cout<<(x>=0?x:-1)<<\"\\\
+    n\";\n    }\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/predecessor_problem\"\n\
     #include <bits/stdc++.h>\nusing namespace std;\n\n#include \"superstd/Set.cpp\"\
     \n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int\
@@ -28,12 +48,13 @@ data:
     \\n\";\n    if(c==3){\n      int x=se.geq(k);\n      cout<<(x<n?x:-1)<<\"\\n\"\
     ;\n    }\n    if(c==4){\n      int x=se.leq(k);\n      cout<<(x>=0?x:-1)<<\"\\\
     n\";\n    }\n  }\n}"
-  dependsOn: []
+  dependsOn:
+  - superstd/Set.cpp
   isVerificationFile: true
   path: test/library-checker/DataStructure/PredecessorProblem.test.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-26 09:34:53+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/DataStructure/PredecessorProblem.test.cpp
 layout: document

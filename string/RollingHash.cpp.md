@@ -2,14 +2,17 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/AOJ/ALDS1_14_B.test.cpp
+    title: test/AOJ/ALDS1_14_B.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://qiita.com/keymoon/items/11fac5627672a6d6a9f6
-  bundledCode: "#line 1 \"string/rollinghash.cpp\"\n// reference: https://qiita.com/keymoon/items/11fac5627672a6d6a9f6\n\
+  bundledCode: "#line 1 \"string/RollingHash.cpp\"\n// reference: https://qiita.com/keymoon/items/11fac5627672a6d6a9f6\n\
     random_device rollonghash_rnd;\nmt19937 rollonghash_mt(rollonghash_rnd());\nclass\
     \ RollingHash{\n  using ull=unsigned long long;\n  static const ull MASK30=(1ull<<30)-1;\n\
     \  static const ull MASK31=(1ull<<31)-1;\n  static const ull MOD=(1ull<<61)-1;\n\
@@ -43,15 +46,16 @@ data:
     \  return res;\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: string/rollinghash.cpp
+  path: string/RollingHash.cpp
   requiredBy: []
-  timestamp: '2022-09-21 11:15:43+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
-documentation_of: string/rollinghash.cpp
+  timestamp: '2022-11-26 09:34:53+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/AOJ/ALDS1_14_B.test.cpp
+documentation_of: string/RollingHash.cpp
 layout: document
 redirect_from:
-- /library/string/rollinghash.cpp
-- /library/string/rollinghash.cpp.html
-title: string/rollinghash.cpp
+- /library/string/RollingHash.cpp
+- /library/string/RollingHash.cpp.html
+title: string/RollingHash.cpp
 ---

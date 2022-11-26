@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+    title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"segtree/LazySegmentTree.cpp\"\n\ntemplate<typename Lazy>\n\
@@ -64,8 +67,9 @@ data:
   path: segtree/LazySegmentTree.cpp
   requiredBy: []
   timestamp: '2022-11-26 09:11:25+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
 documentation_of: segtree/LazySegmentTree.cpp
 layout: document
 redirect_from:

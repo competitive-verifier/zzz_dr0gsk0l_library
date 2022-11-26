@@ -2,13 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/Matrix/Det.test.cpp
+    title: test/library-checker/Matrix/Det.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/Matrix/Inverse.test.cpp
+    title: test/library-checker/Matrix/Inverse.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"linearalgebra/matrix.cpp\"\n#define REP_(i,n) for(int i=0;i<(n);i++)\n\
+  bundledCode: "#line 1 \"linearalgebra/Matrix.cpp\"\n#define REP_(i,n) for(int i=0;i<(n);i++)\n\
     #define REP2_(i,s,n) for(int i=(s);i<(n);i++)\ntemplate<typename K>\nstruct Matrix{\n\
     \  using value_type=K;\n  using vec=vector<K>;\n  using mat=vector<vec>;\n  size_t\
     \ r,c;\n  mat M;\n\n  Matrix(size_t r,size_t c):r(r),c(c),M(r,vec(c,K())){}\n\
@@ -78,15 +84,17 @@ data:
     \ return is; }\n};\n#undef REP_\n#undef REP2_"
   dependsOn: []
   isVerificationFile: false
-  path: linearalgebra/matrix.cpp
+  path: linearalgebra/Matrix.cpp
   requiredBy: []
-  timestamp: '2022-11-23 17:46:48+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
-documentation_of: linearalgebra/matrix.cpp
+  timestamp: '2022-11-26 09:34:53+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library-checker/Matrix/Det.test.cpp
+  - test/library-checker/Matrix/Inverse.test.cpp
+documentation_of: linearalgebra/Matrix.cpp
 layout: document
 redirect_from:
-- /library/linearalgebra/matrix.cpp
-- /library/linearalgebra/matrix.cpp.html
-title: linearalgebra/matrix.cpp
+- /library/linearalgebra/Matrix.cpp
+- /library/linearalgebra/Matrix.cpp.html
+title: linearalgebra/Matrix.cpp
 ---

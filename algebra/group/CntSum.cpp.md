@@ -2,13 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: algebra/lazy/RangeAffineRangeSum.cpp
     title: algebra/lazy/RangeAffineRangeSum.cpp
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+    title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"algebra/group/CntSum.cpp\"\ntemplate<typename X>\nstruct\
@@ -28,8 +31,9 @@ data:
   requiredBy:
   - algebra/lazy/RangeAffineRangeSum.cpp
   timestamp: '2022-11-26 09:11:25+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
 documentation_of: algebra/group/CntSum.cpp
 layout: document
 redirect_from:

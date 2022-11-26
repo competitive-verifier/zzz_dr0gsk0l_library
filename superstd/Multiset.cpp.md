@@ -2,13 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/DataStructure/DoubleEndedPriorityQueue.test.cpp
+    title: test/library-checker/DataStructure/DoubleEndedPriorityQueue.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"superstd/multiset.cpp\"\ntemplate<typename T>\nstruct Multiset:map<T,int>{\n\
+  bundledCode: "#line 1 \"superstd/Multiset.cpp\"\ntemplate<typename T>\nstruct Multiset:map<T,int>{\n\
     \  using map<T,int>::at;\n  using map<T,int>::size;\n  using map<T,int>::begin;\n\
     \  using map<T,int>::rbegin;\n  using map<T,int>::erase;\n  using map<T,int>::lower_bound;\n\
     \  using map<T,int>::upper_bound;\n\n  int count(const T&a)const{ return (map<T,int>::count(a)?at(a):0);\
@@ -48,15 +51,16 @@ data:
     \   insert(numeric_limits<T>::min()/2);\n  }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: superstd/multiset.cpp
+  path: superstd/Multiset.cpp
   requiredBy: []
-  timestamp: '2022-11-19 20:41:34+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
-documentation_of: superstd/multiset.cpp
+  timestamp: '2022-11-26 09:34:53+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library-checker/DataStructure/DoubleEndedPriorityQueue.test.cpp
+documentation_of: superstd/Multiset.cpp
 layout: document
 redirect_from:
-- /library/superstd/multiset.cpp
-- /library/superstd/multiset.cpp.html
-title: superstd/multiset.cpp
+- /library/superstd/Multiset.cpp
+- /library/superstd/Multiset.cpp.html
+title: superstd/Multiset.cpp
 ---

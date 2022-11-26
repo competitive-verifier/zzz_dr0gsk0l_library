@@ -2,13 +2,25 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
+    title: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
+  - icon: ':x:'
+    path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+    title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/Matrix/Det.test.cpp
+    title: test/library-checker/Matrix/Det.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/Matrix/Inverse.test.cpp
+    title: test/library-checker/Matrix/Inverse.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"mod/modint.cpp\"\ntemplate<typename T,T MOD=998244353>\n\
+  bundledCode: "#line 1 \"mod/Modint.cpp\"\ntemplate<typename T,T MOD=998244353>\n\
     struct Mint{\n  inline static constexpr T mod = MOD;\n  T v;\n  Mint():v(0){}\n\
     \  Mint(signed v):v(v){}\n  Mint(long long t){v=t%MOD;if(v<0)v+=MOD;}\n  \n  static\
     \ Mint raw(int v){\n    Mint x;\n    x.v=v;\n    return x;\n  }\n\n  Mint pow(long\
@@ -50,15 +62,19 @@ data:
     \ is;}\n};"
   dependsOn: []
   isVerificationFile: false
-  path: mod/modint.cpp
+  path: mod/Modint.cpp
   requiredBy: []
-  timestamp: '2022-09-06 21:25:54+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
-documentation_of: mod/modint.cpp
+  timestamp: '2022-11-26 09:34:53+09:00'
+  verificationStatus: LIBRARY_SOME_WA
+  verifiedWith:
+  - test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
+  - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
+  - test/library-checker/Matrix/Det.test.cpp
+  - test/library-checker/Matrix/Inverse.test.cpp
+documentation_of: mod/Modint.cpp
 layout: document
 redirect_from:
-- /library/mod/modint.cpp
-- /library/mod/modint.cpp.html
-title: mod/modint.cpp
+- /library/mod/Modint.cpp
+- /library/mod/Modint.cpp.html
+title: mod/Modint.cpp
 ---

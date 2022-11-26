@@ -2,13 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/Polynomial/Exp.test.cpp
+    title: test/library-checker/Polynomial/Exp.test.cpp
+  - icon: ':x:'
+    path: test/library-checker/Polynomial/Inv.test.cpp
+    title: test/library-checker/Polynomial/Inv.test.cpp
+  - icon: ':x:'
+    path: test/library-checker/Polynomial/Log.test.cpp
+    title: test/library-checker/Polynomial/Log.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"formalpowerseries/base.cpp\"\n#define REP_(i,n) for(int\
+  bundledCode: "#line 1 \"formalpowerseries/Base.cpp\"\n#define REP_(i,n) for(int\
     \ i=0;i<(n);i++)\ntemplate<typename T,int MX>\nstruct FormalPowerSeries:vector<T>{\n\
     \  using FPS=FormalPowerSeries<T,MX>;\n  using vector<T>::resize;\n  using vector<T>::size;\n\
     \  using vector<T>::at;\n\n  FormalPowerSeries()=default;\n  FormalPowerSeries(int\
@@ -99,15 +108,18 @@ data:
     #undef REP_"
   dependsOn: []
   isVerificationFile: false
-  path: formalpowerseries/base.cpp
+  path: formalpowerseries/Base.cpp
   requiredBy: []
-  timestamp: '2022-09-08 17:20:23+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
-documentation_of: formalpowerseries/base.cpp
+  timestamp: '2022-11-26 09:34:53+09:00'
+  verificationStatus: LIBRARY_SOME_WA
+  verifiedWith:
+  - test/library-checker/Polynomial/Inv.test.cpp
+  - test/library-checker/Polynomial/Exp.test.cpp
+  - test/library-checker/Polynomial/Log.test.cpp
+documentation_of: formalpowerseries/Base.cpp
 layout: document
 redirect_from:
-- /library/formalpowerseries/base.cpp
-- /library/formalpowerseries/base.cpp.html
-title: formalpowerseries/base.cpp
+- /library/formalpowerseries/Base.cpp
+- /library/formalpowerseries/Base.cpp.html
+title: formalpowerseries/Base.cpp
 ---

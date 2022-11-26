@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"bitwise/convolution.cpp\"\n/*\nZETA,LOWER [S]: sum T\u2286\
+  bundledCode: "#line 1 \"bitwise/Convolution.cpp\"\n/*\nZETA,LOWER [S]: sum T\u2286\
     S v[T]\nZETA,UPPER [S]: sum T\u2287S v[T]\nMOEBIUS,LOWER [S]: sum T\u2286S (-1)^(|S\\\
     T|) v[T]\nMOEBIUS,LOWER [S]: sum T\u2286S (-1)^(|T\\S|) v[T] \n*/\n\n#define REP_(i,n)\
     \ for(int i=0;i<(n);i++)\nenum Query_Type{\n  ZETA = 1;\n  MOEBIUS = -1;\n  LOWER\
@@ -24,15 +24,15 @@ data:
     \  return v;\n}\n#undef REP_"
   dependsOn: []
   isVerificationFile: false
-  path: bitwise/convolution.cpp
+  path: bitwise/Convolution.cpp
   requiredBy: []
-  timestamp: '2022-09-10 18:21:56+09:00'
+  timestamp: '2022-11-26 09:34:53+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: bitwise/convolution.cpp
+documentation_of: bitwise/Convolution.cpp
 layout: document
 redirect_from:
-- /library/bitwise/convolution.cpp
-- /library/bitwise/convolution.cpp.html
-title: bitwise/convolution.cpp
+- /library/bitwise/Convolution.cpp
+- /library/bitwise/Convolution.cpp.html
+title: bitwise/Convolution.cpp
 ---

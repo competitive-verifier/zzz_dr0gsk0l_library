@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
     title: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
+    title: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -97,6 +100,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library-checker/DataStructure/PointAddRangeSum.test.cpp
+  - test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
 documentation_of: segtree/SegmentTree.cpp
 layout: document
 redirect_from:

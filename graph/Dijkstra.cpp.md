@@ -1,14 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/Graph/ShortestPath.test.cpp
+    title: test/library-checker/Graph/ShortestPath.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/WeightedGraph.cpp\"\ntemplate<typename T>\nstruct\
@@ -39,7 +42,7 @@ data:
     \    return;\n  #endif\n    assert(prepared);\n    for(int from=0;from<n;from++){\n\
     \      cerr<<from<<\";\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n\
     \        cerr<<\"(\"<<edges[i].to<<\",\"<<edges[i].cost<<\")\";\n      cerr<<\"\
-    \\n\";\n    }\n  }\n};\n#line 2 \"graph/dijkstra.cpp\"\ntemplate<typename WG,typename\
+    \\n\";\n    }\n  }\n};\n#line 2 \"graph/Dijkstra.cpp\"\ntemplate<typename WG,typename\
     \ T=typename WG::cost_type>\npair<vector<T>,vector<int>> dijkstra(const WG&g,int\
     \ s=0){\n  assert(g.is_prepared());\n  vector<T> d(g.n,-1);\n  vector<int> pre(g.n,-1);\n\
     \  priority_queue< pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>> que;\n\
@@ -58,15 +61,16 @@ data:
   dependsOn:
   - graph/WeightedGraph.cpp
   isVerificationFile: false
-  path: graph/dijkstra.cpp
+  path: graph/Dijkstra.cpp
   requiredBy: []
-  timestamp: '2022-11-19 18:47:47+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
-documentation_of: graph/dijkstra.cpp
+  timestamp: '2022-11-26 09:34:53+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library-checker/Graph/ShortestPath.test.cpp
+documentation_of: graph/Dijkstra.cpp
 layout: document
 redirect_from:
-- /library/graph/dijkstra.cpp
-- /library/graph/dijkstra.cpp.html
-title: graph/dijkstra.cpp
+- /library/graph/Dijkstra.cpp
+- /library/graph/Dijkstra.cpp.html
+title: graph/Dijkstra.cpp
 ---

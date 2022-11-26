@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"util/subsequence.cpp\"\ntemplate<typename T,typename U>\n\
+  bundledCode: "#line 1 \"util/Subsequence.cpp\"\ntemplate<typename T,typename U>\n\
     T sparse_subsequence(const vector<U>&v){\n  map<U,T> mp;\n  T res=1;\n  for(U\
     \ p:v){\n    T tmp=res;\n    res=res*2-mp[p];\n    mp[p]=tmp;\n  }\n  return res;\n\
     }\n\ntemplate<typename T,typename SIZE>\nT subsequence(const vector<int>&v){\n\
@@ -26,30 +26,15 @@ data:
     \  return subsequence<T,26>(v);\n}"
   dependsOn: []
   isVerificationFile: false
-  path: util/subsequence.cpp
+  path: util/Subsequence.cpp
   requiredBy: []
-  timestamp: '2022-09-22 11:37:14+09:00'
+  timestamp: '2022-11-26 09:34:53+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: util/subsequence.cpp
+documentation_of: util/Subsequence.cpp
 layout: document
-title: "\u90E8\u5206\u5217\u306E\u7A2E\u985E\u6570"
+redirect_from:
+- /library/util/Subsequence.cpp
+- /library/util/Subsequence.cpp.html
+title: util/Subsequence.cpp
 ---
-
-配列の（非連続を許す）部分列の種類数を求める
-* ```<T,SIZE> T subsequence(const vector<int>&v)```  
-要素が $[0,SIZE)$ であるような配列 $v$ に対して求める  
-時間 $O(|v|)$  
-空間 $O(SIZE)$
-
-* ```<T> T subsequence_alphabet(const string&s)```  
-英子文字のみ or 英大文字のみからなる文字列 $s$ に対して求める
-時間 $O(|s|)$  
-空間 $O(1)$
-
-* ```<T,U> T sparse_subsequence(const vector<U>&v)```  
-一般の配列 $v$ に対して求める  
-時間 $O(|v|\log|v|)$  
-空間 $O(|v|)$  
-map を使うので $U$ に $<$ が定義されている必要がある  
-あらかじめ $v$ の要素を座圧して ```subsequence``` に投げるのと本質的には同じ
