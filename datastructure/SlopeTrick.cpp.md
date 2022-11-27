@@ -38,8 +38,8 @@ data:
     \ SlopeTrick& operator+=(SlopeTrick g){\n    min_f += g.min_f;\n    while( g.L.size()\
     \ ){\n      T a=g.L0();g.L.pop();\n      add_a_minus_x(a);\n    }\n    while(\
     \ g.R.size() ){\n      T a=g.R0();g.R.pop();\n      add_x_minus_a(a);\n    }\n\
-    \    return *this;\n  }\n\n  SlopeTrick operator+(SlopeTrick g)const{ return (*this)+=g;\
-    \ }\n};\n"
+    \    return *this;\n  }\n\n  SlopeTrick operator+(SlopeTrick g)const{ \n    if(size()<g.size())return\
+    \ g+=*this;\n    return (*this)+=g; \n  }\n};\n"
   code: "// reference:https://maspypy.com/slope-trick-1-\u89E3\u8AAC\u7DE8\ntemplate<typename\
     \ T>\nclass SlopeTrick{\n  static constexpr T MIN=numeric_limits<T>::lowest()/2;\n\
     \  static constexpr T MAX=numeric_limits<T>::max()/2;\n  priority_queue<T> L;\n\
@@ -69,13 +69,13 @@ data:
     \ SlopeTrick& operator+=(SlopeTrick g){\n    min_f += g.min_f;\n    while( g.L.size()\
     \ ){\n      T a=g.L0();g.L.pop();\n      add_a_minus_x(a);\n    }\n    while(\
     \ g.R.size() ){\n      T a=g.R0();g.R.pop();\n      add_x_minus_a(a);\n    }\n\
-    \    return *this;\n  }\n\n  SlopeTrick operator+(SlopeTrick g)const{ return (*this)+=g;\
-    \ }\n};"
+    \    return *this;\n  }\n\n  SlopeTrick operator+(SlopeTrick g)const{ \n    if(size()<g.size())return\
+    \ g+=*this;\n    return (*this)+=g; \n  }\n};"
   dependsOn: []
   isVerificationFile: false
   path: datastructure/SlopeTrick.cpp
   requiredBy: []
-  timestamp: '2022-11-26 09:34:53+09:00'
+  timestamp: '2022-11-27 21:46:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: datastructure/SlopeTrick.cpp
