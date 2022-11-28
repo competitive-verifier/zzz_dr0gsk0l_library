@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/group/Add.cpp
     title: algebra/group/Add.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/group/CntSum.cpp
     title: algebra/group/CntSum.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: algebra/lazy/RangeAddRangeSum.cpp
     title: algebra/lazy/RangeAddRangeSum.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: segtree/LazySegmentTree.cpp
     title: segtree/LazySegmentTree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G
@@ -63,18 +63,19 @@ data:
     \ l <= r && r <= n);\n    if(l==r)return;\n    thrust(l+=size);\n    thrust(r+=size-1);\n\
     \    for(int L=l,R=r+1;L<R;L>>=1,R>>=1){\n      if(L&1)point_apply(L++,f);\n \
     \     if(R&1)point_apply(--R,f);\n    }\n    recalc(l);\n    recalc(r);\n  }\n\
-    };\n#line 7 \"test/AOJ/DSL_2_G.test.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
-    \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree<LazyRangeAddRangeSum<int>>\
-    \ seg(vector<pair<int,int>>(n,{0,1}));\n  \n  while(q--){\n    int t,l,r;cin>>t>>l>>r;l--;\n\
-    \    if(t)\n      cout<<seg.prod(l,r).first<<\"\\n\";\n    else{\n      int x;cin>>x;\n\
-    \      seg.apply(l,r,x);\n    }\n  }\n}\n"
+    };\n#line 7 \"test/AOJ/DSL_2_G.test.cpp\"\n\nusing ll=long long;\n\nint main(){\n\
+    \  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n\
+    \  LazySegmentTree<LazyRangeAddRangeSum<ll>> seg(vector<pair<ll,ll>>(n,{0,1}));\n\
+    \  \n  while(q--){\n    int t,l,r;cin>>t>>l>>r;l--;\n    if(t)\n      cout<<seg.prod(l,r).first<<\"\
+    \\n\";\n    else{\n      int x;cin>>x;\n      seg.apply(l,r,x);\n    }\n  }\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/RangeAddRangeSum.cpp\"\
-    \n#include \"segtree/LazySegmentTree.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
-    \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree<LazyRangeAddRangeSum<int>>\
-    \ seg(vector<pair<int,int>>(n,{0,1}));\n  \n  while(q--){\n    int t,l,r;cin>>t>>l>>r;l--;\n\
-    \    if(t)\n      cout<<seg.prod(l,r).first<<\"\\n\";\n    else{\n      int x;cin>>x;\n\
-    \      seg.apply(l,r,x);\n    }\n  }\n}"
+    \n#include \"segtree/LazySegmentTree.cpp\"\n\nusing ll=long long;\n\nint main(){\n\
+    \  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n\
+    \  LazySegmentTree<LazyRangeAddRangeSum<ll>> seg(vector<pair<ll,ll>>(n,{0,1}));\n\
+    \  \n  while(q--){\n    int t,l,r;cin>>t>>l>>r;l--;\n    if(t)\n      cout<<seg.prod(l,r).first<<\"\
+    \\n\";\n    else{\n      int x;cin>>x;\n      seg.apply(l,r,x);\n    }\n  }\n}"
   dependsOn:
   - algebra/lazy/RangeAddRangeSum.cpp
   - algebra/group/CntSum.cpp
@@ -83,8 +84,8 @@ data:
   isVerificationFile: true
   path: test/AOJ/DSL_2_G.test.cpp
   requiredBy: []
-  timestamp: '2022-11-29 06:10:12+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-29 06:16:48+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/DSL_2_G.test.cpp
 layout: document

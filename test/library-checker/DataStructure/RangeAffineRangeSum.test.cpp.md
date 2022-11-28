@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: algebra/group/Affine.cpp
     title: algebra/group/Affine.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/group/CntSum.cpp
     title: algebra/group/CntSum.cpp
   - icon: ':heavy_check_mark:'
@@ -13,7 +13,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: mod/Modint.cpp
     title: mod/Modint.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: segtree/LazySegmentTree.cpp
     title: segtree/LazySegmentTree.cpp
   _extendedRequiredBy: []

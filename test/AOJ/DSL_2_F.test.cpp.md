@@ -23,8 +23,8 @@ data:
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_F\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/RangeSetRangeMin.cpp\"\
-    \n#include \"segmenttree/LazySegmentTree.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
-    \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree< Lazy_Min_Set<int>\
+    \n#include \"segtree/LazySegmentTree.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
+    \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree< LazyRangeSetRangeMin<int>\
     \ > seg(vector<int>(n,(1LL<<31)-1));\n  while(q--){\n    int t,l,r;cin>>t>>l>>r;r++;\n\
     \    if(t)\n      cout<<seg.prod(l,r)<<\"\\n\";\n    else{\n      int x;cin>>x;\n\
     \      seg.apply(l,r,x);\n    }\n  }\n}"

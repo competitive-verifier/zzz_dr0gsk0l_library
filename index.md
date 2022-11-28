@@ -8,13 +8,13 @@ data:
       title: algebra/Reverse.cpp
   - name: algebra/group
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: algebra/group/Add.cpp
       title: algebra/group/Add.cpp
     - icon: ':heavy_check_mark:'
       path: algebra/group/Affine.cpp
       title: algebra/group/Affine.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: algebra/group/CntSum.cpp
       title: algebra/group/CntSum.cpp
     - icon: ':warning:'
@@ -25,7 +25,7 @@ data:
       title: algebra/group/Xor.cpp
   - name: algebra/lazy
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: algebra/lazy/RangeAddRangeSum.cpp
       title: algebra/lazy/RangeAddRangeSum.cpp
     - icon: ':heavy_check_mark:'
@@ -126,7 +126,7 @@ data:
     - icon: ':warning:'
       path: segtree/DualSegmentTree.cpp
       title: segtree/DualSegmentTree.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: segtree/LazySegmentTree.cpp
       title: segtree/LazySegmentTree.cpp
     - icon: ':heavy_check_mark:'
@@ -197,7 +197,7 @@ data:
     - icon: ':x:'
       path: test/AOJ/DSL_2_F.test.cpp
       title: test/AOJ/DSL_2_F.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_G.test.cpp
       title: test/AOJ/DSL_2_G.test.cpp
     - icon: ':heavy_check_mark:'
