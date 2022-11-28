@@ -8,13 +8,13 @@ data:
       title: algebra/Reverse.cpp
   - name: algebra/group
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/group/Add.cpp
       title: algebra/group/Add.cpp
     - icon: ':heavy_check_mark:'
       path: algebra/group/Affine.cpp
       title: algebra/group/Affine.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/group/CntSum.cpp
       title: algebra/group/CntSum.cpp
     - icon: ':warning:'
@@ -25,9 +25,15 @@ data:
       title: algebra/group/Xor.cpp
   - name: algebra/lazy
     pages:
+    - icon: ':x:'
+      path: algebra/lazy/RangeAddRangeSum.cpp
+      title: algebra/lazy/RangeAddRangeSum.cpp
     - icon: ':heavy_check_mark:'
       path: algebra/lazy/RangeAffineRangeSum.cpp
       title: algebra/lazy/RangeAffineRangeSum.cpp
+    - icon: ':warning:'
+      path: algebra/lazy/RangeSetRangeMin.cpp
+      title: algebra/lazy/RangeSetRangeMin.cpp
   - name: algebra/monoid
     pages:
     - icon: ':warning:'
@@ -90,6 +96,9 @@ data:
       title: formalpowerseries/Base.cpp
   - name: graph
     pages:
+    - icon: ':warning:'
+      path: graph/01BFS.cpp
+      title: graph/01BFS.cpp
     - icon: ':heavy_check_mark:'
       path: graph/Dijkstra.cpp
       title: graph/Dijkstra.cpp
@@ -114,7 +123,10 @@ data:
       title: mod/Modint.cpp
   - name: segtree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
+      path: segtree/DualSegmentTree.cpp
+      title: segtree/DualSegmentTree.cpp
+    - icon: ':question:'
       path: segtree/LazySegmentTree.cpp
       title: segtree/LazySegmentTree.cpp
     - icon: ':heavy_check_mark:'
@@ -179,6 +191,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/ALDS1_5_D.test.cpp
       title: test/AOJ/ALDS1_5_D.test.cpp
+    - icon: ':x:'
+      path: test/AOJ/DSL_2_D.test.cpp
+      title: test/AOJ/DSL_2_D.test.cpp
+    - icon: ':x:'
+      path: test/AOJ/DSL_2_F.test.cpp
+      title: test/AOJ/DSL_2_F.test.cpp
+    - icon: ':x:'
+      path: test/AOJ/DSL_2_G.test.cpp
+      title: test/AOJ/DSL_2_G.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_6_A.test.cpp
       title: test/AOJ/GRL_6_A.test.cpp

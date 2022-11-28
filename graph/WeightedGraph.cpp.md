@@ -8,6 +8,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: flow/MCF.cpp
     title: flow/MCF.cpp
+  - icon: ':warning:'
+    path: graph/01BFS.cpp
+    title: graph/01BFS.cpp
   - icon: ':heavy_check_mark:'
     path: graph/Dijkstra.cpp
     title: graph/Dijkstra.cpp
@@ -88,6 +91,7 @@ data:
   requiredBy:
   - flow/Dinic.cpp
   - flow/MCF.cpp
+  - graph/01BFS.cpp
   - graph/Dijkstra.cpp
   timestamp: '2022-11-26 20:25:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
