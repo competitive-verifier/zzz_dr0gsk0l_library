@@ -77,7 +77,7 @@ data:
       title: datastructure/UnionFind.cpp
   - name: flow
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: flow/Dinic.cpp
       title: flow/Dinic.cpp
     - icon: ':heavy_check_mark:'
@@ -96,7 +96,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: graph/WeightedGraph.cpp
       title: graph/WeightedGraph.cpp
   - name: linearalgebra
@@ -179,7 +179,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/ALDS1_5_D.test.cpp
       title: test/AOJ/ALDS1_5_D.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/AOJ/GRL_6_A.test.cpp
       title: test/AOJ/GRL_6_A.test.cpp
     - icon: ':heavy_check_mark:'

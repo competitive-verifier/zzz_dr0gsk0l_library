@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/Dijkstra.cpp
     title: graph/Dijkstra.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
   _extendedRequiredBy: []

@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':x:'
+    path: flow/Dinic.cpp
+    title: flow/Dinic.cpp
   - icon: ':heavy_check_mark:'
     path: flow/MCF.cpp
     title: flow/MCF.cpp
@@ -9,15 +12,18 @@ data:
     path: graph/Dijkstra.cpp
     title: graph/Dijkstra.cpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/AOJ/GRL_6_A.test.cpp
+    title: test/AOJ/GRL_6_A.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/AOJ/GRL_6_B.test.cpp
     title: test/AOJ/GRL_6_B.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library-checker/Graph/ShortestPath.test.cpp
     title: test/library-checker/Graph/ShortestPath.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/WeightedGraph.cpp\"\ntemplate<typename T>\nstruct\
@@ -80,12 +86,14 @@ data:
   isVerificationFile: false
   path: graph/WeightedGraph.cpp
   requiredBy:
+  - flow/Dinic.cpp
   - flow/MCF.cpp
   - graph/Dijkstra.cpp
   timestamp: '2022-11-26 20:25:33+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/AOJ/GRL_6_B.test.cpp
+  - test/AOJ/GRL_6_A.test.cpp
   - test/library-checker/Graph/ShortestPath.test.cpp
 documentation_of: graph/WeightedGraph.cpp
 layout: document
