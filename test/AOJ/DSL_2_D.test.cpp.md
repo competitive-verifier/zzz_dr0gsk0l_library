@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/lazy/RangeSetRangeMin.cpp
     title: algebra/lazy/RangeSetRangeMin.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/monoid/Min.cpp
     title: algebra/monoid/Min.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/monoid/Set.cpp
     title: algebra/monoid/Set.cpp
   - icon: ':heavy_check_mark:'

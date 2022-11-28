@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/lazy/RangeSetRangeMin.cpp
     title: algebra/lazy/RangeSetRangeMin.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/monoid/Min.cpp
     title: algebra/monoid/Min.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/monoid/Set.cpp
     title: algebra/monoid/Set.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: segtree/LazySegmentTree.cpp
     title: segtree/LazySegmentTree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_F
@@ -61,15 +61,15 @@ data:
     \    for(int L=l,R=r+1;L<R;L>>=1,R>>=1){\n      if(L&1)point_apply(L++,f);\n \
     \     if(R&1)point_apply(--R,f);\n    }\n    recalc(l);\n    recalc(r);\n  }\n\
     };\n#line 7 \"test/AOJ/DSL_2_F.test.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
-    \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree< LazyRangeSetRangeMin<int>\
-    \ > seg(vector<int>(n,(1LL<<31)-1));\n  while(q--){\n    int t,l,r;cin>>t>>l>>r;r++;\n\
+    \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree< LazyRangeSetRangeMin<long\
+    \ long> > seg(vector<long long>(n,(1LL<<31)-1));\n  while(q--){\n    int t,l,r;cin>>t>>l>>r;r++;\n\
     \    if(t)\n      cout<<seg.prod(l,r)<<\"\\n\";\n    else{\n      int x;cin>>x;\n\
     \      seg.apply(l,r,x);\n    }\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_F\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/RangeSetRangeMin.cpp\"\
     \n#include \"segtree/LazySegmentTree.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
-    \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree< LazyRangeSetRangeMin<int>\
-    \ > seg(vector<int>(n,(1LL<<31)-1));\n  while(q--){\n    int t,l,r;cin>>t>>l>>r;r++;\n\
+    \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree< LazyRangeSetRangeMin<long\
+    \ long> > seg(vector<long long>(n,(1LL<<31)-1));\n  while(q--){\n    int t,l,r;cin>>t>>l>>r;r++;\n\
     \    if(t)\n      cout<<seg.prod(l,r)<<\"\\n\";\n    else{\n      int x;cin>>x;\n\
     \      seg.apply(l,r,x);\n    }\n  }\n}"
   dependsOn:
@@ -80,8 +80,8 @@ data:
   isVerificationFile: true
   path: test/AOJ/DSL_2_F.test.cpp
   requiredBy: []
-  timestamp: '2022-11-29 06:44:56+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-29 08:50:22+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/DSL_2_F.test.cpp
 layout: document
