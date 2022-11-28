@@ -43,7 +43,7 @@ data:
     \ an=power(a,n);\n    return {an,b*((1-an)/(1-a))};\n  }\n  */\n  static constexpr\
     \ F unit() { return {K(1), K(0)}; }\n  static constexpr bool commute = false;\n\
     \n  static constexpr K eval(const F &f, K x) noexcept {\n    return f.first *\
-    \ x + f.second;\n  }\n};\n#line 3 \"algebra/lazy/RangeAffineRangeSum.cpp\"\ntemplate<typename\
+    \ x + f.second;\n  }\n};\n#line 4 \"algebra/lazy/RangeAffineRangeSum.cpp\"\ntemplate<typename\
     \ X>\nstruct LazyRangeAffineRangeSum{\n  using MX=GroupCntSum<X>;\n  using MF=GroupAffine<X>;\n\
     \  using P=typename MX::value_type;\n  using F=typename MF::value_type;\n  static\
     \ constexpr P mapping(const F&f,const P&x){\n    return {f.first*x.first+f.second*x.second,\
@@ -116,7 +116,7 @@ data:
   isVerificationFile: true
   path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
   requiredBy: []
-  timestamp: '2022-11-26 10:16:59+09:00'
+  timestamp: '2022-11-29 06:25:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp

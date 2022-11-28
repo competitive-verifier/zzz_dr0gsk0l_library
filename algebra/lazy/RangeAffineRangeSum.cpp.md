@@ -31,23 +31,23 @@ data:
     \ {\n    if(a==1)return {1,n*b};\n    K an=power(a,n);\n    return {an,b*((1-an)/(1-a))};\n\
     \  }\n  */\n  static constexpr F unit() { return {K(1), K(0)}; }\n  static constexpr\
     \ bool commute = false;\n\n  static constexpr K eval(const F &f, K x) noexcept\
-    \ {\n    return f.first * x + f.second;\n  }\n};\n#line 3 \"algebra/lazy/RangeAffineRangeSum.cpp\"\
+    \ {\n    return f.first * x + f.second;\n  }\n};\n#line 4 \"algebra/lazy/RangeAffineRangeSum.cpp\"\
     \ntemplate<typename X>\nstruct LazyRangeAffineRangeSum{\n  using MX=GroupCntSum<X>;\n\
     \  using MF=GroupAffine<X>;\n  using P=typename MX::value_type;\n  using F=typename\
     \ MF::value_type;\n  static constexpr P mapping(const F&f,const P&x){\n    return\
     \ {f.first*x.first+f.second*x.second, x.second};\n  }\n};\n"
-  code: "#include \"algebra/group/CntSum.cpp\"\n#include \"algebra/group/Affine.cpp\"\
+  code: "#pragma once\n#include \"algebra/group/CntSum.cpp\"\n#include \"algebra/group/Affine.cpp\"\
     \ntemplate<typename X>\nstruct LazyRangeAffineRangeSum{\n  using MX=GroupCntSum<X>;\n\
     \  using MF=GroupAffine<X>;\n  using P=typename MX::value_type;\n  using F=typename\
     \ MF::value_type;\n  static constexpr P mapping(const F&f,const P&x){\n    return\
-    \ {f.first*x.first+f.second*x.second, x.second};\n  }\n};"
+    \ {f.first*x.first+f.second*x.second, x.second};\n  }\n};\n"
   dependsOn:
   - algebra/group/CntSum.cpp
   - algebra/group/Affine.cpp
   isVerificationFile: false
   path: algebra/lazy/RangeAffineRangeSum.cpp
   requiredBy: []
-  timestamp: '2022-11-26 09:11:25+09:00'
+  timestamp: '2022-11-29 06:25:23+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
