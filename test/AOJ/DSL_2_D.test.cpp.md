@@ -29,9 +29,9 @@ data:
     \ X op(const X &x, const X &y) noexcept { return min(x,y); }\n  static constexpr\
     \ X unit() { return numeric_limits<X>::max()/2; }\n  static constexpr bool commute\
     \ = true;\n};\n#line 2 \"algebra/monoid/Set.cpp\"\ntemplate<typename X>\nstruct\
-    \ Monoid_Set{\n  using O=optional<X>;\n  using value_type=O;\n  static constexpr\
-    \ O op(const O &x,const O &y)noexcept{ return (x.has_value()?x:y); }\n  static\
-    \ constexpr O unit()noexcept{ return nullopt; }\n  static constexpr bool commute=false;\n\
+    \ Set{\n  using O=optional<X>;\n  using value_type=O;\n  static constexpr O op(const\
+    \ O &x,const O &y)noexcept{ return (x.has_value()?x:y); }\n  static constexpr\
+    \ O unit()noexcept{ return nullopt; }\n  static constexpr bool commute=false;\n\
     };\n#line 4 \"algebra/lazy/RangeSetRangeMin.cpp\"\ntemplate<typename X>\nstruct\
     \ LazyRangeSetRangeMin{\n  using MX=MonoidMin<X>;\n  using MF=MonoidSet<X>;\n\
     \  using F=typename MF::value_type;\n  static constexpr X mapping(const F&f,const\
@@ -72,7 +72,7 @@ data:
   isVerificationFile: true
   path: test/AOJ/DSL_2_D.test.cpp
   requiredBy: []
-  timestamp: '2022-11-29 06:36:46+09:00'
+  timestamp: '2022-11-29 06:40:54+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/AOJ/DSL_2_D.test.cpp

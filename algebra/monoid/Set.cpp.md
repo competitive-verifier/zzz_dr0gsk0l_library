@@ -17,12 +17,12 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"algebra/monoid/Set.cpp\"\ntemplate<typename X>\nstruct Monoid_Set{\n\
+  bundledCode: "#line 2 \"algebra/monoid/Set.cpp\"\ntemplate<typename X>\nstruct Set{\n\
     \  using O=optional<X>;\n  using value_type=O;\n  static constexpr O op(const\
     \ O &x,const O &y)noexcept{ return (x.has_value()?x:y); }\n  static constexpr\
     \ O unit()noexcept{ return nullopt; }\n  static constexpr bool commute=false;\n\
     };\n"
-  code: "#pragma once\ntemplate<typename X>\nstruct Monoid_Set{\n  using O=optional<X>;\n\
+  code: "#pragma once\ntemplate<typename X>\nstruct Set{\n  using O=optional<X>;\n\
     \  using value_type=O;\n  static constexpr O op(const O &x,const O &y)noexcept{\
     \ return (x.has_value()?x:y); }\n  static constexpr O unit()noexcept{ return nullopt;\
     \ }\n  static constexpr bool commute=false;\n};"
@@ -31,7 +31,7 @@ data:
   path: algebra/monoid/Set.cpp
   requiredBy:
   - algebra/lazy/RangeSetRangeMin.cpp
-  timestamp: '2022-11-29 06:36:46+09:00'
+  timestamp: '2022-11-29 06:40:54+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/AOJ/DSL_2_D.test.cpp
