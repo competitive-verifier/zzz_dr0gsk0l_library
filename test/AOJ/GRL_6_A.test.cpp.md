@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: flow/Dinic.cpp
     title: flow/Dinic.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A
@@ -31,7 +31,7 @@ data:
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"flow/Dinic.cpp\"\
     \n\nint main(){\n  int n,m;cin>>n>>m;\n  Dinic<int> fl(n,0,n-1);\n  while(m--){\n\
-    \    int u,v,c;cin>>u>>v>>c;\n    fl.add_edge(u,v,c);\n  }\n  cout<<fl.flow()<<endl;\n\
+    \    int u,v,c;cin>>u>>v>>c;\n    fl.add_arc(u,v,c);\n  }\n  cout<<fl.flow()<<endl;\n\
     }"
   dependsOn:
   - flow/Dinic.cpp
@@ -39,8 +39,8 @@ data:
   isVerificationFile: true
   path: test/AOJ/GRL_6_A.test.cpp
   requiredBy: []
-  timestamp: '2022-11-28 17:05:36+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-28 17:09:47+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/GRL_6_A.test.cpp
 layout: document
