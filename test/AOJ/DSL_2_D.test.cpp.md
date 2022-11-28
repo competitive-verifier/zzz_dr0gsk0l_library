@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: algebra/lazy/RangeSetRangeMin.cpp
     title: algebra/lazy/RangeSetRangeMin.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: algebra/monoid/Min.cpp
     title: algebra/monoid/Min.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: algebra/monoid/Set.cpp
     title: algebra/monoid/Set.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: segtree/DualSegmentTree.cpp
     title: segtree/DualSegmentTree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_D
@@ -29,9 +29,9 @@ data:
     \ X op(const X &x, const X &y) noexcept { return min(x,y); }\n  static constexpr\
     \ X unit() { return numeric_limits<X>::max()/2; }\n  static constexpr bool commute\
     \ = true;\n};\n#line 2 \"algebra/monoid/Set.cpp\"\ntemplate<typename X>\nstruct\
-    \ Set{\n  using O=optional<X>;\n  using value_type=O;\n  static constexpr O op(const\
-    \ O &x,const O &y)noexcept{ return (x.has_value()?x:y); }\n  static constexpr\
-    \ O unit()noexcept{ return nullopt; }\n  static constexpr bool commute=false;\n\
+    \ MonoidSet{\n  using O=optional<X>;\n  using value_type=O;\n  static constexpr\
+    \ O op(const O &x,const O &y)noexcept{ return (x.has_value()?x:y); }\n  static\
+    \ constexpr O unit()noexcept{ return nullopt; }\n  static constexpr bool commute=false;\n\
     };\n#line 4 \"algebra/lazy/RangeSetRangeMin.cpp\"\ntemplate<typename X>\nstruct\
     \ LazyRangeSetRangeMin{\n  using MX=MonoidMin<X>;\n  using MF=MonoidSet<X>;\n\
     \  using F=typename MF::value_type;\n  static constexpr X mapping(const F&f,const\
@@ -72,8 +72,8 @@ data:
   isVerificationFile: true
   path: test/AOJ/DSL_2_D.test.cpp
   requiredBy: []
-  timestamp: '2022-11-29 06:40:54+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-29 06:44:56+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/DSL_2_D.test.cpp
 layout: document

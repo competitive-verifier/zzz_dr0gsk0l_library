@@ -2,11 +2,11 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':question:'
     path: algebra/lazy/RangeSetRangeMin.cpp
     title: algebra/lazy/RangeSetRangeMin.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_D.test.cpp
     title: test/AOJ/DSL_2_D.test.cpp
   - icon: ':x:'
@@ -14,15 +14,15 @@ data:
     title: test/AOJ/DSL_2_F.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"algebra/monoid/Set.cpp\"\ntemplate<typename X>\nstruct Set{\n\
+  bundledCode: "#line 2 \"algebra/monoid/Set.cpp\"\ntemplate<typename X>\nstruct MonoidSet{\n\
     \  using O=optional<X>;\n  using value_type=O;\n  static constexpr O op(const\
     \ O &x,const O &y)noexcept{ return (x.has_value()?x:y); }\n  static constexpr\
     \ O unit()noexcept{ return nullopt; }\n  static constexpr bool commute=false;\n\
     };\n"
-  code: "#pragma once\ntemplate<typename X>\nstruct Set{\n  using O=optional<X>;\n\
+  code: "#pragma once\ntemplate<typename X>\nstruct MonoidSet{\n  using O=optional<X>;\n\
     \  using value_type=O;\n  static constexpr O op(const O &x,const O &y)noexcept{\
     \ return (x.has_value()?x:y); }\n  static constexpr O unit()noexcept{ return nullopt;\
     \ }\n  static constexpr bool commute=false;\n};"
@@ -31,8 +31,8 @@ data:
   path: algebra/monoid/Set.cpp
   requiredBy:
   - algebra/lazy/RangeSetRangeMin.cpp
-  timestamp: '2022-11-29 06:40:54+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-11-29 06:44:56+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/AOJ/DSL_2_D.test.cpp
   - test/AOJ/DSL_2_F.test.cpp

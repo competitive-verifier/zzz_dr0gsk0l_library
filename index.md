@@ -31,7 +31,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: algebra/lazy/RangeAffineRangeSum.cpp
       title: algebra/lazy/RangeAffineRangeSum.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: algebra/lazy/RangeSetRangeMin.cpp
       title: algebra/lazy/RangeSetRangeMin.cpp
   - name: algebra/monoid
@@ -45,10 +45,10 @@ data:
     - icon: ':warning:'
       path: algebra/monoid/Max.cpp
       title: algebra/monoid/Max.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: algebra/monoid/Min.cpp
       title: algebra/monoid/Min.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: algebra/monoid/Set.cpp
       title: algebra/monoid/Set.cpp
   - name: bitwise
@@ -126,7 +126,7 @@ data:
       title: mod/Modint.cpp
   - name: segtree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: segtree/DualSegmentTree.cpp
       title: segtree/DualSegmentTree.cpp
     - icon: ':question:'
@@ -194,7 +194,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/ALDS1_5_D.test.cpp
       title: test/AOJ/ALDS1_5_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_D.test.cpp
       title: test/AOJ/DSL_2_D.test.cpp
     - icon: ':x:'
