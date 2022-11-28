@@ -13,7 +13,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: mod/Modint.cpp
     title: mod/Modint.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: segtree/LazySegmentTree.cpp
     title: segtree/LazySegmentTree.cpp
   _extendedRequiredBy: []

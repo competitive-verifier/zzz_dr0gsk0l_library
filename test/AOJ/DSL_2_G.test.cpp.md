@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: algebra/lazy/RangeAddRangeSum.cpp
     title: algebra/lazy/RangeAddRangeSum.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: segtree/LazySegmentTree.cpp
     title: segtree/LazySegmentTree.cpp
   _extendedRequiredBy: []

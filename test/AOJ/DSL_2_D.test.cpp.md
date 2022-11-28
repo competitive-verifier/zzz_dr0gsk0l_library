@@ -1,26 +1,62 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':x:'
+    path: algebra/lazy/RangeSetRangeMin.cpp
+    title: algebra/lazy/RangeSetRangeMin.cpp
+  - icon: ':x:'
+    path: algebra/monoid/Min.cpp
+    title: algebra/monoid/Min.cpp
+  - icon: ':x:'
+    path: algebra/monoid/Set.cpp
+    title: algebra/monoid/Set.cpp
+  - icon: ':x:'
+    path: segtree/DualSegmentTree.cpp
+    title: segtree/DualSegmentTree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
   _pathExtension: cpp
   _verificationStatusIcon: ':x:'
-  attributes: {}
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
-    \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
-    \ File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: algebra/monoid/Set.cpp:\
-    \ line -1: no such header\n"
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_D
+    links:
+    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_D
+  bundledCode: "#line 1 \"test/AOJ/DSL_2_D.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_D\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 1 \"algebra/monoid/Min.cpp\"\
+    \ntemplate<typename X>\nstruct MonoidMin{\n  using value_type = X;\n  static constexpr\
+    \ X op(const X &x, const X &y) noexcept { return min(x,y); }\n  static constexpr\
+    \ X unit() { return numeric_limits<X>::max()/2; }\n  static constexpr bool commute\
+    \ = true;\n};\n#line 2 \"algebra/monoid/Set.cpp\"\ntemplate<typename X>\nstruct\
+    \ Monoid_Set{\n  using O=optional<X>;\n  using value_type=O;\n  static constexpr\
+    \ O op(const O &x,const O &y)noexcept{ return (x.has_value()?x:y); }\n  static\
+    \ constexpr O unit()noexcept{ return nullopt; }\n  static constexpr bool commute=false;\n\
+    };\n#line 4 \"algebra/lazy/RangeSetRangeMin.cpp\"\ntemplate<typename X>\nstruct\
+    \ LazyRangeSetRangeMin{\n  using MX=MonoidMin<X>;\n  using MF=MonoidSet<X>;\n\
+    \  using F=typename MF::value_type;\n  static constexpr X mapping(const F&f,const\
+    \ X&x){\n    return f.value_or(x);\n  }\n};\n#line 1 \"segtree/DualSegmentTree.cpp\"\
+    \ntemplate<typename Lazy>\nclass DualSegmentTree{\n  using MX = typename Lazy::MX;\n\
+    \  using MF = typename Lazy::MF;\n  using X = typename MX::value_type;\n  using\
+    \ F = typename MF::value_type;\n  int n,log,size;\n  vector<X> dat;\n  vector<F>\
+    \ laz;\n\n  void point_apply(int k,const F&f){\n    if(k<size)laz[k]=MF::op(f,laz[k]);\n\
+    \    else dat[k-size]=Lazy::mapping(f,dat[k-size]);\n  }\n  void push(int k){\n\
+    \    point_apply(2*k,laz[k]);\n    point_apply(2*k+1,laz[k]);\n    laz[k]=MF::unit();\n\
+    \  }\n  void thrust(int k){ for(int i=log;i;i--)push(k>>i); }\n\npublic:\n  DualSegmentTree()\
+    \ : DualSegmentTree(0) {}\n  DualSegmentTree(int n):DualSegmentTree(vector<X>(n,MX::unit()))\
+    \ {}\n  DualSegmentTree(const vector<X>&v) : n(v.size()),dat(v) {\n    for(log=1;(1<<log)<n;log++){}\n\
+    \    size=1<<log;\n    laz.assign(size,MF::unit());\n  }\n\n  void set(int p,X\
+    \ x){\n    assert(0<=p and p<n);\n    thrust(p+size);\n    dat[p]=x;\n  }\n\n\
+    \  X operator[](int p){\n    assert(0<=p and p<n);\n    thrust(p+size);\n    return\
+    \ dat[p];\n  }\n\n  void apply(int l,int r,F f){\n    assert(0 <= l && l <= r\
+    \ && r <= n);\n    if(l==r)return;\n    thrust(l+=size);\n    thrust(r+=size-1);\n\
+    \    for(int L=l,R=r+1;L<R;L>>=1,R>>=1){\n      if(L&1)point_apply(L++,f);\n \
+    \     if(R&1)point_apply(--R,f);\n    }\n  }\n};\n#line 7 \"test/AOJ/DSL_2_D.test.cpp\"\
+    \n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int\
+    \ n,q;cin>>n>>q;\n  DualSegmentTree< LazyRangeSetRangeMin<int> > seg(vector<int>(n,(1LL<<31)-1));\n\
+    \  while(q--){\n    int t;cin>>t;\n    if(t){\n      int i;cin>>i;\n      cout<<seg[i]<<\"\
+    \\n\";\n    }\n    else{\n      int l,r,x;cin>>l>>r>>x;r++;\n      seg.apply(l,r,x);\n\
+    \    }\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_D\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/RangeSetRangeMin.cpp\"\
     \n#include \"segtree/DualSegmentTree.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
@@ -28,11 +64,15 @@ data:
     \ > seg(vector<int>(n,(1LL<<31)-1));\n  while(q--){\n    int t;cin>>t;\n    if(t){\n\
     \      int i;cin>>i;\n      cout<<seg[i]<<\"\\n\";\n    }\n    else{\n      int\
     \ l,r,x;cin>>l>>r>>x;r++;\n      seg.apply(l,r,x);\n    }\n  }\n}"
-  dependsOn: []
+  dependsOn:
+  - algebra/lazy/RangeSetRangeMin.cpp
+  - algebra/monoid/Min.cpp
+  - algebra/monoid/Set.cpp
+  - segtree/DualSegmentTree.cpp
   isVerificationFile: true
   path: test/AOJ/DSL_2_D.test.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
+  timestamp: '2022-11-29 06:36:46+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/AOJ/DSL_2_D.test.cpp

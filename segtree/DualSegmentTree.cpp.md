@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/AOJ/DSL_2_D.test.cpp
+    title: test/AOJ/DSL_2_D.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"segtree/DualSegmentTree.cpp\"\ntemplate<typename Lazy>\n\
@@ -46,8 +49,9 @@ data:
   path: segtree/DualSegmentTree.cpp
   requiredBy: []
   timestamp: '2022-11-29 06:10:12+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/AOJ/DSL_2_D.test.cpp
 documentation_of: segtree/DualSegmentTree.cpp
 layout: document
 redirect_from:
