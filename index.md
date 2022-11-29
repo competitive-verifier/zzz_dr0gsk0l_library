@@ -8,7 +8,7 @@ data:
       title: algebra/Reverse.cpp
   - name: algebra/group
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: algebra/group/Add.cpp
       title: algebra/group/Add.cpp
     - icon: ':heavy_check_mark:'
@@ -25,7 +25,7 @@ data:
       title: algebra/group/Xor.cpp
   - name: algebra/lazy
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: algebra/lazy/RangeAddRangeMin.cpp
       title: algebra/lazy/RangeAddRangeMin.cpp
     - icon: ':heavy_check_mark:'
@@ -51,7 +51,7 @@ data:
     - icon: ':warning:'
       path: algebra/monoid/Max.cpp
       title: algebra/monoid/Max.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: algebra/monoid/Min.cpp
       title: algebra/monoid/Min.cpp
     - icon: ':heavy_check_mark:'
@@ -135,7 +135,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: segtree/DualSegmentTree.cpp
       title: segtree/DualSegmentTree.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: segtree/LazySegmentTree.cpp
       title: segtree/LazySegmentTree.cpp
     - icon: ':heavy_check_mark:'
@@ -215,7 +215,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_G.test.cpp
       title: test/AOJ/DSL_2_G.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_H.test.cpp
       title: test/AOJ/DSL_2_H.test.cpp
     - icon: ':heavy_check_mark:'

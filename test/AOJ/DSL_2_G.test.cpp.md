@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/group/Add.cpp
     title: algebra/group/Add.cpp
   - icon: ':heavy_check_mark:'
@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: algebra/lazy/RangeAddRangeSum.cpp
     title: algebra/lazy/RangeAddRangeSum.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: segtree/LazySegmentTree.cpp
     title: segtree/LazySegmentTree.cpp
   _extendedRequiredBy: []

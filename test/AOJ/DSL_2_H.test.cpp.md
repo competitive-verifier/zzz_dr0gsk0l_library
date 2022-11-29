@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/group/Add.cpp
     title: algebra/group/Add.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/lazy/RangeAddRangeMin.cpp
     title: algebra/lazy/RangeAddRangeMin.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/monoid/Min.cpp
     title: algebra/monoid/Min.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: segtree/LazySegmentTree.cpp
     title: segtree/LazySegmentTree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H
@@ -62,7 +62,7 @@ data:
     \      if(L&1)point_apply(L++,f);\n      if(R&1)point_apply(--R,f);\n    }\n \
     \   recalc(l);\n    recalc(r);\n  }\n};\n#line 7 \"test/AOJ/DSL_2_H.test.cpp\"\
     \n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int\
-    \ n,q;cin>>n>>q;\n  LazySegmentTree< LazyRangeAddRangeMin<int> > seg(cnt_init(n,0));\n\
+    \ n,q;cin>>n>>q;\n  LazySegmentTree< LazyRangeAddRangeMin<int> > seg(vector<int>(n,0));\n\
     \  while(q--){\n    int t,l,r;cin>>t>>l>>r;r++;\n    if(t)cout<<seg.prod(l,r)<<\"\
     \\n\";\n    else{\n      int x;cin>>x;\n      seg.apply(l,r,x);\n    }\n  }\n\
     }\n"
@@ -70,8 +70,9 @@ data:
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/RangeAddRangeMin.cpp\"\
     \n#include \"segtree/LazySegmentTree.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
     \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree< LazyRangeAddRangeMin<int>\
-    \ > seg(cnt_init(n,0));\n  while(q--){\n    int t,l,r;cin>>t>>l>>r;r++;\n    if(t)cout<<seg.prod(l,r)<<\"\
-    \\n\";\n    else{\n      int x;cin>>x;\n      seg.apply(l,r,x);\n    }\n  }\n}"
+    \ > seg(vector<int>(n,0));\n  while(q--){\n    int t,l,r;cin>>t>>l>>r;r++;\n \
+    \   if(t)cout<<seg.prod(l,r)<<\"\\n\";\n    else{\n      int x;cin>>x;\n     \
+    \ seg.apply(l,r,x);\n    }\n  }\n}\n"
   dependsOn:
   - algebra/lazy/RangeAddRangeMin.cpp
   - algebra/group/Add.cpp
@@ -80,8 +81,8 @@ data:
   isVerificationFile: true
   path: test/AOJ/DSL_2_H.test.cpp
   requiredBy: []
-  timestamp: '2022-11-29 20:44:46+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-29 20:52:16+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/DSL_2_H.test.cpp
 layout: document
