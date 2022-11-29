@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: algebra/group/Affine.cpp
     title: algebra/group/Affine.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/group/CntSum.cpp
     title: algebra/group/CntSum.cpp
   - icon: ':heavy_check_mark:'
@@ -33,26 +33,29 @@ data:
     \  static constexpr P op(const P &x, const P &y){\n    return {x.first + y.first,\
     \ x.second + y.second};\n  }\n  static constexpr P inverse(const P &x){ return\
     \ {-x.fi, -x.se}; }\n  static constexpr P unit() { return {0, 0}; }\n  static\
-    \ constexpr bool commute = true;\n};\n#line 1 \"algebra/group/Affine.cpp\"\n//\
-    \ op(f,g) = f(g(x))\ntemplate<typename K>\nstruct GroupAffine{\n  using F = pair<K,\
-    \ K>;\n  using value_type = F;\n  static constexpr F op(const F &f, const F &g)\
-    \ noexcept {\n    return F({f.first * g.first, f.first * g.second + f.second});\n\
-    \  }\n  static constexpr F inverse(const F &x) {\n    auto [a, b] = x; assert(a!=0);\n\
-    \    a = K(1) / a;\n    return {a, a * (-b)};\n  }\n  /*\n  static constexpr F\
-    \ power(const F& f,long long n) noexcept {\n    if(a==1)return {1,n*b};\n    K\
-    \ an=power(a,n);\n    return {an,b*((1-an)/(1-a))};\n  }\n  */\n  static constexpr\
-    \ F unit() { return {K(1), K(0)}; }\n  static constexpr bool commute = false;\n\
-    \n  static constexpr K eval(const F &f, K x) noexcept {\n    return f.first *\
-    \ x + f.second;\n  }\n};\n#line 4 \"algebra/lazy/RangeAffineRangeSum.cpp\"\ntemplate<typename\
-    \ X>\nstruct LazyRangeAffineRangeSum{\n  using MX=GroupCntSum<X>;\n  using MF=GroupAffine<X>;\n\
-    \  using P=typename MX::value_type;\n  using F=typename MF::value_type;\n  static\
-    \ constexpr P mapping(const F&f,const P&x){\n    return {f.first*x.first+f.second*x.second,\
-    \ x.second};\n  }\n};\n#line 2 \"segtree/LazySegmentTree.cpp\"\n\ntemplate<typename\
-    \ Lazy>\nclass LazySegmentTree{\n  using MX = typename Lazy::MX;\n  using MF =\
-    \ typename Lazy::MF;\n  using X = typename MX::value_type;\n  using F = typename\
-    \ MF::value_type;\n  int n,log,size;\n  vector<X> dat;\n  vector<F> laz;\n\n \
-    \ X reflect(int k){\n    if(k<size)return Lazy::mapping(laz[k],dat[k]);\n    return\
-    \ dat[k];\n  }\n  void point_apply(int k,const F&f){\n    if(k<size)laz[k]=MF::op(f,laz[k]);\n\
+    \ constexpr bool commute = true;\n};\ntemplate<typename X>\nvector<pair<X,X>>\
+    \ cnt_init(int n,const X&x){\n  return vector<pair<X,X>>(n,{x,1});\n}\ntemplate<typename\
+    \ X>\nvector<pair<X,X>> cnt_init(const vector<X>&v){\n  int n=v.size();\n  vector<pair<X,X>>\
+    \ res(n);\n  for(int i=0;i<n;i++)res[i]={v[i],1};\n  return res;\n}\n#line 1 \"\
+    algebra/group/Affine.cpp\"\n// op(f,g) = f(g(x))\ntemplate<typename K>\nstruct\
+    \ GroupAffine{\n  using F = pair<K, K>;\n  using value_type = F;\n  static constexpr\
+    \ F op(const F &f, const F &g) noexcept {\n    return F({f.first * g.first, f.first\
+    \ * g.second + f.second});\n  }\n  static constexpr F inverse(const F &x) {\n\
+    \    auto [a, b] = x; assert(a!=0);\n    a = K(1) / a;\n    return {a, a * (-b)};\n\
+    \  }\n  /*\n  static constexpr F power(const F& f,long long n) noexcept {\n  \
+    \  if(a==1)return {1,n*b};\n    K an=power(a,n);\n    return {an,b*((1-an)/(1-a))};\n\
+    \  }\n  */\n  static constexpr F unit() { return {K(1), K(0)}; }\n  static constexpr\
+    \ bool commute = false;\n\n  static constexpr K eval(const F &f, K x) noexcept\
+    \ {\n    return f.first * x + f.second;\n  }\n};\n#line 4 \"algebra/lazy/RangeAffineRangeSum.cpp\"\
+    \ntemplate<typename X>\nstruct LazyRangeAffineRangeSum{\n  using MX=GroupCntSum<X>;\n\
+    \  using MF=GroupAffine<X>;\n  using P=typename MX::value_type;\n  using F=typename\
+    \ MF::value_type;\n  static constexpr P mapping(const F&f,const P&x){\n    return\
+    \ {f.first*x.first+f.second*x.second, x.second};\n  }\n};\n#line 2 \"segtree/LazySegmentTree.cpp\"\
+    \n\ntemplate<typename Lazy>\nclass LazySegmentTree{\n  using MX = typename Lazy::MX;\n\
+    \  using MF = typename Lazy::MF;\n  using X = typename MX::value_type;\n  using\
+    \ F = typename MF::value_type;\n  int n,log,size;\n  vector<X> dat;\n  vector<F>\
+    \ laz;\n\n  X reflect(int k){\n    if(k<size)return Lazy::mapping(laz[k],dat[k]);\n\
+    \    return dat[k];\n  }\n  void point_apply(int k,const F&f){\n    if(k<size)laz[k]=MF::op(f,laz[k]);\n\
     \    else dat[k]=Lazy::mapping(f,dat[k]);\n  }\n  void push(int k){\n    dat[k]=reflect(k);\n\
     \    point_apply(2*k,laz[k]);\n    point_apply(2*k+1,laz[k]);\n    laz[k]=MF::unit();\n\
     \  }\n  void thrust(int k){ for(int i=log;i;i--)push(k>>i); }\n  void update(int\
@@ -116,7 +119,7 @@ data:
   isVerificationFile: true
   path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
   requiredBy: []
-  timestamp: '2022-11-29 06:25:23+09:00'
+  timestamp: '2022-11-29 20:41:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp

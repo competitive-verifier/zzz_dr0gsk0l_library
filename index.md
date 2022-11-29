@@ -14,7 +14,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: algebra/group/Affine.cpp
       title: algebra/group/Affine.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: algebra/group/CntSum.cpp
       title: algebra/group/CntSum.cpp
     - icon: ':warning:'
@@ -25,7 +25,7 @@ data:
       title: algebra/group/Xor.cpp
   - name: algebra/lazy
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: algebra/lazy/RangeAddRangeMin.cpp
       title: algebra/lazy/RangeAddRangeMin.cpp
     - icon: ':heavy_check_mark:'
@@ -37,7 +37,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: algebra/lazy/RangeSetRangeMin.cpp
       title: algebra/lazy/RangeSetRangeMin.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: algebra/lazy/RangeSetRangeSum.cpp
       title: algebra/lazy/RangeSetRangeSum.cpp
   - name: algebra/monoid
@@ -54,7 +54,7 @@ data:
     - icon: ':question:'
       path: algebra/monoid/Min.cpp
       title: algebra/monoid/Min.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: algebra/monoid/Set.cpp
       title: algebra/monoid/Set.cpp
   - name: bitwise
@@ -132,7 +132,7 @@ data:
       title: mod/Modint.cpp
   - name: segtree
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: segtree/DualSegmentTree.cpp
       title: segtree/DualSegmentTree.cpp
     - icon: ':question:'
@@ -206,7 +206,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_D.test.cpp
       title: test/AOJ/DSL_2_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_E.test.cpp
       title: test/AOJ/DSL_2_E.test.cpp
     - icon: ':heavy_check_mark:'
@@ -218,7 +218,7 @@ data:
     - icon: ':x:'
       path: test/AOJ/DSL_2_H.test.cpp
       title: test/AOJ/DSL_2_H.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_I.test.cpp
       title: test/AOJ/DSL_2_I.test.cpp
     - icon: ':heavy_check_mark:'

@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':question:'
     path: algebra/lazy/RangeAddRangeMin.cpp
     title: algebra/lazy/RangeAddRangeMin.cpp
   - icon: ':heavy_check_mark:'
@@ -12,7 +12,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_D.test.cpp
     title: test/AOJ/DSL_2_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_E.test.cpp
     title: test/AOJ/DSL_2_E.test.cpp
   - icon: ':heavy_check_mark:'

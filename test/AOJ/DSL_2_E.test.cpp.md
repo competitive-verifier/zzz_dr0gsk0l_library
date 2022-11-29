@@ -4,26 +4,26 @@ data:
   - icon: ':question:'
     path: algebra/group/Add.cpp
     title: algebra/group/Add.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: algebra/lazy/RangeAddRangeMin.cpp
     title: algebra/lazy/RangeAddRangeMin.cpp
   - icon: ':question:'
     path: algebra/monoid/Min.cpp
     title: algebra/monoid/Min.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: segtree/DualSegmentTree.cpp
     title: segtree/DualSegmentTree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_D
+    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_E
     links:
-    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_D
-  bundledCode: "#line 1 \"test/AOJ/DSL_2_E.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_D\"\
+    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_E
+  bundledCode: "#line 1 \"test/AOJ/DSL_2_E.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_E\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"algebra/group/Add.cpp\"\
     \ntemplate<typename X>\nstruct GroupAdd {\n  using value_type = X;\n  static constexpr\
     \ X op(const X &x, const X &y) noexcept { return x + y; }\n  static constexpr\
@@ -57,7 +57,7 @@ data:
     \ > seg(vector<int>(n,0));\n  while(q--){\n    int t;cin>>t;\n    if(t){\n   \
     \   int x;cin>>x;x--;\n      cout<<seg[x]<<\"\\n\";\n    }\n    else{\n      int\
     \ l,r,x;cin>>l>>r>>x;l--;\n      seg.apply(l,r,x);\n    }\n  }\n}\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_D\"\
+  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_E\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/RangeAddRangeMin.cpp\"\
     \n#include \"segtree/DualSegmentTree.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
     \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  DualSegmentTree< LazyRangeAddRangeMin<int>\
@@ -72,8 +72,8 @@ data:
   isVerificationFile: true
   path: test/AOJ/DSL_2_E.test.cpp
   requiredBy: []
-  timestamp: '2022-11-29 20:35:02+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-11-29 20:46:46+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/DSL_2_E.test.cpp
 layout: document

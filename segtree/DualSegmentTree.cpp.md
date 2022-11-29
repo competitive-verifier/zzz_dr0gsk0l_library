@@ -6,12 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_D.test.cpp
     title: test/AOJ/DSL_2_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_E.test.cpp
     title: test/AOJ/DSL_2_E.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"segtree/DualSegmentTree.cpp\"\ntemplate<typename Lazy>\n\
@@ -52,7 +52,7 @@ data:
   path: segtree/DualSegmentTree.cpp
   requiredBy: []
   timestamp: '2022-11-29 06:10:12+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/DSL_2_E.test.cpp
   - test/AOJ/DSL_2_D.test.cpp

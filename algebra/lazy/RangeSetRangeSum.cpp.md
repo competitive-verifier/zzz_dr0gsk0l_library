@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/group/CntSum.cpp
     title: algebra/group/CntSum.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/monoid/Set.cpp
     title: algebra/monoid/Set.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_I.test.cpp
     title: test/AOJ/DSL_2_I.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"algebra/group/CntSum.cpp\"\ntemplate<typename X>\nstruct\
@@ -22,10 +22,13 @@ data:
     \ P op(const P &x, const P &y){\n    return {x.first + y.first, x.second + y.second};\n\
     \  }\n  static constexpr P inverse(const P &x){ return {-x.fi, -x.se}; }\n  static\
     \ constexpr P unit() { return {0, 0}; }\n  static constexpr bool commute = true;\n\
-    };\n#line 2 \"algebra/monoid/Set.cpp\"\ntemplate<typename X>\nstruct MonoidSet{\n\
-    \  using O=optional<X>;\n  using value_type=O;\n  static constexpr O op(const\
-    \ O &x,const O &y)noexcept{ return (x.has_value()?x:y); }\n  static constexpr\
-    \ O unit()noexcept{ return nullopt; }\n  static constexpr bool commute=false;\n\
+    };\ntemplate<typename X>\nvector<pair<X,X>> cnt_init(int n,const X&x){\n  return\
+    \ vector<pair<X,X>>(n,{x,1});\n}\ntemplate<typename X>\nvector<pair<X,X>> cnt_init(const\
+    \ vector<X>&v){\n  int n=v.size();\n  vector<pair<X,X>> res(n);\n  for(int i=0;i<n;i++)res[i]={v[i],1};\n\
+    \  return res;\n}\n#line 2 \"algebra/monoid/Set.cpp\"\ntemplate<typename X>\n\
+    struct MonoidSet{\n  using O=optional<X>;\n  using value_type=O;\n  static constexpr\
+    \ O op(const O &x,const O &y)noexcept{ return (x.has_value()?x:y); }\n  static\
+    \ constexpr O unit()noexcept{ return nullopt; }\n  static constexpr bool commute=false;\n\
     };\n#line 4 \"algebra/lazy/RangeSetRangeSum.cpp\"\ntemplate<typename X>\nstruct\
     \ LazyRangeSetRangeSum{\n  using MX=GroupCntSum<X>;\n  using MF=MonoidSet<X>;\n\
     \  using P=typename MX::value_type;\n  using F=typename MF::value_type;\n  static\
@@ -42,8 +45,8 @@ data:
   isVerificationFile: false
   path: algebra/lazy/RangeSetRangeSum.cpp
   requiredBy: []
-  timestamp: '2022-11-29 20:35:02+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-11-29 20:41:19+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/DSL_2_I.test.cpp
 documentation_of: algebra/lazy/RangeSetRangeSum.cpp

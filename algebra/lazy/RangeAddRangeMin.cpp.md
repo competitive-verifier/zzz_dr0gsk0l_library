@@ -9,7 +9,7 @@ data:
     title: algebra/monoid/Min.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_E.test.cpp
     title: test/AOJ/DSL_2_E.test.cpp
   - icon: ':x:'
@@ -17,7 +17,7 @@ data:
     title: test/AOJ/DSL_2_H.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"algebra/group/Add.cpp\"\ntemplate<typename X>\nstruct GroupAdd\
@@ -43,7 +43,7 @@ data:
   path: algebra/lazy/RangeAddRangeMin.cpp
   requiredBy: []
   timestamp: '2022-11-29 20:35:02+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/AOJ/DSL_2_E.test.cpp
   - test/AOJ/DSL_2_H.test.cpp

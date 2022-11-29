@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: algebra/group/Add.cpp
     title: algebra/group/Add.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: algebra/lazy/RangeAddRangeMin.cpp
     title: algebra/lazy/RangeAddRangeMin.cpp
   - icon: ':question:'
@@ -20,10 +20,10 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_D
+    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H
     links:
-    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_D
-  bundledCode: "#line 1 \"test/AOJ/DSL_2_H.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_D\"\
+    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H
+  bundledCode: "#line 1 \"test/AOJ/DSL_2_H.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"algebra/group/Add.cpp\"\
     \ntemplate<typename X>\nstruct GroupAdd {\n  using value_type = X;\n  static constexpr\
     \ X op(const X &x, const X &y) noexcept { return x + y; }\n  static constexpr\
@@ -62,17 +62,16 @@ data:
     \      if(L&1)point_apply(L++,f);\n      if(R&1)point_apply(--R,f);\n    }\n \
     \   recalc(l);\n    recalc(r);\n  }\n};\n#line 7 \"test/AOJ/DSL_2_H.test.cpp\"\
     \n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int\
-    \ n,q;cin>>n>>q;\n  LazySegmentTree< LazyRangeAddRangeMin<int> > seg(vector<int>(n,0));\n\
+    \ n,q;cin>>n>>q;\n  LazySegmentTree< LazyRangeAddRangeMin<int> > seg(cnt_init(n,0));\n\
     \  while(q--){\n    int t,l,r;cin>>t>>l>>r;r++;\n    if(t)cout<<seg.prod(l,r)<<\"\
     \\n\";\n    else{\n      int x;cin>>x;\n      seg.apply(l,r,x);\n    }\n  }\n\
     }\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_D\"\
+  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/RangeAddRangeMin.cpp\"\
     \n#include \"segtree/LazySegmentTree.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
     \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree< LazyRangeAddRangeMin<int>\
-    \ > seg(vector<int>(n,0));\n  while(q--){\n    int t,l,r;cin>>t>>l>>r;r++;\n \
-    \   if(t)cout<<seg.prod(l,r)<<\"\\n\";\n    else{\n      int x;cin>>x;\n     \
-    \ seg.apply(l,r,x);\n    }\n  }\n}"
+    \ > seg(cnt_init(n,0));\n  while(q--){\n    int t,l,r;cin>>t>>l>>r;r++;\n    if(t)cout<<seg.prod(l,r)<<\"\
+    \\n\";\n    else{\n      int x;cin>>x;\n      seg.apply(l,r,x);\n    }\n  }\n}"
   dependsOn:
   - algebra/lazy/RangeAddRangeMin.cpp
   - algebra/group/Add.cpp
@@ -81,7 +80,7 @@ data:
   isVerificationFile: true
   path: test/AOJ/DSL_2_H.test.cpp
   requiredBy: []
-  timestamp: '2022-11-29 20:35:02+09:00'
+  timestamp: '2022-11-29 20:44:46+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/AOJ/DSL_2_H.test.cpp
