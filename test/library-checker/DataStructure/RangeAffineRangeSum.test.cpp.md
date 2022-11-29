@@ -96,20 +96,19 @@ data:
     \ Mint &m){os<<m.v;return os;}\n  friend istream& operator>>(istream&is,Mint &m){is>>m.v;m.v%=MOD;if(m.v<0)m.v+=MOD;return\
     \ is;}\n};\n#line 8 \"test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp\"\
     \n\nusing mint=Mint<long long>;\n\nint main(){\n  ios::sync_with_stdio(false);\n\
-    \  cin.tie(nullptr);\n  \n  int n,q;cin>>n>>q;\n\n  vector<pair<mint,mint>> v(n);\n\
-    \  for(auto&[a,b]:v){ cin>>a; b=1; }\n  LazySegmentTree< LazyRangeAffineRangeSum<mint>\
-    \ > seg(v);\n\n  while(q--){\n    int t,l,r;cin>>t>>l>>r;\n    if(t)cout<<seg.prod(l,r).first<<'\\\
+    \  cin.tie(nullptr);\n  \n  int n,q;cin>>n>>q;\n\n  vector<mint> v(n);\n  for(int\
+    \ i=0;i<n;i++)cin>>v[i];\n  LazySegmentTree< LazyRangeAffineRangeSum<mint> > seg(cnt_init(v));\n\
+    \n  while(q--){\n    int t,l,r;cin>>t>>l>>r;\n    if(t)cout<<seg.prod(l,r).first<<'\\\
     n';\n    else{\n      int b,c;cin>>b>>c;\n      seg.apply(l,r,{b,c});\n    }\n\
     \  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/RangeAffineRangeSum.cpp\"\
     \n#include \"segtree/LazySegmentTree.cpp\"\n#include \"mod/Modint.cpp\"\n\nusing\
     \ mint=Mint<long long>;\n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\
-    \  \n  int n,q;cin>>n>>q;\n\n  vector<pair<mint,mint>> v(n);\n  for(auto&[a,b]:v){\
-    \ cin>>a; b=1; }\n  LazySegmentTree< LazyRangeAffineRangeSum<mint> > seg(v);\n\
-    \n  while(q--){\n    int t,l,r;cin>>t>>l>>r;\n    if(t)cout<<seg.prod(l,r).first<<'\\\
-    n';\n    else{\n      int b,c;cin>>b>>c;\n      seg.apply(l,r,{b,c});\n    }\n\
-    \  }\n}"
+    \  \n  int n,q;cin>>n>>q;\n\n  vector<mint> v(n);\n  for(int i=0;i<n;i++)cin>>v[i];\n\
+    \  LazySegmentTree< LazyRangeAffineRangeSum<mint> > seg(cnt_init(v));\n\n  while(q--){\n\
+    \    int t,l,r;cin>>t>>l>>r;\n    if(t)cout<<seg.prod(l,r).first<<'\\n';\n   \
+    \ else{\n      int b,c;cin>>b>>c;\n      seg.apply(l,r,{b,c});\n    }\n  }\n}"
   dependsOn:
   - algebra/lazy/RangeAffineRangeSum.cpp
   - algebra/group/CntSum.cpp
@@ -119,7 +118,7 @@ data:
   isVerificationFile: true
   path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
   requiredBy: []
-  timestamp: '2022-11-29 20:41:19+09:00'
+  timestamp: '2022-11-29 21:06:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
