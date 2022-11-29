@@ -9,12 +9,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_G.test.cpp
     title: test/AOJ/DSL_2_G.test.cpp
+  - icon: ':x:'
+    path: test/AOJ/DSL_2_H.test.cpp
+    title: test/AOJ/DSL_2_H.test.cpp
+  - icon: ':x:'
+    path: test/AOJ/DSL_2_I.test.cpp
+    title: test/AOJ/DSL_2_I.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
     title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"segtree/LazySegmentTree.cpp\"\n\ntemplate<typename Lazy>\n\
@@ -73,10 +79,12 @@ data:
   path: segtree/LazySegmentTree.cpp
   requiredBy: []
   timestamp: '2022-11-26 09:11:25+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/AOJ/DSL_2_I.test.cpp
   - test/AOJ/DSL_2_F.test.cpp
   - test/AOJ/DSL_2_G.test.cpp
+  - test/AOJ/DSL_2_H.test.cpp
   - test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
 documentation_of: segtree/LazySegmentTree.cpp
 layout: document

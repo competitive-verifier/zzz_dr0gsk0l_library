@@ -10,6 +10,9 @@ data:
     path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
     title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp
+    title: test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_path_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -85,6 +88,7 @@ data:
   - test/library-checker/Tree/LowestCommonAncestor.test.cpp
   - test/library-checker/Tree/vertex_add_path_sum.test.cpp
   - test/library-checker/Tree/vertex_set_path_composite.test.cpp
+  - test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp
   - test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
 documentation_of: tree/Tree.cpp
 layout: document

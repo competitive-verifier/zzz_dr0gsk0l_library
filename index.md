@@ -8,13 +8,13 @@ data:
       title: algebra/Reverse.cpp
   - name: algebra/group
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/group/Add.cpp
       title: algebra/group/Add.cpp
     - icon: ':heavy_check_mark:'
       path: algebra/group/Affine.cpp
       title: algebra/group/Affine.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/group/CntSum.cpp
       title: algebra/group/CntSum.cpp
     - icon: ':warning:'
@@ -25,6 +25,9 @@ data:
       title: algebra/group/Xor.cpp
   - name: algebra/lazy
     pages:
+    - icon: ':x:'
+      path: algebra/lazy/RangeAddRangeMin.cpp
+      title: algebra/lazy/RangeAddRangeMin.cpp
     - icon: ':heavy_check_mark:'
       path: algebra/lazy/RangeAddRangeSum.cpp
       title: algebra/lazy/RangeAddRangeSum.cpp
@@ -34,6 +37,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: algebra/lazy/RangeSetRangeMin.cpp
       title: algebra/lazy/RangeSetRangeMin.cpp
+    - icon: ':x:'
+      path: algebra/lazy/RangeSetRangeSum.cpp
+      title: algebra/lazy/RangeSetRangeSum.cpp
   - name: algebra/monoid
     pages:
     - icon: ':warning:'
@@ -45,10 +51,10 @@ data:
     - icon: ':warning:'
       path: algebra/monoid/Max.cpp
       title: algebra/monoid/Max.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/monoid/Min.cpp
       title: algebra/monoid/Min.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/monoid/Set.cpp
       title: algebra/monoid/Set.cpp
   - name: bitwise
@@ -126,10 +132,10 @@ data:
       title: mod/Modint.cpp
   - name: segtree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: segtree/DualSegmentTree.cpp
       title: segtree/DualSegmentTree.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: segtree/LazySegmentTree.cpp
       title: segtree/LazySegmentTree.cpp
     - icon: ':heavy_check_mark:'
@@ -166,6 +172,9 @@ data:
       path: tree/HLD.cpp
       title: tree/HLD.cpp
     - icon: ':heavy_check_mark:'
+      path: tree/RootedTreeIsomorphism.cpp
+      title: tree/RootedTreeIsomorphism.cpp
+    - icon: ':heavy_check_mark:'
       path: tree/Tree.cpp
       title: tree/Tree.cpp
     - icon: ':heavy_check_mark:'
@@ -197,12 +206,21 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_D.test.cpp
       title: test/AOJ/DSL_2_D.test.cpp
+    - icon: ':x:'
+      path: test/AOJ/DSL_2_E.test.cpp
+      title: test/AOJ/DSL_2_E.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_F.test.cpp
       title: test/AOJ/DSL_2_F.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_G.test.cpp
       title: test/AOJ/DSL_2_G.test.cpp
+    - icon: ':x:'
+      path: test/AOJ/DSL_2_H.test.cpp
+      title: test/AOJ/DSL_2_H.test.cpp
+    - icon: ':x:'
+      path: test/AOJ/DSL_2_I.test.cpp
+      title: test/AOJ/DSL_2_I.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_6_A.test.cpp
       title: test/AOJ/GRL_6_A.test.cpp
@@ -274,6 +292,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
       title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp
+      title: test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
       title: test/library-checker/Tree/vertex_add_path_sum.test.cpp

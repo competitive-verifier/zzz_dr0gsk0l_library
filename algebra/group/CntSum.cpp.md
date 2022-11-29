@@ -8,16 +8,22 @@ data:
   - icon: ':heavy_check_mark:'
     path: algebra/lazy/RangeAffineRangeSum.cpp
     title: algebra/lazy/RangeAffineRangeSum.cpp
+  - icon: ':x:'
+    path: algebra/lazy/RangeSetRangeSum.cpp
+    title: algebra/lazy/RangeSetRangeSum.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_G.test.cpp
     title: test/AOJ/DSL_2_G.test.cpp
+  - icon: ':x:'
+    path: test/AOJ/DSL_2_I.test.cpp
+    title: test/AOJ/DSL_2_I.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
     title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"algebra/group/CntSum.cpp\"\ntemplate<typename X>\nstruct\
@@ -37,9 +43,11 @@ data:
   requiredBy:
   - algebra/lazy/RangeAddRangeSum.cpp
   - algebra/lazy/RangeAffineRangeSum.cpp
+  - algebra/lazy/RangeSetRangeSum.cpp
   timestamp: '2022-11-26 09:11:25+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/AOJ/DSL_2_I.test.cpp
   - test/AOJ/DSL_2_G.test.cpp
   - test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
 documentation_of: algebra/group/CntSum.cpp

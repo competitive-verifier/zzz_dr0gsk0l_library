@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/monoid/Min.cpp
     title: algebra/monoid/Min.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/monoid/Set.cpp
     title: algebra/monoid/Set.cpp
   _extendedRequiredBy: []

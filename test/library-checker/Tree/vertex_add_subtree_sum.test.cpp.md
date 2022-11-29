@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: algebra/Reverse.cpp
     title: algebra/Reverse.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/group/Add.cpp
     title: algebra/group/Add.cpp
   - icon: ':heavy_check_mark:'

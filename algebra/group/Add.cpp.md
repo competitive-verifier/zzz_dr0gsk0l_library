@@ -2,13 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':x:'
+    path: algebra/lazy/RangeAddRangeMin.cpp
+    title: algebra/lazy/RangeAddRangeMin.cpp
   - icon: ':heavy_check_mark:'
     path: algebra/lazy/RangeAddRangeSum.cpp
     title: algebra/lazy/RangeAddRangeSum.cpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/AOJ/DSL_2_E.test.cpp
+    title: test/AOJ/DSL_2_E.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_G.test.cpp
     title: test/AOJ/DSL_2_G.test.cpp
+  - icon: ':x:'
+    path: test/AOJ/DSL_2_H.test.cpp
+    title: test/AOJ/DSL_2_H.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
     title: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
@@ -18,9 +27,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"algebra/group/Add.cpp\"\ntemplate<typename X>\nstruct GroupAdd\
@@ -40,10 +49,13 @@ data:
   path: algebra/group/Add.cpp
   requiredBy:
   - algebra/lazy/RangeAddRangeSum.cpp
+  - algebra/lazy/RangeAddRangeMin.cpp
   timestamp: '2022-11-26 09:11:25+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/AOJ/DSL_2_E.test.cpp
   - test/AOJ/DSL_2_G.test.cpp
+  - test/AOJ/DSL_2_H.test.cpp
   - test/library-checker/DataStructure/PointAddRangeSum.test.cpp
   - test/library-checker/Tree/vertex_add_path_sum.test.cpp
   - test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
