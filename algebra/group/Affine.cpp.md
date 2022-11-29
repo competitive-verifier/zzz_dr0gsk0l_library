@@ -3,8 +3,8 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: algebra/lazy/RangeAffineRangeSum.cpp
-    title: algebra/lazy/RangeAffineRangeSum.cpp
+    path: algebra/lazy/AffineSum.cpp
+    title: algebra/lazy/AffineSum.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/PointSetRangeComposite.test.cpp
@@ -44,7 +44,7 @@ data:
   isVerificationFile: false
   path: algebra/group/Affine.cpp
   requiredBy:
-  - algebra/lazy/RangeAffineRangeSum.cpp
+  - algebra/lazy/AffineSum.cpp
   timestamp: '2022-11-26 09:11:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

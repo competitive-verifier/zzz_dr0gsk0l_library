@@ -3,11 +3,11 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: algebra/lazy/RangeAddRangeMin.cpp
-    title: algebra/lazy/RangeAddRangeMin.cpp
+    path: algebra/lazy/AddMin.cpp
+    title: algebra/lazy/AddMin.cpp
   - icon: ':heavy_check_mark:'
-    path: algebra/lazy/RangeAddRangeSum.cpp
-    title: algebra/lazy/RangeAddRangeSum.cpp
+    path: algebra/lazy/AddSum.cpp
+    title: algebra/lazy/AddSum.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_E.test.cpp
@@ -48,8 +48,8 @@ data:
   isVerificationFile: false
   path: algebra/group/Add.cpp
   requiredBy:
-  - algebra/lazy/RangeAddRangeSum.cpp
-  - algebra/lazy/RangeAddRangeMin.cpp
+  - algebra/lazy/AddSum.cpp
+  - algebra/lazy/AddMin.cpp
   timestamp: '2022-11-26 09:11:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

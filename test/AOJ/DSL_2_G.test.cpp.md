@@ -8,8 +8,8 @@ data:
     path: algebra/group/CntSum.cpp
     title: algebra/group/CntSum.cpp
   - icon: ':heavy_check_mark:'
-    path: algebra/lazy/RangeAddRangeSum.cpp
-    title: algebra/lazy/RangeAddRangeSum.cpp
+    path: algebra/lazy/AddSum.cpp
+    title: algebra/lazy/AddSum.cpp
   - icon: ':heavy_check_mark:'
     path: segtree/LazySegmentTree.cpp
     title: segtree/LazySegmentTree.cpp
@@ -38,10 +38,10 @@ data:
     \ y; }\n  static constexpr X inverse(const X &x) noexcept { return -x; }\n  static\
     \ constexpr X power(const X &x, long long n) noexcept { return X(n) * x; }\n \
     \ static constexpr X unit() { return X(0); }\n  static constexpr bool commute\
-    \ = true;\n};\n#line 4 \"algebra/lazy/RangeAddRangeSum.cpp\"\ntemplate<typename\
-    \ X>\nstruct LazyRangeAddRangeSum{\n  using MX=GroupCntSum<X>;\n  using MF=GroupAdd<X>;\n\
-    \  using S=typename MX::value_type;\n  static constexpr S mapping(const X&f,const\
-    \ S&x){\n    return {x.first+f*x.second,x.second};\n  }\n};\n#line 2 \"segtree/LazySegmentTree.cpp\"\
+    \ = true;\n};\n#line 4 \"algebra/lazy/AddSum.cpp\"\ntemplate<typename X>\nstruct\
+    \ LazyAddSum{\n  using MX=GroupCntSum<X>;\n  using MF=GroupAdd<X>;\n  using S=typename\
+    \ MX::value_type;\n  static constexpr S mapping(const X&f,const S&x){\n    return\
+    \ {x.first+f*x.second,x.second};\n  }\n};\n#line 2 \"segtree/LazySegmentTree.cpp\"\
     \n\ntemplate<typename Lazy>\nclass LazySegmentTree{\n  using MX = typename Lazy::MX;\n\
     \  using MF = typename Lazy::MF;\n  using X = typename MX::value_type;\n  using\
     \ F = typename MF::value_type;\n  int n,log,size;\n  vector<X> dat;\n  vector<F>\
@@ -68,26 +68,26 @@ data:
     \     if(R&1)point_apply(--R,f);\n    }\n    recalc(l);\n    recalc(r);\n  }\n\
     };\n#line 7 \"test/AOJ/DSL_2_G.test.cpp\"\n\nusing ll=long long;\n\nint main(){\n\
     \  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n\
-    \  LazySegmentTree<LazyRangeAddRangeSum<ll>> seg(cnt_init(n,0LL));\n  \n  while(q--){\n\
+    \  LazySegmentTree<LazyAddSum<ll>> seg(cnt_init(n,0LL));\n  \n  while(q--){\n\
     \    int t,l,r;cin>>t>>l>>r;l--;\n    if(t)\n      cout<<seg.prod(l,r).first<<\"\
     \\n\";\n    else{\n      int x;cin>>x;\n      seg.apply(l,r,x);\n    }\n  }\n\
     }\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/RangeAddRangeSum.cpp\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/AddSum.cpp\"\
     \n#include \"segtree/LazySegmentTree.cpp\"\n\nusing ll=long long;\n\nint main(){\n\
     \  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n\
-    \  LazySegmentTree<LazyRangeAddRangeSum<ll>> seg(cnt_init(n,0LL));\n  \n  while(q--){\n\
+    \  LazySegmentTree<LazyAddSum<ll>> seg(cnt_init(n,0LL));\n  \n  while(q--){\n\
     \    int t,l,r;cin>>t>>l>>r;l--;\n    if(t)\n      cout<<seg.prod(l,r).first<<\"\
     \\n\";\n    else{\n      int x;cin>>x;\n      seg.apply(l,r,x);\n    }\n  }\n}"
   dependsOn:
-  - algebra/lazy/RangeAddRangeSum.cpp
+  - algebra/lazy/AddSum.cpp
   - algebra/group/CntSum.cpp
   - algebra/group/Add.cpp
   - segtree/LazySegmentTree.cpp
   isVerificationFile: true
   path: test/AOJ/DSL_2_G.test.cpp
   requiredBy: []
-  timestamp: '2022-11-29 20:46:46+09:00'
+  timestamp: '2022-11-29 21:38:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/DSL_2_G.test.cpp

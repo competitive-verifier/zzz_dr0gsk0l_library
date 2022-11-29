@@ -29,30 +29,30 @@ data:
     struct MonoidSet{\n  using O=optional<X>;\n  using value_type=O;\n  static constexpr\
     \ O op(const O &x,const O &y)noexcept{ return (x.has_value()?x:y); }\n  static\
     \ constexpr O unit()noexcept{ return nullopt; }\n  static constexpr bool commute=false;\n\
-    };\n#line 4 \"algebra/lazy/RangeSetRangeSum.cpp\"\ntemplate<typename X>\nstruct\
-    \ LazyRangeSetRangeSum{\n  using MX=GroupCntSum<X>;\n  using MF=MonoidSet<X>;\n\
-    \  using P=typename MX::value_type;\n  using F=typename MF::value_type;\n  static\
-    \ constexpr P mapping(const F&f,const P&x){\n    if(f.has_value())return {f.value()*x.second,x.second};\n\
-    \    return x;\n  }\n};\n"
+    };\n#line 4 \"algebra/lazy/SetSum.cpp\"\ntemplate<typename X>\nstruct LazySetSum{\n\
+    \  using MX=GroupCntSum<X>;\n  using MF=MonoidSet<X>;\n  using P=typename MX::value_type;\n\
+    \  using F=typename MF::value_type;\n  static constexpr P mapping(const F&f,const\
+    \ P&x){\n    if(f.has_value())return {f.value()*x.second,x.second};\n    return\
+    \ x;\n  }\n};\n"
   code: "#pragma once\n#include \"algebra/group/CntSum.cpp\"\n#include \"algebra/monoid/Set.cpp\"\
-    \ntemplate<typename X>\nstruct LazyRangeSetRangeSum{\n  using MX=GroupCntSum<X>;\n\
-    \  using MF=MonoidSet<X>;\n  using P=typename MX::value_type;\n  using F=typename\
-    \ MF::value_type;\n  static constexpr P mapping(const F&f,const P&x){\n    if(f.has_value())return\
+    \ntemplate<typename X>\nstruct LazySetSum{\n  using MX=GroupCntSum<X>;\n  using\
+    \ MF=MonoidSet<X>;\n  using P=typename MX::value_type;\n  using F=typename MF::value_type;\n\
+    \  static constexpr P mapping(const F&f,const P&x){\n    if(f.has_value())return\
     \ {f.value()*x.second,x.second};\n    return x;\n  }\n};"
   dependsOn:
   - algebra/group/CntSum.cpp
   - algebra/monoid/Set.cpp
   isVerificationFile: false
-  path: algebra/lazy/RangeSetRangeSum.cpp
+  path: algebra/lazy/SetSum.cpp
   requiredBy: []
-  timestamp: '2022-11-29 20:41:19+09:00'
+  timestamp: '2022-11-29 21:38:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/DSL_2_I.test.cpp
-documentation_of: algebra/lazy/RangeSetRangeSum.cpp
+documentation_of: algebra/lazy/SetSum.cpp
 layout: document
 redirect_from:
-- /library/algebra/lazy/RangeSetRangeSum.cpp
-- /library/algebra/lazy/RangeSetRangeSum.cpp.html
-title: algebra/lazy/RangeSetRangeSum.cpp
+- /library/algebra/lazy/SetSum.cpp
+- /library/algebra/lazy/SetSum.cpp.html
+title: algebra/lazy/SetSum.cpp
 ---

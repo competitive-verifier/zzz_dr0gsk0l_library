@@ -3,11 +3,11 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: algebra/lazy/RangeSetRangeMin.cpp
-    title: algebra/lazy/RangeSetRangeMin.cpp
+    path: algebra/lazy/SetMin.cpp
+    title: algebra/lazy/SetMin.cpp
   - icon: ':heavy_check_mark:'
-    path: algebra/lazy/RangeSetRangeSum.cpp
-    title: algebra/lazy/RangeSetRangeSum.cpp
+    path: algebra/lazy/SetSum.cpp
+    title: algebra/lazy/SetSum.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_D.test.cpp
@@ -36,8 +36,8 @@ data:
   isVerificationFile: false
   path: algebra/monoid/Set.cpp
   requiredBy:
-  - algebra/lazy/RangeSetRangeMin.cpp
-  - algebra/lazy/RangeSetRangeSum.cpp
+  - algebra/lazy/SetMin.cpp
+  - algebra/lazy/SetSum.cpp
   timestamp: '2022-11-29 06:44:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

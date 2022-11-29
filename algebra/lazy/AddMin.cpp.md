@@ -29,28 +29,28 @@ data:
     \ X>\nstruct MonoidMin{\n  using value_type = X;\n  static constexpr X op(const\
     \ X &x, const X &y) noexcept { return min(x,y); }\n  static constexpr X unit()\
     \ { return numeric_limits<X>::max()/2; }\n  static constexpr bool commute = true;\n\
-    };\n#line 4 \"algebra/lazy/RangeAddRangeMin.cpp\"\ntemplate<typename X>\nstruct\
-    \ LazyRangeAddRangeMin{\n  using MX=MonoidMin<X>;\n  using MF=GroupAdd<X>;\n \
-    \ static constexpr X mapping(const X&f,const X&x){\n    return f+x;\n  }\n};\n"
+    };\n#line 4 \"algebra/lazy/AddMin.cpp\"\ntemplate<typename X>\nstruct LazyAddMin{\n\
+    \  using MX=MonoidMin<X>;\n  using MF=GroupAdd<X>;\n  static constexpr X mapping(const\
+    \ X&f,const X&x){\n    return f+x;\n  }\n};\n"
   code: "#pragma once\n#include \"algebra/group/Add.cpp\"\n#include \"algebra/monoid/Min.cpp\"\
-    \ntemplate<typename X>\nstruct LazyRangeAddRangeMin{\n  using MX=MonoidMin<X>;\n\
-    \  using MF=GroupAdd<X>;\n  static constexpr X mapping(const X&f,const X&x){\n\
-    \    return f+x;\n  }\n};"
+    \ntemplate<typename X>\nstruct LazyAddMin{\n  using MX=MonoidMin<X>;\n  using\
+    \ MF=GroupAdd<X>;\n  static constexpr X mapping(const X&f,const X&x){\n    return\
+    \ f+x;\n  }\n};"
   dependsOn:
   - algebra/group/Add.cpp
   - algebra/monoid/Min.cpp
   isVerificationFile: false
-  path: algebra/lazy/RangeAddRangeMin.cpp
+  path: algebra/lazy/AddMin.cpp
   requiredBy: []
-  timestamp: '2022-11-29 20:35:02+09:00'
+  timestamp: '2022-11-29 21:38:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/DSL_2_E.test.cpp
   - test/AOJ/DSL_2_H.test.cpp
-documentation_of: algebra/lazy/RangeAddRangeMin.cpp
+documentation_of: algebra/lazy/AddMin.cpp
 layout: document
 redirect_from:
-- /library/algebra/lazy/RangeAddRangeMin.cpp
-- /library/algebra/lazy/RangeAddRangeMin.cpp.html
-title: algebra/lazy/RangeAddRangeMin.cpp
+- /library/algebra/lazy/AddMin.cpp
+- /library/algebra/lazy/AddMin.cpp.html
+title: algebra/lazy/AddMin.cpp
 ---

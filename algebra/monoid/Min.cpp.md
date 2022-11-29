@@ -3,11 +3,11 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: algebra/lazy/RangeAddRangeMin.cpp
-    title: algebra/lazy/RangeAddRangeMin.cpp
+    path: algebra/lazy/AddMin.cpp
+    title: algebra/lazy/AddMin.cpp
   - icon: ':heavy_check_mark:'
-    path: algebra/lazy/RangeSetRangeMin.cpp
-    title: algebra/lazy/RangeSetRangeMin.cpp
+    path: algebra/lazy/SetMin.cpp
+    title: algebra/lazy/SetMin.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_D.test.cpp
@@ -38,8 +38,8 @@ data:
   isVerificationFile: false
   path: algebra/monoid/Min.cpp
   requiredBy:
-  - algebra/lazy/RangeSetRangeMin.cpp
-  - algebra/lazy/RangeAddRangeMin.cpp
+  - algebra/lazy/SetMin.cpp
+  - algebra/lazy/AddMin.cpp
   timestamp: '2022-11-26 09:11:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

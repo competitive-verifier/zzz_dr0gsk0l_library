@@ -3,14 +3,14 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: algebra/lazy/RangeAddRangeSum.cpp
-    title: algebra/lazy/RangeAddRangeSum.cpp
+    path: algebra/lazy/AddSum.cpp
+    title: algebra/lazy/AddSum.cpp
   - icon: ':heavy_check_mark:'
-    path: algebra/lazy/RangeAffineRangeSum.cpp
-    title: algebra/lazy/RangeAffineRangeSum.cpp
+    path: algebra/lazy/AffineSum.cpp
+    title: algebra/lazy/AffineSum.cpp
   - icon: ':heavy_check_mark:'
-    path: algebra/lazy/RangeSetRangeSum.cpp
-    title: algebra/lazy/RangeSetRangeSum.cpp
+    path: algebra/lazy/SetSum.cpp
+    title: algebra/lazy/SetSum.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_G.test.cpp
@@ -47,9 +47,9 @@ data:
   isVerificationFile: false
   path: algebra/group/CntSum.cpp
   requiredBy:
-  - algebra/lazy/RangeAddRangeSum.cpp
-  - algebra/lazy/RangeAffineRangeSum.cpp
-  - algebra/lazy/RangeSetRangeSum.cpp
+  - algebra/lazy/SetSum.cpp
+  - algebra/lazy/AddSum.cpp
+  - algebra/lazy/AffineSum.cpp
   timestamp: '2022-11-29 20:41:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

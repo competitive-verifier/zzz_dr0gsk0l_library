@@ -30,30 +30,28 @@ data:
     \ X &y) noexcept { return x + y; }\n  static constexpr X inverse(const X &x) noexcept\
     \ { return -x; }\n  static constexpr X power(const X &x, long long n) noexcept\
     \ { return X(n) * x; }\n  static constexpr X unit() { return X(0); }\n  static\
-    \ constexpr bool commute = true;\n};\n#line 4 \"algebra/lazy/RangeAddRangeSum.cpp\"\
-    \ntemplate<typename X>\nstruct LazyRangeAddRangeSum{\n  using MX=GroupCntSum<X>;\n\
-    \  using MF=GroupAdd<X>;\n  using S=typename MX::value_type;\n  static constexpr\
-    \ S mapping(const X&f,const S&x){\n    return {x.first+f*x.second,x.second};\n\
-    \  }\n};\n"
+    \ constexpr bool commute = true;\n};\n#line 4 \"algebra/lazy/AddSum.cpp\"\ntemplate<typename\
+    \ X>\nstruct LazyAddSum{\n  using MX=GroupCntSum<X>;\n  using MF=GroupAdd<X>;\n\
+    \  using S=typename MX::value_type;\n  static constexpr S mapping(const X&f,const\
+    \ S&x){\n    return {x.first+f*x.second,x.second};\n  }\n};\n"
   code: "#pragma once\n#include \"algebra/group/CntSum.cpp\"\n#include \"algebra/group/Add.cpp\"\
-    \ntemplate<typename X>\nstruct LazyRangeAddRangeSum{\n  using MX=GroupCntSum<X>;\n\
-    \  using MF=GroupAdd<X>;\n  using S=typename MX::value_type;\n  static constexpr\
-    \ S mapping(const X&f,const S&x){\n    return {x.first+f*x.second,x.second};\n\
-    \  }\n};"
+    \ntemplate<typename X>\nstruct LazyAddSum{\n  using MX=GroupCntSum<X>;\n  using\
+    \ MF=GroupAdd<X>;\n  using S=typename MX::value_type;\n  static constexpr S mapping(const\
+    \ X&f,const S&x){\n    return {x.first+f*x.second,x.second};\n  }\n};"
   dependsOn:
   - algebra/group/CntSum.cpp
   - algebra/group/Add.cpp
   isVerificationFile: false
-  path: algebra/lazy/RangeAddRangeSum.cpp
+  path: algebra/lazy/AddSum.cpp
   requiredBy: []
-  timestamp: '2022-11-29 20:41:19+09:00'
+  timestamp: '2022-11-29 21:38:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/DSL_2_G.test.cpp
-documentation_of: algebra/lazy/RangeAddRangeSum.cpp
+documentation_of: algebra/lazy/AddSum.cpp
 layout: document
 redirect_from:
-- /library/algebra/lazy/RangeAddRangeSum.cpp
-- /library/algebra/lazy/RangeAddRangeSum.cpp.html
-title: algebra/lazy/RangeAddRangeSum.cpp
+- /library/algebra/lazy/AddSum.cpp
+- /library/algebra/lazy/AddSum.cpp.html
+title: algebra/lazy/AddSum.cpp
 ---

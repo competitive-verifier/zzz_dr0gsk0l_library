@@ -26,20 +26,20 @@ data:
   - name: algebra/lazy
     pages:
     - icon: ':heavy_check_mark:'
-      path: algebra/lazy/RangeAddRangeMin.cpp
-      title: algebra/lazy/RangeAddRangeMin.cpp
+      path: algebra/lazy/AddMin.cpp
+      title: algebra/lazy/AddMin.cpp
     - icon: ':heavy_check_mark:'
-      path: algebra/lazy/RangeAddRangeSum.cpp
-      title: algebra/lazy/RangeAddRangeSum.cpp
+      path: algebra/lazy/AddSum.cpp
+      title: algebra/lazy/AddSum.cpp
     - icon: ':heavy_check_mark:'
-      path: algebra/lazy/RangeAffineRangeSum.cpp
-      title: algebra/lazy/RangeAffineRangeSum.cpp
+      path: algebra/lazy/AffineSum.cpp
+      title: algebra/lazy/AffineSum.cpp
     - icon: ':heavy_check_mark:'
-      path: algebra/lazy/RangeSetRangeMin.cpp
-      title: algebra/lazy/RangeSetRangeMin.cpp
+      path: algebra/lazy/SetMin.cpp
+      title: algebra/lazy/SetMin.cpp
     - icon: ':heavy_check_mark:'
-      path: algebra/lazy/RangeSetRangeSum.cpp
-      title: algebra/lazy/RangeSetRangeSum.cpp
+      path: algebra/lazy/SetSum.cpp
+      title: algebra/lazy/SetSum.cpp
   - name: algebra/monoid
     pages:
     - icon: ':warning:'

@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: algebra/lazy/RangeSetRangeMin.cpp
-    title: algebra/lazy/RangeSetRangeMin.cpp
+    path: algebra/lazy/SetMin.cpp
+    title: algebra/lazy/SetMin.cpp
   - icon: ':heavy_check_mark:'
     path: algebra/monoid/Min.cpp
     title: algebra/monoid/Min.cpp
@@ -32,15 +32,15 @@ data:
     \ MonoidSet{\n  using O=optional<X>;\n  using value_type=O;\n  static constexpr\
     \ O op(const O &x,const O &y)noexcept{ return (x.has_value()?x:y); }\n  static\
     \ constexpr O unit()noexcept{ return nullopt; }\n  static constexpr bool commute=false;\n\
-    };\n#line 4 \"algebra/lazy/RangeSetRangeMin.cpp\"\ntemplate<typename X>\nstruct\
-    \ LazyRangeSetRangeMin{\n  using MX=MonoidMin<X>;\n  using MF=MonoidSet<X>;\n\
-    \  using F=typename MF::value_type;\n  static constexpr X mapping(const F&f,const\
-    \ X&x){\n    return f.value_or(x);\n  }\n};\n#line 2 \"segtree/LazySegmentTree.cpp\"\
-    \n\ntemplate<typename Lazy>\nclass LazySegmentTree{\n  using MX = typename Lazy::MX;\n\
-    \  using MF = typename Lazy::MF;\n  using X = typename MX::value_type;\n  using\
-    \ F = typename MF::value_type;\n  int n,log,size;\n  vector<X> dat;\n  vector<F>\
-    \ laz;\n\n  X reflect(int k){\n    if(k<size)return Lazy::mapping(laz[k],dat[k]);\n\
-    \    return dat[k];\n  }\n  void point_apply(int k,const F&f){\n    if(k<size)laz[k]=MF::op(f,laz[k]);\n\
+    };\n#line 4 \"algebra/lazy/SetMin.cpp\"\ntemplate<typename X>\nstruct LazySetMin{\n\
+    \  using MX=MonoidMin<X>;\n  using MF=MonoidSet<X>;\n  using F=typename MF::value_type;\n\
+    \  static constexpr X mapping(const F&f,const X&x){\n    return f.value_or(x);\n\
+    \  }\n};\n#line 2 \"segtree/LazySegmentTree.cpp\"\n\ntemplate<typename Lazy>\n\
+    class LazySegmentTree{\n  using MX = typename Lazy::MX;\n  using MF = typename\
+    \ Lazy::MF;\n  using X = typename MX::value_type;\n  using F = typename MF::value_type;\n\
+    \  int n,log,size;\n  vector<X> dat;\n  vector<F> laz;\n\n  X reflect(int k){\n\
+    \    if(k<size)return Lazy::mapping(laz[k],dat[k]);\n    return dat[k];\n  }\n\
+    \  void point_apply(int k,const F&f){\n    if(k<size)laz[k]=MF::op(f,laz[k]);\n\
     \    else dat[k]=Lazy::mapping(f,dat[k]);\n  }\n  void push(int k){\n    dat[k]=reflect(k);\n\
     \    point_apply(2*k,laz[k]);\n    point_apply(2*k+1,laz[k]);\n    laz[k]=MF::unit();\n\
     \  }\n  void thrust(int k){ for(int i=log;i;i--)push(k>>i); }\n  void update(int\
@@ -61,26 +61,26 @@ data:
     \    for(int L=l,R=r+1;L<R;L>>=1,R>>=1){\n      if(L&1)point_apply(L++,f);\n \
     \     if(R&1)point_apply(--R,f);\n    }\n    recalc(l);\n    recalc(r);\n  }\n\
     };\n#line 7 \"test/AOJ/DSL_2_F.test.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
-    \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree< LazyRangeSetRangeMin<long\
+    \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree< LazySetMin<long\
     \ long> > seg(vector<long long>(n,(1LL<<31)-1));\n  while(q--){\n    int t,l,r;cin>>t>>l>>r;r++;\n\
     \    if(t)\n      cout<<seg.prod(l,r)<<\"\\n\";\n    else{\n      int x;cin>>x;\n\
     \      seg.apply(l,r,x);\n    }\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_F\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/RangeSetRangeMin.cpp\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/SetMin.cpp\"\
     \n#include \"segtree/LazySegmentTree.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
-    \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree< LazyRangeSetRangeMin<long\
+    \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree< LazySetMin<long\
     \ long> > seg(vector<long long>(n,(1LL<<31)-1));\n  while(q--){\n    int t,l,r;cin>>t>>l>>r;r++;\n\
     \    if(t)\n      cout<<seg.prod(l,r)<<\"\\n\";\n    else{\n      int x;cin>>x;\n\
     \      seg.apply(l,r,x);\n    }\n  }\n}"
   dependsOn:
-  - algebra/lazy/RangeSetRangeMin.cpp
+  - algebra/lazy/SetMin.cpp
   - algebra/monoid/Min.cpp
   - algebra/monoid/Set.cpp
   - segtree/LazySegmentTree.cpp
   isVerificationFile: true
   path: test/AOJ/DSL_2_F.test.cpp
   requiredBy: []
-  timestamp: '2022-11-29 08:50:22+09:00'
+  timestamp: '2022-11-29 21:38:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/DSL_2_F.test.cpp

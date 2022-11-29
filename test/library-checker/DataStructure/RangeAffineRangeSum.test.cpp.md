@@ -8,8 +8,8 @@ data:
     path: algebra/group/CntSum.cpp
     title: algebra/group/CntSum.cpp
   - icon: ':heavy_check_mark:'
-    path: algebra/lazy/RangeAffineRangeSum.cpp
-    title: algebra/lazy/RangeAffineRangeSum.cpp
+    path: algebra/lazy/AffineSum.cpp
+    title: algebra/lazy/AffineSum.cpp
   - icon: ':heavy_check_mark:'
     path: mod/Modint.cpp
     title: mod/Modint.cpp
@@ -46,16 +46,16 @@ data:
     \  if(a==1)return {1,n*b};\n    K an=power(a,n);\n    return {an,b*((1-an)/(1-a))};\n\
     \  }\n  */\n  static constexpr F unit() { return {K(1), K(0)}; }\n  static constexpr\
     \ bool commute = false;\n\n  static constexpr K eval(const F &f, K x) noexcept\
-    \ {\n    return f.first * x + f.second;\n  }\n};\n#line 4 \"algebra/lazy/RangeAffineRangeSum.cpp\"\
-    \ntemplate<typename X>\nstruct LazyRangeAffineRangeSum{\n  using MX=GroupCntSum<X>;\n\
-    \  using MF=GroupAffine<X>;\n  using P=typename MX::value_type;\n  using F=typename\
-    \ MF::value_type;\n  static constexpr P mapping(const F&f,const P&x){\n    return\
-    \ {f.first*x.first+f.second*x.second, x.second};\n  }\n};\n#line 2 \"segtree/LazySegmentTree.cpp\"\
-    \n\ntemplate<typename Lazy>\nclass LazySegmentTree{\n  using MX = typename Lazy::MX;\n\
-    \  using MF = typename Lazy::MF;\n  using X = typename MX::value_type;\n  using\
-    \ F = typename MF::value_type;\n  int n,log,size;\n  vector<X> dat;\n  vector<F>\
-    \ laz;\n\n  X reflect(int k){\n    if(k<size)return Lazy::mapping(laz[k],dat[k]);\n\
-    \    return dat[k];\n  }\n  void point_apply(int k,const F&f){\n    if(k<size)laz[k]=MF::op(f,laz[k]);\n\
+    \ {\n    return f.first * x + f.second;\n  }\n};\n#line 4 \"algebra/lazy/AffineSum.cpp\"\
+    \ntemplate<typename X>\nstruct LazyAffineSum{\n  using MX=GroupCntSum<X>;\n  using\
+    \ MF=GroupAffine<X>;\n  using P=typename MX::value_type;\n  using F=typename MF::value_type;\n\
+    \  static constexpr P mapping(const F&f,const P&x){\n    return {f.first*x.first+f.second*x.second,\
+    \ x.second};\n  }\n};\n#line 2 \"segtree/LazySegmentTree.cpp\"\n\ntemplate<typename\
+    \ Lazy>\nclass LazySegmentTree{\n  using MX = typename Lazy::MX;\n  using MF =\
+    \ typename Lazy::MF;\n  using X = typename MX::value_type;\n  using F = typename\
+    \ MF::value_type;\n  int n,log,size;\n  vector<X> dat;\n  vector<F> laz;\n\n \
+    \ X reflect(int k){\n    if(k<size)return Lazy::mapping(laz[k],dat[k]);\n    return\
+    \ dat[k];\n  }\n  void point_apply(int k,const F&f){\n    if(k<size)laz[k]=MF::op(f,laz[k]);\n\
     \    else dat[k]=Lazy::mapping(f,dat[k]);\n  }\n  void push(int k){\n    dat[k]=reflect(k);\n\
     \    point_apply(2*k,laz[k]);\n    point_apply(2*k+1,laz[k]);\n    laz[k]=MF::unit();\n\
     \  }\n  void thrust(int k){ for(int i=log;i;i--)push(k>>i); }\n  void update(int\
@@ -97,20 +97,20 @@ data:
     \ is;}\n};\n#line 8 \"test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp\"\
     \n\nusing mint=Mint<long long>;\n\nint main(){\n  ios::sync_with_stdio(false);\n\
     \  cin.tie(nullptr);\n  \n  int n,q;cin>>n>>q;\n\n  vector<mint> v(n);\n  for(int\
-    \ i=0;i<n;i++)cin>>v[i];\n  LazySegmentTree< LazyRangeAffineRangeSum<mint> > seg(cnt_init(v));\n\
+    \ i=0;i<n;i++)cin>>v[i];\n  LazySegmentTree< LazyAffineSum<mint> > seg(cnt_init(v));\n\
     \n  while(q--){\n    int t,l,r;cin>>t>>l>>r;\n    if(t)cout<<seg.prod(l,r).first<<'\\\
     n';\n    else{\n      int b,c;cin>>b>>c;\n      seg.apply(l,r,{b,c});\n    }\n\
     \  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/RangeAffineRangeSum.cpp\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/AffineSum.cpp\"\
     \n#include \"segtree/LazySegmentTree.cpp\"\n#include \"mod/Modint.cpp\"\n\nusing\
     \ mint=Mint<long long>;\n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\
     \  \n  int n,q;cin>>n>>q;\n\n  vector<mint> v(n);\n  for(int i=0;i<n;i++)cin>>v[i];\n\
-    \  LazySegmentTree< LazyRangeAffineRangeSum<mint> > seg(cnt_init(v));\n\n  while(q--){\n\
+    \  LazySegmentTree< LazyAffineSum<mint> > seg(cnt_init(v));\n\n  while(q--){\n\
     \    int t,l,r;cin>>t>>l>>r;\n    if(t)cout<<seg.prod(l,r).first<<'\\n';\n   \
     \ else{\n      int b,c;cin>>b>>c;\n      seg.apply(l,r,{b,c});\n    }\n  }\n}"
   dependsOn:
-  - algebra/lazy/RangeAffineRangeSum.cpp
+  - algebra/lazy/AffineSum.cpp
   - algebra/group/CntSum.cpp
   - algebra/group/Affine.cpp
   - segtree/LazySegmentTree.cpp
@@ -118,7 +118,7 @@ data:
   isVerificationFile: true
   path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
   requiredBy: []
-  timestamp: '2022-11-29 21:06:58+09:00'
+  timestamp: '2022-11-29 21:38:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp

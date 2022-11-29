@@ -35,30 +35,29 @@ data:
     \    return {an,b*((1-an)/(1-a))};\n  }\n  */\n  static constexpr F unit() { return\
     \ {K(1), K(0)}; }\n  static constexpr bool commute = false;\n\n  static constexpr\
     \ K eval(const F &f, K x) noexcept {\n    return f.first * x + f.second;\n  }\n\
-    };\n#line 4 \"algebra/lazy/RangeAffineRangeSum.cpp\"\ntemplate<typename X>\nstruct\
-    \ LazyRangeAffineRangeSum{\n  using MX=GroupCntSum<X>;\n  using MF=GroupAffine<X>;\n\
-    \  using P=typename MX::value_type;\n  using F=typename MF::value_type;\n  static\
-    \ constexpr P mapping(const F&f,const P&x){\n    return {f.first*x.first+f.second*x.second,\
-    \ x.second};\n  }\n};\n"
+    };\n#line 4 \"algebra/lazy/AffineSum.cpp\"\ntemplate<typename X>\nstruct LazyAffineSum{\n\
+    \  using MX=GroupCntSum<X>;\n  using MF=GroupAffine<X>;\n  using P=typename MX::value_type;\n\
+    \  using F=typename MF::value_type;\n  static constexpr P mapping(const F&f,const\
+    \ P&x){\n    return {f.first*x.first+f.second*x.second, x.second};\n  }\n};\n"
   code: "#pragma once\n#include \"algebra/group/CntSum.cpp\"\n#include \"algebra/group/Affine.cpp\"\
-    \ntemplate<typename X>\nstruct LazyRangeAffineRangeSum{\n  using MX=GroupCntSum<X>;\n\
-    \  using MF=GroupAffine<X>;\n  using P=typename MX::value_type;\n  using F=typename\
-    \ MF::value_type;\n  static constexpr P mapping(const F&f,const P&x){\n    return\
-    \ {f.first*x.first+f.second*x.second, x.second};\n  }\n};\n"
+    \ntemplate<typename X>\nstruct LazyAffineSum{\n  using MX=GroupCntSum<X>;\n  using\
+    \ MF=GroupAffine<X>;\n  using P=typename MX::value_type;\n  using F=typename MF::value_type;\n\
+    \  static constexpr P mapping(const F&f,const P&x){\n    return {f.first*x.first+f.second*x.second,\
+    \ x.second};\n  }\n};\n"
   dependsOn:
   - algebra/group/CntSum.cpp
   - algebra/group/Affine.cpp
   isVerificationFile: false
-  path: algebra/lazy/RangeAffineRangeSum.cpp
+  path: algebra/lazy/AffineSum.cpp
   requiredBy: []
-  timestamp: '2022-11-29 20:41:19+09:00'
+  timestamp: '2022-11-29 21:38:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
-documentation_of: algebra/lazy/RangeAffineRangeSum.cpp
+documentation_of: algebra/lazy/AffineSum.cpp
 layout: document
 redirect_from:
-- /library/algebra/lazy/RangeAffineRangeSum.cpp
-- /library/algebra/lazy/RangeAffineRangeSum.cpp.html
-title: algebra/lazy/RangeAffineRangeSum.cpp
+- /library/algebra/lazy/AffineSum.cpp
+- /library/algebra/lazy/AffineSum.cpp.html
+title: algebra/lazy/AffineSum.cpp
 ---

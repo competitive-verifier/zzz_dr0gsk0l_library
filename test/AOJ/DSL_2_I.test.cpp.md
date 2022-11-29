@@ -5,8 +5,8 @@ data:
     path: algebra/group/CntSum.cpp
     title: algebra/group/CntSum.cpp
   - icon: ':heavy_check_mark:'
-    path: algebra/lazy/RangeSetRangeSum.cpp
-    title: algebra/lazy/RangeSetRangeSum.cpp
+    path: algebra/lazy/SetSum.cpp
+    title: algebra/lazy/SetSum.cpp
   - icon: ':heavy_check_mark:'
     path: algebra/monoid/Set.cpp
     title: algebra/monoid/Set.cpp
@@ -36,10 +36,10 @@ data:
     algebra/monoid/Set.cpp\"\ntemplate<typename X>\nstruct MonoidSet{\n  using O=optional<X>;\n\
     \  using value_type=O;\n  static constexpr O op(const O &x,const O &y)noexcept{\
     \ return (x.has_value()?x:y); }\n  static constexpr O unit()noexcept{ return nullopt;\
-    \ }\n  static constexpr bool commute=false;\n};\n#line 4 \"algebra/lazy/RangeSetRangeSum.cpp\"\
-    \ntemplate<typename X>\nstruct LazyRangeSetRangeSum{\n  using MX=GroupCntSum<X>;\n\
-    \  using MF=MonoidSet<X>;\n  using P=typename MX::value_type;\n  using F=typename\
-    \ MF::value_type;\n  static constexpr P mapping(const F&f,const P&x){\n    if(f.has_value())return\
+    \ }\n  static constexpr bool commute=false;\n};\n#line 4 \"algebra/lazy/SetSum.cpp\"\
+    \ntemplate<typename X>\nstruct LazySetSum{\n  using MX=GroupCntSum<X>;\n  using\
+    \ MF=MonoidSet<X>;\n  using P=typename MX::value_type;\n  using F=typename MF::value_type;\n\
+    \  static constexpr P mapping(const F&f,const P&x){\n    if(f.has_value())return\
     \ {f.value()*x.second,x.second};\n    return x;\n  }\n};\n#line 2 \"segtree/LazySegmentTree.cpp\"\
     \n\ntemplate<typename Lazy>\nclass LazySegmentTree{\n  using MX = typename Lazy::MX;\n\
     \  using MF = typename Lazy::MF;\n  using X = typename MX::value_type;\n  using\
@@ -66,25 +66,25 @@ data:
     \    for(int L=l,R=r+1;L<R;L>>=1,R>>=1){\n      if(L&1)point_apply(L++,f);\n \
     \     if(R&1)point_apply(--R,f);\n    }\n    recalc(l);\n    recalc(r);\n  }\n\
     };\n#line 7 \"test/AOJ/DSL_2_I.test.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
-    \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree< LazyRangeSetRangeSum<int>\
+    \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree< LazySetSum<int>\
     \ > seg(cnt_init(n,0));\n  while(q--){\n    int t,l,r;cin>>t>>l>>r;r++;\n    if(t)cout<<seg.prod(l,r).first<<\"\
     \\n\";\n    else{\n      int x;cin>>x;\n      seg.apply(l,r,x);\n    }\n  }\n\
     }\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_I\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/RangeSetRangeSum.cpp\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/SetSum.cpp\"\
     \n#include \"segtree/LazySegmentTree.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
-    \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree< LazyRangeSetRangeSum<int>\
+    \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  LazySegmentTree< LazySetSum<int>\
     \ > seg(cnt_init(n,0));\n  while(q--){\n    int t,l,r;cin>>t>>l>>r;r++;\n    if(t)cout<<seg.prod(l,r).first<<\"\
     \\n\";\n    else{\n      int x;cin>>x;\n      seg.apply(l,r,x);\n    }\n  }\n}"
   dependsOn:
-  - algebra/lazy/RangeSetRangeSum.cpp
+  - algebra/lazy/SetSum.cpp
   - algebra/group/CntSum.cpp
   - algebra/monoid/Set.cpp
   - segtree/LazySegmentTree.cpp
   isVerificationFile: true
   path: test/AOJ/DSL_2_I.test.cpp
   requiredBy: []
-  timestamp: '2022-11-29 20:44:46+09:00'
+  timestamp: '2022-11-29 21:38:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/DSL_2_I.test.cpp
