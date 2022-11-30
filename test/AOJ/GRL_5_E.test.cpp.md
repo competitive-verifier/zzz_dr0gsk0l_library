@@ -38,10 +38,13 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E
+    IGNORE: ''
+    IGNORE_IF_GCC: ''
     links:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E
-  bundledCode: "#line 1 \"test/AOJ/GRL_5_E.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E\"\
+  bundledCode: "#line 1 \"test/AOJ/GRL_5_E.test.cpp\"\n#define IGNORE\n// \u6700\u5927\
+    \u30B1\u30FC\u30B9\u3067 8m\u3000\u7A0B\u5EA6\u304B\u304B\u308B\u3063\u307D\u3044\
+    \n\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n#define REP(i,n) for(int i=0;i<(n);i++)\n\
     \n#line 1 \"algebra/group/CntSum.cpp\"\ntemplate<typename X>\nstruct GroupCntSum{\n\
     \  using P=pair<X,X>;\n  using value_type=P;\n  static constexpr P op(const P\
@@ -174,7 +177,7 @@ data:
     \ }\n\n  X subtree_prod(int v){\n    assert(MX::commute);\n    auto [l,r]=hld.subtree(v);\n\
     \    return seg.prod(l,r);\n  }\n  void subtree_apply(int v,const F&f){\n    auto\
     \ [l,r]=hld.subtree(v);\n    seg.apply(l,r,f);\n    seg_r.apply(l,r,f);\n  }\n\
-    };\n#line 9 \"test/AOJ/GRL_5_E.test.cpp\"\nusing ll=long long;\n\nint main(){\n\
+    };\n#line 12 \"test/AOJ/GRL_5_E.test.cpp\"\nusing ll=long long;\n\nint main(){\n\
     \  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n  \n  int n;cin>>n;\n\n\
     \  Tree t(n);\n  REP(i,n){\n    int k;cin>>k;\n    REP(_,k){\n      int c;cin>>c;\n\
     \      t.add_edge(i,c);\n    }\n  }\n  t.build(0);\n\n  TreeLazy<Tree,LazyAddSum<ll>>\
@@ -188,7 +191,8 @@ data:
     \ if(c){\n      int u;cin>>u;\n      cout<<TL.path_prod(u,root2[u]).first<<\"\\\
     n\";\n    }\n    else{\n      int v,w;cin>>v>>w;\n      TL.path_apply(v,root2[v],w);\n\
     \    }\n  }\n}\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E\"\
+  code: "#define IGNORE\n// \u6700\u5927\u30B1\u30FC\u30B9\u3067 8m\u3000\u7A0B\u5EA6\
+    \u304B\u304B\u308B\u3063\u307D\u3044\n\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n#define REP(i,n) for(int i=0;i<(n);i++)\n\
     \n#include \"algebra/lazy/AddSum.cpp\"\n#include \"tree/Tree.cpp\"\n#include \"\
     tree/TreeLazy.cpp\"\nusing ll=long long;\n\nint main(){\n  ios::sync_with_stdio(false);\n\
@@ -219,7 +223,7 @@ data:
   isVerificationFile: true
   path: test/AOJ/GRL_5_E.test.cpp
   requiredBy: []
-  timestamp: '2022-11-30 12:14:12+09:00'
+  timestamp: '2022-11-30 18:26:07+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/AOJ/GRL_5_E.test.cpp

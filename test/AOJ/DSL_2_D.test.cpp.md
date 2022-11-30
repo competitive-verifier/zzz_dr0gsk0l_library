@@ -4,13 +4,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: algebra/lazy/SetMin.cpp
     title: algebra/lazy/SetMin.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: algebra/monoid/Min.cpp
     title: algebra/monoid/Min.cpp
   - icon: ':heavy_check_mark:'
     path: algebra/monoid/Set.cpp
     title: algebra/monoid/Set.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: segtree/DualSegmentTree.cpp
     title: segtree/DualSegmentTree.cpp
   _extendedRequiredBy: []
