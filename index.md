@@ -34,6 +34,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: algebra/lazy/AffineSum.cpp
       title: algebra/lazy/AffineSum.cpp
+    - icon: ':warning:'
+      path: algebra/lazy/Reverse.cpp
+      title: algebra/lazy/Reverse.cpp
     - icon: ':heavy_check_mark:'
       path: algebra/lazy/SetMin.cpp
       title: algebra/lazy/SetMin.cpp
@@ -177,6 +180,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tree/Tree.cpp
       title: tree/Tree.cpp
+    - icon: ':warning:'
+      path: tree/TreeLazy.cpp
+      title: tree/TreeLazy.cpp
     - icon: ':heavy_check_mark:'
       path: tree/TreeMonoid.cpp
       title: tree/TreeMonoid.cpp
@@ -221,6 +227,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_I.test.cpp
       title: test/AOJ/DSL_2_I.test.cpp
+    - icon: ':x:'
+      path: test/AOJ/GRL_5_E.test.cpp
+      title: test/AOJ/GRL_5_E.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_6_A.test.cpp
       title: test/AOJ/GRL_6_A.test.cpp

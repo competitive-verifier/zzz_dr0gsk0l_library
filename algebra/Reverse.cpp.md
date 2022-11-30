@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':warning:'
+    path: algebra/lazy/Reverse.cpp
+    title: algebra/lazy/Reverse.cpp
   - icon: ':heavy_check_mark:'
     path: tree/TreeMonoid.cpp
     title: tree/TreeMonoid.cpp
@@ -34,6 +37,7 @@ data:
   path: algebra/Reverse.cpp
   requiredBy:
   - tree/TreeMonoid.cpp
+  - algebra/lazy/Reverse.cpp
   timestamp: '2022-11-26 09:11:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
