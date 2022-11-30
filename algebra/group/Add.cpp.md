@@ -2,14 +2,14 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/lazy/AddMin.cpp
     title: algebra/lazy/AddMin.cpp
   - icon: ':question:'
     path: algebra/lazy/AddSum.cpp
     title: algebra/lazy/AddSum.cpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/AOJ/DSL_2_E.test.cpp
     title: test/AOJ/DSL_2_E.test.cpp
   - icon: ':heavy_check_mark:'

@@ -4,26 +4,29 @@ data:
   - icon: ':question:'
     path: algebra/group/Add.cpp
     title: algebra/group/Add.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/lazy/AddMin.cpp
     title: algebra/lazy/AddMin.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/monoid/Min.cpp
     title: algebra/monoid/Min.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: segtree/DualSegmentTree.cpp
     title: segtree/DualSegmentTree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_E
+    IGNORE: ''
+    IGNORE_IF_GCC: ''
     links:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_E
-  bundledCode: "#line 1 \"test/AOJ/DSL_2_E.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_E\"\
+  bundledCode: "#line 1 \"test/AOJ/DSL_2_E.test.cpp\"\n#define IGNORE\n// \u6700\u5927\
+    \u30B1\u30FC\u30B9\u3067 8m\u3000\u7A0B\u5EA6\u304B\u304B\u308B\u3063\u307D\u3044\
+    \n\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_E\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"algebra/group/Add.cpp\"\
     \ntemplate<typename X>\nstruct GroupAdd {\n  using value_type = X;\n  static constexpr\
     \ X op(const X &x, const X &y) noexcept { return x + y; }\n  static constexpr\
@@ -51,19 +54,20 @@ data:
     \ dat[p];\n  }\n\n  void apply(int l,int r,F f){\n    assert(0 <= l && l <= r\
     \ && r <= n);\n    if(l==r)return;\n    thrust(l+=size);\n    thrust(r+=size-1);\n\
     \    for(int L=l,R=r+1;L<R;L>>=1,R>>=1){\n      if(L&1)point_apply(L++,f);\n \
-    \     if(R&1)point_apply(--R,f);\n    }\n  }\n};\n#line 7 \"test/AOJ/DSL_2_E.test.cpp\"\
+    \     if(R&1)point_apply(--R,f);\n    }\n  }\n};\n#line 10 \"test/AOJ/DSL_2_E.test.cpp\"\
     \n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int\
     \ n,q;cin>>n>>q;\n  DualSegmentTree< LazyAddMin<int> > seg(vector<int>(n,0));\n\
     \  while(q--){\n    int t;cin>>t;\n    if(t){\n      int x;cin>>x;x--;\n     \
     \ cout<<seg[x]<<\"\\n\";\n    }\n    else{\n      int l,r,x;cin>>l>>r>>x;l--;\n\
     \      seg.apply(l,r,x);\n    }\n  }\n}\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_E\"\
+  code: "#define IGNORE\n// \u6700\u5927\u30B1\u30FC\u30B9\u3067 8m\u3000\u7A0B\u5EA6\
+    \u304B\u304B\u308B\u3063\u307D\u3044\n\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_E\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"algebra/lazy/AddMin.cpp\"\
     \n#include \"segtree/DualSegmentTree.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
     \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  DualSegmentTree< LazyAddMin<int>\
     \ > seg(vector<int>(n,0));\n  while(q--){\n    int t;cin>>t;\n    if(t){\n   \
     \   int x;cin>>x;x--;\n      cout<<seg[x]<<\"\\n\";\n    }\n    else{\n      int\
-    \ l,r,x;cin>>l>>r>>x;l--;\n      seg.apply(l,r,x);\n    }\n  }\n}"
+    \ l,r,x;cin>>l>>r>>x;l--;\n      seg.apply(l,r,x);\n    }\n  }\n}\n"
   dependsOn:
   - algebra/lazy/AddMin.cpp
   - algebra/group/Add.cpp
@@ -72,8 +76,8 @@ data:
   isVerificationFile: true
   path: test/AOJ/DSL_2_E.test.cpp
   requiredBy: []
-  timestamp: '2022-11-29 21:38:33+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-11-30 18:20:42+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/AOJ/DSL_2_E.test.cpp
 layout: document

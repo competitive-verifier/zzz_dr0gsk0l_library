@@ -25,7 +25,7 @@ data:
       title: algebra/group/Xor.cpp
   - name: algebra/lazy
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/lazy/AddMin.cpp
       title: algebra/lazy/AddMin.cpp
     - icon: ':question:'
@@ -54,7 +54,7 @@ data:
     - icon: ':warning:'
       path: algebra/monoid/Max.cpp
       title: algebra/monoid/Max.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/monoid/Min.cpp
       title: algebra/monoid/Min.cpp
     - icon: ':heavy_check_mark:'
@@ -135,7 +135,7 @@ data:
       title: mod/Modint.cpp
   - name: segtree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: segtree/DualSegmentTree.cpp
       title: segtree/DualSegmentTree.cpp
     - icon: ':question:'
@@ -212,7 +212,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_D.test.cpp
       title: test/AOJ/DSL_2_D.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/AOJ/DSL_2_E.test.cpp
       title: test/AOJ/DSL_2_E.test.cpp
     - icon: ':heavy_check_mark:'
