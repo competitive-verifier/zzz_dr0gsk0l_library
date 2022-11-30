@@ -117,6 +117,9 @@ data:
     - icon: ':question:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
+    - icon: ':warning:'
+      path: graph/ReverseGraph.cpp
+      title: graph/ReverseGraph.cpp
     - icon: ':heavy_check_mark:'
       path: graph/WeightedGraph.cpp
       title: graph/WeightedGraph.cpp

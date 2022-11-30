@@ -64,8 +64,8 @@ data:
     \  using S=typename MX::value_type;\n  static constexpr S mapping(const X&f,const\
     \ S&x){\n    return {x.first+f*x.second,x.second};\n  }\n};\n#line 2 \"graph/Graph.cpp\"\
     \nstruct Edge{\n  int from,to;\n  Edge()=default;\n  Edge(int from,int to):from(from),to(to){}\n\
-    };\n\nstruct Graph{\n  int n;\n  using edge_type=Edge;\nprivate:\n  vector<edge_type>\
-    \ edges;\n  vector<int> in_deg;\n  bool prepared;\n class OutgoingEdges{\n   \
+    };\n\nstruct Graph{\n  int n;\n  using edge_type=Edge;\n  vector<edge_type> edges;\n\
+    private:\n  vector<int> in_deg;\n  bool prepared;\n class OutgoingEdges{\n   \
     \ Graph* g;\n    int l,r;\n  public:\n    OutgoingEdges(Graph* g,int l,int r):g(g),l(l),r(r){}\n\
     \    edge_type* begin(){ return &(g->edges[l]); }\n    edge_type* end(){ return\
     \ &(g->edges[r]); }\n    edge_type& operator[](int i){ return g->edges[l+i]; }\n\
@@ -223,7 +223,7 @@ data:
   isVerificationFile: true
   path: test/AOJ/GRL_5_E.test.cpp
   requiredBy: []
-  timestamp: '2022-11-30 18:26:07+09:00'
+  timestamp: '2022-11-30 18:56:10+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/AOJ/GRL_5_E.test.cpp

@@ -60,7 +60,7 @@ data:
   isVerificationFile: false
   path: flow/Dinic.cpp
   requiredBy: []
-  timestamp: '2022-11-28 17:05:36+09:00'
+  timestamp: '2022-11-30 18:56:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/GRL_6_A.test.cpp

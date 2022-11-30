@@ -23,7 +23,7 @@ data:
     \ T>\nstruct WeightedEdge{\n  WeightedEdge()=default;\n  WeightedEdge(int from,int\
     \ to,T cost):from(from),to(to),cost(cost){}\n  int from,to;\n  T cost;\n};\n\n\
     template<typename T>\nstruct WeightedGraph{\n  int n;\n  using cost_type=T;\n\
-    \  using edge_type=WeightedEdge<T>;\nprivate:\n  vector<edge_type> edges;\n  vector<int>\
+    \  using edge_type=WeightedEdge<T>;\n  vector<edge_type> edges;\nprivate:\n  vector<int>\
     \ in_deg;\n  bool prepared;\n  class OutgoingEdges{\n    WeightedGraph* g;\n \
     \   int l,r;\n  public:\n    OutgoingEdges(WeightedGraph* g,int l,int r):g(g),l(l),r(r){}\n\
     \    edge_type* begin(){ return &(g->edges[l]); }\n    edge_type* end(){ return\
@@ -76,7 +76,7 @@ data:
   isVerificationFile: true
   path: test/library-checker/Graph/ShortestPath.test.cpp
   requiredBy: []
-  timestamp: '2022-11-26 20:25:33+09:00'
+  timestamp: '2022-11-30 18:56:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/Graph/ShortestPath.test.cpp

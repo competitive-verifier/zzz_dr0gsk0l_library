@@ -31,7 +31,7 @@ data:
     links: []
   bundledCode: "#line 2 \"graph/Graph.cpp\"\nstruct Edge{\n  int from,to;\n  Edge()=default;\n\
     \  Edge(int from,int to):from(from),to(to){}\n};\n\nstruct Graph{\n  int n;\n\
-    \  using edge_type=Edge;\nprivate:\n  vector<edge_type> edges;\n  vector<int>\
+    \  using edge_type=Edge;\n  vector<edge_type> edges;\nprivate:\n  vector<int>\
     \ in_deg;\n  bool prepared;\n class OutgoingEdges{\n    Graph* g;\n    int l,r;\n\
     \  public:\n    OutgoingEdges(Graph* g,int l,int r):g(g),l(l),r(r){}\n    edge_type*\
     \ begin(){ return &(g->edges[l]); }\n    edge_type* end(){ return &(g->edges[r]);\
@@ -85,7 +85,7 @@ data:
   isVerificationFile: false
   path: tree/Tree.cpp
   requiredBy: []
-  timestamp: '2022-11-26 20:25:33+09:00'
+  timestamp: '2022-11-30 18:56:10+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/AOJ/GRL_5_E.test.cpp

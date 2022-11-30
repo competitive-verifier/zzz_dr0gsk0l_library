@@ -39,7 +39,7 @@ data:
   isVerificationFile: true
   path: test/AOJ/GRL_6_A.test.cpp
   requiredBy: []
-  timestamp: '2022-11-28 17:09:47+09:00'
+  timestamp: '2022-11-30 18:56:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/GRL_6_A.test.cpp

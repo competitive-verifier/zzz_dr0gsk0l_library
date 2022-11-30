@@ -31,7 +31,7 @@ data:
     links: []
   bundledCode: "#line 2 \"graph/Graph.cpp\"\nstruct Edge{\n  int from,to;\n  Edge()=default;\n\
     \  Edge(int from,int to):from(from),to(to){}\n};\n\nstruct Graph{\n  int n;\n\
-    \  using edge_type=Edge;\nprivate:\n  vector<edge_type> edges;\n  vector<int>\
+    \  using edge_type=Edge;\n  vector<edge_type> edges;\nprivate:\n  vector<int>\
     \ in_deg;\n  bool prepared;\n class OutgoingEdges{\n    Graph* g;\n    int l,r;\n\
     \  public:\n    OutgoingEdges(Graph* g,int l,int r):g(g),l(l),r(r){}\n    edge_type*\
     \ begin(){ return &(g->edges[l]); }\n    edge_type* end(){ return &(g->edges[r]);\
@@ -56,7 +56,7 @@ data:
     \ \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n"
   code: "#pragma once\nstruct Edge{\n  int from,to;\n  Edge()=default;\n  Edge(int\
     \ from,int to):from(from),to(to){}\n};\n\nstruct Graph{\n  int n;\n  using edge_type=Edge;\n\
-    private:\n  vector<edge_type> edges;\n  vector<int> in_deg;\n  bool prepared;\n\
+    \  vector<edge_type> edges;\nprivate:\n  vector<int> in_deg;\n  bool prepared;\n\
     \ class OutgoingEdges{\n    Graph* g;\n    int l,r;\n  public:\n    OutgoingEdges(Graph*\
     \ g,int l,int r):g(g),l(l),r(r){}\n    edge_type* begin(){ return &(g->edges[l]);\
     \ }\n    edge_type* end(){ return &(g->edges[r]); }\n    edge_type& operator[](int\
@@ -77,13 +77,13 @@ data:
     \  }\n\n  void graph_debug()const{\n  #ifndef __LOCAL\n    return;\n  #endif\n\
     \    assert(prepared);\n    for(int from=0;from<n;from++){\n      cerr<<from<<\"\
     ;\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n        cerr<<edges[i].to<<\"\
-    \ \";\n      cerr<<\"\\n\";\n    }\n  }\n};"
+    \ \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/Graph.cpp
   requiredBy:
   - tree/Tree.cpp
-  timestamp: '2022-11-26 20:25:33+09:00'
+  timestamp: '2022-11-30 18:56:10+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/AOJ/GRL_5_E.test.cpp

@@ -32,9 +32,9 @@ data:
   bundledCode: "#line 2 \"graph/WeightedGraph.cpp\"\ntemplate<typename T>\nstruct\
     \ WeightedEdge{\n  WeightedEdge()=default;\n  WeightedEdge(int from,int to,T cost):from(from),to(to),cost(cost){}\n\
     \  int from,to;\n  T cost;\n};\n\ntemplate<typename T>\nstruct WeightedGraph{\n\
-    \  int n;\n  using cost_type=T;\n  using edge_type=WeightedEdge<T>;\nprivate:\n\
-    \  vector<edge_type> edges;\n  vector<int> in_deg;\n  bool prepared;\n  class\
-    \ OutgoingEdges{\n    WeightedGraph* g;\n    int l,r;\n  public:\n    OutgoingEdges(WeightedGraph*\
+    \  int n;\n  using cost_type=T;\n  using edge_type=WeightedEdge<T>;\n  vector<edge_type>\
+    \ edges;\nprivate:\n  vector<int> in_deg;\n  bool prepared;\n  class OutgoingEdges{\n\
+    \    WeightedGraph* g;\n    int l,r;\n  public:\n    OutgoingEdges(WeightedGraph*\
     \ g,int l,int r):g(g),l(l),r(r){}\n    edge_type* begin(){ return &(g->edges[l]);\
     \ }\n    edge_type* end(){ return &(g->edges[r]); }\n    edge_type& operator[](int\
     \ i){ return g->edges[l+i]; }\n    int size()const{ return r-l; }\n  };\npublic:\n\
@@ -60,9 +60,9 @@ data:
   code: "#pragma once\ntemplate<typename T>\nstruct WeightedEdge{\n  WeightedEdge()=default;\n\
     \  WeightedEdge(int from,int to,T cost):from(from),to(to),cost(cost){}\n  int\
     \ from,to;\n  T cost;\n};\n\ntemplate<typename T>\nstruct WeightedGraph{\n  int\
-    \ n;\n  using cost_type=T;\n  using edge_type=WeightedEdge<T>;\nprivate:\n  vector<edge_type>\
-    \ edges;\n  vector<int> in_deg;\n  bool prepared;\n  class OutgoingEdges{\n  \
-    \  WeightedGraph* g;\n    int l,r;\n  public:\n    OutgoingEdges(WeightedGraph*\
+    \ n;\n  using cost_type=T;\n  using edge_type=WeightedEdge<T>;\n  vector<edge_type>\
+    \ edges;\nprivate:\n  vector<int> in_deg;\n  bool prepared;\n  class OutgoingEdges{\n\
+    \    WeightedGraph* g;\n    int l,r;\n  public:\n    OutgoingEdges(WeightedGraph*\
     \ g,int l,int r):g(g),l(l),r(r){}\n    edge_type* begin(){ return &(g->edges[l]);\
     \ }\n    edge_type* end(){ return &(g->edges[r]); }\n    edge_type& operator[](int\
     \ i){ return g->edges[l+i]; }\n    int size()const{ return r-l; }\n  };\npublic:\n\
@@ -84,7 +84,7 @@ data:
     \    return;\n  #endif\n    assert(prepared);\n    for(int from=0;from<n;from++){\n\
     \      cerr<<from<<\";\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n\
     \        cerr<<\"(\"<<edges[i].to<<\",\"<<edges[i].cost<<\")\";\n      cerr<<\"\
-    \\n\";\n    }\n  }\n};"
+    \\n\";\n    }\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/WeightedGraph.cpp
@@ -93,7 +93,7 @@ data:
   - flow/MCF.cpp
   - graph/01BFS.cpp
   - graph/Dijkstra.cpp
-  timestamp: '2022-11-26 20:25:33+09:00'
+  timestamp: '2022-11-30 18:56:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/GRL_6_B.test.cpp
