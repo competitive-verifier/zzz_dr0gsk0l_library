@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/group/Add.cpp
     title: algebra/group/Add.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/group/CntSum.cpp
     title: algebra/group/CntSum.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/lazy/AddSum.cpp
     title: algebra/lazy/AddSum.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: segtree/LazySegmentTree.cpp
     title: segtree/LazySegmentTree.cpp
   _extendedRequiredBy: []

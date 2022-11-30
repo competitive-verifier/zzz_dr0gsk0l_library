@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/Graph.cpp
     title: graph/Graph.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: tree/HLD.cpp
     title: tree/HLD.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: tree/Tree.cpp
     title: tree/Tree.cpp
   _extendedRequiredBy: []

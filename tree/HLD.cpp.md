@@ -2,10 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':x:'
+    path: tree/TreeLazy.cpp
+    title: tree/TreeLazy.cpp
   - icon: ':heavy_check_mark:'
     path: tree/TreeMonoid.cpp
     title: tree/TreeMonoid.cpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/AOJ/GRL_5_E.test.cpp
+    title: test/AOJ/GRL_5_E.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
     title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
@@ -18,9 +24,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
     title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"tree/HLD.cpp\"\ntemplate<typename TREE>\nstruct HLD{\n \
@@ -75,9 +81,11 @@ data:
   path: tree/HLD.cpp
   requiredBy:
   - tree/TreeMonoid.cpp
+  - tree/TreeLazy.cpp
   timestamp: '2022-11-26 10:16:59+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/AOJ/GRL_5_E.test.cpp
   - test/library-checker/Tree/LowestCommonAncestor.test.cpp
   - test/library-checker/Tree/vertex_add_path_sum.test.cpp
   - test/library-checker/Tree/vertex_set_path_composite.test.cpp

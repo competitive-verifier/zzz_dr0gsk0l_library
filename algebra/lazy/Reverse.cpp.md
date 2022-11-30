@@ -1,14 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/Reverse.cpp
     title: algebra/Reverse.cpp
-  _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedRequiredBy:
+  - icon: ':x:'
+    path: tree/TreeLazy.cpp
+    title: tree/TreeLazy.cpp
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/AOJ/GRL_5_E.test.cpp
+    title: test/AOJ/GRL_5_E.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"algebra/Reverse.cpp\"\ntemplate<typename Algebra>\nstruct\
@@ -22,10 +28,12 @@ data:
   - algebra/Reverse.cpp
   isVerificationFile: false
   path: algebra/lazy/Reverse.cpp
-  requiredBy: []
+  requiredBy:
+  - tree/TreeLazy.cpp
   timestamp: '2022-11-30 11:57:07+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/AOJ/GRL_5_E.test.cpp
 documentation_of: algebra/lazy/Reverse.cpp
 layout: document
 redirect_from:

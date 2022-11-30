@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':x:'
+    path: tree/TreeLazy.cpp
+    title: tree/TreeLazy.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_F.test.cpp
@@ -15,12 +18,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_I.test.cpp
     title: test/AOJ/DSL_2_I.test.cpp
+  - icon: ':x:'
+    path: test/AOJ/GRL_5_E.test.cpp
+    title: test/AOJ/GRL_5_E.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
     title: test/library-checker/DataStructure/RangeAffineRangeSum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"segtree/LazySegmentTree.cpp\"\n\ntemplate<typename Lazy>\n\
@@ -77,11 +83,13 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: segtree/LazySegmentTree.cpp
-  requiredBy: []
+  requiredBy:
+  - tree/TreeLazy.cpp
   timestamp: '2022-11-26 09:11:25+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/AOJ/DSL_2_I.test.cpp
+  - test/AOJ/GRL_5_E.test.cpp
   - test/AOJ/DSL_2_F.test.cpp
   - test/AOJ/DSL_2_G.test.cpp
   - test/AOJ/DSL_2_H.test.cpp

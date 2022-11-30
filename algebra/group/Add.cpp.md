@@ -5,7 +5,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: algebra/lazy/AddMin.cpp
     title: algebra/lazy/AddMin.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/lazy/AddSum.cpp
     title: algebra/lazy/AddSum.cpp
   _extendedVerifiedWith:
@@ -18,6 +18,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_H.test.cpp
     title: test/AOJ/DSL_2_H.test.cpp
+  - icon: ':x:'
+    path: test/AOJ/GRL_5_E.test.cpp
+    title: test/AOJ/GRL_5_E.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
     title: test/library-checker/DataStructure/PointAddRangeSum.test.cpp
@@ -27,9 +30,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"algebra/group/Add.cpp\"\ntemplate<typename X>\nstruct GroupAdd\
@@ -51,9 +54,10 @@ data:
   - algebra/lazy/AddSum.cpp
   - algebra/lazy/AddMin.cpp
   timestamp: '2022-11-26 09:11:25+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/AOJ/DSL_2_E.test.cpp
+  - test/AOJ/GRL_5_E.test.cpp
   - test/AOJ/DSL_2_G.test.cpp
   - test/AOJ/DSL_2_H.test.cpp
   - test/library-checker/DataStructure/PointAddRangeSum.test.cpp

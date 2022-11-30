@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/Reverse.cpp
     title: algebra/Reverse.cpp
   - icon: ':heavy_check_mark:'
     path: algebra/group/Affine.cpp
     title: algebra/group/Affine.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/Graph.cpp
     title: graph/Graph.cpp
   - icon: ':heavy_check_mark:'
     path: segtree/SegmentTree.cpp
     title: segtree/SegmentTree.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: tree/HLD.cpp
     title: tree/HLD.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: tree/Tree.cpp
     title: tree/Tree.cpp
   - icon: ':heavy_check_mark:'

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/group/Add.cpp
     title: algebra/group/Add.cpp
   - icon: ':heavy_check_mark:'
@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: algebra/monoid/Min.cpp
     title: algebra/monoid/Min.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: segtree/LazySegmentTree.cpp
     title: segtree/LazySegmentTree.cpp
   _extendedRequiredBy: []

@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/group/Add.cpp
     title: algebra/group/Add.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/group/CntSum.cpp
     title: algebra/group/CntSum.cpp
   _extendedRequiredBy: []
@@ -12,9 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_G.test.cpp
     title: test/AOJ/DSL_2_G.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/AOJ/GRL_5_E.test.cpp
+    title: test/AOJ/GRL_5_E.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"algebra/group/CntSum.cpp\"\ntemplate<typename X>\nstruct\
@@ -45,8 +48,9 @@ data:
   path: algebra/lazy/AddSum.cpp
   requiredBy: []
   timestamp: '2022-11-29 21:38:33+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/AOJ/GRL_5_E.test.cpp
   - test/AOJ/DSL_2_G.test.cpp
 documentation_of: algebra/lazy/AddSum.cpp
 layout: document

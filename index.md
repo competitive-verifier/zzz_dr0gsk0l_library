@@ -3,18 +3,18 @@ data:
   libraryCategories:
   - name: algebra
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/Reverse.cpp
       title: algebra/Reverse.cpp
   - name: algebra/group
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/group/Add.cpp
       title: algebra/group/Add.cpp
     - icon: ':heavy_check_mark:'
       path: algebra/group/Affine.cpp
       title: algebra/group/Affine.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/group/CntSum.cpp
       title: algebra/group/CntSum.cpp
     - icon: ':warning:'
@@ -28,13 +28,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: algebra/lazy/AddMin.cpp
       title: algebra/lazy/AddMin.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: algebra/lazy/AddSum.cpp
       title: algebra/lazy/AddSum.cpp
     - icon: ':heavy_check_mark:'
       path: algebra/lazy/AffineSum.cpp
       title: algebra/lazy/AffineSum.cpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: algebra/lazy/Reverse.cpp
       title: algebra/lazy/Reverse.cpp
     - icon: ':heavy_check_mark:'
@@ -114,7 +114,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/Dijkstra.cpp
       title: graph/Dijkstra.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
     - icon: ':heavy_check_mark:'
@@ -138,7 +138,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: segtree/DualSegmentTree.cpp
       title: segtree/DualSegmentTree.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: segtree/LazySegmentTree.cpp
       title: segtree/LazySegmentTree.cpp
     - icon: ':heavy_check_mark:'
@@ -171,16 +171,16 @@ data:
       title: superstd/Set.cpp
   - name: tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: tree/HLD.cpp
       title: tree/HLD.cpp
     - icon: ':heavy_check_mark:'
       path: tree/RootedTreeIsomorphism.cpp
       title: tree/RootedTreeIsomorphism.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: tree/Tree.cpp
       title: tree/Tree.cpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: tree/TreeLazy.cpp
       title: tree/TreeLazy.cpp
     - icon: ':heavy_check_mark:'
