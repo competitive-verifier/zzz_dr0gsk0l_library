@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/BellmanFord.cpp
     title: graph/BellmanFord.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B
@@ -55,17 +55,19 @@ data:
     \ s=0){\n  assert(g.is_prepared());\n  int n=g.n;\n  static constexpr T INF=numeric_limits<T>::max()/2;\n\
     \  vector<T> d(n,INF);\n  vector<int> pre(n,-1);\n  d[s]=0;\n  for(int _=0;_<n;_++){\n\
     \    bool update=false;\n    for(int v=0;v<n;v++)if(d[v]<INF)\n      for(const\
-    \ auto&e:g[v])\n        if(d[e.to]>d[e.from]+e.weight){\n          d[e.to]=d[e.from]+e.weight;\n\
-    \          update=true;\n        }\n    if(!update)make_pair(d,pre);\n  }\n  auto\
-    \ now_state=d;\n  for(int _=0;_<n;_++){\n    for(int v=0;v<n;v++)if(d[v]<INF)\n\
-    \      for(const auto&e:g[v])\n        if(d[e.to]>d[e.from]+e.weight)\n      \
-    \    d[e.to]=d[e.from]+e.weight;\n  }\n  vector<optional<T>> res(n);\n  for(int\
-    \ v=0;v<n;v++)\n    if(now_state[v]==d[v])res[v]=d[v];\n    else res[v]=nullopt;\n\
-    \  return {res,pre};\n}\n#line 7 \"test/AOJ/GRL_1_B.test.cpp\"\n\nusing ll=long\
-    \ long;\n\nint main(){\n  int n,m,s;cin>>n>>m>>s;\n  WeightedGraph<ll> g(n,m,true,0);\n\
-    \  auto [d,pre]=bellman_ford(g,s);\n  for(const auto&p:d)if(!p){\n    cout<<\"\
-    NEGATIVE CYCLE\\n\";\n    return 0;\n  }\n  for(int i=0;i<n;i++)\n    if(~pre[i]||i==s)cout<<d[i].value()<<\"\
-    \\n\";\n    else cout<<\"INF\\n\";\n}\n"
+    \ auto&e:g[v])\n        if(d[e.to]>d[v]+e.weight){\n          d[e.to]=d[v]+e.weight;\n\
+    \          pre[e.to]=v;\n          update=true;\n        }\n    if(!update)make_pair(d,pre);\n\
+    \  }\n  auto now_d=d;\n  for(int v=0;v<n;v++)if(d[v]<INF)\n    for(const auto&e:g[v])\n\
+    \      if(d[e.to]>d[v]+e.weight)\n        d[e.to]=d[v]+e.weight;\n  for(int _=1;_<n;_++)\n\
+    \    for(int v=0;v<n;v++)if(d[v]<now_d[v])\n      for(const auto&e:g[v])\n   \
+    \     if(d[e.to]>d[v]+e.weight)\n          d[e.to]=d[v]+e.weight;\n  vector<optional<T>>\
+    \ res(n);\n  for(int v=0;v<n;v++)\n    if(now_d[v]==d[v])res[v]=d[v];\n    else\
+    \ res[v]=nullopt;\n  return {res,pre};\n}\n#line 7 \"test/AOJ/GRL_1_B.test.cpp\"\
+    \n\nusing ll=long long;\n\nint main(){\n  int n,m,s;cin>>n>>m>>s;\n  WeightedGraph<ll>\
+    \ g(n,m,true,0);\n  auto [d,pre]=bellman_ford(g,s);\n  for(const auto&p:d)if(!p){\n\
+    \    cout<<\"NEGATIVE CYCLE\\n\";\n    return 0;\n  }\n  for(int i=0;i<n;i++)\n\
+    \    if(~pre[i]||i==s)cout<<d[i].value()<<\"\\n\";\n    else cout<<\"INF\\n\"\
+    ;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"graph/WeightedGraph.cpp\"\
     \n#include \"graph/BellmanFord.cpp\"\n\nusing ll=long long;\n\nint main(){\n \
@@ -79,8 +81,8 @@ data:
   isVerificationFile: true
   path: test/AOJ/GRL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2022-12-01 20:19:43+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-01 20:31:18+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/GRL_1_B.test.cpp
 layout: document

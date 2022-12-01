@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/UnionFind.cpp
     title: datastructure/UnionFind.cpp
   - icon: ':heavy_check_mark:'
     path: graph/MinimumSpanningTree.cpp
     title: graph/MinimumSpanningTree.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
   _extendedRequiredBy: []

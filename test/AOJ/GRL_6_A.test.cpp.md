@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: flow/Dinic.cpp
     title: flow/Dinic.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
   _extendedRequiredBy: []

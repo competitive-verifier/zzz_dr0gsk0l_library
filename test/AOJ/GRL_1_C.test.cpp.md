@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/WarshallFloyd.cpp
     title: graph/WarshallFloyd.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
   _extendedRequiredBy: []

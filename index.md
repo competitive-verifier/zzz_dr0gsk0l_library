@@ -90,7 +90,7 @@ data:
     - icon: ':warning:'
       path: datastructure/SlopeTrick.cpp
       title: SlopeTrick
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: datastructure/UnionFind.cpp
       title: datastructure/UnionFind.cpp
   - name: flow
@@ -111,7 +111,7 @@ data:
     - icon: ':warning:'
       path: graph/01BFS.cpp
       title: graph/01BFS.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/BellmanFord.cpp
       title: graph/BellmanFord.cpp
     - icon: ':heavy_check_mark:'
@@ -120,7 +120,7 @@ data:
     - icon: ':question:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/MinimumSpanningArborescence.cpp
       title: graph/MinimumSpanningArborescence.cpp
     - icon: ':heavy_check_mark:'
@@ -135,7 +135,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/WarshallFloyd.cpp
       title: graph/WarshallFloyd.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/WeightedGraph.cpp
       title: graph/WeightedGraph.cpp
   - name: linearalgebra
@@ -227,7 +227,7 @@ data:
   verificationCategories:
   - name: test/AOJ
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/AOJ/2647.test.cpp
       title: test/AOJ/2647.test.cpp
     - icon: ':heavy_check_mark:'
@@ -254,7 +254,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_I.test.cpp
       title: test/AOJ/DSL_2_I.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_1_B.test.cpp
       title: test/AOJ/GRL_1_B.test.cpp
     - icon: ':heavy_check_mark:'

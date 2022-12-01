@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/UnionFind.cpp
     title: datastructure/UnionFind.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/AOJ/2647.test.cpp
     title: test/AOJ/2647.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/AOJ/GRL_2_B.test.cpp
     title: test/AOJ/GRL_2_B.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"datastructure/UnionFind.cpp\"\nclass UnionFind{\n  int n,num;\n\
@@ -84,7 +84,7 @@ data:
   path: graph/MinimumSpanningArborescence.cpp
   requiredBy: []
   timestamp: '2022-12-01 19:31:10+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/GRL_2_B.test.cpp
   - test/AOJ/2647.test.cpp
