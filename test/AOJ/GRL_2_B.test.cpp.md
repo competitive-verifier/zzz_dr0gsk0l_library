@@ -62,16 +62,15 @@ data:
     \    sz[x]+=sz[y];\n    parent[y]=x;\n    num--;\n    return true;\n  }\n  \n\
     \  int size(const int x){\n    assert(0<=x and x<n);\n    return sz[leader(x)];\n\
     \  }\n  \n  int count()const{\n    return num;\n  }\n};\n#line 3 \"graph/MinimumSpanningArborescence.cpp\"\
-    \ntemplate<typename WG,typename E=typename WG::edge_type,typename W=typename WG::weight_type>\n\
-    optional< pair<W,vector<int>> > minimum_spanning_arborescence(WG g,int r=0){\n\
-    \  int n=g.n;\n  W res=0;\n  vector<W> new_add(n,0);\n  vector<int> tree(n);\n\
-    \  vector<int> state(n,0);\n  vector<int> pre(n);\n  UnionFind uf(n);\n  state[r]=2;\n\
-    \n  auto compare=[&](const int&a,const int&b){return g.edges[a].weight>g.edges[b].weight;};\n\
-    \  using PQ=priority_queue<int,vector<int>,decltype(compare)>;\n  vector< pair<PQ,W>\
-    \ > pq_add(n,{PQ{compare},0});\n  for(int i=0;i<g.edges.size();i++)\n    pq_add[g.edges[i].to].first.push(i);\n\
-    \  vector<int> pq_id(n);\n  iota(pq_id.begin(),pq_id.end(),0);\n  \n  auto merge=[&](int\
-    \ u,int v){\n    u=uf.leader(u);v=uf.leader(v);\n    if(u==v)return;\n    uf.merge(u,v);\n\
-    \    auto&[pq1,add1]=pq_add[pq_id[u]];\n    auto&[pq2,add2]=pq_add[pq_id[v]];\n\
+    \ntemplate<typename WG,typename W=typename WG::weight_type>\noptional< pair<W,vector<int>>\
+    \ > minimum_spanning_arborescence(WG g,int r=0){\n  int n=g.n;\n  W res=0;\n \
+    \ vector<W> new_add(n,0);\n  vector<int> tree(n),pre(n),state(n,0);\n  UnionFind\
+    \ uf(n);\n  state[r]=2;\n\n  auto compare=[&](const int&a,const int&b){return\
+    \ g.edges[a].weight>g.edges[b].weight;};\n  using PQ=priority_queue<int,vector<int>,decltype(compare)>;\n\
+    \  vector< pair<PQ,W> > pq_add(n,{PQ{compare},0});\n  for(int i=0;i<g.edges.size();i++)\n\
+    \    pq_add[g.edges[i].to].first.push(i);\n  vector<int> pq_id(n);\n  iota(pq_id.begin(),pq_id.end(),0);\n\
+    \  \n  auto merge=[&](int u,int v){\n    u=uf.leader(u);v=uf.leader(v);\n    if(u==v)return;\n\
+    \    uf.merge(u,v);\n    auto&[pq1,add1]=pq_add[pq_id[u]];\n    auto&[pq2,add2]=pq_add[pq_id[v]];\n\
     \    if(pq1.size()>pq2.size()){\n      while(pq2.size()){\n        int edge_id=pq2.top();pq2.pop();\n\
     \        g.edges[edge_id].weight-=add2-add1;\n        pq1.push(edge_id);\n   \
     \   }\n      pq_id[uf.leader(v)]=pq_id[u];\n    }\n    else{\n      while(pq1.size()){\n\
@@ -102,7 +101,7 @@ data:
   isVerificationFile: true
   path: test/AOJ/GRL_2_B.test.cpp
   requiredBy: []
-  timestamp: '2022-12-01 20:59:34+09:00'
+  timestamp: '2022-12-02 08:34:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/GRL_2_B.test.cpp

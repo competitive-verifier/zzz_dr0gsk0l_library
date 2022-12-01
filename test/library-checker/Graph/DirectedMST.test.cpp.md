@@ -10,9 +10,6 @@ data:
   - icon: ':question:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
-  - icon: ':question:'
-    path: tree/WeightedTree.cpp
-    title: tree/WeightedTree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
@@ -66,16 +63,15 @@ data:
     \    sz[x]+=sz[y];\n    parent[y]=x;\n    num--;\n    return true;\n  }\n  \n\
     \  int size(const int x){\n    assert(0<=x and x<n);\n    return sz[leader(x)];\n\
     \  }\n  \n  int count()const{\n    return num;\n  }\n};\n#line 3 \"graph/MinimumSpanningArborescence.cpp\"\
-    \ntemplate<typename WG,typename E=typename WG::edge_type,typename W=typename WG::weight_type>\n\
-    optional< pair<W,vector<int>> > minimum_spanning_arborescence(WG g,int r=0){\n\
-    \  int n=g.n;\n  W res=0;\n  vector<W> new_add(n,0);\n  vector<int> tree(n);\n\
-    \  vector<int> state(n,0);\n  vector<int> pre(n);\n  UnionFind uf(n);\n  state[r]=2;\n\
-    \n  auto compare=[&](const int&a,const int&b){return g.edges[a].weight>g.edges[b].weight;};\n\
-    \  using PQ=priority_queue<int,vector<int>,decltype(compare)>;\n  vector< pair<PQ,W>\
-    \ > pq_add(n,{PQ{compare},0});\n  for(int i=0;i<g.edges.size();i++)\n    pq_add[g.edges[i].to].first.push(i);\n\
-    \  vector<int> pq_id(n);\n  iota(pq_id.begin(),pq_id.end(),0);\n  \n  auto merge=[&](int\
-    \ u,int v){\n    u=uf.leader(u);v=uf.leader(v);\n    if(u==v)return;\n    uf.merge(u,v);\n\
-    \    auto&[pq1,add1]=pq_add[pq_id[u]];\n    auto&[pq2,add2]=pq_add[pq_id[v]];\n\
+    \ntemplate<typename WG,typename W=typename WG::weight_type>\noptional< pair<W,vector<int>>\
+    \ > minimum_spanning_arborescence(WG g,int r=0){\n  int n=g.n;\n  W res=0;\n \
+    \ vector<W> new_add(n,0);\n  vector<int> tree(n),pre(n),state(n,0);\n  UnionFind\
+    \ uf(n);\n  state[r]=2;\n\n  auto compare=[&](const int&a,const int&b){return\
+    \ g.edges[a].weight>g.edges[b].weight;};\n  using PQ=priority_queue<int,vector<int>,decltype(compare)>;\n\
+    \  vector< pair<PQ,W> > pq_add(n,{PQ{compare},0});\n  for(int i=0;i<g.edges.size();i++)\n\
+    \    pq_add[g.edges[i].to].first.push(i);\n  vector<int> pq_id(n);\n  iota(pq_id.begin(),pq_id.end(),0);\n\
+    \  \n  auto merge=[&](int u,int v){\n    u=uf.leader(u);v=uf.leader(v);\n    if(u==v)return;\n\
+    \    uf.merge(u,v);\n    auto&[pq1,add1]=pq_add[pq_id[u]];\n    auto&[pq2,add2]=pq_add[pq_id[v]];\n\
     \    if(pq1.size()>pq2.size()){\n      while(pq2.size()){\n        int edge_id=pq2.top();pq2.pop();\n\
     \        g.edges[edge_id].weight-=add2-add1;\n        pq1.push(edge_id);\n   \
     \   }\n      pq_id[uf.leader(v)]=pq_id[u];\n    }\n    else{\n      while(pq1.size()){\n\
@@ -90,48 +86,31 @@ data:
     \        do{\n          pq_add[pq_id[v]].second=new_add[v];\n          merge(v,now);\n\
     \          v=uf.leader(pre[v]);\n        }while(!uf.same(v,now));\n        now=uf.leader(now);\n\
     \      }\n      else\n        now=uf.leader(pre[now]);\n    }\n    for(int v:processing)state[v]=2;\n\
-    \  }\n  tree.erase(tree.begin()+r);\n  return make_pair(res,tree);\n}\n#line 3\
-    \ \"tree/WeightedTree.cpp\"\ntemplate<typename T>\nstruct WeightedTree:WeightedGraph<T>{\n\
-    \  using WeightedGraph<T>::WeightedGraph;\n  using edge_type=typename WeightedGraph<T>::edge_type;\n\
-    \  using OutgoingEdges=typename WeightedGraph<T>::OutgoingEdges;\n  using WeightedGraph<T>::n;\n\
-    \  using WeightedGraph<T>::in_deg;\n  \n  int root=-1;\n  vector<int> DFS,BFS,depth;\n\
-    \n  void scan_root(int indexed=1){\n    for(int i=1;i<n;i++){\n      int p;cin>>p;\n\
-    \      T weight;cin>>weight;\n      add_edge(p-indexed,i,weight);\n    }\n   \
-    \ build();\n  }\n  void scan(int indexed=1){\n    WeightedGraph<T>::scan(n-1,false,indexed);\n\
-    \    build();\n  }\n\n  edge_type& parent(int v){\n    assert(~root and root!=v);\n\
-    \    return (*this)[v][0];\n  }\n  OutgoingEdges son(int v){\n    assert(~root);\n\
-    \    if(v==root)return {this,in_deg[v],in_deg[v+1]};\n    return {this,in_deg[v]+1,in_deg[v+1]};\n\
-    \  }\n\nprivate:\n  void dfs(int v,int pre=-1){\n    for(auto&e:(*this)[v]){\n\
-    \      if(e.to==pre)swap((*this)[v][0],e);\n      else{\n        depth[e.to]=depth[v]+1;\n\
-    \        dfs(e.to,v);\n      }\n    }\n    DFS.push_back(v);\n  }\npublic:\n \
-    \ void build(int r=0){\n    if(!WeightedGraph<T>::is_prepared())WeightedGraph<T>::build();\n\
-    \    if(~root){\n      assert(r==root);\n      return;\n    }\n    root=r;\n \
-    \   depth=vector<int>(n,0);\n    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n\
-    \    queue<int> que;\n    que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
-    \      BFS.push_back(p);\n      for(const auto&e:son(p))que.push(e.to);\n    }\n\
-    \  }\n};\n#line 8 \"test/library-checker/Graph/DirectedMST.test.cpp\"\nusing ll=long\
-    \ long;\n\nint main(){\n  int n,m,s;cin>>n>>m>>s;\n  WeightedGraph<ll> g(n,m,true,0);\n\
-    \  auto ans=minimum_spanning_arborescence(g,s);\n  assert(ans.has_value());\n\
-    \  auto [val,tree]=ans.value();\n  WeightedTree<ll> t(n);\n  for(int edge_id:tree)\n\
-    \    t.add_edge(g.edges[edge_id]);\n  t.build(s);\n  cout<<val<<\"\\n\";\n  for(int\
-    \ v=0;v<n;v++)\n    cout<<(v==s?s:t.parent(v).to)<<\"\\n \"[v+1<n];\n}\n"
+    \  }\n  tree.erase(tree.begin()+r);\n  return make_pair(res,tree);\n}\n#line 7\
+    \ \"test/library-checker/Graph/DirectedMST.test.cpp\"\nusing ll=long long;\n\n\
+    int main(){\n  int n,m,s;cin>>n>>m>>s;\n  WeightedGraph<ll> g(n,m,true,0);\n \
+    \ auto ans=minimum_spanning_arborescence(g,s);\n  assert(ans.has_value());\n \
+    \ auto [val,tree]=ans.value();\n  vector<int> p(n);\n  p[s]=s;\n  ll sum=0;\n\
+    \  for(int id:tree){\n    const auto&e=g.edges[id];\n    sum+=e.weight;\n    p[e.to]=e.from;\n\
+    \  }\n  assert(sum==val);\n  cout<<val<<\"\\n\";\n  for(int v=0;v<n;v++)\n   \
+    \ cout<<p[v]<<\"\\n \"[v+1<n];\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/directedmst\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"graph/WeightedGraph.cpp\"\
-    \n#include \"graph/MinimumSpanningArborescence.cpp\"\n#include \"tree/WeightedTree.cpp\"\
-    \nusing ll=long long;\n\nint main(){\n  int n,m,s;cin>>n>>m>>s;\n  WeightedGraph<ll>\
-    \ g(n,m,true,0);\n  auto ans=minimum_spanning_arborescence(g,s);\n  assert(ans.has_value());\n\
-    \  auto [val,tree]=ans.value();\n  WeightedTree<ll> t(n);\n  for(int edge_id:tree)\n\
-    \    t.add_edge(g.edges[edge_id]);\n  t.build(s);\n  cout<<val<<\"\\n\";\n  for(int\
-    \ v=0;v<n;v++)\n    cout<<(v==s?s:t.parent(v).to)<<\"\\n \"[v+1<n];\n}"
+    \n#include \"graph/MinimumSpanningArborescence.cpp\"\nusing ll=long long;\n\n\
+    int main(){\n  int n,m,s;cin>>n>>m>>s;\n  WeightedGraph<ll> g(n,m,true,0);\n \
+    \ auto ans=minimum_spanning_arborescence(g,s);\n  assert(ans.has_value());\n \
+    \ auto [val,tree]=ans.value();\n  vector<int> p(n);\n  p[s]=s;\n  ll sum=0;\n\
+    \  for(int id:tree){\n    const auto&e=g.edges[id];\n    sum+=e.weight;\n    p[e.to]=e.from;\n\
+    \  }\n  assert(sum==val);\n  cout<<val<<\"\\n\";\n  for(int v=0;v<n;v++)\n   \
+    \ cout<<p[v]<<\"\\n \"[v+1<n];\n}"
   dependsOn:
   - graph/WeightedGraph.cpp
   - graph/MinimumSpanningArborescence.cpp
   - datastructure/UnionFind.cpp
-  - tree/WeightedTree.cpp
   isVerificationFile: true
   path: test/library-checker/Graph/DirectedMST.test.cpp
   requiredBy: []
-  timestamp: '2022-12-01 20:59:34+09:00'
+  timestamp: '2022-12-02 08:34:49+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library-checker/Graph/DirectedMST.test.cpp

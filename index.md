@@ -207,7 +207,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: tree/TreeMonoid.cpp
       title: tree/TreeMonoid.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: tree/WeightedTree.cpp
       title: tree/WeightedTree.cpp
   - name: util

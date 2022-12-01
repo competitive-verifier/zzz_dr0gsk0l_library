@@ -11,7 +11,7 @@ data:
   - icon: ':warning:'
     path: graph/01BFS.cpp
     title: graph/01BFS.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: tree/WeightedTree.cpp
     title: tree/WeightedTree.cpp
   _extendedVerifiedWith:
