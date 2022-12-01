@@ -123,7 +123,7 @@ data:
     - icon: ':question:'
       path: graph/MinimumSpanningArborescence.cpp
       title: graph/MinimumSpanningArborescence.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: graph/MinimumSpanningTree.cpp
       title: graph/MinimumSpanningTree.cpp
     - icon: ':heavy_check_mark:'
@@ -260,7 +260,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_1_C.test.cpp
       title: test/AOJ/GRL_1_C.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/AOJ/GRL_2_A.test.cpp
       title: test/AOJ/GRL_2_A.test.cpp
     - icon: ':heavy_check_mark:'
