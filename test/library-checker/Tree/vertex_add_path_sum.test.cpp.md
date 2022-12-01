@@ -110,14 +110,15 @@ data:
     \      add_edge(p-indexed,i);\n    }\n    build();\n  }\n  void scan(int indexed=1){\n\
     \    Graph::scan(n-1,false,indexed);\n    build();\n  }\n\n  edge_type& parent(int\
     \ v){\n    assert(~root and root!=v);\n    return (*this)[v][0];\n  }\n  OutgoingEdges\
-    \ son(int v){\n    assert(~root);\n    return {this,in_deg[v]+1,in_deg[v+1]};\n\
-    \  }\n\nprivate:\n  void dfs(int v,int pre=-1){\n    for(int i=0;i<T[v].size();i++){\n\
-    \      auto&e=T[v][i];\n      if(e.to==pre)swap(T[v][0],T[v][i]);\n      else{\n\
-    \        depth[e.to]=depth[v]+1;\n        dfs(e.to,v);\n      }\n    }\n    DFS.push_back(v);\n\
-    \  }\npublic:\n  void build(int r=0){\n    if(!is_prepared())Graph::build();\n\
-    \    if(~root){\n      assert(r==root);\n      return;\n    }\n    root=r;\n \
-    \   depth=vector<int>(n,0);\n    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n\
-    \    queue<int> que;\n    que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
+    \ son(int v){\n    assert(~root);\n    if(v==root)return {this,in_deg[v],in_deg[v+1]};\n\
+    \    return {this,in_deg[v]+1,in_deg[v+1]};\n  }\n\nprivate:\n  void dfs(int v,int\
+    \ pre=-1){\n    for(int i=0;i<T[v].size();i++){\n      auto&e=T[v][i];\n     \
+    \ if(e.to==pre)swap(T[v][0],T[v][i]);\n      else{\n        depth[e.to]=depth[v]+1;\n\
+    \        dfs(e.to,v);\n      }\n    }\n    DFS.push_back(v);\n  }\npublic:\n \
+    \ void build(int r=0){\n    if(!is_prepared())Graph::build();\n    if(~root){\n\
+    \      assert(r==root);\n      return;\n    }\n    root=r;\n    depth=vector<int>(n,0);\n\
+    \    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n    queue<int> que;\n   \
+    \ que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
     \      BFS.push_back(p);\n      for(int c:son(p))que.push(c);\n    }\n  }\n};\n\
     #line 2 \"tree/HLD.cpp\"\ntemplate<typename TREE>\nstruct HLD{\n  int n;\n  TREE\
     \ T;\n  vector<int> sz,head,id,id2;\n  bool prepared;\n  HLD(TREE T_):T(T_),n(T_.n),sz(n),head(n),id(n),id2(n),prepared(false){}\n\
@@ -189,7 +190,7 @@ data:
   isVerificationFile: true
   path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-12-01 12:04:19+09:00'
+  timestamp: '2022-12-01 12:23:53+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library-checker/Tree/vertex_add_path_sum.test.cpp
