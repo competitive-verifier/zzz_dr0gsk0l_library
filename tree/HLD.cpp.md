@@ -5,28 +5,28 @@ data:
   - icon: ':x:'
     path: tree/TreeLazy.cpp
     title: tree/TreeLazy.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/TreeMonoid.cpp
     title: tree/TreeMonoid.cpp
   _extendedVerifiedWith:
   - icon: ':x:'
     path: test/AOJ/GRL_5_E.test.cpp
     title: test/AOJ/GRL_5_E.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
     title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_path_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
     title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"tree/HLD.cpp\"\ntemplate<typename TREE>\nstruct HLD{\n \
@@ -35,7 +35,7 @@ data:
     \ void dfs_sz(int v){\n    sz[v]=1;\n    for(auto&e:T.son(v)){\n      sz[v]+=sz[e.to];\n\
     \      if(sz[e.to]>sz[T.son(v)[0].to])swap(e,T.son(v)[0]);\n    }\n  }\n  void\
     \ dfs_hld(int v,int& k){\n    id[v]=k++;\n    for(int i=0;i<T.son(v).size();i++){\n\
-    \      const auto&e=T.son(v)[i];\n      head[e.to]=(i?head[v]:e.to);\n      dfs_hld(e.to,k);\n\
+    \      const auto&e=T.son(v)[i];\n      head[e.to]=(i?e.to:head[v]);\n      dfs_hld(e.to,k);\n\
     \    }\n    id2[v]=k;\n  }\npublic:\n  vector<int> build(int r=0){\n    assert(!prepared);prepared=true;\n\
     \    if(~T.root)assert(T.root==r);\n    else T.build(r);\n    head[r]=r;\n   \
     \ dfs_sz(r);\n    int k=0;\n    dfs_hld(r,k);\n    return id;\n  }\n\n  int lca(int\
@@ -59,7 +59,7 @@ data:
     private:\n  void dfs_sz(int v){\n    sz[v]=1;\n    for(auto&e:T.son(v)){\n   \
     \   sz[v]+=sz[e.to];\n      if(sz[e.to]>sz[T.son(v)[0].to])swap(e,T.son(v)[0]);\n\
     \    }\n  }\n  void dfs_hld(int v,int& k){\n    id[v]=k++;\n    for(int i=0;i<T.son(v).size();i++){\n\
-    \      const auto&e=T.son(v)[i];\n      head[e.to]=(i?head[v]:e.to);\n      dfs_hld(e.to,k);\n\
+    \      const auto&e=T.son(v)[i];\n      head[e.to]=(i?e.to:head[v]);\n      dfs_hld(e.to,k);\n\
     \    }\n    id2[v]=k;\n  }\npublic:\n  vector<int> build(int r=0){\n    assert(!prepared);prepared=true;\n\
     \    if(~T.root)assert(T.root==r);\n    else T.build(r);\n    head[r]=r;\n   \
     \ dfs_sz(r);\n    int k=0;\n    dfs_hld(r,k);\n    return id;\n  }\n\n  int lca(int\
@@ -84,8 +84,8 @@ data:
   requiredBy:
   - tree/TreeMonoid.cpp
   - tree/TreeLazy.cpp
-  timestamp: '2022-12-01 12:35:24+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-12-01 13:47:41+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/AOJ/GRL_5_E.test.cpp
   - test/library-checker/Tree/LowestCommonAncestor.test.cpp

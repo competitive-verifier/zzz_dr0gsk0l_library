@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/Graph.cpp
     title: graph/Graph.cpp
   _extendedRequiredBy: []
@@ -9,24 +9,24 @@ data:
   - icon: ':x:'
     path: test/AOJ/GRL_5_E.test.cpp
     title: test/AOJ/GRL_5_E.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
     title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp
     title: test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_path_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
     title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/Graph.cpp\"\nstruct Edge{\n  int from,to;\n  Edge()=default;\n\
@@ -91,7 +91,7 @@ data:
   path: tree/Tree.cpp
   requiredBy: []
   timestamp: '2022-12-01 12:35:24+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/AOJ/GRL_5_E.test.cpp
   - test/library-checker/Tree/LowestCommonAncestor.test.cpp
