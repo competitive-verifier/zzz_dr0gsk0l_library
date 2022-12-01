@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: graph/Graph.cpp
     title: graph/Graph.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: tree/RootedTreeIsomorphism.cpp
     title: tree/RootedTreeIsomorphism.cpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: tree/Tree.cpp
     title: tree/Tree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/rooted_tree_isomorphism_classification
@@ -47,24 +47,26 @@ data:
     \    assert(prepared);\n    for(int from=0;from<n;from++){\n      cerr<<from<<\"\
     ;\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n        cerr<<edges[i].to<<\"\
     \ \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n#line 3 \"tree/Tree.cpp\"\nstruct\
-    \ Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n  vector<vector<int>> son;\n\
-    \  vector<int> DFS,BFS,parent,depth;\n\n  void scan_root(int indexed=1){\n   \
-    \ for(int i=1;i<n;i++){\n      int p;cin>>p;\n      add_edge(p-indexed,i);\n \
-    \   }\n    build();\n  }\n  void scan(int indexed=1){\n    Graph::scan(n-1,false,indexed);\n\
-    \    build();\n  }\n\nprivate:\n  void dfs(int idx,int pre=-1){\n    parent[idx]=pre;\n\
-    \    for(const auto&e:(*this)[idx])if(e.to!=pre){\n      depth[e.to]=depth[idx]+1;\n\
-    \      dfs(e.to,idx);\n      son[idx].push_back(e.to);\n    }\n    DFS.push_back(idx);\n\
+    \ Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n  vector<int> DFS,BFS,depth;\n\
+    \n  void scan_root(int indexed=1){\n    for(int i=1;i<n;i++){\n      int p;cin>>p;\n\
+    \      add_edge(p-indexed,i);\n    }\n    build();\n  }\n  void scan(int indexed=1){\n\
+    \    Graph::scan(n-1,false,indexed);\n    build();\n  }\n\n  edge_type& parent(int\
+    \ v){\n    assert(~root and root!=v);\n    return (*this)[v][0];\n  }\n  OutgoingEdges\
+    \ son(int v){\n    assert(~root);\n    return {this,in_deg[v]+1,in_deg[v+1]};\n\
+    \  }\n\nprivate:\n  void dfs(int v,int pre=-1){\n    for(int i=0;i<T[v].size();i++){\n\
+    \      auto&e=T[v][i];\n      if(e.to==pre)swap(T[v][0],T[v][i]);\n      else{\n\
+    \        depth[e.to]=depth[v]+1;\n        dfs(e.to,v);\n      }\n    }\n    DFS.push_back(v);\n\
     \  }\npublic:\n  void build(int r=0){\n    if(!is_prepared())Graph::build();\n\
     \    if(~root){\n      assert(r==root);\n      return;\n    }\n    root=r;\n \
-    \   son.resize(n);parent.resize(n);depth.resize(n);\n    DFS.reserve(n);BFS.reserve(n);\n\
-    \    depth[root]=0;\n    dfs(root);\n    queue<int> que;\n    que.push(root);\n\
-    \    while(que.size()){\n      int p=que.front();que.pop();\n      BFS.push_back(p);\n\
-    \      for(int c:son[p])que.push(c);\n    }\n  }\n};\n#line 1 \"tree/RootedTreeIsomorphism.cpp\"\
-    \ntemplate<typename TREE>\npair<int,vector<int>> rooted_tree_isomorphism(const\
-    \ TREE&t){\n  assert(~t.root);\n  vector<int> res(t.n);\n  map<vector<int>,int>\
-    \ mp;\n  for(const int v:t.DFS){\n    vector<int> h;\n    for(int c:t.son[v])h.push_back(res[c]);\n\
-    \    sort(h.begin(),h.end());\n    if(!mp.count(h))mp[h]=mp.size();\n    res[v]=mp[h];\n\
-    \  }\n  return {mp.size(),res};\n}\n#line 7 \"test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp\"\
+    \   depth=vector<int>(n,0);\n    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n\
+    \    queue<int> que;\n    que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
+    \      BFS.push_back(p);\n      for(int c:son(p))que.push(c);\n    }\n  }\n};\n\
+    #line 1 \"tree/RootedTreeIsomorphism.cpp\"\ntemplate<typename TREE>\npair<int,vector<int>>\
+    \ rooted_tree_isomorphism(const TREE&t){\n  assert(~t.root);\n  vector<int> res(t.n);\n\
+    \  map<vector<int>,int> mp;\n  for(const int v:t.DFS){\n    vector<int> h;\n \
+    \   for(int c:t.son[v])h.push_back(res[c]);\n    sort(h.begin(),h.end());\n  \
+    \  if(!mp.count(h))mp[h]=mp.size();\n    res[v]=mp[h];\n  }\n  return {mp.size(),res};\n\
+    }\n#line 7 \"test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp\"\
     \n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int\
     \ n;cin>>n;\n  Tree t(n);\n  t.scan_root(0);\n\n  auto [k,hsh]=rooted_tree_isomorphism(t);\n\
     \  cout<<k<<\"\\n\";\n  for(int p:hsh)cout<<p<<\" \";cout<<\"\\n\";\n}\n"
@@ -81,8 +83,8 @@ data:
   isVerificationFile: true
   path: test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp
   requiredBy: []
-  timestamp: '2022-11-30 18:56:10+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-01 12:04:19+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp
 layout: document

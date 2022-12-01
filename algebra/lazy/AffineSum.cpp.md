@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/group/Affine.cpp
     title: algebra/group/Affine.cpp
   - icon: ':question:'

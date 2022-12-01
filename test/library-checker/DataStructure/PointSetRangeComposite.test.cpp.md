@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: algebra/Reverse.cpp
     title: algebra/Reverse.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: algebra/group/Affine.cpp
     title: algebra/group/Affine.cpp
   - icon: ':heavy_check_mark:'
     path: mod/Modint.cpp
     title: mod/Modint.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: segtree/SegmentTree.cpp
     title: segtree/SegmentTree.cpp
   _extendedRequiredBy: []

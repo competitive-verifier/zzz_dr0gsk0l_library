@@ -16,16 +16,16 @@ data:
   - icon: ':x:'
     path: algebra/lazy/Reverse.cpp
     title: algebra/lazy/Reverse.cpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: graph/Graph.cpp
     title: graph/Graph.cpp
   - icon: ':question:'
     path: segtree/LazySegmentTree.cpp
     title: segtree/LazySegmentTree.cpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: tree/HLD.cpp
     title: tree/HLD.cpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: tree/Tree.cpp
     title: tree/Tree.cpp
   - icon: ':x:'
@@ -87,97 +87,99 @@ data:
     \    assert(prepared);\n    for(int from=0;from<n;from++){\n      cerr<<from<<\"\
     ;\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n        cerr<<edges[i].to<<\"\
     \ \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n#line 3 \"tree/Tree.cpp\"\nstruct\
-    \ Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n  vector<vector<int>> son;\n\
-    \  vector<int> DFS,BFS,parent,depth;\n\n  void scan_root(int indexed=1){\n   \
-    \ for(int i=1;i<n;i++){\n      int p;cin>>p;\n      add_edge(p-indexed,i);\n \
-    \   }\n    build();\n  }\n  void scan(int indexed=1){\n    Graph::scan(n-1,false,indexed);\n\
-    \    build();\n  }\n\nprivate:\n  void dfs(int idx,int pre=-1){\n    parent[idx]=pre;\n\
-    \    for(const auto&e:(*this)[idx])if(e.to!=pre){\n      depth[e.to]=depth[idx]+1;\n\
-    \      dfs(e.to,idx);\n      son[idx].push_back(e.to);\n    }\n    DFS.push_back(idx);\n\
+    \ Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n  vector<int> DFS,BFS,depth;\n\
+    \n  void scan_root(int indexed=1){\n    for(int i=1;i<n;i++){\n      int p;cin>>p;\n\
+    \      add_edge(p-indexed,i);\n    }\n    build();\n  }\n  void scan(int indexed=1){\n\
+    \    Graph::scan(n-1,false,indexed);\n    build();\n  }\n\n  edge_type& parent(int\
+    \ v){\n    assert(~root and root!=v);\n    return (*this)[v][0];\n  }\n  OutgoingEdges\
+    \ son(int v){\n    assert(~root);\n    return {this,in_deg[v]+1,in_deg[v+1]};\n\
+    \  }\n\nprivate:\n  void dfs(int v,int pre=-1){\n    for(int i=0;i<T[v].size();i++){\n\
+    \      auto&e=T[v][i];\n      if(e.to==pre)swap(T[v][0],T[v][i]);\n      else{\n\
+    \        depth[e.to]=depth[v]+1;\n        dfs(e.to,v);\n      }\n    }\n    DFS.push_back(v);\n\
     \  }\npublic:\n  void build(int r=0){\n    if(!is_prepared())Graph::build();\n\
     \    if(~root){\n      assert(r==root);\n      return;\n    }\n    root=r;\n \
-    \   son.resize(n);parent.resize(n);depth.resize(n);\n    DFS.reserve(n);BFS.reserve(n);\n\
-    \    depth[root]=0;\n    dfs(root);\n    queue<int> que;\n    que.push(root);\n\
-    \    while(que.size()){\n      int p=que.front();que.pop();\n      BFS.push_back(p);\n\
-    \      for(int c:son[p])que.push(c);\n    }\n  }\n};\n#line 2 \"segtree/LazySegmentTree.cpp\"\
-    \n\ntemplate<typename Lazy>\nclass LazySegmentTree{\n  using MX = typename Lazy::MX;\n\
-    \  using MF = typename Lazy::MF;\n  using X = typename MX::value_type;\n  using\
-    \ F = typename MF::value_type;\n  int n,log,size;\n  vector<X> dat;\n  vector<F>\
-    \ laz;\n\n  X reflect(int k){\n    if(k<size)return Lazy::mapping(laz[k],dat[k]);\n\
-    \    return dat[k];\n  }\n  void point_apply(int k,const F&f){\n    if(k<size)laz[k]=MF::op(f,laz[k]);\n\
-    \    else dat[k]=Lazy::mapping(f,dat[k]);\n  }\n  void push(int k){\n    dat[k]=reflect(k);\n\
-    \    point_apply(2*k,laz[k]);\n    point_apply(2*k+1,laz[k]);\n    laz[k]=MF::unit();\n\
-    \  }\n  void thrust(int k){ for(int i=log;i;i--)push(k>>i); }\n  void update(int\
-    \ i){ dat[i]=MX::op(reflect(2*i),reflect(2*i+1)); }\n  void recalc(int k){ while(k>>=1)update(k);\
-    \ }\n\npublic:\n  LazySegmentTree() : LazySegmentTree(0) {}\n  LazySegmentTree(int\
-    \ n):LazySegmentTree(vector<X>(n,MX::unit())) {}\n  LazySegmentTree(const vector<X>&v)\
-    \ : n(v.size()) {\n    for(log=1;(1<<log)<n;log++){}\n    size=1<<log;\n    dat.assign(size<<1,MX::unit());\n\
-    \    laz.assign(size,MF::unit());\n    for(int i=0;i<n;++i)dat[size+i]=v[i];\n\
-    \    for(int i=size-1;i>=1;--i)update(i);\n  }\n\n  void set(int p,X x){\n   \
-    \ assert(0<=p and p<n);\n    thrust(p+=size);\n    dat[p]=x;\n    recalc(p);\n\
-    \  }\n\n  X operator[](int p){\n    assert(0<=p and p<n);\n    thrust(p+=size);\n\
-    \    return reflect(p);\n  }\n\n  X prod(int L,int R){\n    assert(0<=L and L<=R\
-    \ and R<=n);\n    if(L==R)return MX::unit();\n    thrust(L+=size);\n    thrust((R+=size-1)++);\n\
-    \    X vl=MX::unit(),vr=MX::unit();\n    while(L<R){\n      if(L&1)vl=MX::op(vl,reflect(L++));\n\
-    \      if(R&1)vr=MX::op(reflect(--R),vr);\n      L>>=1,R>>=1;\n    }\n    return\
-    \ MX::op(vl,vr);\n  }\n\n  void apply(int l,int r,F f){\n    assert(0 <= l &&\
-    \ l <= r && r <= n);\n    if(l==r)return;\n    thrust(l+=size);\n    thrust(r+=size-1);\n\
-    \    for(int L=l,R=r+1;L<R;L>>=1,R>>=1){\n      if(L&1)point_apply(L++,f);\n \
-    \     if(R&1)point_apply(--R,f);\n    }\n    recalc(l);\n    recalc(r);\n  }\n\
-    };\n#line 2 \"algebra/Reverse.cpp\"\ntemplate<typename Algebra>\nstruct AlgebraReverse:Algebra{\n\
-    \  using X=typename Algebra::value_type;\n  static constexpr X op(const X& x,\
-    \ const X& y){ return Algebra::op(y,x); }\n};\n#line 3 \"algebra/lazy/Reverse.cpp\"\
-    \ntemplate<typename Lazy>\nstruct LazyReverse:Lazy{\n  using MX=AlgebraReverse<typename\
-    \ Lazy::MX>;\n};\n#line 2 \"tree/HLD.cpp\"\ntemplate<typename TREE>\nstruct HLD{\n\
-    \  int n;\n  TREE T;\n  vector<int> sz,head,id,id2;\n  bool prepared;\n  HLD(TREE\
-    \ T_):T(T_),n(T_.n),sz(n),head(n),id(n),id2(n),prepared(false){}\nprivate:\n \
-    \ void dfs_sz(int v){\n    sz[v]=1;\n    for(int c:T.son[v]){\n      sz[v]+=sz[c];\n\
-    \      if(sz[c]>sz[T.son[v][0]])swap(c,T.son[v][0]);\n    }\n  }\n  void dfs_hld(int\
-    \ v,int& k){\n    id[v]=k++;\n    for(int c:T.son[v]){\n      head[c]=(c==T.son[v][0]?head[v]:c);\n\
-    \      dfs_hld(c,k);\n    }\n    id2[v]=k;\n  }\npublic:\n  vector<int> build(int\
-    \ r=0){\n    assert(!prepared);prepared=true;\n    if(~T.root)assert(T.root==r);\n\
-    \    else T.build(r);\n    head[r]=r;\n    dfs_sz(r);\n    int k=0;\n    dfs_hld(r,k);\n\
-    \    return id;\n  }\n\n  int lca(int u,int v){\n    assert(prepared);\n    while(head[u]!=head[v]){\n\
-    \      if(T.depth[head[u]]>T.depth[head[v]])u=T.parent[head[u]];\n      else v=T.parent[head[v]];\n\
-    \    }\n    return (T.depth[u]<T.depth[v]?u:v);\n  }\n\n  // l=lca(u,v) \u3068\
-    \u3057\u305F\u6642\u3001[u,l] \u30D1\u30B9\u3068 [v,l] \u30D1\u30B9 \u3092\u9589\
-    \u533A\u9593\u306E\u7D44\u307F\u3067\u8FD4\u3059\n  using path_t=vector<pair<int,int>>;\n\
-    \  pair<path_t,path_t> path(int u,int v){\n    assert(prepared);\n    path_t path_u,path_v;\n\
-    \    while(u!=v){\n      if(head[u]==head[v]){\n        if(T.depth[u]<T.depth[v])\n\
-    \          path_v.emplace_back(id[v],id[u]);\n        else\n          path_u.emplace_back(id[u],id[v]);\n\
-    \        break;\n      }\n      if(T.depth[head[u]]<T.depth[head[v]]){\n     \
-    \   path_v.emplace_back(id[v],id[head[v]]);\n        v=T.parent[head[v]];\n  \
-    \    }\n      else{\n        path_u.emplace_back(id[u],id[head[u]]);\n       \
-    \ u=T.parent[head[u]];\n      }\n    }\n    if(u==v)path_u.emplace_back(id[u],id[u]);\n\
+    \   depth=vector<int>(n,0);\n    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n\
+    \    queue<int> que;\n    que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
+    \      BFS.push_back(p);\n      for(int c:son(p))que.push(c);\n    }\n  }\n};\n\
+    #line 2 \"segtree/LazySegmentTree.cpp\"\n\ntemplate<typename Lazy>\nclass LazySegmentTree{\n\
+    \  using MX = typename Lazy::MX;\n  using MF = typename Lazy::MF;\n  using X =\
+    \ typename MX::value_type;\n  using F = typename MF::value_type;\n  int n,log,size;\n\
+    \  vector<X> dat;\n  vector<F> laz;\n\n  X reflect(int k){\n    if(k<size)return\
+    \ Lazy::mapping(laz[k],dat[k]);\n    return dat[k];\n  }\n  void point_apply(int\
+    \ k,const F&f){\n    if(k<size)laz[k]=MF::op(f,laz[k]);\n    else dat[k]=Lazy::mapping(f,dat[k]);\n\
+    \  }\n  void push(int k){\n    dat[k]=reflect(k);\n    point_apply(2*k,laz[k]);\n\
+    \    point_apply(2*k+1,laz[k]);\n    laz[k]=MF::unit();\n  }\n  void thrust(int\
+    \ k){ for(int i=log;i;i--)push(k>>i); }\n  void update(int i){ dat[i]=MX::op(reflect(2*i),reflect(2*i+1));\
+    \ }\n  void recalc(int k){ while(k>>=1)update(k); }\n\npublic:\n  LazySegmentTree()\
+    \ : LazySegmentTree(0) {}\n  LazySegmentTree(int n):LazySegmentTree(vector<X>(n,MX::unit()))\
+    \ {}\n  LazySegmentTree(const vector<X>&v) : n(v.size()) {\n    for(log=1;(1<<log)<n;log++){}\n\
+    \    size=1<<log;\n    dat.assign(size<<1,MX::unit());\n    laz.assign(size,MF::unit());\n\
+    \    for(int i=0;i<n;++i)dat[size+i]=v[i];\n    for(int i=size-1;i>=1;--i)update(i);\n\
+    \  }\n\n  void set(int p,X x){\n    assert(0<=p and p<n);\n    thrust(p+=size);\n\
+    \    dat[p]=x;\n    recalc(p);\n  }\n\n  X operator[](int p){\n    assert(0<=p\
+    \ and p<n);\n    thrust(p+=size);\n    return reflect(p);\n  }\n\n  X prod(int\
+    \ L,int R){\n    assert(0<=L and L<=R and R<=n);\n    if(L==R)return MX::unit();\n\
+    \    thrust(L+=size);\n    thrust((R+=size-1)++);\n    X vl=MX::unit(),vr=MX::unit();\n\
+    \    while(L<R){\n      if(L&1)vl=MX::op(vl,reflect(L++));\n      if(R&1)vr=MX::op(reflect(--R),vr);\n\
+    \      L>>=1,R>>=1;\n    }\n    return MX::op(vl,vr);\n  }\n\n  void apply(int\
+    \ l,int r,F f){\n    assert(0 <= l && l <= r && r <= n);\n    if(l==r)return;\n\
+    \    thrust(l+=size);\n    thrust(r+=size-1);\n    for(int L=l,R=r+1;L<R;L>>=1,R>>=1){\n\
+    \      if(L&1)point_apply(L++,f);\n      if(R&1)point_apply(--R,f);\n    }\n \
+    \   recalc(l);\n    recalc(r);\n  }\n};\n#line 2 \"algebra/Reverse.cpp\"\ntemplate<typename\
+    \ Algebra>\nstruct AlgebraReverse:Algebra{\n  using X=typename Algebra::value_type;\n\
+    \  static constexpr X op(const X& x, const X& y){ return Algebra::op(y,x); }\n\
+    };\n#line 3 \"algebra/lazy/Reverse.cpp\"\ntemplate<typename Lazy>\nstruct LazyReverse:Lazy{\n\
+    \  using MX=AlgebraReverse<typename Lazy::MX>;\n};\n#line 2 \"tree/HLD.cpp\"\n\
+    template<typename TREE>\nstruct HLD{\n  int n;\n  TREE T;\n  vector<int> sz,head,id,id2;\n\
+    \  bool prepared;\n  HLD(TREE T_):T(T_),n(T_.n),sz(n),head(n),id(n),id2(n),prepared(false){}\n\
+    private:\n  void dfs_sz(int v){\n    sz[v]=1;\n    for(auto&e:T.son(v)){\n   \
+    \   sz[v]+=sz[e.to];\n      if(sz[e.to]>sz[T.son(v)[0]])swap(e,T.son(v)[0]);\n\
+    \    }\n  }\n  void dfs_hld(int v,int& k){\n    id[v]=k++;\n    for(const auto&e:T.son(v)){\n\
+    \      head[e.to]=(e.to==T.son(v)[0]?head[v]:e.to);\n      dfs_hld(c,k);\n   \
+    \ }\n    id2[v]=k;\n  }\npublic:\n  vector<int> build(int r=0){\n    assert(!prepared);prepared=true;\n\
+    \    if(~T.root)assert(T.root==r);\n    else T.build(r);\n    head[r]=r;\n   \
+    \ dfs_sz(r);\n    int k=0;\n    dfs_hld(r,k);\n    return id;\n  }\n\n  int lca(int\
+    \ u,int v)const{\n    assert(prepared);\n    while(head[u]!=head[v]){\n      if(T.depth[head[u]]>T.depth[head[v]])u=T.parent(head[u]).to;\n\
+    \      else v=T.parent(head[v]).to;\n    }\n    return (T.depth[u]<T.depth[v]?u:v);\n\
+    \  }\n  int distance(int u,int v)const{\n    int w=lca(u,v);\n    return T.depth[u]+T.depth[v]-T.depth[w]*2;\n\
+    \  }\n\n  // l=lca(u,v) \u3068\u3057\u305F\u6642\u3001[u,l] \u30D1\u30B9\u3068\
+    \ [v,l] \u30D1\u30B9 \u3092\u9589\u533A\u9593\u306E\u7D44\u307F\u3067\u8FD4\u3059\
+    \n  using path_t=vector<pair<int,int>>;\n  pair<path_t,path_t> path(int u,int\
+    \ v){\n    assert(prepared);\n    path_t path_u,path_v;\n    while(u!=v){\n  \
+    \    if(head[u]==head[v]){\n        if(T.depth[u]<T.depth[v])\n          path_v.emplace_back(id[v],id[u]);\n\
+    \        else\n          path_u.emplace_back(id[u],id[v]);\n        break;\n \
+    \     }\n      if(T.depth[head[u]]<T.depth[head[v]]){\n        path_v.emplace_back(id[v],id[head[v]]);\n\
+    \        v=T.parent(head[v]);\n      }\n      else{\n        path_u.emplace_back(id[u],id[head[u]]);\n\
+    \        u=T.parent(head[u]);\n      }\n    }\n    if(u==v)path_u.emplace_back(id[u],id[u]);\n\
     \    return {path_u,path_v};\n  }\n\n  // [l,r) \u304C v \u306E\u90E8\u5206\u6728\
     \n  pair<int,int> subtree(int v){\n    assert(prepared);\n    return {id[v],id2[v]};\
     \ \n  }\n};\n#line 5 \"tree/TreeLazy.cpp\"\ntemplate<typename TREE,typename Lazy>\n\
     struct TreeLazy{\n  using MX=typename Lazy::MX;\n  using MF=typename Lazy::MF;\n\
     \  using X=typename MX::value_type;\n  using F=typename MF::value_type;\n  using\
-    \ Lazy_r=LazyReverse<Lazy>;\n  int n;\n  TREE T;\n  HLD<Tree> hld;\n  vector<int>\
+    \ Lazy_r=LazyReverse<Lazy>;\n  int n;\n  TREE&T;\n  HLD<Tree> hld;\n  vector<int>\
     \ hld_id,euler_in,euler_out;\n  LazySegmentTree<Lazy> seg;\n  LazySegmentTree<Lazy_r>\
-    \ seg_r; \n  \n  TreeLazy(TREE T,int r=0):T(T),hld(T),n(T.n),seg(n),seg_r(n){\n\
-    \    T.build(r);\n    hld_id=hld.build(r);\n  }\n  TreeLazy(TREE T,vector<X> a,int\
-    \ r=0):T(T),hld(T),n(T.n){\n    T.build(r);\n    hld_id=hld.build(r);\n    vector<X>\
-    \ hld_a(n);\n    for(int v=0;v<n;v++)hld_a[hld_id[v]]=a[v];\n    seg=LazySegmentTree<Lazy>(hld_a);\n\
-    \    seg_r=LazySegmentTree<Lazy_r>(hld_a);\n  }\n\n  void set(int v,X x){\n  \
-    \  seg.set(hld_id[v],x);\n    seg_r.set(hld_id[v],x);\n  }\n  void multiply(int\
-    \ v,X x){\n    seg.multiply(hld_id[v],x);\n    seg_r.multiply(hld_id[v],x);\n\
+    \ seg_r; \n  \n  TreeLazy(const TREE&T,int r=0):T(T),hld(T),n(T.n),seg(n),seg_r(n){\n\
+    \    T.build(r);\n    hld_id=hld.build(r);\n  }\n  TreeLazy(const TREE&T,vector<X>\
+    \ a,int r=0):T(T),hld(T),n(T.n){\n    T.build(r);\n    hld_id=hld.build(r);\n\
+    \    vector<X> hld_a(n);\n    for(int v=0;v<n;v++)hld_a[hld_id[v]]=a[v];\n   \
+    \ seg=LazySegmentTree<Lazy>(hld_a);\n    if(!MX::commute)seg_r=LazySegmentTree<Lazy_r>(hld_a);\n\
+    \  }\n\n  void set(int v,X x){\n    seg.set(hld_id[v],x);\n    if(!MX::commute)seg_r.set(hld_id[v],x);\n\
+    \  }\n  void multiply(int v,X x){\n    seg.multiply(hld_id[v],x);\n    if(!MX::commute)seg_r.multiply(hld_id[v],x);\n\
     \  }\n  X get(int v){ return seg.get(hld_id[v]); }\n  \n  // [u,v]\u30D1\u30B9\
     \u306E monoid \u7A4D\n  X path_prod(int u,int v){\n    auto [path_u,path_v]=hld.path(u,v);\n\
     \    X prod_u=MX::unit(),prod_v=MX::unit();\n    for(const auto&[l,r]:path_u){\n\
-    \      X val=seg_r.prod(r,l+1);\n      prod_u=MX::op(prod_u,val);\n    }\n   \
-    \ for(const auto&[l,r]:path_v){\n      X val=seg.prod(r,l+1);\n      prod_v=MX::op(val,prod_v);\n\
-    \    }\n    return MX::op(prod_u,prod_v);\n  }\n  // root -> path\n  X path_root_prod(int\
-    \ v){ return path_prod(T.root,v); }\n\n  void path_apply(int u,int v,const F&f){\n\
-    \    auto [path_u,path_v]=hld.path(u,v);\n    for(const auto&[l,r]:path_u){\n\
-    \      seg.apply(r,l+1,f);\n      seg_r.apply(r,l+1,f);\n    }\n    for(const\
-    \ auto&[l,r]:path_v){\n      seg.apply(r,l+1,f);\n      seg_r.apply(r,l+1,f);\n\
+    \      X val=(MX::commute?seg.prod(r,l+1):seg_r.prod(r,l+1));\n      prod_u=MX::op(prod_u,val);\n\
+    \    }\n    for(const auto&[l,r]:path_v){\n      X val=seg.prod(r,l+1);\n    \
+    \  prod_v=MX::op(val,prod_v);\n    }\n    return MX::op(prod_u,prod_v);\n  }\n\
+    \  // root -> path\n  X path_root_prod(int v){ return path_prod(T.root,v); }\n\
+    \n  void path_apply(int u,int v,const F&f){\n    auto [path_u,path_v]=hld.path(u,v);\n\
+    \    for(const auto&[l,r]:path_u){\n      seg.apply(r,l+1,f);\n      if(!MX::commute)seg_r.apply(r,l+1,f);\n\
+    \    }\n    for(const auto&[l,r]:path_v){\n      seg.apply(r,l+1,f);\n      if(!MX::commute)seg_r.apply(r,l+1,f);\n\
     \    }\n  }\n  void path_root_apply(int v,const F&f){ path_apply(T.root,v,f);\
     \ }\n\n  X subtree_prod(int v){\n    assert(MX::commute);\n    auto [l,r]=hld.subtree(v);\n\
     \    return seg.prod(l,r);\n  }\n  void subtree_apply(int v,const F&f){\n    auto\
-    \ [l,r]=hld.subtree(v);\n    seg.apply(l,r,f);\n    seg_r.apply(l,r,f);\n  }\n\
-    };\n#line 12 \"test/AOJ/GRL_5_E.test.cpp\"\nusing ll=long long;\n\nint main(){\n\
+    \ [l,r]=hld.subtree(v);\n    seg.apply(l,r,f);\n    if(!MX::commute)seg_r.apply(l,r,f);\n\
+    \  }\n};\n#line 12 \"test/AOJ/GRL_5_E.test.cpp\"\nusing ll=long long;\n\nint main(){\n\
     \  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n  \n  int n;cin>>n;\n\n\
     \  Tree t(n);\n  REP(i,n){\n    int k;cin>>k;\n    REP(_,k){\n      int c;cin>>c;\n\
     \      t.add_edge(i,c);\n    }\n  }\n  t.build(0);\n\n  TreeLazy<Tree,LazyAddSum<ll>>\
@@ -223,7 +225,7 @@ data:
   isVerificationFile: true
   path: test/AOJ/GRL_5_E.test.cpp
   requiredBy: []
-  timestamp: '2022-11-30 18:56:10+09:00'
+  timestamp: '2022-12-01 12:04:19+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/AOJ/GRL_5_E.test.cpp

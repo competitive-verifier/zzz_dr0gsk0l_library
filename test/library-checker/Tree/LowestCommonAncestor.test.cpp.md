@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: graph/Graph.cpp
     title: graph/Graph.cpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: tree/HLD.cpp
     title: tree/HLD.cpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: tree/Tree.cpp
     title: tree/Tree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/lca
@@ -47,30 +47,32 @@ data:
     \    assert(prepared);\n    for(int from=0;from<n;from++){\n      cerr<<from<<\"\
     ;\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n        cerr<<edges[i].to<<\"\
     \ \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n#line 3 \"tree/Tree.cpp\"\nstruct\
-    \ Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n  vector<vector<int>> son;\n\
-    \  vector<int> DFS,BFS,parent,depth;\n\n  void scan_root(int indexed=1){\n   \
-    \ for(int i=1;i<n;i++){\n      int p;cin>>p;\n      add_edge(p-indexed,i);\n \
-    \   }\n    build();\n  }\n  void scan(int indexed=1){\n    Graph::scan(n-1,false,indexed);\n\
-    \    build();\n  }\n\nprivate:\n  void dfs(int idx,int pre=-1){\n    parent[idx]=pre;\n\
-    \    for(const auto&e:(*this)[idx])if(e.to!=pre){\n      depth[e.to]=depth[idx]+1;\n\
-    \      dfs(e.to,idx);\n      son[idx].push_back(e.to);\n    }\n    DFS.push_back(idx);\n\
+    \ Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n  vector<int> DFS,BFS,depth;\n\
+    \n  void scan_root(int indexed=1){\n    for(int i=1;i<n;i++){\n      int p;cin>>p;\n\
+    \      add_edge(p-indexed,i);\n    }\n    build();\n  }\n  void scan(int indexed=1){\n\
+    \    Graph::scan(n-1,false,indexed);\n    build();\n  }\n\n  edge_type& parent(int\
+    \ v){\n    assert(~root and root!=v);\n    return (*this)[v][0];\n  }\n  OutgoingEdges\
+    \ son(int v){\n    assert(~root);\n    return {this,in_deg[v]+1,in_deg[v+1]};\n\
+    \  }\n\nprivate:\n  void dfs(int v,int pre=-1){\n    for(int i=0;i<T[v].size();i++){\n\
+    \      auto&e=T[v][i];\n      if(e.to==pre)swap(T[v][0],T[v][i]);\n      else{\n\
+    \        depth[e.to]=depth[v]+1;\n        dfs(e.to,v);\n      }\n    }\n    DFS.push_back(v);\n\
     \  }\npublic:\n  void build(int r=0){\n    if(!is_prepared())Graph::build();\n\
     \    if(~root){\n      assert(r==root);\n      return;\n    }\n    root=r;\n \
-    \   son.resize(n);parent.resize(n);depth.resize(n);\n    DFS.reserve(n);BFS.reserve(n);\n\
-    \    depth[root]=0;\n    dfs(root);\n    queue<int> que;\n    que.push(root);\n\
-    \    while(que.size()){\n      int p=que.front();que.pop();\n      BFS.push_back(p);\n\
-    \      for(int c:son[p])que.push(c);\n    }\n  }\n};\n#line 2 \"tree/HLD.cpp\"\
-    \ntemplate<typename TREE>\nstruct HLD{\n  int n;\n  TREE T;\n  vector<int> sz,head,id,id2;\n\
-    \  bool prepared;\n  HLD(TREE T_):T(T_),n(T_.n),sz(n),head(n),id(n),id2(n),prepared(false){}\n\
-    private:\n  void dfs_sz(int v){\n    sz[v]=1;\n    for(int c:T.son[v]){\n    \
-    \  sz[v]+=sz[c];\n      if(sz[c]>sz[T.son[v][0]])swap(c,T.son[v][0]);\n    }\n\
-    \  }\n  void dfs_hld(int v,int& k){\n    id[v]=k++;\n    for(int c:T.son[v]){\n\
-    \      head[c]=(c==T.son[v][0]?head[v]:c);\n      dfs_hld(c,k);\n    }\n    id2[v]=k;\n\
-    \  }\npublic:\n  vector<int> build(int r=0){\n    assert(!prepared);prepared=true;\n\
+    \   depth=vector<int>(n,0);\n    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n\
+    \    queue<int> que;\n    que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
+    \      BFS.push_back(p);\n      for(int c:son(p))que.push(c);\n    }\n  }\n};\n\
+    #line 2 \"tree/HLD.cpp\"\ntemplate<typename TREE>\nstruct HLD{\n  int n;\n  TREE\
+    \ T;\n  vector<int> sz,head,id,id2;\n  bool prepared;\n  HLD(TREE T_):T(T_),n(T_.n),sz(n),head(n),id(n),id2(n),prepared(false){}\n\
+    private:\n  void dfs_sz(int v){\n    sz[v]=1;\n    for(auto&e:T.son(v)){\n   \
+    \   sz[v]+=sz[e.to];\n      if(sz[e.to]>sz[T.son(v)[0]])swap(e,T.son(v)[0]);\n\
+    \    }\n  }\n  void dfs_hld(int v,int& k){\n    id[v]=k++;\n    for(const auto&e:T.son(v)){\n\
+    \      head[e.to]=(e.to==T.son(v)[0]?head[v]:e.to);\n      dfs_hld(c,k);\n   \
+    \ }\n    id2[v]=k;\n  }\npublic:\n  vector<int> build(int r=0){\n    assert(!prepared);prepared=true;\n\
     \    if(~T.root)assert(T.root==r);\n    else T.build(r);\n    head[r]=r;\n   \
     \ dfs_sz(r);\n    int k=0;\n    dfs_hld(r,k);\n    return id;\n  }\n\n  int lca(int\
-    \ u,int v){\n    assert(prepared);\n    while(head[u]!=head[v]){\n      if(T.depth[head[u]]>T.depth[head[v]])u=T.parent[head[u]];\n\
-    \      else v=T.parent[head[v]];\n    }\n    return (T.depth[u]<T.depth[v]?u:v);\n\
+    \ u,int v)const{\n    assert(prepared);\n    while(head[u]!=head[v]){\n      if(T.depth[head[u]]>T.depth[head[v]])u=T.parent(head[u]).to;\n\
+    \      else v=T.parent(head[v]).to;\n    }\n    return (T.depth[u]<T.depth[v]?u:v);\n\
+    \  }\n  int distance(int u,int v)const{\n    int w=lca(u,v);\n    return T.depth[u]+T.depth[v]-T.depth[w]*2;\n\
     \  }\n\n  // l=lca(u,v) \u3068\u3057\u305F\u6642\u3001[u,l] \u30D1\u30B9\u3068\
     \ [v,l] \u30D1\u30B9 \u3092\u9589\u533A\u9593\u306E\u7D44\u307F\u3067\u8FD4\u3059\
     \n  using path_t=vector<pair<int,int>>;\n  pair<path_t,path_t> path(int u,int\
@@ -78,8 +80,8 @@ data:
     \    if(head[u]==head[v]){\n        if(T.depth[u]<T.depth[v])\n          path_v.emplace_back(id[v],id[u]);\n\
     \        else\n          path_u.emplace_back(id[u],id[v]);\n        break;\n \
     \     }\n      if(T.depth[head[u]]<T.depth[head[v]]){\n        path_v.emplace_back(id[v],id[head[v]]);\n\
-    \        v=T.parent[head[v]];\n      }\n      else{\n        path_u.emplace_back(id[u],id[head[u]]);\n\
-    \        u=T.parent[head[u]];\n      }\n    }\n    if(u==v)path_u.emplace_back(id[u],id[u]);\n\
+    \        v=T.parent(head[v]);\n      }\n      else{\n        path_u.emplace_back(id[u],id[head[u]]);\n\
+    \        u=T.parent(head[u]);\n      }\n    }\n    if(u==v)path_u.emplace_back(id[u],id[u]);\n\
     \    return {path_u,path_v};\n  }\n\n  // [l,r) \u304C v \u306E\u90E8\u5206\u6728\
     \n  pair<int,int> subtree(int v){\n    assert(prepared);\n    return {id[v],id2[v]};\
     \ \n  }\n};\n#line 7 \"test/library-checker/Tree/LowestCommonAncestor.test.cpp\"\
@@ -98,8 +100,8 @@ data:
   isVerificationFile: true
   path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
   requiredBy: []
-  timestamp: '2022-11-30 18:56:10+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-01 12:04:19+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library-checker/Tree/LowestCommonAncestor.test.cpp
 layout: document

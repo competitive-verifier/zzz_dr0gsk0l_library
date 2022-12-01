@@ -2,31 +2,31 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':x:'
     path: tree/Tree.cpp
     title: tree/Tree.cpp
   _extendedVerifiedWith:
   - icon: ':x:'
     path: test/AOJ/GRL_5_E.test.cpp
     title: test/AOJ/GRL_5_E.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
     title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp
     title: test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_path_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
     title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/Graph.cpp\"\nstruct Edge{\n  int from,to;\n  Edge()=default;\n\
@@ -77,14 +77,14 @@ data:
     \  }\n\n  void graph_debug()const{\n  #ifndef __LOCAL\n    return;\n  #endif\n\
     \    assert(prepared);\n    for(int from=0;from<n;from++){\n      cerr<<from<<\"\
     ;\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n        cerr<<edges[i].to<<\"\
-    \ \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n"
+    \ \";\n      cerr<<\"\\n\";\n    }\n  }\n};"
   dependsOn: []
   isVerificationFile: false
   path: graph/Graph.cpp
   requiredBy:
   - tree/Tree.cpp
-  timestamp: '2022-11-30 18:56:10+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-12-01 12:04:19+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/AOJ/GRL_5_E.test.cpp
   - test/library-checker/Tree/LowestCommonAncestor.test.cpp

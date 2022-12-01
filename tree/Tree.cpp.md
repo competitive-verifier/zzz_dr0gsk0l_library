@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: graph/Graph.cpp
     title: graph/Graph.cpp
   _extendedRequiredBy: []
@@ -9,24 +9,24 @@ data:
   - icon: ':x:'
     path: test/AOJ/GRL_5_E.test.cpp
     title: test/AOJ/GRL_5_E.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
     title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp
     title: test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library-checker/Tree/vertex_add_path_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_path_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
     title: test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
     title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/Graph.cpp\"\nstruct Edge{\n  int from,to;\n  Edge()=default;\n\
@@ -54,39 +54,42 @@ data:
     \    assert(prepared);\n    for(int from=0;from<n;from++){\n      cerr<<from<<\"\
     ;\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n        cerr<<edges[i].to<<\"\
     \ \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n#line 3 \"tree/Tree.cpp\"\nstruct\
-    \ Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n  vector<vector<int>> son;\n\
-    \  vector<int> DFS,BFS,parent,depth;\n\n  void scan_root(int indexed=1){\n   \
-    \ for(int i=1;i<n;i++){\n      int p;cin>>p;\n      add_edge(p-indexed,i);\n \
-    \   }\n    build();\n  }\n  void scan(int indexed=1){\n    Graph::scan(n-1,false,indexed);\n\
-    \    build();\n  }\n\nprivate:\n  void dfs(int idx,int pre=-1){\n    parent[idx]=pre;\n\
-    \    for(const auto&e:(*this)[idx])if(e.to!=pre){\n      depth[e.to]=depth[idx]+1;\n\
-    \      dfs(e.to,idx);\n      son[idx].push_back(e.to);\n    }\n    DFS.push_back(idx);\n\
-    \  }\npublic:\n  void build(int r=0){\n    if(!is_prepared())Graph::build();\n\
-    \    if(~root){\n      assert(r==root);\n      return;\n    }\n    root=r;\n \
-    \   son.resize(n);parent.resize(n);depth.resize(n);\n    DFS.reserve(n);BFS.reserve(n);\n\
-    \    depth[root]=0;\n    dfs(root);\n    queue<int> que;\n    que.push(root);\n\
-    \    while(que.size()){\n      int p=que.front();que.pop();\n      BFS.push_back(p);\n\
-    \      for(int c:son[p])que.push(c);\n    }\n  }\n};\n"
-  code: "#pragma once\n#include \"graph/Graph.cpp\"\nstruct Tree:Graph{\n  using Graph::Graph;\n\
-    \  int root=-1;\n  vector<vector<int>> son;\n  vector<int> DFS,BFS,parent,depth;\n\
+    \ Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n  vector<int> DFS,BFS,depth;\n\
     \n  void scan_root(int indexed=1){\n    for(int i=1;i<n;i++){\n      int p;cin>>p;\n\
     \      add_edge(p-indexed,i);\n    }\n    build();\n  }\n  void scan(int indexed=1){\n\
-    \    Graph::scan(n-1,false,indexed);\n    build();\n  }\n\nprivate:\n  void dfs(int\
-    \ idx,int pre=-1){\n    parent[idx]=pre;\n    for(const auto&e:(*this)[idx])if(e.to!=pre){\n\
-    \      depth[e.to]=depth[idx]+1;\n      dfs(e.to,idx);\n      son[idx].push_back(e.to);\n\
-    \    }\n    DFS.push_back(idx);\n  }\npublic:\n  void build(int r=0){\n    if(!is_prepared())Graph::build();\n\
+    \    Graph::scan(n-1,false,indexed);\n    build();\n  }\n\n  edge_type& parent(int\
+    \ v){\n    assert(~root and root!=v);\n    return (*this)[v][0];\n  }\n  OutgoingEdges\
+    \ son(int v){\n    assert(~root);\n    return {this,in_deg[v]+1,in_deg[v+1]};\n\
+    \  }\n\nprivate:\n  void dfs(int v,int pre=-1){\n    for(int i=0;i<T[v].size();i++){\n\
+    \      auto&e=T[v][i];\n      if(e.to==pre)swap(T[v][0],T[v][i]);\n      else{\n\
+    \        depth[e.to]=depth[v]+1;\n        dfs(e.to,v);\n      }\n    }\n    DFS.push_back(v);\n\
+    \  }\npublic:\n  void build(int r=0){\n    if(!is_prepared())Graph::build();\n\
     \    if(~root){\n      assert(r==root);\n      return;\n    }\n    root=r;\n \
-    \   son.resize(n);parent.resize(n);depth.resize(n);\n    DFS.reserve(n);BFS.reserve(n);\n\
-    \    depth[root]=0;\n    dfs(root);\n    queue<int> que;\n    que.push(root);\n\
-    \    while(que.size()){\n      int p=que.front();que.pop();\n      BFS.push_back(p);\n\
-    \      for(int c:son[p])que.push(c);\n    }\n  }\n};"
+    \   depth=vector<int>(n,0);\n    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n\
+    \    queue<int> que;\n    que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
+    \      BFS.push_back(p);\n      for(int c:son(p))que.push(c);\n    }\n  }\n};\n"
+  code: "#pragma once\n#include \"graph/Graph.cpp\"\nstruct Tree:Graph{\n  using Graph::Graph;\n\
+    \  int root=-1;\n  vector<int> DFS,BFS,depth;\n\n  void scan_root(int indexed=1){\n\
+    \    for(int i=1;i<n;i++){\n      int p;cin>>p;\n      add_edge(p-indexed,i);\n\
+    \    }\n    build();\n  }\n  void scan(int indexed=1){\n    Graph::scan(n-1,false,indexed);\n\
+    \    build();\n  }\n\n  edge_type& parent(int v){\n    assert(~root and root!=v);\n\
+    \    return (*this)[v][0];\n  }\n  OutgoingEdges son(int v){\n    assert(~root);\n\
+    \    return {this,in_deg[v]+1,in_deg[v+1]};\n  }\n\nprivate:\n  void dfs(int v,int\
+    \ pre=-1){\n    for(int i=0;i<T[v].size();i++){\n      auto&e=T[v][i];\n     \
+    \ if(e.to==pre)swap(T[v][0],T[v][i]);\n      else{\n        depth[e.to]=depth[v]+1;\n\
+    \        dfs(e.to,v);\n      }\n    }\n    DFS.push_back(v);\n  }\npublic:\n \
+    \ void build(int r=0){\n    if(!is_prepared())Graph::build();\n    if(~root){\n\
+    \      assert(r==root);\n      return;\n    }\n    root=r;\n    depth=vector<int>(n,0);\n\
+    \    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n    queue<int> que;\n   \
+    \ que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
+    \      BFS.push_back(p);\n      for(int c:son(p))que.push(c);\n    }\n  }\n};"
   dependsOn:
   - graph/Graph.cpp
   isVerificationFile: false
   path: tree/Tree.cpp
   requiredBy: []
-  timestamp: '2022-11-30 18:56:10+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-12-01 12:04:19+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/AOJ/GRL_5_E.test.cpp
   - test/library-checker/Tree/LowestCommonAncestor.test.cpp
