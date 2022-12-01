@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/Dijkstra.cpp
     title: graph/Dijkstra.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
   _extendedRequiredBy: []
@@ -47,7 +47,7 @@ data:
     \    return;\n  #endif\n    assert(prepared);\n    for(int from=0;from<n;from++){\n\
     \      cerr<<from<<\";\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n\
     \        cerr<<\"(\"<<edges[i].to<<\",\"<<edges[i].weight<<\")\";\n      cerr<<\"\
-    \\n\";\n    }\n  }\n};\n#line 2 \"graph/Dijkstra.cpp\"\ntemplate<typename WG,typename\
+    \\n\";\n    }\n  }\n};\n#line 1 \"graph/Dijkstra.cpp\"\ntemplate<typename WG,typename\
     \ T=typename WG::weight_type>\npair<vector<T>,vector<int>> dijkstra(WG&g,int s=0){\n\
     \  assert(g.is_prepared());\n  vector<T> d(g.n,-1);\n  vector<int> pre(g.n,-1);\n\
     \  priority_queue< pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>> que;\n\
@@ -76,7 +76,7 @@ data:
   isVerificationFile: true
   path: test/library-checker/Graph/ShortestPath.test.cpp
   requiredBy: []
-  timestamp: '2022-12-01 12:04:19+09:00'
+  timestamp: '2022-12-01 19:31:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library-checker/Graph/ShortestPath.test.cpp

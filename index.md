@@ -90,7 +90,7 @@ data:
     - icon: ':warning:'
       path: datastructure/SlopeTrick.cpp
       title: SlopeTrick
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: datastructure/UnionFind.cpp
       title: datastructure/UnionFind.cpp
   - name: flow
@@ -111,12 +111,18 @@ data:
     - icon: ':warning:'
       path: graph/01BFS.cpp
       title: graph/01BFS.cpp
+    - icon: ':question:'
+      path: graph/BellmanFord.cpp
+      title: graph/BellmanFord.cpp
     - icon: ':heavy_check_mark:'
       path: graph/Dijkstra.cpp
       title: graph/Dijkstra.cpp
     - icon: ':question:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
+    - icon: ':question:'
+      path: graph/MinimumSpanningArborescence.cpp
+      title: graph/MinimumSpanningArborescence.cpp
     - icon: ':heavy_check_mark:'
       path: graph/MinimumSpanningTree.cpp
       title: graph/MinimumSpanningTree.cpp
@@ -124,6 +130,9 @@ data:
       path: graph/ReverseGraph.cpp
       title: graph/ReverseGraph.cpp
     - icon: ':heavy_check_mark:'
+      path: graph/WarshallFloyd.cpp
+      title: graph/WarshallFloyd.cpp
+    - icon: ':question:'
       path: graph/WeightedGraph.cpp
       title: graph/WeightedGraph.cpp
   - name: linearalgebra
@@ -215,6 +224,9 @@ data:
   verificationCategories:
   - name: test/AOJ
     pages:
+    - icon: ':x:'
+      path: test/AOJ/2647.test.cpp
+      title: test/AOJ/2647.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/AOJ/ALDS1_14_B.test.cpp
       title: test/AOJ/ALDS1_14_B.test.cpp
@@ -239,9 +251,18 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_I.test.cpp
       title: test/AOJ/DSL_2_I.test.cpp
+    - icon: ':x:'
+      path: test/AOJ/GRL_1_B.test.cpp
+      title: test/AOJ/GRL_1_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/AOJ/GRL_1_C.test.cpp
+      title: test/AOJ/GRL_1_C.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_2_A.test.cpp
       title: test/AOJ/GRL_2_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/AOJ/GRL_2_B.test.cpp
+      title: test/AOJ/GRL_2_B.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_5_A.test.cpp
       title: test/AOJ/GRL_5_A.test.cpp

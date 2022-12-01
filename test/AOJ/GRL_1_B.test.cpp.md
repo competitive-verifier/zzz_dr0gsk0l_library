@@ -2,25 +2,22 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: datastructure/UnionFind.cpp
-    title: datastructure/UnionFind.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/MinimumSpanningTree.cpp
-    title: graph/MinimumSpanningTree.cpp
+    path: graph/BellmanFord.cpp
+    title: graph/BellmanFord.cpp
   - icon: ':question:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
+    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B
     links:
-    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
-  bundledCode: "#line 1 \"test/AOJ/GRL_2_A.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
+    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B
+  bundledCode: "#line 1 \"test/AOJ/GRL_1_B.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"graph/WeightedGraph.cpp\"\
     \ntemplate<typename T>\nstruct WeightedEdge{\n  WeightedEdge()=default;\n  WeightedEdge(int\
     \ from,int to,T weight):from(from),to(to),weight(weight){}\n  int from,to;\n \
@@ -49,45 +46,38 @@ data:
     \    return;\n  #endif\n    assert(prepared);\n    for(int from=0;from<n;from++){\n\
     \      cerr<<from<<\";\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n\
     \        cerr<<\"(\"<<edges[i].to<<\",\"<<edges[i].weight<<\")\";\n      cerr<<\"\
-    \\n\";\n    }\n  }\n};\n#line 1 \"datastructure/UnionFind.cpp\"\nclass UnionFind{\n\
-    \  int n,num;\n  vector<int> sz,parent;\npublic:\n  UnionFind()=default;\n  UnionFind(int\
-    \ n):n(n),num(n),sz(n,1),parent(n,0){iota(parent.begin(),parent.end(),0);}\n \
-    \ \n  int leader(int x){ \n    assert(0<=x and x<n);\n    return (x==parent[x]?\
-    \ x : parent[x]=leader(parent[x])); \n  }\n  \n  bool same(int x,int y){\n   \
-    \ assert(0<=x and x<n and 0<=y and y<n);\n    return leader(x)==leader(y); \n\
-    \  }\n  \n  bool merge(int x,int y){\n    assert(0<=x and x<n and 0<=y and y<n);\n\
-    \    x=leader(x);y=leader(y);\n    if(x==y)return false;\n    if(sz[x]<sz[y])swap(x,y);\n\
-    \    sz[x]+=sz[y];\n    parent[y]=x;\n    num--;\n    return true;\n  }\n  \n\
-    \  int size(const int x){\n    assert(0<=x and x<n);\n    return sz[leader(x)];\n\
-    \  }\n  \n  int count()const{\n    return num;\n  }\n};\n#line 2 \"graph/MinimumSpanningTree.cpp\"\
-    \ntemplate<typename WG,typename E=typename WG::edge_type,typename W=typename WG::weight_type>\n\
-    pair<W,vector<E>> minimum_spanning_tree(const WG&g){\n  int n=g.n;\n  UnionFind\
-    \ uf(n);\n  auto edges=g.edges;\n  sort(edges.begin(),edges.end(),[](const E&e1,const\
-    \ E&e2){\n    return e1.weight<e2.weight;\n  });\n  W res=0;\n  vector<E> tree;\n\
-    \  for(const auto&[from,to,weight]:edges){\n    if(uf.same(from,to))continue;\n\
-    \    tree.emplace_back(from,to,weight);\n    uf.merge(from,to);\n    res+=weight;\n\
-    \  }\n  assert(uf.count()==1);\n  return {res,tree};\n}\n#line 7 \"test/AOJ/GRL_2_A.test.cpp\"\
-    \n\nint main(){\n  int n,m;cin>>n>>m;\n  WeightedGraph<int> g(n,m,false,0);\n\
-    \  auto [sum,tree]=minimum_spanning_tree(g);\n  cout<<sum<<endl;\n}\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
+    \\n\";\n    }\n  }\n};\n#line 1 \"graph/BellmanFord.cpp\"\ntemplate<typename WG,typename\
+    \ T=typename WG::weight_type>\noptional<pair<vector<T>,vector<int>>> bellman_ford(const\
+    \ WG&g,int s=0){\n  int n=g.n;\n  static constexpr T INF=numeric_limits<T>::max()/2;\n\
+    \  vector<T> d(n,INF);\n  vector<int> pre(n,-1);\n  d[s]=0;\n  while(n--)\n  \
+    \  for(const auto&e:g.edges)\n      if(d[e.to]>d[e.from]+e.weight){\n        if(!n)return\
+    \ nullopt;\n        d[e.to]=d[e.from]+e.weight;\n        pre[e.to]=e.from;\n \
+    \     }\n  return make_pair(d,pre);\n}\n#line 7 \"test/AOJ/GRL_1_B.test.cpp\"\n\
+    \nusing ll=long long;\n\nint main(){\n  int n,m,s;cin>>n>>m>>s;\n  WeightedGraph<ll>\
+    \ g(n,m,true,0);\n  auto result=bellman_ford(g,s);\n  if(!result.has_value())cout<<\"\
+    NEGATIVE CYCLE\\n\";\n  else{\n    auto [d,pre]=result.value();\n    for(int i=0;i<n;i++)\n\
+    \      if(~pre[i]||i==s)cout<<d[i]<<\"\\n\";\n      else cout<<\"INF\\n\";\n \
+    \ }\n}\n"
+  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"graph/WeightedGraph.cpp\"\
-    \n#include \"graph/MinimumSpanningTree.cpp\"\n\nint main(){\n  int n,m;cin>>n>>m;\n\
-    \  WeightedGraph<int> g(n,m,false,0);\n  auto [sum,tree]=minimum_spanning_tree(g);\n\
-    \  cout<<sum<<endl;\n}"
+    \n#include \"graph/BellmanFord.cpp\"\n\nusing ll=long long;\n\nint main(){\n \
+    \ int n,m,s;cin>>n>>m>>s;\n  WeightedGraph<ll> g(n,m,true,0);\n  auto result=bellman_ford(g,s);\n\
+    \  if(!result.has_value())cout<<\"NEGATIVE CYCLE\\n\";\n  else{\n    auto [d,pre]=result.value();\n\
+    \    for(int i=0;i<n;i++)\n      if(~pre[i]||i==s)cout<<d[i]<<\"\\n\";\n     \
+    \ else cout<<\"INF\\n\";\n  }\n}"
   dependsOn:
   - graph/WeightedGraph.cpp
-  - graph/MinimumSpanningTree.cpp
-  - datastructure/UnionFind.cpp
+  - graph/BellmanFord.cpp
   isVerificationFile: true
-  path: test/AOJ/GRL_2_A.test.cpp
+  path: test/AOJ/GRL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2022-12-01 14:25:22+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-01 19:31:10+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/AOJ/GRL_2_A.test.cpp
+documentation_of: test/AOJ/GRL_1_B.test.cpp
 layout: document
 redirect_from:
-- /verify/test/AOJ/GRL_2_A.test.cpp
-- /verify/test/AOJ/GRL_2_A.test.cpp.html
-title: test/AOJ/GRL_2_A.test.cpp
+- /verify/test/AOJ/GRL_1_B.test.cpp
+- /verify/test/AOJ/GRL_1_B.test.cpp.html
+title: test/AOJ/GRL_1_B.test.cpp
 ---

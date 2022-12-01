@@ -4,9 +4,9 @@ data:
   - icon: ':question:'
     path: datastructure/UnionFind.cpp
     title: datastructure/UnionFind.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/MinimumSpanningTree.cpp
-    title: graph/MinimumSpanningTree.cpp
+  - icon: ':question:'
+    path: graph/MinimumSpanningArborescence.cpp
+    title: graph/MinimumSpanningArborescence.cpp
   - icon: ':question:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
@@ -17,10 +17,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
+    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_B
     links:
-    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
-  bundledCode: "#line 1 \"test/AOJ/GRL_2_A.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
+    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_B
+  bundledCode: "#line 1 \"test/AOJ/GRL_2_B.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_B\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"graph/WeightedGraph.cpp\"\
     \ntemplate<typename T>\nstruct WeightedEdge{\n  WeightedEdge()=default;\n  WeightedEdge(int\
     \ from,int to,T weight):from(from),to(to),weight(weight){}\n  int from,to;\n \
@@ -59,35 +59,54 @@ data:
     \    x=leader(x);y=leader(y);\n    if(x==y)return false;\n    if(sz[x]<sz[y])swap(x,y);\n\
     \    sz[x]+=sz[y];\n    parent[y]=x;\n    num--;\n    return true;\n  }\n  \n\
     \  int size(const int x){\n    assert(0<=x and x<n);\n    return sz[leader(x)];\n\
-    \  }\n  \n  int count()const{\n    return num;\n  }\n};\n#line 2 \"graph/MinimumSpanningTree.cpp\"\
+    \  }\n  \n  int count()const{\n    return num;\n  }\n};\n#line 3 \"graph/MinimumSpanningArborescence.cpp\"\
     \ntemplate<typename WG,typename E=typename WG::edge_type,typename W=typename WG::weight_type>\n\
-    pair<W,vector<E>> minimum_spanning_tree(const WG&g){\n  int n=g.n;\n  UnionFind\
-    \ uf(n);\n  auto edges=g.edges;\n  sort(edges.begin(),edges.end(),[](const E&e1,const\
-    \ E&e2){\n    return e1.weight<e2.weight;\n  });\n  W res=0;\n  vector<E> tree;\n\
-    \  for(const auto&[from,to,weight]:edges){\n    if(uf.same(from,to))continue;\n\
-    \    tree.emplace_back(from,to,weight);\n    uf.merge(from,to);\n    res+=weight;\n\
-    \  }\n  assert(uf.count()==1);\n  return {res,tree};\n}\n#line 7 \"test/AOJ/GRL_2_A.test.cpp\"\
-    \n\nint main(){\n  int n,m;cin>>n>>m;\n  WeightedGraph<int> g(n,m,false,0);\n\
-    \  auto [sum,tree]=minimum_spanning_tree(g);\n  cout<<sum<<endl;\n}\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
+    optional< pair<W,vector<int>> > minimum_spanning_arborescence(WG g,int r=0){\n\
+    \  int n=g.n;\n  W res=0;\n  vector<W> new_add(n,0);\n  vector<int> tree(n);\n\
+    \  vector<int> state(n,0);\n  vector<int> pre(n);\n  UnionFind uf(n);\n  state[r]=2;\n\
+    \n  auto compare=[&](const int&a,const int&b){return g.edges[a].weight>g.edges[b].weight;};\n\
+    \  using PQ=priority_queue<int,vector<int>,decltype(compare)>;\n  vector< pair<PQ,W>\
+    \ > pq_add(n,{PQ{compare},0});\n  for(int i=0;i<g.edges.size();i++)\n    pq_add[g.edges[i].to].first.push(i);\n\
+    \  vector<int> pq_id(n);\n  iota(pq_id.begin(),pq_id.end(),0);\n  \n  auto merge=[&](int\
+    \ u,int v){\n    u=uf.leader(u);v=uf.leader(v);\n    if(u==v)return;\n    uf.merge(u,v);\n\
+    \    auto&[pq1,add1]=pq_add[pq_id[u]];\n    auto&[pq2,add2]=pq_add[pq_id[v]];\n\
+    \    if(pq1.size()>pq2.size()){\n      while(pq2.size()){\n        int edge_id=pq2.top();pq2.pop();\n\
+    \        g.edges[edge_id].weight-=add2-add1;\n        pq1.push(edge_id);\n   \
+    \   }\n      pq_id[uf.leader(v)]=pq_id[u];\n    }\n    else{\n      while(pq1.size()){\n\
+    \        int edge_id=pq1.top();pq1.pop();\n        g.edges[edge_id].weight-=add1-add2;\n\
+    \        pq2.push(edge_id);\n      }\n      pq_id[uf.leader(v)]=pq_id[v];\n  \
+    \  }\n  };\n  \n  for(int i=0;i<n;i++){\n    int now=uf.leader(i);\n    if(state[now])continue;\n\
+    \    vector<int> processing;\n    while(state[now]!=2){\n      processing.push_back(now);\n\
+    \      state[now]=1;\n      auto&[pq,add]=pq_add[pq_id[now]];\n      if(!pq.size())return\
+    \ nullopt;\n      int edge_id=pq.top();pq.pop();\n      auto&e=g.edges[edge_id];\n\
+    \      res+=e.weight-add;\n      tree[e.to]=edge_id;\n      pre[now]=uf.leader(e.from);\n\
+    \      new_add[now]=e.weight;\n      if(state[pre[now]]==1){\n        int v=now;\n\
+    \        do{\n          pq_add[pq_id[v]].second=new_add[v];\n          merge(v,now);\n\
+    \          v=uf.leader(pre[v]);\n        }while(!uf.same(v,now));\n        now=uf.leader(now);\n\
+    \      }\n      else\n        now=uf.leader(pre[now]);\n    }\n    for(int v:processing)state[v]=2;\n\
+    \  }\n  tree.erase(tree.begin()+r);\n  return make_pair(res,tree);\n}\n#line 7\
+    \ \"test/AOJ/GRL_2_B.test.cpp\"\n\nint main(){\n  int n,m,r;cin>>n>>m>>r;\n  WeightedGraph<int>\
+    \ g(n,m,true,0);\n  auto ans=minimum_spanning_arborescence(g,r);\n  assert(ans.has_value());\n\
+    \  cout<< ans.value().first <<endl;\n}\n"
+  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_B\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"graph/WeightedGraph.cpp\"\
-    \n#include \"graph/MinimumSpanningTree.cpp\"\n\nint main(){\n  int n,m;cin>>n>>m;\n\
-    \  WeightedGraph<int> g(n,m,false,0);\n  auto [sum,tree]=minimum_spanning_tree(g);\n\
-    \  cout<<sum<<endl;\n}"
+    \n#include \"graph/MinimumSpanningArborescence.cpp\"\n\nint main(){\n  int n,m,r;cin>>n>>m>>r;\n\
+    \  WeightedGraph<int> g(n,m,true,0);\n  auto ans=minimum_spanning_arborescence(g,r);\n\
+    \  assert(ans.has_value());\n  cout<< ans.value().first <<endl;\n}"
   dependsOn:
   - graph/WeightedGraph.cpp
-  - graph/MinimumSpanningTree.cpp
+  - graph/MinimumSpanningArborescence.cpp
   - datastructure/UnionFind.cpp
   isVerificationFile: true
-  path: test/AOJ/GRL_2_A.test.cpp
+  path: test/AOJ/GRL_2_B.test.cpp
   requiredBy: []
-  timestamp: '2022-12-01 14:25:22+09:00'
+  timestamp: '2022-12-01 19:31:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/AOJ/GRL_2_A.test.cpp
+documentation_of: test/AOJ/GRL_2_B.test.cpp
 layout: document
 redirect_from:
-- /verify/test/AOJ/GRL_2_A.test.cpp
-- /verify/test/AOJ/GRL_2_A.test.cpp.html
-title: test/AOJ/GRL_2_A.test.cpp
+- /verify/test/AOJ/GRL_2_B.test.cpp
+- /verify/test/AOJ/GRL_2_B.test.cpp.html
+title: test/AOJ/GRL_2_B.test.cpp
 ---
