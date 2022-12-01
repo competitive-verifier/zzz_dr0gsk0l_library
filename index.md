@@ -111,7 +111,7 @@ data:
     - icon: ':warning:'
       path: graph/01BFS.cpp
       title: graph/01BFS.cpp
-    - icon: ':question:'
+    - icon: ':x:'
       path: graph/BellmanFord.cpp
       title: graph/BellmanFord.cpp
     - icon: ':heavy_check_mark:'
@@ -126,6 +126,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/MinimumSpanningTree.cpp
       title: graph/MinimumSpanningTree.cpp
+    - icon: ':heavy_check_mark:'
+      path: graph/NegativeCycleFind.cpp
+      title: graph/NegativeCycleFind.cpp
     - icon: ':warning:'
       path: graph/ReverseGraph.cpp
       title: graph/ReverseGraph.cpp

@@ -1,9 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
-    path: graph/BellmanFord.cpp
-    title: graph/BellmanFord.cpp
+  - icon: ':heavy_check_mark:'
+    path: graph/NegativeCycleFind.cpp
+    title: graph/NegativeCycleFind.cpp
   - icon: ':heavy_check_mark:'
     path: graph/WarshallFloyd.cpp
     title: graph/WarshallFloyd.cpp
@@ -49,41 +49,40 @@ data:
     \    return;\n  #endif\n    assert(prepared);\n    for(int from=0;from<n;from++){\n\
     \      cerr<<from<<\";\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n\
     \        cerr<<\"(\"<<edges[i].to<<\",\"<<edges[i].weight<<\")\";\n      cerr<<\"\
-    \\n\";\n    }\n  }\n};\n#line 1 \"graph/BellmanFord.cpp\"\ntemplate<typename WG,typename\
-    \ T=typename WG::weight_type>\noptional<pair<vector<T>,vector<int>>> bellman_ford(const\
-    \ WG&g,int s=0){\n  int n=g.n;\n  static constexpr T INF=numeric_limits<T>::max()/2;\n\
-    \  vector<T> d(n,INF);\n  vector<int> pre(n,-1);\n  d[s]=0;\n  while(n--)\n  \
-    \  for(const auto&e:g.edges)\n      if(d[e.to]>d[e.from]+e.weight){\n        if(!n)return\
-    \ nullopt;\n        d[e.to]=d[e.from]+e.weight;\n        pre[e.to]=e.from;\n \
-    \     }\n  return make_pair(d,pre);\n}\n#line 1 \"graph/WarshallFloyd.cpp\"\n\
-    template<typename WG,typename T=typename WG::weight_type>\nvector<vector<T>> warshall_floyd(const\
-    \ WG&g){\n  int n=g.n;\n  static constexpr T INF=numeric_limits<T>::max()/2;\n\
-    \  vector d(n,vector<T>(n,INF));\n  for(int i=0;i<n;i++)d[i][i]=0;\n  for(const\
-    \ auto&e:g.edges)\n    if(d[e.from][e.to]>e.weight)\n      d[e.from][e.to]=e.weight;\n\
-    \  for(int k=0;k<n;k++)\n    for(int i=0;i<n;i++)if(d[i][k]<INF)\n      for(int\
-    \ j=0;j<n;j++)if(d[k][j]<INF)\n        if(d[i][j]>d[i][k]+d[k][j])\n         \
-    \ d[i][j]=d[i][k]+d[k][j];\n  return d;\n}\n#line 8 \"test/AOJ/GRL_1_C.test.cpp\"\
+    \\n\";\n    }\n  }\n};\n#line 1 \"graph/NegativeCycleFind.cpp\"\n// \u30B0\u30E9\
+    \u30D5\u5185\u306B\u8CA0\u9589\u8DEF\u304C\u5B58\u5728\u3059\u308B\u304B\ntemplate<typename\
+    \ WG>\nbool negative_cycle_find(const WG&g){\n  using W=typename WG::weight_type;\n\
+    \  int n=g.n;\n  vector<W> d(n,0);\n  while(n--){\n    bool update=false;\n  \
+    \  for(const auto&e:g.edges)\n      if(d[e.to]>d[e.from]+e.weight){\n        d[e.to]=d[e.from]+e.weight;\n\
+    \        update=true;\n      }\n    if(!update)return false;\n  }\n  return true;\n\
+    }\n#line 1 \"graph/WarshallFloyd.cpp\"\ntemplate<typename WG,typename T=typename\
+    \ WG::weight_type>\nvector<vector<T>> warshall_floyd(const WG&g){\n  int n=g.n;\n\
+    \  static constexpr T INF=numeric_limits<T>::max()/2;\n  vector d(n,vector<T>(n,INF));\n\
+    \  for(int i=0;i<n;i++)d[i][i]=0;\n  for(const auto&e:g.edges)\n    if(d[e.from][e.to]>e.weight)\n\
+    \      d[e.from][e.to]=e.weight;\n  for(int k=0;k<n;k++)\n    for(int i=0;i<n;i++)if(d[i][k]<INF)\n\
+    \      for(int j=0;j<n;j++)if(d[k][j]<INF)\n        if(d[i][j]>d[i][k]+d[k][j])\n\
+    \          d[i][j]=d[i][k]+d[k][j];\n  return d;\n}\n#line 8 \"test/AOJ/GRL_1_C.test.cpp\"\
     \n\nusing ll=long long;\n\nint main(){\n  int n,m;cin>>n>>m;\n  WeightedGraph<ll>\
-    \ g(n,m,true,0);\n  auto result=bellman_ford(g);\n  if(!result.has_value())cout<<\"\
-    NEGATIVE CYCLE\\n\";\n  else{\n    auto d=warshall_floyd(g);\n    for(int i=0;i<n;i++)\n\
-    \      for(int j=0;j<n;j++)\n        if(d[i][j]<1e10)cout<<d[i][j]<<\"\\n \"[j+1<n];\n\
-    \        else cout<<\"INF\"<<\"\\n \"[j+1<n];\n  }\n}\n"
+    \ g(n,m,true,0);\n  if(negative_cycle_find(g))cout<<\"NEGATIVE CYCLE\\n\";\n \
+    \ else{\n    auto d=warshall_floyd(g);\n    for(int i=0;i<n;i++)\n      for(int\
+    \ j=0;j<n;j++)\n        if(d[i][j]<1e10)cout<<d[i][j]<<\"\\n \"[j+1<n];\n    \
+    \    else cout<<\"INF\"<<\"\\n \"[j+1<n];\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"graph/WeightedGraph.cpp\"\
-    \n#include \"graph/BellmanFord.cpp\"\n#include \"graph/WarshallFloyd.cpp\"\n\n\
-    using ll=long long;\n\nint main(){\n  int n,m;cin>>n>>m;\n  WeightedGraph<ll>\
-    \ g(n,m,true,0);\n  auto result=bellman_ford(g);\n  if(!result.has_value())cout<<\"\
-    NEGATIVE CYCLE\\n\";\n  else{\n    auto d=warshall_floyd(g);\n    for(int i=0;i<n;i++)\n\
-    \      for(int j=0;j<n;j++)\n        if(d[i][j]<1e10)cout<<d[i][j]<<\"\\n \"[j+1<n];\n\
-    \        else cout<<\"INF\"<<\"\\n \"[j+1<n];\n  }\n}"
+    \n#include \"graph/NegativeCycleFind.cpp\"\n#include \"graph/WarshallFloyd.cpp\"\
+    \n\nusing ll=long long;\n\nint main(){\n  int n,m;cin>>n>>m;\n  WeightedGraph<ll>\
+    \ g(n,m,true,0);\n  if(negative_cycle_find(g))cout<<\"NEGATIVE CYCLE\\n\";\n \
+    \ else{\n    auto d=warshall_floyd(g);\n    for(int i=0;i<n;i++)\n      for(int\
+    \ j=0;j<n;j++)\n        if(d[i][j]<1e10)cout<<d[i][j]<<\"\\n \"[j+1<n];\n    \
+    \    else cout<<\"INF\"<<\"\\n \"[j+1<n];\n  }\n}"
   dependsOn:
   - graph/WeightedGraph.cpp
-  - graph/BellmanFord.cpp
+  - graph/NegativeCycleFind.cpp
   - graph/WarshallFloyd.cpp
   isVerificationFile: true
   path: test/AOJ/GRL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2022-12-01 19:31:10+09:00'
+  timestamp: '2022-12-01 20:19:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/GRL_1_C.test.cpp
