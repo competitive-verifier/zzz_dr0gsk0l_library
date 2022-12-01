@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/WarshallFloyd.cpp
     title: graph/WarshallFloyd.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
   _extendedRequiredBy: []
@@ -39,6 +39,8 @@ data:
     \ from,int to,T weight){\n    assert(!prepared);\n    assert(0<=from and from<n\
     \ and 0<=to and to<n);\n    edges.emplace_back(from,to,weight);\n    in_deg[from+1]++;\n\
     \  }\n  void add_edge(int u,int v,T weight){\n    add_arc(u,v,weight);\n    add_arc(v,u,weight);\n\
+    \  }\n  void add_arc(const edge_type&e){\n    add_arc(e.from,e.to,e.weight);\n\
+    \  }\n  void add_edge(const edge_type&e){\n    add_edge(e.from,e.to,e.weight);\n\
     \  }\n\n  void scan(int m,bool directed=false,int indexed=1){\n    edges.reserve(directed?m:2*m);\n\
     \    while(m--){\n      int u,v;cin>>u>>v;u-=indexed;v-=indexed;\n      T weight;cin>>weight;\n\
     \      if(directed)add_arc(u,v,weight);\n      else add_edge(u,v,weight);\n  \
@@ -82,7 +84,7 @@ data:
   isVerificationFile: true
   path: test/AOJ/GRL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2022-12-01 20:19:43+09:00'
+  timestamp: '2022-12-01 20:59:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/GRL_1_C.test.cpp

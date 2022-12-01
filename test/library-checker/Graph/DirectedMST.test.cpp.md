@@ -10,29 +10,33 @@ data:
   - icon: ':question:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
+  - icon: ':question:'
+    path: tree/WeightedTree.cpp
+    title: tree/WeightedTree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2647
+    PROBLEM: https://judge.yosupo.jp/problem/directedmst
     links:
-    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2647
-  bundledCode: "#line 1 \"test/AOJ/2647.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2647\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n#define REP(i,n) for(int i=0;i<(n);i++)\n\
-    \n#line 2 \"graph/WeightedGraph.cpp\"\ntemplate<typename T>\nstruct WeightedEdge{\n\
-    \  WeightedEdge()=default;\n  WeightedEdge(int from,int to,T weight):from(from),to(to),weight(weight){}\n\
-    \  int from,to;\n  T weight;\n};\n\ntemplate<typename T>\nstruct WeightedGraph{\n\
-    \  int n;\n  using weight_type=T;\n  using edge_type=WeightedEdge<T>;\n  vector<edge_type>\
-    \ edges;\nprotected:\n  vector<int> in_deg;\n  bool prepared;\n  class OutgoingEdges{\n\
-    \    WeightedGraph* g;\n    int l,r;\n  public:\n    OutgoingEdges(WeightedGraph*\
-    \ g,int l,int r):g(g),l(l),r(r){}\n    edge_type* begin(){ return &(g->edges[l]);\
-    \ }\n    edge_type* end(){ return &(g->edges[r]); }\n    edge_type& operator[](int\
-    \ i){ return g->edges[l+i]; }\n    int size()const{ return r-l; }\n  };\npublic:\n\
-    \  OutgoingEdges operator[](int v){\n    assert(prepared);\n    return { this,in_deg[v],in_deg[v+1]\
-    \ };\n  }\n\n  bool is_prepared()const{ return prepared; }\n\n  WeightedGraph():n(0),in_deg(1,0),prepared(false){}\n\
+    - https://judge.yosupo.jp/problem/directedmst
+  bundledCode: "#line 1 \"test/library-checker/Graph/DirectedMST.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/directedmst\"\n#include <bits/stdc++.h>\n\
+    using namespace std;\n\n#line 2 \"graph/WeightedGraph.cpp\"\ntemplate<typename\
+    \ T>\nstruct WeightedEdge{\n  WeightedEdge()=default;\n  WeightedEdge(int from,int\
+    \ to,T weight):from(from),to(to),weight(weight){}\n  int from,to;\n  T weight;\n\
+    };\n\ntemplate<typename T>\nstruct WeightedGraph{\n  int n;\n  using weight_type=T;\n\
+    \  using edge_type=WeightedEdge<T>;\n  vector<edge_type> edges;\nprotected:\n\
+    \  vector<int> in_deg;\n  bool prepared;\n  class OutgoingEdges{\n    WeightedGraph*\
+    \ g;\n    int l,r;\n  public:\n    OutgoingEdges(WeightedGraph* g,int l,int r):g(g),l(l),r(r){}\n\
+    \    edge_type* begin(){ return &(g->edges[l]); }\n    edge_type* end(){ return\
+    \ &(g->edges[r]); }\n    edge_type& operator[](int i){ return g->edges[l+i]; }\n\
+    \    int size()const{ return r-l; }\n  };\npublic:\n  OutgoingEdges operator[](int\
+    \ v){\n    assert(prepared);\n    return { this,in_deg[v],in_deg[v+1] };\n  }\n\
+    \n  bool is_prepared()const{ return prepared; }\n\n  WeightedGraph():n(0),in_deg(1,0),prepared(false){}\n\
     \  WeightedGraph(int n):n(n),in_deg(n+1,0),prepared(false){}\n  WeightedGraph(int\
     \ n,int m,bool directed=false,int indexed=1):\n    n(n),in_deg(n+1,0),prepared(false){\
     \ scan(m,directed,indexed); }\n\n  void resize(int n){n=n;}\n\n  void add_arc(int\
@@ -86,40 +90,54 @@ data:
     \        do{\n          pq_add[pq_id[v]].second=new_add[v];\n          merge(v,now);\n\
     \          v=uf.leader(pre[v]);\n        }while(!uf.same(v,now));\n        now=uf.leader(now);\n\
     \      }\n      else\n        now=uf.leader(pre[now]);\n    }\n    for(int v:processing)state[v]=2;\n\
-    \  }\n  tree.erase(tree.begin()+r);\n  return make_pair(res,tree);\n}\n#line 8\
-    \ \"test/AOJ/2647.test.cpp\"\n\nint main(){\n  int n,m;cin>>n>>m;\n  vector<bool>\
-    \ koho(n,true);\n  WeightedGraph<int> G(n);\n  REP(_,m){\n    int a,b;cin>>a>>b;\n\
-    \    koho[b]=false;\n    G.add_arc(a,b,0);\n    G.add_arc(b,a,1);\n  }\n\n  int\
-    \ mn=1e9;\n  vector<int> ans;\n  REP(i,n)if(koho[i]){\n    auto res=minimum_spanning_arborescence(G,i);\n\
-    \    assert(res.has_value());\n    const auto&[val,tree]=res.value();\n    if(mn==val)ans.push_back(i);\n\
-    \    if(mn>val){\n      mn=val;\n      ans={i};\n    }\n  }\n  cout<<ans.size()<<\"\
-    \ \"<<mn<<\"\\n\";\n  REP(i,ans.size())cout<<ans[i]<<\"\\n \"[i+1<ans.size()];\n\
-    }\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2647\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n#define REP(i,n) for(int i=0;i<(n);i++)\n\
-    \n#include \"graph/WeightedGraph.cpp\"\n#include \"graph/MinimumSpanningArborescence.cpp\"\
-    \n\nint main(){\n  int n,m;cin>>n>>m;\n  vector<bool> koho(n,true);\n  WeightedGraph<int>\
-    \ G(n);\n  REP(_,m){\n    int a,b;cin>>a>>b;\n    koho[b]=false;\n    G.add_arc(a,b,0);\n\
-    \    G.add_arc(b,a,1);\n  }\n\n  int mn=1e9;\n  vector<int> ans;\n  REP(i,n)if(koho[i]){\n\
-    \    auto res=minimum_spanning_arborescence(G,i);\n    assert(res.has_value());\n\
-    \    const auto&[val,tree]=res.value();\n    if(mn==val)ans.push_back(i);\n  \
-    \  if(mn>val){\n      mn=val;\n      ans={i};\n    }\n  }\n  cout<<ans.size()<<\"\
-    \ \"<<mn<<\"\\n\";\n  REP(i,ans.size())cout<<ans[i]<<\"\\n \"[i+1<ans.size()];\n\
-    }"
+    \  }\n  tree.erase(tree.begin()+r);\n  return make_pair(res,tree);\n}\n#line 3\
+    \ \"tree/WeightedTree.cpp\"\ntemplate<typename T>\nstruct WeightedTree:WeightedGraph<T>{\n\
+    \  using WeightedGraph<T>::WeightedGraph;\n  using edge_type=typename WeightedGraph<T>::edge_type;\n\
+    \  using OutgoingEdges=typename WeightedGraph<T>::OutgoingEdges;\n  using WeightedGraph<T>::n;\n\
+    \  using WeightedGraph<T>::in_deg;\n  \n  int root=-1;\n  vector<int> DFS,BFS,depth;\n\
+    \n  void scan_root(int indexed=1){\n    for(int i=1;i<n;i++){\n      int p;cin>>p;\n\
+    \      T weight;cin>>weight;\n      add_edge(p-indexed,i,weight);\n    }\n   \
+    \ build();\n  }\n  void scan(int indexed=1){\n    WeightedGraph<T>::scan(n-1,false,indexed);\n\
+    \    build();\n  }\n\n  edge_type& parent(int v){\n    assert(~root and root!=v);\n\
+    \    return (*this)[v][0];\n  }\n  OutgoingEdges son(int v){\n    assert(~root);\n\
+    \    if(v==root)return {this,in_deg[v],in_deg[v+1]};\n    return {this,in_deg[v]+1,in_deg[v+1]};\n\
+    \  }\n\nprivate:\n  void dfs(int v,int pre=-1){\n    for(auto&e:(*this)[v]){\n\
+    \      if(e.to==pre)swap((*this)[v][0],e);\n      else{\n        depth[e.to]=depth[v]+1;\n\
+    \        dfs(e.to,v);\n      }\n    }\n    DFS.push_back(v);\n  }\npublic:\n \
+    \ void build(int r=0){\n    if(!WeightedGraph<T>::is_prepared())WeightedGraph<T>::build();\n\
+    \    if(~root){\n      assert(r==root);\n      return;\n    }\n    root=r;\n \
+    \   depth=vector<int>(n,0);\n    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n\
+    \    queue<int> que;\n    que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
+    \      BFS.push_back(p);\n      for(const auto&e:son(p))que.push(e.to);\n    }\n\
+    \  }\n};\n#line 8 \"test/library-checker/Graph/DirectedMST.test.cpp\"\nusing ll=long\
+    \ long;\n\nint main(){\n  int n,m,s;cin>>n>>m>>s;\n  WeightedGraph<ll> g(n,m,true,0);\n\
+    \  auto ans=minimum_spanning_arborescence(g,s);\n  assert(ans.has_value());\n\
+    \  auto [val,tree]=ans.value();\n  WeightedTree<ll> t(n);\n  for(int edge_id:tree)\n\
+    \    t.add_edge(g.edges[edge_id]);\n  t.build(s);\n  cout<<val<<\"\\n\";\n  for(int\
+    \ v=0;v<n;v++)\n    cout<<(v==s?s:t.parent(v).to)<<\"\\n \"[v+1<n];\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/directedmst\"\n#include\
+    \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"graph/WeightedGraph.cpp\"\
+    \n#include \"graph/MinimumSpanningArborescence.cpp\"\n#include \"tree/WeightedTree.cpp\"\
+    \nusing ll=long long;\n\nint main(){\n  int n,m,s;cin>>n>>m>>s;\n  WeightedGraph<ll>\
+    \ g(n,m,true,0);\n  auto ans=minimum_spanning_arborescence(g,s);\n  assert(ans.has_value());\n\
+    \  auto [val,tree]=ans.value();\n  WeightedTree<ll> t(n);\n  for(int edge_id:tree)\n\
+    \    t.add_edge(g.edges[edge_id]);\n  t.build(s);\n  cout<<val<<\"\\n\";\n  for(int\
+    \ v=0;v<n;v++)\n    cout<<(v==s?s:t.parent(v).to)<<\"\\n \"[v+1<n];\n}"
   dependsOn:
   - graph/WeightedGraph.cpp
   - graph/MinimumSpanningArborescence.cpp
   - datastructure/UnionFind.cpp
+  - tree/WeightedTree.cpp
   isVerificationFile: true
-  path: test/AOJ/2647.test.cpp
+  path: test/library-checker/Graph/DirectedMST.test.cpp
   requiredBy: []
   timestamp: '2022-12-01 20:59:34+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/AOJ/2647.test.cpp
+documentation_of: test/library-checker/Graph/DirectedMST.test.cpp
 layout: document
 redirect_from:
-- /verify/test/AOJ/2647.test.cpp
-- /verify/test/AOJ/2647.test.cpp.html
-title: test/AOJ/2647.test.cpp
+- /verify/test/library-checker/Graph/DirectedMST.test.cpp
+- /verify/test/library-checker/Graph/DirectedMST.test.cpp.html
+title: test/library-checker/Graph/DirectedMST.test.cpp
 ---

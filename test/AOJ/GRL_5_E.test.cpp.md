@@ -77,29 +77,31 @@ data:
     \ }\n\n  void resize(int n){n=n;}\n\n  void add_arc(int from,int to){\n    assert(!prepared);\n\
     \    assert(0<=from and from<n and 0<=to and to<n);\n    edges.emplace_back(from,to);\n\
     \    in_deg[from+1]++;\n  }\n  void add_edge(int u,int v){\n    add_arc(u,v);\n\
-    \    add_arc(v,u);\n  }\n\n  void scan(int m,bool directed=false,int indexed=1){\n\
-    \    edges.reserve(directed?m:2*m);\n    while(m--){\n      int u,v;cin>>u>>v;u-=indexed;v-=indexed;\n\
-    \      if(directed)add_arc(u,v);\n      else add_edge(u,v);\n    }\n    build();\n\
-    \  }\n\n  void build(){\n    assert(!prepared);prepared=true;\n    for(int v=0;v<n;v++)in_deg[v+1]+=in_deg[v];\n\
-    \    vector<edge_type> new_edges(in_deg.back());\n    auto counter=in_deg;\n \
-    \   for(auto&&e:edges)new_edges[ counter[e.from]++ ]=e;\n    edges=new_edges;\n\
-    \  }\n\n  void graph_debug()const{\n  #ifndef __LOCAL\n    return;\n  #endif\n\
-    \    assert(prepared);\n    for(int from=0;from<n;from++){\n      cerr<<from<<\"\
-    ;\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n        cerr<<edges[i].to<<\"\
-    \ \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n#line 3 \"tree/Tree.cpp\"\nstruct\
-    \ Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n  vector<int> DFS,BFS,depth;\n\
-    \n  void scan_root(int indexed=1){\n    for(int i=1;i<n;i++){\n      int p;cin>>p;\n\
-    \      add_edge(p-indexed,i);\n    }\n    build();\n  }\n  void scan(int indexed=1){\n\
-    \    Graph::scan(n-1,false,indexed);\n    build();\n  }\n\n  edge_type& parent(int\
-    \ v){\n    assert(~root and root!=v);\n    return (*this)[v][0];\n  }\n  OutgoingEdges\
-    \ son(int v){\n    assert(~root);\n    if(v==root)return {this,in_deg[v],in_deg[v+1]};\n\
-    \    return {this,in_deg[v]+1,in_deg[v+1]};\n  }\n\nprivate:\n  void dfs(int v,int\
-    \ pre=-1){\n    for(auto&e:(*this)[v]){\n      if(e.to==pre)swap((*this)[v][0],e);\n\
-    \      else{\n        depth[e.to]=depth[v]+1;\n        dfs(e.to,v);\n      }\n\
-    \    }\n    DFS.push_back(v);\n  }\npublic:\n  void build(int r=0){\n    if(!is_prepared())Graph::build();\n\
-    \    if(~root){\n      assert(r==root);\n      return;\n    }\n    root=r;\n \
-    \   depth=vector<int>(n,0);\n    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n\
-    \    queue<int> que;\n    que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
+    \    add_arc(v,u);\n  }\n  void add_arc(const edge_type&e){\n    add_arc(e.from,e.to);\n\
+    \  }\n  void add_edge(const edge_type&e){\n    add_edge(e.from,e.to);\n  }\n\n\
+    \  void scan(int m,bool directed=false,int indexed=1){\n    edges.reserve(directed?m:2*m);\n\
+    \    while(m--){\n      int u,v;cin>>u>>v;u-=indexed;v-=indexed;\n      if(directed)add_arc(u,v);\n\
+    \      else add_edge(u,v);\n    }\n    build();\n  }\n\n  void build(){\n    assert(!prepared);prepared=true;\n\
+    \    for(int v=0;v<n;v++)in_deg[v+1]+=in_deg[v];\n    vector<edge_type> new_edges(in_deg.back());\n\
+    \    auto counter=in_deg;\n    for(auto&&e:edges)new_edges[ counter[e.from]++\
+    \ ]=e;\n    edges=new_edges;\n  }\n\n  void graph_debug()const{\n  #ifndef __LOCAL\n\
+    \    return;\n  #endif\n    assert(prepared);\n    for(int from=0;from<n;from++){\n\
+    \      cerr<<from<<\";\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n\
+    \        cerr<<edges[i].to<<\" \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n#line\
+    \ 3 \"tree/Tree.cpp\"\nstruct Tree:Graph{\n  using Graph::Graph;\n  int root=-1;\n\
+    \  vector<int> DFS,BFS,depth;\n\n  void scan_root(int indexed=1){\n    for(int\
+    \ i=1;i<n;i++){\n      int p;cin>>p;\n      add_edge(p-indexed,i);\n    }\n  \
+    \  build();\n  }\n  void scan(int indexed=1){\n    Graph::scan(n-1,false,indexed);\n\
+    \    build();\n  }\n\n  edge_type& parent(int v){\n    assert(~root and root!=v);\n\
+    \    return (*this)[v][0];\n  }\n  OutgoingEdges son(int v){\n    assert(~root);\n\
+    \    if(v==root)return {this,in_deg[v],in_deg[v+1]};\n    return {this,in_deg[v]+1,in_deg[v+1]};\n\
+    \  }\n\nprivate:\n  void dfs(int v,int pre=-1){\n    for(auto&e:(*this)[v]){\n\
+    \      if(e.to==pre)swap((*this)[v][0],e);\n      else{\n        depth[e.to]=depth[v]+1;\n\
+    \        dfs(e.to,v);\n      }\n    }\n    DFS.push_back(v);\n  }\npublic:\n \
+    \ void build(int r=0){\n    if(!is_prepared())Graph::build();\n    if(~root){\n\
+    \      assert(r==root);\n      return;\n    }\n    root=r;\n    depth=vector<int>(n,0);\n\
+    \    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n    queue<int> que;\n   \
+    \ que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
     \      BFS.push_back(p);\n      for(const auto&e:son(p))que.push(e.to);\n    }\n\
     \  }\n};\n#line 2 \"segtree/LazySegmentTree.cpp\"\n\ntemplate<typename Lazy>\n\
     class LazySegmentTree{\n  using MX = typename Lazy::MX;\n  using MF = typename\
@@ -226,7 +228,7 @@ data:
   isVerificationFile: true
   path: test/AOJ/GRL_5_E.test.cpp
   requiredBy: []
-  timestamp: '2022-12-01 13:47:41+09:00'
+  timestamp: '2022-12-01 20:59:34+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/AOJ/GRL_5_E.test.cpp

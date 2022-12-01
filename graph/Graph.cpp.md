@@ -44,16 +44,17 @@ data:
     \ }\n\n  void resize(int n){n=n;}\n\n  void add_arc(int from,int to){\n    assert(!prepared);\n\
     \    assert(0<=from and from<n and 0<=to and to<n);\n    edges.emplace_back(from,to);\n\
     \    in_deg[from+1]++;\n  }\n  void add_edge(int u,int v){\n    add_arc(u,v);\n\
-    \    add_arc(v,u);\n  }\n\n  void scan(int m,bool directed=false,int indexed=1){\n\
-    \    edges.reserve(directed?m:2*m);\n    while(m--){\n      int u,v;cin>>u>>v;u-=indexed;v-=indexed;\n\
-    \      if(directed)add_arc(u,v);\n      else add_edge(u,v);\n    }\n    build();\n\
-    \  }\n\n  void build(){\n    assert(!prepared);prepared=true;\n    for(int v=0;v<n;v++)in_deg[v+1]+=in_deg[v];\n\
-    \    vector<edge_type> new_edges(in_deg.back());\n    auto counter=in_deg;\n \
-    \   for(auto&&e:edges)new_edges[ counter[e.from]++ ]=e;\n    edges=new_edges;\n\
-    \  }\n\n  void graph_debug()const{\n  #ifndef __LOCAL\n    return;\n  #endif\n\
-    \    assert(prepared);\n    for(int from=0;from<n;from++){\n      cerr<<from<<\"\
-    ;\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n        cerr<<edges[i].to<<\"\
-    \ \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n"
+    \    add_arc(v,u);\n  }\n  void add_arc(const edge_type&e){\n    add_arc(e.from,e.to);\n\
+    \  }\n  void add_edge(const edge_type&e){\n    add_edge(e.from,e.to);\n  }\n\n\
+    \  void scan(int m,bool directed=false,int indexed=1){\n    edges.reserve(directed?m:2*m);\n\
+    \    while(m--){\n      int u,v;cin>>u>>v;u-=indexed;v-=indexed;\n      if(directed)add_arc(u,v);\n\
+    \      else add_edge(u,v);\n    }\n    build();\n  }\n\n  void build(){\n    assert(!prepared);prepared=true;\n\
+    \    for(int v=0;v<n;v++)in_deg[v+1]+=in_deg[v];\n    vector<edge_type> new_edges(in_deg.back());\n\
+    \    auto counter=in_deg;\n    for(auto&&e:edges)new_edges[ counter[e.from]++\
+    \ ]=e;\n    edges=new_edges;\n  }\n\n  void graph_debug()const{\n  #ifndef __LOCAL\n\
+    \    return;\n  #endif\n    assert(prepared);\n    for(int from=0;from<n;from++){\n\
+    \      cerr<<from<<\";\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n\
+    \        cerr<<edges[i].to<<\" \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n"
   code: "#pragma once\nstruct Edge{\n  int from,to;\n  Edge()=default;\n  Edge(int\
     \ from,int to):from(from),to(to){}\n};\n\nstruct Graph{\n  int n;\n  using edge_type=Edge;\n\
     \  vector<edge_type> edges;\nprotected:\n  vector<int> in_deg;\n  bool prepared;\n\
@@ -68,22 +69,23 @@ data:
     \ }\n\n  void resize(int n){n=n;}\n\n  void add_arc(int from,int to){\n    assert(!prepared);\n\
     \    assert(0<=from and from<n and 0<=to and to<n);\n    edges.emplace_back(from,to);\n\
     \    in_deg[from+1]++;\n  }\n  void add_edge(int u,int v){\n    add_arc(u,v);\n\
-    \    add_arc(v,u);\n  }\n\n  void scan(int m,bool directed=false,int indexed=1){\n\
-    \    edges.reserve(directed?m:2*m);\n    while(m--){\n      int u,v;cin>>u>>v;u-=indexed;v-=indexed;\n\
-    \      if(directed)add_arc(u,v);\n      else add_edge(u,v);\n    }\n    build();\n\
-    \  }\n\n  void build(){\n    assert(!prepared);prepared=true;\n    for(int v=0;v<n;v++)in_deg[v+1]+=in_deg[v];\n\
-    \    vector<edge_type> new_edges(in_deg.back());\n    auto counter=in_deg;\n \
-    \   for(auto&&e:edges)new_edges[ counter[e.from]++ ]=e;\n    edges=new_edges;\n\
-    \  }\n\n  void graph_debug()const{\n  #ifndef __LOCAL\n    return;\n  #endif\n\
-    \    assert(prepared);\n    for(int from=0;from<n;from++){\n      cerr<<from<<\"\
-    ;\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n        cerr<<edges[i].to<<\"\
-    \ \";\n      cerr<<\"\\n\";\n    }\n  }\n};"
+    \    add_arc(v,u);\n  }\n  void add_arc(const edge_type&e){\n    add_arc(e.from,e.to);\n\
+    \  }\n  void add_edge(const edge_type&e){\n    add_edge(e.from,e.to);\n  }\n\n\
+    \  void scan(int m,bool directed=false,int indexed=1){\n    edges.reserve(directed?m:2*m);\n\
+    \    while(m--){\n      int u,v;cin>>u>>v;u-=indexed;v-=indexed;\n      if(directed)add_arc(u,v);\n\
+    \      else add_edge(u,v);\n    }\n    build();\n  }\n\n  void build(){\n    assert(!prepared);prepared=true;\n\
+    \    for(int v=0;v<n;v++)in_deg[v+1]+=in_deg[v];\n    vector<edge_type> new_edges(in_deg.back());\n\
+    \    auto counter=in_deg;\n    for(auto&&e:edges)new_edges[ counter[e.from]++\
+    \ ]=e;\n    edges=new_edges;\n  }\n\n  void graph_debug()const{\n  #ifndef __LOCAL\n\
+    \    return;\n  #endif\n    assert(prepared);\n    for(int from=0;from<n;from++){\n\
+    \      cerr<<from<<\";\";\n      for(int i=in_deg[from];i<in_deg[from+1];i++)\n\
+    \        cerr<<edges[i].to<<\" \";\n      cerr<<\"\\n\";\n    }\n  }\n};"
   dependsOn: []
   isVerificationFile: false
   path: graph/Graph.cpp
   requiredBy:
   - tree/Tree.cpp
-  timestamp: '2022-12-01 12:35:24+09:00'
+  timestamp: '2022-12-01 20:59:34+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/AOJ/GRL_5_E.test.cpp

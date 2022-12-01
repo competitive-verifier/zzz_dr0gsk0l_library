@@ -90,7 +90,7 @@ data:
     - icon: ':warning:'
       path: datastructure/SlopeTrick.cpp
       title: SlopeTrick
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: datastructure/UnionFind.cpp
       title: datastructure/UnionFind.cpp
   - name: flow
@@ -120,7 +120,7 @@ data:
     - icon: ':question:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: graph/MinimumSpanningArborescence.cpp
       title: graph/MinimumSpanningArborescence.cpp
     - icon: ':heavy_check_mark:'
@@ -135,7 +135,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/WarshallFloyd.cpp
       title: graph/WarshallFloyd.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: graph/WeightedGraph.cpp
       title: graph/WeightedGraph.cpp
   - name: linearalgebra
@@ -207,7 +207,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: tree/TreeMonoid.cpp
       title: tree/TreeMonoid.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: tree/WeightedTree.cpp
       title: tree/WeightedTree.cpp
   - name: util
@@ -303,6 +303,9 @@ data:
       title: test/library-checker/DataStructure/unionfind.test.cpp
   - name: test/library-checker/Graph
     pages:
+    - icon: ':x:'
+      path: test/library-checker/Graph/DirectedMST.test.cpp
+      title: test/library-checker/Graph/DirectedMST.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Graph/ShortestPath.test.cpp
       title: test/library-checker/Graph/ShortestPath.test.cpp

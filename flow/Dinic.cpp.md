@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
   _extendedRequiredBy: []
@@ -60,7 +60,7 @@ data:
   isVerificationFile: false
   path: flow/Dinic.cpp
   requiredBy: []
-  timestamp: '2022-12-01 12:04:19+09:00'
+  timestamp: '2022-12-01 20:59:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/GRL_6_A.test.cpp
