@@ -1,8 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: graph/MinimumSpanningTree.cpp
+    title: graph/MinimumSpanningTree.cpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/AOJ/GRL_2_A.test.cpp
+    title: test/AOJ/GRL_2_A.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library-checker/DataStructure/unionfind.test.cpp
     title: test/library-checker/DataStructure/unionfind.test.cpp
@@ -34,10 +40,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: datastructure/UnionFind.cpp
-  requiredBy: []
+  requiredBy:
+  - graph/MinimumSpanningTree.cpp
   timestamp: '2022-11-26 09:11:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/AOJ/GRL_2_A.test.cpp
   - test/library-checker/DataStructure/unionfind.test.cpp
 documentation_of: datastructure/UnionFind.cpp
 layout: document

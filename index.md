@@ -117,6 +117,9 @@ data:
     - icon: ':question:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
+    - icon: ':heavy_check_mark:'
+      path: graph/MinimumSpanningTree.cpp
+      title: graph/MinimumSpanningTree.cpp
     - icon: ':warning:'
       path: graph/ReverseGraph.cpp
       title: graph/ReverseGraph.cpp
@@ -236,6 +239,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_I.test.cpp
       title: test/AOJ/DSL_2_I.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/AOJ/GRL_2_A.test.cpp
+      title: test/AOJ/GRL_2_A.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_5_A.test.cpp
       title: test/AOJ/GRL_5_A.test.cpp

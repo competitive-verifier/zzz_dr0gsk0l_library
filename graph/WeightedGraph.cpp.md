@@ -19,6 +19,9 @@ data:
     title: tree/WeightedTree.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/AOJ/GRL_2_A.test.cpp
+    title: test/AOJ/GRL_2_A.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/AOJ/GRL_5_A.test.cpp
     title: test/AOJ/GRL_5_A.test.cpp
   - icon: ':heavy_check_mark:'
@@ -103,6 +106,7 @@ data:
   timestamp: '2022-12-01 12:04:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/AOJ/GRL_2_A.test.cpp
   - test/AOJ/GRL_6_B.test.cpp
   - test/AOJ/GRL_5_A.test.cpp
   - test/AOJ/GRL_6_A.test.cpp
