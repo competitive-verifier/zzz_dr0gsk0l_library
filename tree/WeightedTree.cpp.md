@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/AOJ/GRL_5_A.test.cpp
     title: test/AOJ/GRL_5_A.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/WeightedGraph.cpp\"\ntemplate<typename T>\nstruct\
@@ -87,7 +87,7 @@ data:
   path: tree/WeightedTree.cpp
   requiredBy: []
   timestamp: '2022-12-01 12:04:19+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/GRL_5_A.test.cpp
 documentation_of: tree/WeightedTree.cpp

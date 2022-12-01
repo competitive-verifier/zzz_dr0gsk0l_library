@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/WeightedGraph.cpp
     title: graph/WeightedGraph.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/ReRooting.cpp
     title: tree/ReRooting.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/WeightedTree.cpp
     title: tree/WeightedTree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A
@@ -82,7 +82,7 @@ data:
     \n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int\
     \ n;cin>>n;\n  WeightedTree<int> t(n);\n  t.scan(0);\n\n  ReRooting< WeightedTree<int>,\
     \ int > RR(t);\n  auto score=[&](int now,auto&e){\n    return now+e.weight;\n\
-    \  };\n  auto merge=[&](int&now,int add){\n    return max(now,add);\n  };\n  auto\
+    \  };\n  auto merge=[&](int&now,int add){\n    if(now<add)now=add;\n  };\n  auto\
     \ ans=RR.build(score,merge,0);\n\n  int fans=0;\n  for(int p:ans)fans=max(fans,p);\n\
     \  cout<<fans<<endl;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A\"\
@@ -90,9 +90,9 @@ data:
     \n#include \"tree/ReRooting.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
     \  cin.tie(nullptr);\n\n  int n;cin>>n;\n  WeightedTree<int> t(n);\n  t.scan(0);\n\
     \n  ReRooting< WeightedTree<int>, int > RR(t);\n  auto score=[&](int now,auto&e){\n\
-    \    return now+e.weight;\n  };\n  auto merge=[&](int&now,int add){\n    return\
-    \ max(now,add);\n  };\n  auto ans=RR.build(score,merge,0);\n\n  int fans=0;\n\
-    \  for(int p:ans)fans=max(fans,p);\n  cout<<fans<<endl;\n}"
+    \    return now+e.weight;\n  };\n  auto merge=[&](int&now,int add){\n    if(now<add)now=add;\n\
+    \  };\n  auto ans=RR.build(score,merge,0);\n\n  int fans=0;\n  for(int p:ans)fans=max(fans,p);\n\
+    \  cout<<fans<<endl;\n}"
   dependsOn:
   - tree/WeightedTree.cpp
   - graph/WeightedGraph.cpp
@@ -100,8 +100,8 @@ data:
   isVerificationFile: true
   path: test/AOJ/GRL_5_A.test.cpp
   requiredBy: []
-  timestamp: '2022-12-01 12:05:37+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-01 14:01:58+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/GRL_5_A.test.cpp
 layout: document

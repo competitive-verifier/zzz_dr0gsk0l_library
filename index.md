@@ -120,7 +120,7 @@ data:
     - icon: ':warning:'
       path: graph/ReverseGraph.cpp
       title: graph/ReverseGraph.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/WeightedGraph.cpp
       title: graph/WeightedGraph.cpp
   - name: linearalgebra
@@ -177,7 +177,7 @@ data:
     - icon: ':question:'
       path: tree/HLD.cpp
       title: tree/HLD.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tree/ReRooting.cpp
       title: tree/ReRooting.cpp
     - icon: ':heavy_check_mark:'
@@ -192,7 +192,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: tree/TreeMonoid.cpp
       title: tree/TreeMonoid.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tree/WeightedTree.cpp
       title: tree/WeightedTree.cpp
   - name: util
@@ -236,7 +236,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_I.test.cpp
       title: test/AOJ/DSL_2_I.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_5_A.test.cpp
       title: test/AOJ/GRL_5_A.test.cpp
     - icon: ':x:'

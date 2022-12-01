@@ -14,11 +14,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/Dijkstra.cpp
     title: graph/Dijkstra.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/WeightedTree.cpp
     title: tree/WeightedTree.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/AOJ/GRL_5_A.test.cpp
     title: test/AOJ/GRL_5_A.test.cpp
   - icon: ':heavy_check_mark:'
@@ -30,9 +30,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/Graph/ShortestPath.test.cpp
     title: test/library-checker/Graph/ShortestPath.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/WeightedGraph.cpp\"\ntemplate<typename T>\nstruct\
@@ -101,7 +101,7 @@ data:
   - graph/01BFS.cpp
   - graph/Dijkstra.cpp
   timestamp: '2022-12-01 12:04:19+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/GRL_6_B.test.cpp
   - test/AOJ/GRL_5_A.test.cpp
