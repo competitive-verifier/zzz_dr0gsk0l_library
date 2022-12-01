@@ -31,7 +31,7 @@ data:
     links: []
   bundledCode: "#line 2 \"graph/Graph.cpp\"\nstruct Edge{\n  int from,to;\n  Edge()=default;\n\
     \  Edge(int from,int to):from(from),to(to){}\n};\n\nstruct Graph{\n  int n;\n\
-    \  using edge_type=Edge;\n  vector<edge_type> edges;\nprivate:\n  vector<int>\
+    \  using edge_type=Edge;\n  vector<edge_type> edges;\nprotected:\n  vector<int>\
     \ in_deg;\n  bool prepared;\n class OutgoingEdges{\n    Graph* g;\n    int l,r;\n\
     \  public:\n    OutgoingEdges(Graph* g,int l,int r):g(g),l(l),r(r){}\n    edge_type*\
     \ begin(){ return &(g->edges[l]); }\n    edge_type* end(){ return &(g->edges[r]);\
@@ -61,14 +61,14 @@ data:
     \ v){\n    assert(~root and root!=v);\n    return (*this)[v][0];\n  }\n  OutgoingEdges\
     \ son(int v){\n    assert(~root);\n    if(v==root)return {this,in_deg[v],in_deg[v+1]};\n\
     \    return {this,in_deg[v]+1,in_deg[v+1]};\n  }\n\nprivate:\n  void dfs(int v,int\
-    \ pre=-1){\n    for(int i=0;i<T[v].size();i++){\n      auto&e=T[v][i];\n     \
-    \ if(e.to==pre)swap(T[v][0],T[v][i]);\n      else{\n        depth[e.to]=depth[v]+1;\n\
-    \        dfs(e.to,v);\n      }\n    }\n    DFS.push_back(v);\n  }\npublic:\n \
-    \ void build(int r=0){\n    if(!is_prepared())Graph::build();\n    if(~root){\n\
-    \      assert(r==root);\n      return;\n    }\n    root=r;\n    depth=vector<int>(n,0);\n\
-    \    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n    queue<int> que;\n   \
-    \ que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
-    \      BFS.push_back(p);\n      for(int c:son(p))que.push(c);\n    }\n  }\n};\n"
+    \ pre=-1){\n    for(auto&e:(*this)[v]){\n      if(e.to==pre)swap((*this)[v][0],e);\n\
+    \      else{\n        depth[e.to]=depth[v]+1;\n        dfs(e.to,v);\n      }\n\
+    \    }\n    DFS.push_back(v);\n  }\npublic:\n  void build(int r=0){\n    if(!is_prepared())Graph::build();\n\
+    \    if(~root){\n      assert(r==root);\n      return;\n    }\n    root=r;\n \
+    \   depth=vector<int>(n,0);\n    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n\
+    \    queue<int> que;\n    que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
+    \      BFS.push_back(p);\n      for(const auto&e:son(p))que.push(e.to);\n    }\n\
+    \  }\n};\n"
   code: "#pragma once\n#include \"graph/Graph.cpp\"\nstruct Tree:Graph{\n  using Graph::Graph;\n\
     \  int root=-1;\n  vector<int> DFS,BFS,depth;\n\n  void scan_root(int indexed=1){\n\
     \    for(int i=1;i<n;i++){\n      int p;cin>>p;\n      add_edge(p-indexed,i);\n\
@@ -76,20 +76,21 @@ data:
     \    build();\n  }\n\n  edge_type& parent(int v){\n    assert(~root and root!=v);\n\
     \    return (*this)[v][0];\n  }\n  OutgoingEdges son(int v){\n    assert(~root);\n\
     \    if(v==root)return {this,in_deg[v],in_deg[v+1]};\n    return {this,in_deg[v]+1,in_deg[v+1]};\n\
-    \  }\n\nprivate:\n  void dfs(int v,int pre=-1){\n    for(int i=0;i<T[v].size();i++){\n\
-    \      auto&e=T[v][i];\n      if(e.to==pre)swap(T[v][0],T[v][i]);\n      else{\n\
-    \        depth[e.to]=depth[v]+1;\n        dfs(e.to,v);\n      }\n    }\n    DFS.push_back(v);\n\
-    \  }\npublic:\n  void build(int r=0){\n    if(!is_prepared())Graph::build();\n\
-    \    if(~root){\n      assert(r==root);\n      return;\n    }\n    root=r;\n \
-    \   depth=vector<int>(n,0);\n    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n\
-    \    queue<int> que;\n    que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
-    \      BFS.push_back(p);\n      for(int c:son(p))que.push(c);\n    }\n  }\n};"
+    \  }\n\nprivate:\n  void dfs(int v,int pre=-1){\n    for(auto&e:(*this)[v]){\n\
+    \      if(e.to==pre)swap((*this)[v][0],e);\n      else{\n        depth[e.to]=depth[v]+1;\n\
+    \        dfs(e.to,v);\n      }\n    }\n    DFS.push_back(v);\n  }\npublic:\n \
+    \ void build(int r=0){\n    if(!is_prepared())Graph::build();\n    if(~root){\n\
+    \      assert(r==root);\n      return;\n    }\n    root=r;\n    depth=vector<int>(n,0);\n\
+    \    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n    queue<int> que;\n   \
+    \ que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
+    \      BFS.push_back(p);\n      for(const auto&e:son(p))que.push(e.to);\n    }\n\
+    \  }\n};"
   dependsOn:
   - graph/Graph.cpp
   isVerificationFile: false
   path: tree/Tree.cpp
   requiredBy: []
-  timestamp: '2022-12-01 12:23:53+09:00'
+  timestamp: '2022-12-01 12:35:24+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/AOJ/GRL_5_E.test.cpp

@@ -25,8 +25,8 @@ data:
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"graph/Graph.cpp\"\
     \nstruct Edge{\n  int from,to;\n  Edge()=default;\n  Edge(int from,int to):from(from),to(to){}\n\
     };\n\nstruct Graph{\n  int n;\n  using edge_type=Edge;\n  vector<edge_type> edges;\n\
-    private:\n  vector<int> in_deg;\n  bool prepared;\n class OutgoingEdges{\n   \
-    \ Graph* g;\n    int l,r;\n  public:\n    OutgoingEdges(Graph* g,int l,int r):g(g),l(l),r(r){}\n\
+    protected:\n  vector<int> in_deg;\n  bool prepared;\n class OutgoingEdges{\n \
+    \   Graph* g;\n    int l,r;\n  public:\n    OutgoingEdges(Graph* g,int l,int r):g(g),l(l),r(r){}\n\
     \    edge_type* begin(){ return &(g->edges[l]); }\n    edge_type* end(){ return\
     \ &(g->edges[r]); }\n    edge_type& operator[](int i){ return g->edges[l+i]; }\n\
     \    int size()const{ return r-l; }\n  };\npublic:\n  OutgoingEdges operator[](int\
@@ -54,20 +54,19 @@ data:
     \ v){\n    assert(~root and root!=v);\n    return (*this)[v][0];\n  }\n  OutgoingEdges\
     \ son(int v){\n    assert(~root);\n    if(v==root)return {this,in_deg[v],in_deg[v+1]};\n\
     \    return {this,in_deg[v]+1,in_deg[v+1]};\n  }\n\nprivate:\n  void dfs(int v,int\
-    \ pre=-1){\n    for(int i=0;i<T[v].size();i++){\n      auto&e=T[v][i];\n     \
-    \ if(e.to==pre)swap(T[v][0],T[v][i]);\n      else{\n        depth[e.to]=depth[v]+1;\n\
-    \        dfs(e.to,v);\n      }\n    }\n    DFS.push_back(v);\n  }\npublic:\n \
-    \ void build(int r=0){\n    if(!is_prepared())Graph::build();\n    if(~root){\n\
-    \      assert(r==root);\n      return;\n    }\n    root=r;\n    depth=vector<int>(n,0);\n\
-    \    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n    queue<int> que;\n   \
-    \ que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
-    \      BFS.push_back(p);\n      for(int c:son(p))que.push(c);\n    }\n  }\n};\n\
-    #line 1 \"tree/RootedTreeIsomorphism.cpp\"\ntemplate<typename TREE>\npair<int,vector<int>>\
-    \ rooted_tree_isomorphism(const TREE&t){\n  assert(~t.root);\n  vector<int> res(t.n);\n\
-    \  map<vector<int>,int> mp;\n  for(const int v:t.DFS){\n    vector<int> h;\n \
-    \   for(int c:t.son[v])h.push_back(res[c]);\n    sort(h.begin(),h.end());\n  \
-    \  if(!mp.count(h))mp[h]=mp.size();\n    res[v]=mp[h];\n  }\n  return {mp.size(),res};\n\
-    }\n#line 7 \"test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp\"\
+    \ pre=-1){\n    for(auto&e:(*this)[v]){\n      if(e.to==pre)swap((*this)[v][0],e);\n\
+    \      else{\n        depth[e.to]=depth[v]+1;\n        dfs(e.to,v);\n      }\n\
+    \    }\n    DFS.push_back(v);\n  }\npublic:\n  void build(int r=0){\n    if(!is_prepared())Graph::build();\n\
+    \    if(~root){\n      assert(r==root);\n      return;\n    }\n    root=r;\n \
+    \   depth=vector<int>(n,0);\n    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n\
+    \    queue<int> que;\n    que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
+    \      BFS.push_back(p);\n      for(const auto&e:son(p))que.push(e.to);\n    }\n\
+    \  }\n};\n#line 1 \"tree/RootedTreeIsomorphism.cpp\"\ntemplate<typename TREE>\n\
+    pair<int,vector<int>> rooted_tree_isomorphism(TREE&t){\n  assert(~t.root);\n \
+    \ vector<int> res(t.n);\n  map<vector<int>,int> mp;\n  for(const int v:t.DFS){\n\
+    \    vector<int> h;\n    for(const auto&e:t.son(v))h.push_back(res[e.to]);\n \
+    \   sort(h.begin(),h.end());\n    if(!mp.count(h))mp[h]=mp.size();\n    res[v]=mp[h];\n\
+    \  }\n  return {mp.size(),res};\n}\n#line 7 \"test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp\"\
     \n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int\
     \ n;cin>>n;\n  Tree t(n);\n  t.scan_root(0);\n\n  auto [k,hsh]=rooted_tree_isomorphism(t);\n\
     \  cout<<k<<\"\\n\";\n  for(int p:hsh)cout<<p<<\" \";cout<<\"\\n\";\n}\n"
@@ -84,7 +83,7 @@ data:
   isVerificationFile: true
   path: test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp
   requiredBy: []
-  timestamp: '2022-12-01 12:23:53+09:00'
+  timestamp: '2022-12-01 12:35:24+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp

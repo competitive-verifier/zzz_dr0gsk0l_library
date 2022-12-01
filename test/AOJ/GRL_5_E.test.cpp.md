@@ -65,8 +65,8 @@ data:
     \ S&x){\n    return {x.first+f*x.second,x.second};\n  }\n};\n#line 2 \"graph/Graph.cpp\"\
     \nstruct Edge{\n  int from,to;\n  Edge()=default;\n  Edge(int from,int to):from(from),to(to){}\n\
     };\n\nstruct Graph{\n  int n;\n  using edge_type=Edge;\n  vector<edge_type> edges;\n\
-    private:\n  vector<int> in_deg;\n  bool prepared;\n class OutgoingEdges{\n   \
-    \ Graph* g;\n    int l,r;\n  public:\n    OutgoingEdges(Graph* g,int l,int r):g(g),l(l),r(r){}\n\
+    protected:\n  vector<int> in_deg;\n  bool prepared;\n class OutgoingEdges{\n \
+    \   Graph* g;\n    int l,r;\n  public:\n    OutgoingEdges(Graph* g,int l,int r):g(g),l(l),r(r){}\n\
     \    edge_type* begin(){ return &(g->edges[l]); }\n    edge_type* end(){ return\
     \ &(g->edges[r]); }\n    edge_type& operator[](int i){ return g->edges[l+i]; }\n\
     \    int size()const{ return r-l; }\n  };\npublic:\n  OutgoingEdges operator[](int\
@@ -94,55 +94,55 @@ data:
     \ v){\n    assert(~root and root!=v);\n    return (*this)[v][0];\n  }\n  OutgoingEdges\
     \ son(int v){\n    assert(~root);\n    if(v==root)return {this,in_deg[v],in_deg[v+1]};\n\
     \    return {this,in_deg[v]+1,in_deg[v+1]};\n  }\n\nprivate:\n  void dfs(int v,int\
-    \ pre=-1){\n    for(int i=0;i<T[v].size();i++){\n      auto&e=T[v][i];\n     \
-    \ if(e.to==pre)swap(T[v][0],T[v][i]);\n      else{\n        depth[e.to]=depth[v]+1;\n\
-    \        dfs(e.to,v);\n      }\n    }\n    DFS.push_back(v);\n  }\npublic:\n \
-    \ void build(int r=0){\n    if(!is_prepared())Graph::build();\n    if(~root){\n\
-    \      assert(r==root);\n      return;\n    }\n    root=r;\n    depth=vector<int>(n,0);\n\
-    \    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n    queue<int> que;\n   \
-    \ que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
-    \      BFS.push_back(p);\n      for(int c:son(p))que.push(c);\n    }\n  }\n};\n\
-    #line 2 \"segtree/LazySegmentTree.cpp\"\n\ntemplate<typename Lazy>\nclass LazySegmentTree{\n\
-    \  using MX = typename Lazy::MX;\n  using MF = typename Lazy::MF;\n  using X =\
-    \ typename MX::value_type;\n  using F = typename MF::value_type;\n  int n,log,size;\n\
-    \  vector<X> dat;\n  vector<F> laz;\n\n  X reflect(int k){\n    if(k<size)return\
-    \ Lazy::mapping(laz[k],dat[k]);\n    return dat[k];\n  }\n  void point_apply(int\
-    \ k,const F&f){\n    if(k<size)laz[k]=MF::op(f,laz[k]);\n    else dat[k]=Lazy::mapping(f,dat[k]);\n\
-    \  }\n  void push(int k){\n    dat[k]=reflect(k);\n    point_apply(2*k,laz[k]);\n\
-    \    point_apply(2*k+1,laz[k]);\n    laz[k]=MF::unit();\n  }\n  void thrust(int\
-    \ k){ for(int i=log;i;i--)push(k>>i); }\n  void update(int i){ dat[i]=MX::op(reflect(2*i),reflect(2*i+1));\
-    \ }\n  void recalc(int k){ while(k>>=1)update(k); }\n\npublic:\n  LazySegmentTree()\
-    \ : LazySegmentTree(0) {}\n  LazySegmentTree(int n):LazySegmentTree(vector<X>(n,MX::unit()))\
-    \ {}\n  LazySegmentTree(const vector<X>&v) : n(v.size()) {\n    for(log=1;(1<<log)<n;log++){}\n\
-    \    size=1<<log;\n    dat.assign(size<<1,MX::unit());\n    laz.assign(size,MF::unit());\n\
-    \    for(int i=0;i<n;++i)dat[size+i]=v[i];\n    for(int i=size-1;i>=1;--i)update(i);\n\
-    \  }\n\n  void set(int p,X x){\n    assert(0<=p and p<n);\n    thrust(p+=size);\n\
-    \    dat[p]=x;\n    recalc(p);\n  }\n\n  X operator[](int p){\n    assert(0<=p\
-    \ and p<n);\n    thrust(p+=size);\n    return reflect(p);\n  }\n\n  X prod(int\
-    \ L,int R){\n    assert(0<=L and L<=R and R<=n);\n    if(L==R)return MX::unit();\n\
-    \    thrust(L+=size);\n    thrust((R+=size-1)++);\n    X vl=MX::unit(),vr=MX::unit();\n\
-    \    while(L<R){\n      if(L&1)vl=MX::op(vl,reflect(L++));\n      if(R&1)vr=MX::op(reflect(--R),vr);\n\
-    \      L>>=1,R>>=1;\n    }\n    return MX::op(vl,vr);\n  }\n\n  void apply(int\
-    \ l,int r,F f){\n    assert(0 <= l && l <= r && r <= n);\n    if(l==r)return;\n\
-    \    thrust(l+=size);\n    thrust(r+=size-1);\n    for(int L=l,R=r+1;L<R;L>>=1,R>>=1){\n\
-    \      if(L&1)point_apply(L++,f);\n      if(R&1)point_apply(--R,f);\n    }\n \
-    \   recalc(l);\n    recalc(r);\n  }\n};\n#line 2 \"algebra/Reverse.cpp\"\ntemplate<typename\
-    \ Algebra>\nstruct AlgebraReverse:Algebra{\n  using X=typename Algebra::value_type;\n\
-    \  static constexpr X op(const X& x, const X& y){ return Algebra::op(y,x); }\n\
-    };\n#line 3 \"algebra/lazy/Reverse.cpp\"\ntemplate<typename Lazy>\nstruct LazyReverse:Lazy{\n\
-    \  using MX=AlgebraReverse<typename Lazy::MX>;\n};\n#line 2 \"tree/HLD.cpp\"\n\
-    template<typename TREE>\nstruct HLD{\n  int n;\n  TREE T;\n  vector<int> sz,head,id,id2;\n\
-    \  bool prepared;\n  HLD(TREE T_):T(T_),n(T_.n),sz(n),head(n),id(n),id2(n),prepared(false){}\n\
-    private:\n  void dfs_sz(int v){\n    sz[v]=1;\n    for(auto&e:T.son(v)){\n   \
-    \   sz[v]+=sz[e.to];\n      if(sz[e.to]>sz[T.son(v)[0]])swap(e,T.son(v)[0]);\n\
-    \    }\n  }\n  void dfs_hld(int v,int& k){\n    id[v]=k++;\n    for(const auto&e:T.son(v)){\n\
-    \      head[e.to]=(e.to==T.son(v)[0]?head[v]:e.to);\n      dfs_hld(c,k);\n   \
-    \ }\n    id2[v]=k;\n  }\npublic:\n  vector<int> build(int r=0){\n    assert(!prepared);prepared=true;\n\
+    \ pre=-1){\n    for(auto&e:(*this)[v]){\n      if(e.to==pre)swap((*this)[v][0],e);\n\
+    \      else{\n        depth[e.to]=depth[v]+1;\n        dfs(e.to,v);\n      }\n\
+    \    }\n    DFS.push_back(v);\n  }\npublic:\n  void build(int r=0){\n    if(!is_prepared())Graph::build();\n\
+    \    if(~root){\n      assert(r==root);\n      return;\n    }\n    root=r;\n \
+    \   depth=vector<int>(n,0);\n    DFS.reserve(n);BFS.reserve(n);\n    dfs(root);\n\
+    \    queue<int> que;\n    que.push(root);\n    while(que.size()){\n      int p=que.front();que.pop();\n\
+    \      BFS.push_back(p);\n      for(const auto&e:son(p))que.push(e.to);\n    }\n\
+    \  }\n};\n#line 2 \"segtree/LazySegmentTree.cpp\"\n\ntemplate<typename Lazy>\n\
+    class LazySegmentTree{\n  using MX = typename Lazy::MX;\n  using MF = typename\
+    \ Lazy::MF;\n  using X = typename MX::value_type;\n  using F = typename MF::value_type;\n\
+    \  int n,log,size;\n  vector<X> dat;\n  vector<F> laz;\n\n  X reflect(int k){\n\
+    \    if(k<size)return Lazy::mapping(laz[k],dat[k]);\n    return dat[k];\n  }\n\
+    \  void point_apply(int k,const F&f){\n    if(k<size)laz[k]=MF::op(f,laz[k]);\n\
+    \    else dat[k]=Lazy::mapping(f,dat[k]);\n  }\n  void push(int k){\n    dat[k]=reflect(k);\n\
+    \    point_apply(2*k,laz[k]);\n    point_apply(2*k+1,laz[k]);\n    laz[k]=MF::unit();\n\
+    \  }\n  void thrust(int k){ for(int i=log;i;i--)push(k>>i); }\n  void update(int\
+    \ i){ dat[i]=MX::op(reflect(2*i),reflect(2*i+1)); }\n  void recalc(int k){ while(k>>=1)update(k);\
+    \ }\n\npublic:\n  LazySegmentTree() : LazySegmentTree(0) {}\n  LazySegmentTree(int\
+    \ n):LazySegmentTree(vector<X>(n,MX::unit())) {}\n  LazySegmentTree(const vector<X>&v)\
+    \ : n(v.size()) {\n    for(log=1;(1<<log)<n;log++){}\n    size=1<<log;\n    dat.assign(size<<1,MX::unit());\n\
+    \    laz.assign(size,MF::unit());\n    for(int i=0;i<n;++i)dat[size+i]=v[i];\n\
+    \    for(int i=size-1;i>=1;--i)update(i);\n  }\n\n  void set(int p,X x){\n   \
+    \ assert(0<=p and p<n);\n    thrust(p+=size);\n    dat[p]=x;\n    recalc(p);\n\
+    \  }\n\n  X operator[](int p){\n    assert(0<=p and p<n);\n    thrust(p+=size);\n\
+    \    return reflect(p);\n  }\n\n  X prod(int L,int R){\n    assert(0<=L and L<=R\
+    \ and R<=n);\n    if(L==R)return MX::unit();\n    thrust(L+=size);\n    thrust((R+=size-1)++);\n\
+    \    X vl=MX::unit(),vr=MX::unit();\n    while(L<R){\n      if(L&1)vl=MX::op(vl,reflect(L++));\n\
+    \      if(R&1)vr=MX::op(reflect(--R),vr);\n      L>>=1,R>>=1;\n    }\n    return\
+    \ MX::op(vl,vr);\n  }\n\n  void apply(int l,int r,F f){\n    assert(0 <= l &&\
+    \ l <= r && r <= n);\n    if(l==r)return;\n    thrust(l+=size);\n    thrust(r+=size-1);\n\
+    \    for(int L=l,R=r+1;L<R;L>>=1,R>>=1){\n      if(L&1)point_apply(L++,f);\n \
+    \     if(R&1)point_apply(--R,f);\n    }\n    recalc(l);\n    recalc(r);\n  }\n\
+    };\n#line 2 \"algebra/Reverse.cpp\"\ntemplate<typename Algebra>\nstruct AlgebraReverse:Algebra{\n\
+    \  using X=typename Algebra::value_type;\n  static constexpr X op(const X& x,\
+    \ const X& y){ return Algebra::op(y,x); }\n};\n#line 3 \"algebra/lazy/Reverse.cpp\"\
+    \ntemplate<typename Lazy>\nstruct LazyReverse:Lazy{\n  using MX=AlgebraReverse<typename\
+    \ Lazy::MX>;\n};\n#line 2 \"tree/HLD.cpp\"\ntemplate<typename TREE>\nstruct HLD{\n\
+    \  int n;\n  TREE T;\n  vector<int> sz,head,id,id2;\n  bool prepared;\n  HLD(TREE\
+    \ T_):T(T_),n(T_.n),sz(n),head(n),id(n),id2(n),prepared(false){}\nprivate:\n \
+    \ void dfs_sz(int v){\n    sz[v]=1;\n    for(auto&e:T.son(v)){\n      sz[v]+=sz[e.to];\n\
+    \      if(sz[e.to]>sz[T.son(v)[0].to])swap(e,T.son(v)[0]);\n    }\n  }\n  void\
+    \ dfs_hld(int v,int& k){\n    id[v]=k++;\n    for(int i=0;i<T.son(v).size();i++){\n\
+    \      const auto&e=T.son(v)[i];\n      head[e.to]=(i?head[v]:e.to);\n      dfs_hld(e.to,k);\n\
+    \    }\n    id2[v]=k;\n  }\npublic:\n  vector<int> build(int r=0){\n    assert(!prepared);prepared=true;\n\
     \    if(~T.root)assert(T.root==r);\n    else T.build(r);\n    head[r]=r;\n   \
     \ dfs_sz(r);\n    int k=0;\n    dfs_hld(r,k);\n    return id;\n  }\n\n  int lca(int\
-    \ u,int v)const{\n    assert(prepared);\n    while(head[u]!=head[v]){\n      if(T.depth[head[u]]>T.depth[head[v]])u=T.parent(head[u]).to;\n\
+    \ u,int v){\n    assert(prepared);\n    while(head[u]!=head[v]){\n      if(T.depth[head[u]]>T.depth[head[v]])u=T.parent(head[u]).to;\n\
     \      else v=T.parent(head[v]).to;\n    }\n    return (T.depth[u]<T.depth[v]?u:v);\n\
-    \  }\n  int distance(int u,int v)const{\n    int w=lca(u,v);\n    return T.depth[u]+T.depth[v]-T.depth[w]*2;\n\
+    \  }\n  int distance(int u,int v){\n    int w=lca(u,v);\n    return T.depth[u]+T.depth[v]-T.depth[w]*2;\n\
     \  }\n\n  // l=lca(u,v) \u3068\u3057\u305F\u6642\u3001[u,l] \u30D1\u30B9\u3068\
     \ [v,l] \u30D1\u30B9 \u3092\u9589\u533A\u9593\u306E\u7D44\u307F\u3067\u8FD4\u3059\
     \n  using path_t=vector<pair<int,int>>;\n  pair<path_t,path_t> path(int u,int\
@@ -150,8 +150,8 @@ data:
     \    if(head[u]==head[v]){\n        if(T.depth[u]<T.depth[v])\n          path_v.emplace_back(id[v],id[u]);\n\
     \        else\n          path_u.emplace_back(id[u],id[v]);\n        break;\n \
     \     }\n      if(T.depth[head[u]]<T.depth[head[v]]){\n        path_v.emplace_back(id[v],id[head[v]]);\n\
-    \        v=T.parent(head[v]);\n      }\n      else{\n        path_u.emplace_back(id[u],id[head[u]]);\n\
-    \        u=T.parent(head[u]);\n      }\n    }\n    if(u==v)path_u.emplace_back(id[u],id[u]);\n\
+    \        v=T.parent(head[v]).to;\n      }\n      else{\n        path_u.emplace_back(id[u],id[head[u]]);\n\
+    \        u=T.parent(head[u]).to;\n      }\n    }\n    if(u==v)path_u.emplace_back(id[u],id[u]);\n\
     \    return {path_u,path_v};\n  }\n\n  // [l,r) \u304C v \u306E\u90E8\u5206\u6728\
     \n  pair<int,int> subtree(int v){\n    assert(prepared);\n    return {id[v],id2[v]};\
     \ \n  }\n};\n#line 5 \"tree/TreeLazy.cpp\"\ntemplate<typename TREE,typename Lazy>\n\
@@ -189,10 +189,10 @@ data:
     \u304B\u3089 1 \u79FB\u52D5\u3057\u305F\u70B9\u304C\u5FC5\u8981\n  // Tree \u306B\
     \ jump \u3092\u5B9F\u88C5\u3057\u3066\u306A\u3044\u306E\u3067\u7121\u7406\u304F\
     \u308A\u6C42\u3081\u308B\n  vector<int> root2(n,-1);\n  for(int v:t.BFS){\n  \
-    \  if(v==0)continue;\n    if(t.parent[v]==0)root2[v]=v;\n    else root2[v]=root2[\
-    \ t.parent[v] ];\n  }\n\n  int q;cin>>q;\n  REP(_,q){\n    int c;cin>>c;\n   \
-    \ if(c){\n      int u;cin>>u;\n      cout<<TL.path_prod(u,root2[u]).first<<\"\\\
-    n\";\n    }\n    else{\n      int v,w;cin>>v>>w;\n      TL.path_apply(v,root2[v],w);\n\
+    \  if(v==0)continue;\n    int p=t.parent(v).to;\n    if(p==0)root2[v]=v;\n   \
+    \ else root2[v]=root2[p];\n  }\n\n  int q;cin>>q;\n  REP(_,q){\n    int c;cin>>c;\n\
+    \    if(c){\n      int u;cin>>u;\n      cout<<TL.path_prod(u,root2[u]).first<<\"\
+    \\n\";\n    }\n    else{\n      int v,w;cin>>v>>w;\n      TL.path_apply(v,root2[v],w);\n\
     \    }\n  }\n}\n"
   code: "#define IGNORE\n// \u6700\u5927\u30B1\u30FC\u30B9\u3067 8m\u3000\u7A0B\u5EA6\
     \u304B\u304B\u308B\u3063\u307D\u3044\n\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E\"\
@@ -207,7 +207,7 @@ data:
     \u52D5\u3057\u305F\u70B9\u304C\u5FC5\u8981\n  // Tree \u306B jump \u3092\u5B9F\
     \u88C5\u3057\u3066\u306A\u3044\u306E\u3067\u7121\u7406\u304F\u308A\u6C42\u3081\
     \u308B\n  vector<int> root2(n,-1);\n  for(int v:t.BFS){\n    if(v==0)continue;\n\
-    \    if(t.parent[v]==0)root2[v]=v;\n    else root2[v]=root2[ t.parent[v] ];\n\
+    \    int p=t.parent(v).to;\n    if(p==0)root2[v]=v;\n    else root2[v]=root2[p];\n\
     \  }\n\n  int q;cin>>q;\n  REP(_,q){\n    int c;cin>>c;\n    if(c){\n      int\
     \ u;cin>>u;\n      cout<<TL.path_prod(u,root2[u]).first<<\"\\n\";\n    }\n   \
     \ else{\n      int v,w;cin>>v>>w;\n      TL.path_apply(v,root2[v],w);\n    }\n\
@@ -226,7 +226,7 @@ data:
   isVerificationFile: true
   path: test/AOJ/GRL_5_E.test.cpp
   requiredBy: []
-  timestamp: '2022-12-01 12:23:53+09:00'
+  timestamp: '2022-12-01 12:35:24+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/AOJ/GRL_5_E.test.cpp

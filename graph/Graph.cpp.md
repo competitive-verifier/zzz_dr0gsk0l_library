@@ -31,7 +31,7 @@ data:
     links: []
   bundledCode: "#line 2 \"graph/Graph.cpp\"\nstruct Edge{\n  int from,to;\n  Edge()=default;\n\
     \  Edge(int from,int to):from(from),to(to){}\n};\n\nstruct Graph{\n  int n;\n\
-    \  using edge_type=Edge;\n  vector<edge_type> edges;\nprivate:\n  vector<int>\
+    \  using edge_type=Edge;\n  vector<edge_type> edges;\nprotected:\n  vector<int>\
     \ in_deg;\n  bool prepared;\n class OutgoingEdges{\n    Graph* g;\n    int l,r;\n\
     \  public:\n    OutgoingEdges(Graph* g,int l,int r):g(g),l(l),r(r){}\n    edge_type*\
     \ begin(){ return &(g->edges[l]); }\n    edge_type* end(){ return &(g->edges[r]);\
@@ -56,7 +56,7 @@ data:
     \ \";\n      cerr<<\"\\n\";\n    }\n  }\n};\n"
   code: "#pragma once\nstruct Edge{\n  int from,to;\n  Edge()=default;\n  Edge(int\
     \ from,int to):from(from),to(to){}\n};\n\nstruct Graph{\n  int n;\n  using edge_type=Edge;\n\
-    \  vector<edge_type> edges;\nprivate:\n  vector<int> in_deg;\n  bool prepared;\n\
+    \  vector<edge_type> edges;\nprotected:\n  vector<int> in_deg;\n  bool prepared;\n\
     \ class OutgoingEdges{\n    Graph* g;\n    int l,r;\n  public:\n    OutgoingEdges(Graph*\
     \ g,int l,int r):g(g),l(l),r(r){}\n    edge_type* begin(){ return &(g->edges[l]);\
     \ }\n    edge_type* end(){ return &(g->edges[r]); }\n    edge_type& operator[](int\
@@ -83,7 +83,7 @@ data:
   path: graph/Graph.cpp
   requiredBy:
   - tree/Tree.cpp
-  timestamp: '2022-12-01 12:04:19+09:00'
+  timestamp: '2022-12-01 12:35:24+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/AOJ/GRL_5_E.test.cpp
