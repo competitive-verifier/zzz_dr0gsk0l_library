@@ -85,6 +85,9 @@ data:
       path: datastructure/Doubling.cpp
       title: datastructure/Doubling.cpp
     - icon: ':warning:'
+      path: datastructure/FenwickTree.cpp
+      title: datastructure/FenwickTree.cpp
+    - icon: ':warning:'
       path: datastructure/SWAG.cpp
       title: datastructure/SWAG.cpp
     - icon: ':warning:'
