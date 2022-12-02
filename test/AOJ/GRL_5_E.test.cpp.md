@@ -44,7 +44,7 @@ data:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E
   bundledCode: "#line 1 \"test/AOJ/GRL_5_E.test.cpp\"\n#define IGNORE\n// \u6700\u5927\
     \u30B1\u30FC\u30B9\u3067 8m\u3000\u7A0B\u5EA6\u304B\u304B\u308B\u3063\u307D\u3044\
-    \n\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E\"\
+    \n\n//#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n#define REP(i,n) for(int i=0;i<(n);i++)\n\
     \n#line 1 \"algebra/group/CntSum.cpp\"\ntemplate<typename X>\nstruct GroupCntSum{\n\
     \  using P=pair<X,X>;\n  using value_type=P;\n  static constexpr P op(const P\
@@ -197,7 +197,7 @@ data:
     \\n\";\n    }\n    else{\n      int v,w;cin>>v>>w;\n      TL.path_apply(v,root2[v],w);\n\
     \    }\n  }\n}\n"
   code: "#define IGNORE\n// \u6700\u5927\u30B1\u30FC\u30B9\u3067 8m\u3000\u7A0B\u5EA6\
-    \u304B\u304B\u308B\u3063\u307D\u3044\n\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E\"\
+    \u304B\u304B\u308B\u3063\u307D\u3044\n\n//#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n#define REP(i,n) for(int i=0;i<(n);i++)\n\
     \n#include \"algebra/lazy/AddSum.cpp\"\n#include \"tree/Tree.cpp\"\n#include \"\
     tree/TreeLazy.cpp\"\nusing ll=long long;\n\nint main(){\n  ios::sync_with_stdio(false);\n\
@@ -228,7 +228,7 @@ data:
   isVerificationFile: true
   path: test/AOJ/GRL_5_E.test.cpp
   requiredBy: []
-  timestamp: '2022-12-01 20:59:34+09:00'
+  timestamp: '2022-12-02 20:34:17+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/AOJ/GRL_5_E.test.cpp
