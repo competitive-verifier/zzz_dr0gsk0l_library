@@ -115,6 +115,9 @@ data:
       path: graph/BellmanFord.cpp
       title: graph/BellmanFord.cpp
     - icon: ':heavy_check_mark:'
+      path: graph/BipartiteMatching.cpp
+      title: graph/BipartiteMatching.cpp
+    - icon: ':heavy_check_mark:'
       path: graph/Dijkstra.cpp
       title: graph/Dijkstra.cpp
     - icon: ':question:'
@@ -309,6 +312,9 @@ data:
     - icon: ':x:'
       path: test/library-checker/Graph/DirectedMST.test.cpp
       title: test/library-checker/Graph/DirectedMST.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
+      title: test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Graph/ShortestPath.test.cpp
       title: test/library-checker/Graph/ShortestPath.test.cpp

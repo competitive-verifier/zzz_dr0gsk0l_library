@@ -12,6 +12,9 @@ data:
     path: graph/01BFS.cpp
     title: graph/01BFS.cpp
   - icon: ':heavy_check_mark:'
+    path: graph/BipartiteMatching.cpp
+    title: graph/BipartiteMatching.cpp
+  - icon: ':heavy_check_mark:'
     path: tree/WeightedTree.cpp
     title: tree/WeightedTree.cpp
   _extendedVerifiedWith:
@@ -42,6 +45,9 @@ data:
   - icon: ':x:'
     path: test/library-checker/Graph/DirectedMST.test.cpp
     title: test/library-checker/Graph/DirectedMST.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
+    title: test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library-checker/Graph/ShortestPath.test.cpp
     title: test/library-checker/Graph/ShortestPath.test.cpp
@@ -118,6 +124,7 @@ data:
   - flow/Dinic.cpp
   - flow/MCF.cpp
   - graph/01BFS.cpp
+  - graph/BipartiteMatching.cpp
   timestamp: '2022-12-01 20:59:34+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
@@ -130,6 +137,7 @@ data:
   - test/AOJ/2647.test.cpp
   - test/AOJ/GRL_1_B.test.cpp
   - test/library-checker/Graph/ShortestPath.test.cpp
+  - test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
   - test/library-checker/Graph/DirectedMST.test.cpp
 documentation_of: graph/WeightedGraph.cpp
 layout: document
