@@ -17,12 +17,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/bipartitematching
+    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_7_A
     links:
-    - https://judge.yosupo.jp/problem/bipartitematching
-  bundledCode: "#line 1 \"test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/bipartitematching\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"graph/BipartiteMatching.cpp\"\
+    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_7_A
+  bundledCode: "#line 1 \"test/AOJ/GRL_7_A.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_7_A\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"graph/BipartiteMatching.cpp\"\
     \n\n// \u91CD\u307F\u7121\u3057\n#line 2 \"flow/Dinic.cpp\"\n\n// https://misawa.github.io/others/flow/dinic_time_complexity.html\n\
     #line 2 \"graph/WeightedGraph.cpp\"\ntemplate<typename T>\nstruct WeightedEdge{\n\
     \  WeightedEdge()=default;\n  WeightedEdge(int from,int to,T weight):from(from),to(to),weight(weight){}\n\
@@ -102,31 +101,30 @@ data:
     \    int K=fl.flow(min(A,B));\n    vector<pair<int,int>> res;\n    res.reserve(K);\n\
     \    auto all_edge=fl.all_edge();\n    for(int i=A+B;i<all_edge.size();i++){\n\
     \      const auto&[from,to,flow]=all_edge[i];\n      if(flow)res.emplace_back(from,to-A);\n\
-    \    }\n    return res;\n  }\n};\n#line 6 \"test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp\"\
+    \    }\n    return res;\n  }\n};\n#line 6 \"test/AOJ/GRL_7_A.test.cpp\"\n\nint\
+    \ main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int x,y,m;cin>>x>>y>>m;\n\
+    \n  BipartiteMatching BM(x,y);\n  while(m--){\n    int u,v;cin>>u>>v;\n    BM.add_edge(u,v);\n\
+    \  }\n  cout<< BM.solve().size() <<endl;\n}\n"
+  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_7_A\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"graph/BipartiteMatching.cpp\"\
     \n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int\
-    \ l,r,m;cin>>l>>r>>m;\n\n  BipartiteMatching BM(l,r);\n  while(m--){\n    int\
-    \ a,b;cin>>a>>b;\n    BM.add_edge(a,b);\n  }\n  auto ans=BM.solve();\n  cout<<ans.size()<<\"\
-    \\n\";\n  for(const auto&[u,v]:ans)cout<<u<<\" \"<<v<<\"\\n\";\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bipartitematching\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"graph/BipartiteMatching.cpp\"\
-    \n\nint main(){\n  ios::sync_with_stdio(false);\n  cin.tie(nullptr);\n\n  int\
-    \ l,r,m;cin>>l>>r>>m;\n\n  BipartiteMatching BM(l,r);\n  while(m--){\n    int\
-    \ a,b;cin>>a>>b;\n    BM.add_edge(a,b);\n  }\n  auto ans=BM.solve();\n  cout<<ans.size()<<\"\
-    \\n\";\n  for(const auto&[u,v]:ans)cout<<u<<\" \"<<v<<\"\\n\";\n}"
+    \ x,y,m;cin>>x>>y>>m;\n\n  BipartiteMatching BM(x,y);\n  while(m--){\n    int\
+    \ u,v;cin>>u>>v;\n    BM.add_edge(u,v);\n  }\n  cout<< BM.solve().size() <<endl;\n\
+    }"
   dependsOn:
   - graph/BipartiteMatching.cpp
   - flow/Dinic.cpp
   - graph/WeightedGraph.cpp
   isVerificationFile: true
-  path: test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
+  path: test/AOJ/GRL_7_A.test.cpp
   requiredBy: []
   timestamp: '2022-12-02 20:26:46+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
+documentation_of: test/AOJ/GRL_7_A.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
-- /verify/test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp.html
-title: test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
+- /verify/test/AOJ/GRL_7_A.test.cpp
+- /verify/test/AOJ/GRL_7_A.test.cpp.html
+title: test/AOJ/GRL_7_A.test.cpp
 ---

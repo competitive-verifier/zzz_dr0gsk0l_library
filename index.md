@@ -284,6 +284,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_6_B.test.cpp
       title: test/AOJ/GRL_6_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/AOJ/GRL_7_A.test.cpp
+      title: test/AOJ/GRL_7_A.test.cpp
   - name: test/library-checker/DataStructure
     pages:
     - icon: ':heavy_check_mark:'

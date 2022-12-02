@@ -10,6 +10,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/AOJ/GRL_7_A.test.cpp
+    title: test/AOJ/GRL_7_A.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
     title: test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
   _isVerificationFailed: false
@@ -92,7 +95,7 @@ data:
     \ // \u5DE6\u53F3\u306E\u9802\u70B9\u6570\n  int S,T;\n  Dinic<int> fl;\npublic:\n\
     \  BipartiteMatching(int A,int B):A(A),B(B),S(A+B),T(A+B+1),fl(A+B+2,S,T){\n \
     \   for(int i=0;i<A;i++)fl.add_arc(S,i,1);\n    for(int j=0;j<B;j++)fl.add_arc(A+j,T,1);\n\
-    \  }\n  void add_arc(int u,int v){\n    assert(0<=u and u<A);\n    assert(0<=v\
+    \  }\n  void add_edge(int u,int v){\n    assert(0<=u and u<A);\n    assert(0<=v\
     \ and v<B);\n    fl.add_arc(u,A+v,1);\n  }\n  vector<pair<int,int>> solve(){\n\
     \    int K=fl.flow(min(A,B));\n    vector<pair<int,int>> res;\n    res.reserve(K);\n\
     \    auto all_edge=fl.all_edge();\n    for(int i=A+B;i<all_edge.size();i++){\n\
@@ -102,7 +105,7 @@ data:
     class BipartiteMatching{\n  int A,B; // \u5DE6\u53F3\u306E\u9802\u70B9\u6570\n\
     \  int S,T;\n  Dinic<int> fl;\npublic:\n  BipartiteMatching(int A,int B):A(A),B(B),S(A+B),T(A+B+1),fl(A+B+2,S,T){\n\
     \    for(int i=0;i<A;i++)fl.add_arc(S,i,1);\n    for(int j=0;j<B;j++)fl.add_arc(A+j,T,1);\n\
-    \  }\n  void add_arc(int u,int v){\n    assert(0<=u and u<A);\n    assert(0<=v\
+    \  }\n  void add_edge(int u,int v){\n    assert(0<=u and u<A);\n    assert(0<=v\
     \ and v<B);\n    fl.add_arc(u,A+v,1);\n  }\n  vector<pair<int,int>> solve(){\n\
     \    int K=fl.flow(min(A,B));\n    vector<pair<int,int>> res;\n    res.reserve(K);\n\
     \    auto all_edge=fl.all_edge();\n    for(int i=A+B;i<all_edge.size();i++){\n\
@@ -114,9 +117,10 @@ data:
   isVerificationFile: false
   path: graph/BipartiteMatching.cpp
   requiredBy: []
-  timestamp: '2022-12-02 20:01:14+09:00'
+  timestamp: '2022-12-02 20:26:46+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/AOJ/GRL_7_A.test.cpp
   - test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
 documentation_of: graph/BipartiteMatching.cpp
 layout: document

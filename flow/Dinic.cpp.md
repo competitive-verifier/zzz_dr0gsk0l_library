@@ -13,6 +13,9 @@ data:
     path: test/AOJ/GRL_6_A.test.cpp
     title: test/AOJ/GRL_6_A.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/AOJ/GRL_7_A.test.cpp
+    title: test/AOJ/GRL_7_A.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
     title: test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
   _isVerificationFailed: false
@@ -144,6 +147,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/GRL_6_A.test.cpp
+  - test/AOJ/GRL_7_A.test.cpp
   - test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
 documentation_of: flow/Dinic.cpp
 layout: document

@@ -42,6 +42,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/AOJ/GRL_6_B.test.cpp
     title: test/AOJ/GRL_6_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/AOJ/GRL_7_A.test.cpp
+    title: test/AOJ/GRL_7_A.test.cpp
   - icon: ':x:'
     path: test/library-checker/Graph/DirectedMST.test.cpp
     title: test/library-checker/Graph/DirectedMST.test.cpp
@@ -135,6 +138,7 @@ data:
   - test/AOJ/GRL_6_A.test.cpp
   - test/AOJ/GRL_2_B.test.cpp
   - test/AOJ/2647.test.cpp
+  - test/AOJ/GRL_7_A.test.cpp
   - test/AOJ/GRL_1_B.test.cpp
   - test/library-checker/Graph/ShortestPath.test.cpp
   - test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
