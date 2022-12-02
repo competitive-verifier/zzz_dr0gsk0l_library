@@ -5,14 +5,14 @@ data:
   - icon: ':question:'
     path: graph/MinimumSpanningArborescence.cpp
     title: graph/MinimumSpanningArborescence.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/MinimumSpanningTree.cpp
     title: graph/MinimumSpanningTree.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/AOJ/2647.test.cpp
     title: test/AOJ/2647.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/AOJ/GRL_2_A.test.cpp
     title: test/AOJ/GRL_2_A.test.cpp
   - icon: ':heavy_check_mark:'

@@ -123,7 +123,7 @@ data:
     - icon: ':question:'
       path: graph/MinimumSpanningArborescence.cpp
       title: graph/MinimumSpanningArborescence.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/MinimumSpanningTree.cpp
       title: graph/MinimumSpanningTree.cpp
     - icon: ':heavy_check_mark:'
@@ -151,6 +151,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: mod/Modint.cpp
       title: mod/Modint.cpp
+    - icon: ':heavy_check_mark:'
+      path: mod/Modint61.cpp
+      title: mod/Modint61.cpp
   - name: segtree
     pages:
     - icon: ':heavy_check_mark:'
@@ -260,7 +263,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_1_C.test.cpp
       title: test/AOJ/GRL_1_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/AOJ/GRL_2_A.test.cpp
       title: test/AOJ/GRL_2_A.test.cpp
     - icon: ':heavy_check_mark:'

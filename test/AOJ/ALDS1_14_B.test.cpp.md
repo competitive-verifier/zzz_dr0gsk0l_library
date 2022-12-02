@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: mod/Modint61.cpp
+    title: mod/Modint61.cpp
+  - icon: ':heavy_check_mark:'
     path: string/RollingHash.cpp
     title: string/RollingHash.cpp
   _extendedRequiredBy: []
@@ -14,27 +17,17 @@ data:
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B
     links:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B
-  bundledCode: "#line 1 \"test/AOJ/ALDS1_14_B.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 1 \"string/RollingHash.cpp\"\
-    \n// reference: https://qiita.com/keymoon/items/11fac5627672a6d6a9f6\nrandom_device\
-    \ rollonghash_rnd;\nmt19937 rollonghash_mt(rollonghash_rnd());\nclass RollingHash{\n\
-    \  using ull=unsigned long long;\n  static const ull MASK30=(1ull<<30)-1;\n  static\
-    \ const ull MASK31=(1ull<<31)-1;\n  static const ull MOD=(1ull<<61)-1;\n  static\
-    \ const ull BIGM=MOD*4;\n  \n  inline static const ull base = rollonghash_mt()%10000000+2;\n\
-    \n  static ull mul(ull a,ull b){\n    ull au=a>>31, ad=a&MASK31, bu=b>>31, bd=b&MASK31;\n\
-    \    ull mid= ad*bu + au*bd;\n    ull midu=mid>>30,midd=mid&MASK30;\n    return\
-    \ au*bu*2 + midu + (midd<<31) + ad*bd;\n  }\n  static ull calc_mod(ull x){\n \
-    \   ull xu=x>>61, xd=x&MOD;\n    ull res=xu+xd;\n    return (res<MOD?res:res-MOD);\n\
-    \  }\n  static ull nxt_hash(ull x,char c){ return calc_mod(mul(x,base)+(int)c);\
-    \ }\n\n  vector<ull> hash,power;\n  int n;\npublic:\n  RollingHash(const string&s):n(s.size()),hash(s.size()+1,0),power(s.size()+1,1){\n\
-    \    for(int i=0;i<n;i++){\n      hash[i+1]=nxt_hash(hash[i],s[i]);\n      power[i+1]=calc_mod(mul(power[i],base));\n\
-    \    }\n  }\n  \n  ull get_hash(int l=0,int r=-1){\n    if(r<0)r=n;\n    return\
-    \ calc_mod(hash[r]+BIGM-mul(hash[l],power[r-l]));\n  }\n  \n  static ull full_hash(const\
-    \ string&s){\n    ull res=0;\n    for(const char&c:s)res=nxt_hash(res,c);\n  \
-    \  return res;\n  }\n};\n#line 6 \"test/AOJ/ALDS1_14_B.test.cpp\"\n\nint main(){\n\
-    \  string t;cin>>t;\n  RollingHash T(t);\n  string p;cin>>p;\n  auto h=RollingHash::full_hash(p);\n\
-    \  for(int i=0;i+p.size()<=t.size();i++)\n    if(T.get_hash(i,i+p.size())==h)\n\
-    \      cout<<i<<\"\\n\";\n}\n"
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
+    \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
+    \  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
+    \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
+    \ string/RollingHash.cpp: line 2: #pragma once found in a non-first line\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"string/RollingHash.cpp\"\
     \n\nint main(){\n  string t;cin>>t;\n  RollingHash T(t);\n  string p;cin>>p;\n\
@@ -42,10 +35,11 @@ data:
     \    if(T.get_hash(i,i+p.size())==h)\n      cout<<i<<\"\\n\";\n}"
   dependsOn:
   - string/RollingHash.cpp
+  - mod/Modint61.cpp
   isVerificationFile: true
   path: test/AOJ/ALDS1_14_B.test.cpp
   requiredBy: []
-  timestamp: '2022-11-26 09:34:53+09:00'
+  timestamp: '2022-12-02 18:34:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/ALDS1_14_B.test.cpp

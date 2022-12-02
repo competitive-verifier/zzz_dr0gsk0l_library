@@ -6,12 +6,12 @@ data:
     title: datastructure/UnionFind.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/AOJ/GRL_2_A.test.cpp
     title: test/AOJ/GRL_2_A.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"datastructure/UnionFind.cpp\"\nclass UnionFind{\n  int n,num;\n\
@@ -24,18 +24,18 @@ data:
     \    sz[x]+=sz[y];\n    parent[y]=x;\n    num--;\n    return true;\n  }\n  \n\
     \  int size(const int x){\n    assert(0<=x and x<n);\n    return sz[leader(x)];\n\
     \  }\n  \n  int count()const{\n    return num;\n  }\n};\n#line 2 \"graph/MinimumSpanningTree.cpp\"\
-    \ntemplate<typename WG,typename E=typename WG::edge_type,typename W=typename WG::weight_type>\n\
-    pair<W,vector<int>> minimum_spanning_tree(const WG&g){\n  assert(g.is_prepared());\n\
-    \  int n=g.n,m=g.edges.size();\n  UnionFind uf(n);\n  vector<int> id(m);\n  iota(id.begin(),id.end(),0);\n\
-    \  sort(id.begin(),id.end(),[](const int i,const int j){\n    return g.edges[i].weight<g.edges[j].weight;\n\
-    \  });\n  W res=0;\n  vector<int> tree;\n  tree.reserve(n-1);\n  for(int i:id){\n\
-    \    const auto&[from,to,weight]=g.edges[i];\n    if(uf.same(from,to))continue;\n\
+    \ntemplate<typename WG,typename W=typename WG::weight_type>\npair<W,vector<int>>\
+    \ minimum_spanning_tree(const WG&g){\n  assert(g.is_prepared());\n  int n=g.n,m=g.edges.size();\n\
+    \  UnionFind uf(n);\n  vector<int> id(m);\n  iota(id.begin(),id.end(),0);\n  sort(id.begin(),id.end(),[&](const\
+    \ int i,const int j){\n    return g.edges[i].weight<g.edges[j].weight;\n  });\n\
+    \  W res=0;\n  vector<int> tree;\n  tree.reserve(n-1);\n  for(int i:id){\n   \
+    \ const auto&[from,to,weight]=g.edges[i];\n    if(uf.same(from,to))continue;\n\
     \    tree.push_back(i);\n    uf.merge(from,to);\n    res+=weight;\n  }\n  assert(uf.count()==1);\n\
     \  return {res,tree};\n}\n"
-  code: "#include \"datastructure/UnionFind.cpp\"\ntemplate<typename WG,typename E=typename\
-    \ WG::edge_type,typename W=typename WG::weight_type>\npair<W,vector<int>> minimum_spanning_tree(const\
-    \ WG&g){\n  assert(g.is_prepared());\n  int n=g.n,m=g.edges.size();\n  UnionFind\
-    \ uf(n);\n  vector<int> id(m);\n  iota(id.begin(),id.end(),0);\n  sort(id.begin(),id.end(),[](const\
+  code: "#include \"datastructure/UnionFind.cpp\"\ntemplate<typename WG,typename W=typename\
+    \ WG::weight_type>\npair<W,vector<int>> minimum_spanning_tree(const WG&g){\n \
+    \ assert(g.is_prepared());\n  int n=g.n,m=g.edges.size();\n  UnionFind uf(n);\n\
+    \  vector<int> id(m);\n  iota(id.begin(),id.end(),0);\n  sort(id.begin(),id.end(),[&](const\
     \ int i,const int j){\n    return g.edges[i].weight<g.edges[j].weight;\n  });\n\
     \  W res=0;\n  vector<int> tree;\n  tree.reserve(n-1);\n  for(int i:id){\n   \
     \ const auto&[from,to,weight]=g.edges[i];\n    if(uf.same(from,to))continue;\n\
@@ -46,8 +46,8 @@ data:
   isVerificationFile: false
   path: graph/MinimumSpanningTree.cpp
   requiredBy: []
-  timestamp: '2022-12-02 08:40:06+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-12-02 18:34:08+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/GRL_2_A.test.cpp
 documentation_of: graph/MinimumSpanningTree.cpp
