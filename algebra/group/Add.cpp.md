@@ -10,6 +10,9 @@ data:
     title: algebra/lazy/AddSum.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/AOJ/DSL_2_B.test.cpp
+    title: test/AOJ/DSL_2_B.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_2_E.test.cpp
     title: test/AOJ/DSL_2_E.test.cpp
   - icon: ':heavy_check_mark:'
@@ -58,6 +61,7 @@ data:
   verifiedWith:
   - test/AOJ/DSL_2_E.test.cpp
   - test/AOJ/GRL_5_E.test.cpp
+  - test/AOJ/DSL_2_B.test.cpp
   - test/AOJ/DSL_2_G.test.cpp
   - test/AOJ/DSL_2_H.test.cpp
   - test/library-checker/DataStructure/PointAddRangeSum.test.cpp

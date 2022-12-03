@@ -84,7 +84,7 @@ data:
     - icon: ':warning:'
       path: datastructure/Doubling.cpp
       title: datastructure/Doubling.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: datastructure/FenwickTree.cpp
       title: datastructure/FenwickTree.cpp
     - icon: ':warning:'

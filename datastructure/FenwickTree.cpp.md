@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/AOJ/DSL_2_B.test.cpp
+    title: test/AOJ/DSL_2_B.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"datastructure/FenwickTree.cpp\"\ntemplate<typename AbelGroup>\n\
@@ -45,8 +48,9 @@ data:
   path: datastructure/FenwickTree.cpp
   requiredBy: []
   timestamp: '2022-12-02 21:17:36+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/AOJ/DSL_2_B.test.cpp
 documentation_of: datastructure/FenwickTree.cpp
 layout: document
 redirect_from:
