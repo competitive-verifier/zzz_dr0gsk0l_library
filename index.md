@@ -73,6 +73,9 @@ data:
   - name: datastructure
     pages:
     - icon: ':warning:'
+      path: datastructure/BinaryTrie.cpp
+      title: datastructure/BinaryTrie.cpp
+    - icon: ':warning:'
       path: datastructure/CumulativeGroup.cpp
       title: datastructure/CumulativeGroup.cpp
     - icon: ':warning:'
@@ -126,6 +129,9 @@ data:
     - icon: ':question:'
       path: graph/Graph.cpp
       title: graph/Graph.cpp
+    - icon: ':warning:'
+      path: graph/Grid.cpp
+      title: graph/Grid.cpp
     - icon: ':question:'
       path: graph/MinimumSpanningArborescence.cpp
       title: graph/MinimumSpanningArborescence.cpp
@@ -135,9 +141,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/NegativeCycleFind.cpp
       title: graph/NegativeCycleFind.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/ReverseGraph.cpp
       title: graph/ReverseGraph.cpp
+    - icon: ':heavy_check_mark:'
+      path: graph/SCC.cpp
+      title: graph/SCC.cpp
     - icon: ':heavy_check_mark:'
       path: graph/WarshallFloyd.cpp
       title: graph/WarshallFloyd.cpp
@@ -324,6 +333,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
       title: test/library-checker/Graph/MatchingOnBipartiteGraph.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library-checker/Graph/SCC.test.cpp
+      title: test/library-checker/Graph/SCC.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Graph/ShortestPath.test.cpp
       title: test/library-checker/Graph/ShortestPath.test.cpp

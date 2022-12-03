@@ -14,6 +14,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/BipartiteMatching.cpp
     title: graph/BipartiteMatching.cpp
+  - icon: ':warning:'
+    path: graph/Grid.cpp
+    title: graph/Grid.cpp
   - icon: ':heavy_check_mark:'
     path: tree/WeightedTree.cpp
     title: tree/WeightedTree.cpp
@@ -128,6 +131,7 @@ data:
   - flow/MCF.cpp
   - graph/01BFS.cpp
   - graph/BipartiteMatching.cpp
+  - graph/Grid.cpp
   timestamp: '2022-12-01 20:59:34+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:

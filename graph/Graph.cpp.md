@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: graph/SCC.cpp
+    title: graph/SCC.cpp
   - icon: ':question:'
     path: tree/Tree.cpp
     title: tree/Tree.cpp
@@ -9,6 +12,9 @@ data:
   - icon: ':x:'
     path: test/AOJ/GRL_5_E.test.cpp
     title: test/AOJ/GRL_5_E.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library-checker/Graph/SCC.test.cpp
+    title: test/library-checker/Graph/SCC.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library-checker/Tree/LowestCommonAncestor.test.cpp
     title: test/library-checker/Tree/LowestCommonAncestor.test.cpp
@@ -85,6 +91,7 @@ data:
   path: graph/Graph.cpp
   requiredBy:
   - tree/Tree.cpp
+  - graph/SCC.cpp
   timestamp: '2022-12-01 20:59:34+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
@@ -94,6 +101,7 @@ data:
   - test/library-checker/Tree/vertex_set_path_composite.test.cpp
   - test/library-checker/Tree/RootedTreeIsomorphismClassification.test.cpp
   - test/library-checker/Tree/vertex_add_subtree_sum.test.cpp
+  - test/library-checker/Graph/SCC.test.cpp
 documentation_of: graph/Graph.cpp
 layout: document
 redirect_from:
