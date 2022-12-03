@@ -1,0 +1,70 @@
+---
+data:
+  _extendedDependsOn: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/AOJ/DSL_1_B.test.cpp
+    title: test/AOJ/DSL_1_B.test.cpp
+  _isVerificationFailed: false
+  _pathExtension: cpp
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    links: []
+  bundledCode: "#line 2 \"datastructure/PotentialUnionFind.cpp\"\ntemplate<typename\
+    \ AbelGroup>\nclass PotentialUnionFind{\n   using T=typename AbelGroup::value_type;\n\
+    \  int n,num;\n  vector<int> sz,parent;\n  vector<T> potential; // parent[x] \u3092\
+    \u57FA\u6E96\u3068\u3057\u305F\u6642\u306E x \u306E\u5024\npublic:\n  PotentialUnionFind()=default;\n\
+    \  PotentialUnionFind(int n):n(n),num(n),sz(n,1),parent(n,0),potential(n,AbelGroup::unit()){\n\
+    \    assert(AbelGroup::commute);\n    iota(parent.begin(),parent.end(),0);\n \
+    \ }\n  \n  int leader(int x){ \n    if(x==parent[x])return x;\n    int p=leader(parent[x]);\n\
+    \    potential[x]=AbelGroup::op(potential[x],potential[parent[x]]);\n    return\
+    \ parent[x]=p;\n  }\n  \n  bool same(int x,int y){\n    assert(0<=x and x<n and\
+    \ 0<=y and y<n);\n    return leader(x)==leader(y); \n  }\n\n  bool merge(int x,int\
+    \ y,T d){\n    // potential[y]-potential[x]=d \u306B\u3059\u308B\n    // \u77DB\
+    \u76FE\u3059\u308B\u5834\u5408\u306F\u5909\u66F4\u306F\u305B\u305A false \u3092\
+    \u8FD4\u3059\n    assert(0<=x and x<n and 0<=y and y<n);\n    bool same_=same(x,y);\n\
+    \    d=AbelGroup::op(d,potential[x]);\n    x=parent[x];\n    d=AbelGroup::op(d,AbelGroup::inverse(potential[y]));\n\
+    \    y=parent[y];\n    if(same_)return d==AbelGroup::unit();\n    if(sz[x]<sz[y]){\n\
+    \      swap(x,y);\n      d=AbelGroup::inverse(d);\n    }\n    sz[x]+=sz[y];\n\
+    \    parent[y]=x;\n    potential[y]=d;\n    num--;\n    return true;\n  }\n\n\
+    \  optional<T> diff(int x,int y){\n    // x \u3092\u57FA\u6E96\u3068\u3059\u308B\
+    \n    if(!same(x,y))return nullopt;\n    return AbelGroup::op(potential[y],AbelGroup::inverse(potential[x]));\n\
+    \  }\n\n  int size(const int x){\n    assert(0<=x and x<n);\n    return sz[leader(x)];\n\
+    \  }\n  \n  int count()const{\n    return num;\n  }\n};\n"
+  code: "#pragma once\ntemplate<typename AbelGroup>\nclass PotentialUnionFind{\n \
+    \  using T=typename AbelGroup::value_type;\n  int n,num;\n  vector<int> sz,parent;\n\
+    \  vector<T> potential; // parent[x] \u3092\u57FA\u6E96\u3068\u3057\u305F\u6642\
+    \u306E x \u306E\u5024\npublic:\n  PotentialUnionFind()=default;\n  PotentialUnionFind(int\
+    \ n):n(n),num(n),sz(n,1),parent(n,0),potential(n,AbelGroup::unit()){\n    assert(AbelGroup::commute);\n\
+    \    iota(parent.begin(),parent.end(),0);\n  }\n  \n  int leader(int x){ \n  \
+    \  if(x==parent[x])return x;\n    int p=leader(parent[x]);\n    potential[x]=AbelGroup::op(potential[x],potential[parent[x]]);\n\
+    \    return parent[x]=p;\n  }\n  \n  bool same(int x,int y){\n    assert(0<=x\
+    \ and x<n and 0<=y and y<n);\n    return leader(x)==leader(y); \n  }\n\n  bool\
+    \ merge(int x,int y,T d){\n    // potential[y]-potential[x]=d \u306B\u3059\u308B\
+    \n    // \u77DB\u76FE\u3059\u308B\u5834\u5408\u306F\u5909\u66F4\u306F\u305B\u305A\
+    \ false \u3092\u8FD4\u3059\n    assert(0<=x and x<n and 0<=y and y<n);\n    bool\
+    \ same_=same(x,y);\n    d=AbelGroup::op(d,potential[x]);\n    x=parent[x];\n \
+    \   d=AbelGroup::op(d,AbelGroup::inverse(potential[y]));\n    y=parent[y];\n \
+    \   if(same_)return d==AbelGroup::unit();\n    if(sz[x]<sz[y]){\n      swap(x,y);\n\
+    \      d=AbelGroup::inverse(d);\n    }\n    sz[x]+=sz[y];\n    parent[y]=x;\n\
+    \    potential[y]=d;\n    num--;\n    return true;\n  }\n\n  optional<T> diff(int\
+    \ x,int y){\n    // x \u3092\u57FA\u6E96\u3068\u3059\u308B\n    if(!same(x,y))return\
+    \ nullopt;\n    return AbelGroup::op(potential[y],AbelGroup::inverse(potential[x]));\n\
+    \  }\n\n  int size(const int x){\n    assert(0<=x and x<n);\n    return sz[leader(x)];\n\
+    \  }\n  \n  int count()const{\n    return num;\n  }\n};"
+  dependsOn: []
+  isVerificationFile: false
+  path: datastructure/PotentialUnionFind.cpp
+  requiredBy: []
+  timestamp: '2022-12-03 23:59:56+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/AOJ/DSL_1_B.test.cpp
+documentation_of: datastructure/PotentialUnionFind.cpp
+layout: document
+redirect_from:
+- /library/datastructure/PotentialUnionFind.cpp
+- /library/datastructure/PotentialUnionFind.cpp.html
+title: datastructure/PotentialUnionFind.cpp
+---

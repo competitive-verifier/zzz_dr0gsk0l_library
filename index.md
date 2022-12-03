@@ -90,6 +90,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/FenwickTree.cpp
       title: datastructure/FenwickTree.cpp
+    - icon: ':heavy_check_mark:'
+      path: datastructure/PotentialUnionFind.cpp
+      title: datastructure/PotentialUnionFind.cpp
     - icon: ':warning:'
       path: datastructure/SWAG.cpp
       title: datastructure/SWAG.cpp
@@ -260,6 +263,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/ALDS1_5_D.test.cpp
       title: test/AOJ/ALDS1_5_D.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/AOJ/DSL_1_B.test.cpp
+      title: test/AOJ/DSL_1_B.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_2_B.test.cpp
       title: test/AOJ/DSL_2_B.test.cpp
