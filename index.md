@@ -239,6 +239,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: util/InversionNumber.cpp
       title: util/InversionNumber.cpp
+    - icon: ':heavy_check_mark:'
+      path: util/PrimeUtil.cpp
+      title: util/PrimeUtil.cpp
     - icon: ':warning:'
       path: util/Subsequence.cpp
       title: "\u90E8\u5206\u5217\u306E\u7A2E\u985E\u6570"
@@ -251,6 +254,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/ALDS1_14_B.test.cpp
       title: test/AOJ/ALDS1_14_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/AOJ/ALDS1_1_C.test.cpp
+      title: test/AOJ/ALDS1_1_C.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/AOJ/ALDS1_5_D.test.cpp
       title: test/AOJ/ALDS1_5_D.test.cpp
