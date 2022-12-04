@@ -29,9 +29,10 @@ data:
   _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"datastructure/UnionFind.cpp\"\nclass UnionFind{\n  int n,num;\n\
-    \  vector<int> sz,parent;\npublic:\n  UnionFind()=default;\n  UnionFind(int n):n(n),num(n),sz(n,1),parent(n,0){iota(parent.begin(),parent.end(),0);}\n\
-    \  \n  int leader(int x){ \n    assert(0<=x and x<n);\n    return (x==parent[x]?\
+  bundledCode: "#line 1 \"datastructure/unionfind/UnionFind.cpp\"\nclass UnionFind{\n\
+    \  int n,num;\n  vector<int> sz,parent;\npublic:\n  UnionFind()=default;\n  UnionFind(int\
+    \ n):n(n),num(n),sz(n,1),parent(n,0){iota(parent.begin(),parent.end(),0);}\n \
+    \ \n  int leader(int x){ \n    assert(0<=x and x<n);\n    return (x==parent[x]?\
     \ x : parent[x]=leader(parent[x])); \n  }\n  \n  bool same(int x,int y){\n   \
     \ assert(0<=x and x<n and 0<=y and y<n);\n    return leader(x)==leader(y); \n\
     \  }\n  \n  bool merge(int x,int y){\n    assert(0<=x and x<n and 0<=y and y<n);\n\
@@ -51,11 +52,11 @@ data:
     \  }\n  \n  int count()const{\n    return num;\n  }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: datastructure/UnionFind.cpp
+  path: datastructure/unionfind/UnionFind.cpp
   requiredBy:
   - graph/MinimumSpanningArborescence.cpp
   - graph/MinimumSpanningTree.cpp
-  timestamp: '2022-11-26 09:11:25+09:00'
+  timestamp: '2022-12-04 10:24:14+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/AOJ/GRL_2_A.test.cpp
@@ -63,10 +64,10 @@ data:
   - test/AOJ/2647.test.cpp
   - test/library-checker/DataStructure/unionfind.test.cpp
   - test/library-checker/Graph/DirectedMST.test.cpp
-documentation_of: datastructure/UnionFind.cpp
+documentation_of: datastructure/unionfind/UnionFind.cpp
 layout: document
 redirect_from:
-- /library/datastructure/UnionFind.cpp
-- /library/datastructure/UnionFind.cpp.html
-title: datastructure/UnionFind.cpp
+- /library/datastructure/unionfind/UnionFind.cpp
+- /library/datastructure/unionfind/UnionFind.cpp.html
+title: datastructure/unionfind/UnionFind.cpp
 ---

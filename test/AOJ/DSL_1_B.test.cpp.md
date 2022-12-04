@@ -4,41 +4,43 @@ data:
   - icon: ':question:'
     path: algebra/group/Add.cpp
     title: algebra/group/Add.cpp
-  - icon: ':heavy_check_mark:'
-    path: datastructure/PotentialUnionFind.cpp
-    title: datastructure/PotentialUnionFind.cpp
+  - icon: ':x:'
+    path: datastructure/unionfind/PotentialUnionFind.cpp
+    title: datastructure/unionfind/PotentialUnionFind.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B
     links:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B
   bundledCode: "#line 1 \"test/AOJ/DSL_1_B.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"datastructure/PotentialUnionFind.cpp\"\
-    \ntemplate<typename AbelGroup>\nclass PotentialUnionFind{\n   using T=typename\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 2 \"datastructure/unionfind/PotentialUnionFind.cpp\"\
+    \ntemplate<typename AbelGroup>\nclass PotentialUnionFind{\n  using T=typename\
     \ AbelGroup::value_type;\n  int n,num;\n  vector<int> sz,parent;\n  vector<T>\
     \ potential; // parent[x] \u3092\u57FA\u6E96\u3068\u3057\u305F\u6642\u306E x \u306E\
     \u5024\npublic:\n  PotentialUnionFind()=default;\n  PotentialUnionFind(int n):n(n),num(n),sz(n,1),parent(n,0),potential(n,AbelGroup::unit()){\n\
     \    assert(AbelGroup::commute);\n    iota(parent.begin(),parent.end(),0);\n \
-    \ }\n  \n  int leader(int x){ \n    if(x==parent[x])return x;\n    int p=leader(parent[x]);\n\
-    \    potential[x]=AbelGroup::op(potential[x],potential[parent[x]]);\n    return\
-    \ parent[x]=p;\n  }\n  \n  bool same(int x,int y){\n    assert(0<=x and x<n and\
-    \ 0<=y and y<n);\n    return leader(x)==leader(y); \n  }\n\n  bool merge(int x,int\
-    \ y,T d){\n    // potential[y]-potential[x]=d \u306B\u3059\u308B\n    // \u77DB\
-    \u76FE\u3059\u308B\u5834\u5408\u306F\u5909\u66F4\u306F\u305B\u305A false \u3092\
-    \u8FD4\u3059\n    assert(0<=x and x<n and 0<=y and y<n);\n    bool same_=same(x,y);\n\
-    \    d=AbelGroup::op(d,potential[x]);\n    x=parent[x];\n    d=AbelGroup::op(d,AbelGroup::inverse(potential[y]));\n\
-    \    y=parent[y];\n    if(same_)return d==AbelGroup::unit();\n    if(sz[x]<sz[y]){\n\
-    \      swap(x,y);\n      d=AbelGroup::inverse(d);\n    }\n    sz[x]+=sz[y];\n\
-    \    parent[y]=x;\n    potential[y]=d;\n    num--;\n    return true;\n  }\n\n\
-    \  optional<T> diff(int x,int y){\n    // x \u3092\u57FA\u6E96\u3068\u3059\u308B\
-    \n    if(!same(x,y))return nullopt;\n    return AbelGroup::op(potential[y],AbelGroup::inverse(potential[x]));\n\
-    \  }\n\n  int size(const int x){\n    assert(0<=x and x<n);\n    return sz[leader(x)];\n\
-    \  }\n  \n  int count()const{\n    return num;\n  }\n};\n#line 2 \"algebra/group/Add.cpp\"\
+    \ }\n\n  pair<int,T> from_root(int x){\n    if(x==parent[x])return {x,AbelGroup::unit()};\n\
+    \    auto [r,add]=from_root(parent[x]);\n    parent[x]=r;\n    potential[x]=AbelGroup::op(add,potential[x]);\n\
+    \    return {r,potential[x]};\n  }\n  \n  int leader(int x){ return from_root(x).first;\
+    \ }\n  \n  bool same(int x,int y){\n    assert(0<=x and x<n and 0<=y and y<n);\n\
+    \    return leader(x)==leader(y); \n  }\n\n  bool merge(int x,int y,T d){\n  \
+    \  // potential[y]-potential[x]=d \u306B\u3059\u308B\n    // \u77DB\u76FE\u3059\
+    \u308B\u5834\u5408\u306F\u5909\u66F4\u306F\u305B\u305A false \u3092\u8FD4\u3059\
+    \n    assert(0<=x and x<n and 0<=y and y<n);\n    auto [rx,dx]=from_root(x);\n\
+    \    auto [ry,dy]=from_root(y);\n    if(rx==ry)return dx==dy;\n    d=AbelGroup::op(d,dx);\n\
+    \    d=AbelGroup::op(d,AbelGroup::inverse(dy));\n    if(sz[rx]<sz[ry]){\n    \
+    \  swap(rx,ry);\n      d=AbelGroup::inverse(d);\n    }\n    sz[rx]+=sz[ry];\n\
+    \    parent[ry]=rx;\n    potential[ry]=d;\n    num--;\n    return true;\n  }\n\
+    \n  optional<T> diff(int x,int y){\n    // x \u3092\u57FA\u6E96\u3068\u3059\u308B\
+    \n    auto [rx,dx]=from_root(x);\n    auto [ry,dy]=from_root(y);\n    if(rx!=ry)return\
+    \ nullopt;\n    return AbelGroup::op(dy,AbelGroup::inverse(dx));\n  }\n\n  int\
+    \ size(const int x){\n    assert(0<=x and x<n);\n    return sz[leader(x)];\n \
+    \ }\n  \n  int count()const{\n    return num;\n  }\n};\n#line 2 \"algebra/group/Add.cpp\"\
     \ntemplate<typename X>\nstruct GroupAdd {\n  using value_type = X;\n  static constexpr\
     \ X op(const X &x, const X &y) noexcept { return x + y; }\n  static constexpr\
     \ X inverse(const X &x) noexcept { return -x; }\n  static constexpr X power(const\
@@ -51,7 +53,7 @@ data:
     \    else{\n      int d;cin>>d;\n      assert(PUF.merge(x,y,d));\n    }\n  }\n\
     }\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"datastructure/PotentialUnionFind.cpp\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"datastructure/unionfind/PotentialUnionFind.cpp\"\
     \n#include \"algebra/group/Add.cpp\"\n\nint main(){\n  ios::sync_with_stdio(false);\n\
     \  cin.tie(nullptr);\n\n  int n,q;cin>>n>>q;\n  PotentialUnionFind<GroupAdd<int>>\
     \ PUF(n);\n  while(q--){\n    int t,x,y;cin>>t>>x>>y;\n    if(t){\n      auto\
@@ -59,13 +61,13 @@ data:
     \ cout<<\"?\\n\";\n    }\n    else{\n      int d;cin>>d;\n      assert(PUF.merge(x,y,d));\n\
     \    }\n  }\n}"
   dependsOn:
-  - datastructure/PotentialUnionFind.cpp
+  - datastructure/unionfind/PotentialUnionFind.cpp
   - algebra/group/Add.cpp
   isVerificationFile: true
   path: test/AOJ/DSL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2022-12-03 23:59:56+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-04 10:24:14+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/AOJ/DSL_1_B.test.cpp
 layout: document

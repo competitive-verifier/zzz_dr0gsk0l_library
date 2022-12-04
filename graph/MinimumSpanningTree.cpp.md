@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: datastructure/UnionFind.cpp
-    title: datastructure/UnionFind.cpp
+    path: datastructure/unionfind/UnionFind.cpp
+    title: datastructure/unionfind/UnionFind.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -14,9 +14,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"datastructure/UnionFind.cpp\"\nclass UnionFind{\n  int n,num;\n\
-    \  vector<int> sz,parent;\npublic:\n  UnionFind()=default;\n  UnionFind(int n):n(n),num(n),sz(n,1),parent(n,0){iota(parent.begin(),parent.end(),0);}\n\
-    \  \n  int leader(int x){ \n    assert(0<=x and x<n);\n    return (x==parent[x]?\
+  bundledCode: "#line 1 \"datastructure/unionfind/UnionFind.cpp\"\nclass UnionFind{\n\
+    \  int n,num;\n  vector<int> sz,parent;\npublic:\n  UnionFind()=default;\n  UnionFind(int\
+    \ n):n(n),num(n),sz(n,1),parent(n,0){iota(parent.begin(),parent.end(),0);}\n \
+    \ \n  int leader(int x){ \n    assert(0<=x and x<n);\n    return (x==parent[x]?\
     \ x : parent[x]=leader(parent[x])); \n  }\n  \n  bool same(int x,int y){\n   \
     \ assert(0<=x and x<n and 0<=y and y<n);\n    return leader(x)==leader(y); \n\
     \  }\n  \n  bool merge(int x,int y){\n    assert(0<=x and x<n and 0<=y and y<n);\n\
@@ -32,21 +33,21 @@ data:
     \ const auto&[from,to,weight]=g.edges[i];\n    if(uf.same(from,to))continue;\n\
     \    tree.push_back(i);\n    uf.merge(from,to);\n    res+=weight;\n  }\n  assert(uf.count()==1);\n\
     \  return {res,tree};\n}\n"
-  code: "#include \"datastructure/UnionFind.cpp\"\ntemplate<typename WG,typename W=typename\
-    \ WG::weight_type>\npair<W,vector<int>> minimum_spanning_tree(const WG&g){\n \
-    \ assert(g.is_prepared());\n  int n=g.n,m=g.edges.size();\n  UnionFind uf(n);\n\
-    \  vector<int> id(m);\n  iota(id.begin(),id.end(),0);\n  sort(id.begin(),id.end(),[&](const\
+  code: "#include \"datastructure/unionfind/UnionFind.cpp\"\ntemplate<typename WG,typename\
+    \ W=typename WG::weight_type>\npair<W,vector<int>> minimum_spanning_tree(const\
+    \ WG&g){\n  assert(g.is_prepared());\n  int n=g.n,m=g.edges.size();\n  UnionFind\
+    \ uf(n);\n  vector<int> id(m);\n  iota(id.begin(),id.end(),0);\n  sort(id.begin(),id.end(),[&](const\
     \ int i,const int j){\n    return g.edges[i].weight<g.edges[j].weight;\n  });\n\
     \  W res=0;\n  vector<int> tree;\n  tree.reserve(n-1);\n  for(int i:id){\n   \
     \ const auto&[from,to,weight]=g.edges[i];\n    if(uf.same(from,to))continue;\n\
     \    tree.push_back(i);\n    uf.merge(from,to);\n    res+=weight;\n  }\n  assert(uf.count()==1);\n\
     \  return {res,tree};\n}"
   dependsOn:
-  - datastructure/UnionFind.cpp
+  - datastructure/unionfind/UnionFind.cpp
   isVerificationFile: false
   path: graph/MinimumSpanningTree.cpp
   requiredBy: []
-  timestamp: '2022-12-02 18:34:08+09:00'
+  timestamp: '2022-12-04 10:24:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/GRL_2_A.test.cpp

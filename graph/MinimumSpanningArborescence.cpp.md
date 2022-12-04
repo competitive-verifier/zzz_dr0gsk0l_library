@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: datastructure/UnionFind.cpp
-    title: datastructure/UnionFind.cpp
+    path: datastructure/unionfind/UnionFind.cpp
+    title: datastructure/unionfind/UnionFind.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -20,9 +20,10 @@ data:
   _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"datastructure/UnionFind.cpp\"\nclass UnionFind{\n  int n,num;\n\
-    \  vector<int> sz,parent;\npublic:\n  UnionFind()=default;\n  UnionFind(int n):n(n),num(n),sz(n,1),parent(n,0){iota(parent.begin(),parent.end(),0);}\n\
-    \  \n  int leader(int x){ \n    assert(0<=x and x<n);\n    return (x==parent[x]?\
+  bundledCode: "#line 1 \"datastructure/unionfind/UnionFind.cpp\"\nclass UnionFind{\n\
+    \  int n,num;\n  vector<int> sz,parent;\npublic:\n  UnionFind()=default;\n  UnionFind(int\
+    \ n):n(n),num(n),sz(n,1),parent(n,0){iota(parent.begin(),parent.end(),0);}\n \
+    \ \n  int leader(int x){ \n    assert(0<=x and x<n);\n    return (x==parent[x]?\
     \ x : parent[x]=leader(parent[x])); \n  }\n  \n  bool same(int x,int y){\n   \
     \ assert(0<=x and x<n and 0<=y and y<n);\n    return leader(x)==leader(y); \n\
     \  }\n  \n  bool merge(int x,int y){\n    assert(0<=x and x<n and 0<=y and y<n);\n\
@@ -54,7 +55,7 @@ data:
     \          v=uf.leader(pre[v]);\n        }while(!uf.same(v,now));\n        now=uf.leader(now);\n\
     \      }\n      else\n        now=uf.leader(pre[now]);\n    }\n    for(int v:processing)state[v]=2;\n\
     \  }\n  tree.erase(tree.begin()+r);\n  return make_pair(res,tree);\n}\n"
-  code: "#pragma once\n#include \"datastructure/UnionFind.cpp\"\ntemplate<typename\
+  code: "#pragma once\n#include \"datastructure/unionfind/UnionFind.cpp\"\ntemplate<typename\
     \ WG,typename W=typename WG::weight_type>\noptional< pair<W,vector<int>> > minimum_spanning_arborescence(WG\
     \ g,int r=0){\n  int n=g.n;\n  W res=0;\n  vector<W> new_add(n,0);\n  vector<int>\
     \ tree(n),pre(n),state(n,0);\n  UnionFind uf(n);\n  state[r]=2;\n\n  auto compare=[&](const\
@@ -79,11 +80,11 @@ data:
     \      }\n      else\n        now=uf.leader(pre[now]);\n    }\n    for(int v:processing)state[v]=2;\n\
     \  }\n  tree.erase(tree.begin()+r);\n  return make_pair(res,tree);\n}"
   dependsOn:
-  - datastructure/UnionFind.cpp
+  - datastructure/unionfind/UnionFind.cpp
   isVerificationFile: false
   path: graph/MinimumSpanningArborescence.cpp
   requiredBy: []
-  timestamp: '2022-12-02 08:34:49+09:00'
+  timestamp: '2022-12-04 10:24:14+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/AOJ/GRL_2_B.test.cpp

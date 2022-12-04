@@ -90,18 +90,26 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/FenwickTree.cpp
       title: datastructure/FenwickTree.cpp
-    - icon: ':heavy_check_mark:'
-      path: datastructure/PotentialUnionFind.cpp
-      title: datastructure/PotentialUnionFind.cpp
     - icon: ':warning:'
       path: datastructure/SWAG.cpp
       title: datastructure/SWAG.cpp
     - icon: ':warning:'
       path: datastructure/SlopeTrick.cpp
       title: SlopeTrick
+  - name: datastructure/unionfind
+    pages:
+    - icon: ':warning:'
+      path: datastructure/unionfind/IntegerSumRuleUnionFind.cpp
+      title: datastructure/unionfind/IntegerSumRuleUnionFind.cpp
+    - icon: ':warning:'
+      path: datastructure/unionfind/MonoidUnionFind.cpp
+      title: datastructure/unionfind/MonoidUnionFind.cpp
+    - icon: ':x:'
+      path: datastructure/unionfind/PotentialUnionFind.cpp
+      title: datastructure/unionfind/PotentialUnionFind.cpp
     - icon: ':question:'
-      path: datastructure/UnionFind.cpp
-      title: datastructure/UnionFind.cpp
+      path: datastructure/unionfind/UnionFind.cpp
+      title: datastructure/unionfind/UnionFind.cpp
   - name: flow
     pages:
     - icon: ':heavy_check_mark:'
@@ -263,7 +271,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/ALDS1_5_D.test.cpp
       title: test/AOJ/ALDS1_5_D.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/AOJ/DSL_1_B.test.cpp
       title: test/AOJ/DSL_1_B.test.cpp
     - icon: ':heavy_check_mark:'
