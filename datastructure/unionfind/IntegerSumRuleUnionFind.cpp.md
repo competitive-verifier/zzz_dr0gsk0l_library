@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/1502.test.cpp
+    title: test/yukicoder/1502.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"datastructure/unionfind/IntegerSumRuleUnionFind.cpp\"\n\
@@ -76,8 +79,9 @@ data:
   path: datastructure/unionfind/IntegerSumRuleUnionFind.cpp
   requiredBy: []
   timestamp: '2022-12-04 10:24:14+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yukicoder/1502.test.cpp
 documentation_of: datastructure/unionfind/IntegerSumRuleUnionFind.cpp
 layout: document
 redirect_from:

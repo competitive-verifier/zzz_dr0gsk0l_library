@@ -18,6 +18,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library-checker/Matrix/Product.test.cpp
     title: test/library-checker/Matrix/Product.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/1502.test.cpp
+    title: test/yukicoder/1502.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -75,6 +78,7 @@ data:
   - test/library-checker/Matrix/Product.test.cpp
   - test/library-checker/Matrix/Det.test.cpp
   - test/library-checker/Matrix/Inverse.test.cpp
+  - test/yukicoder/1502.test.cpp
 documentation_of: mod/Modint.cpp
 layout: document
 redirect_from:

@@ -98,7 +98,7 @@ data:
       title: SlopeTrick
   - name: datastructure/unionfind
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: datastructure/unionfind/IntegerSumRuleUnionFind.cpp
       title: datastructure/unionfind/IntegerSumRuleUnionFind.cpp
     - icon: ':warning:'
@@ -408,6 +408,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library-checker/Tree/vertex_set_path_composite.test.cpp
       title: test/library-checker/Tree/vertex_set_path_composite.test.cpp
+  - name: test/yukicoder
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/1502.test.cpp
+      title: test/yukicoder/1502.test.cpp
 layout: toppage
 ---
 [drogskol](https://twitter.com/cureskol) の競技プログラミング用ライブラリ  
