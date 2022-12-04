@@ -9,6 +9,9 @@ data:
     path: flow/MCF.cpp
     title: flow/MCF.cpp
   - icon: ':warning:'
+    path: flow/NondecreasingMCF.cpp
+    title: flow/NondecreasingMCF.cpp
+  - icon: ':warning:'
     path: graph/01BFS.cpp
     title: graph/01BFS.cpp
   - icon: ':heavy_check_mark:'
@@ -127,6 +130,7 @@ data:
   path: graph/WeightedGraph.cpp
   requiredBy:
   - tree/WeightedTree.cpp
+  - flow/NondecreasingMCF.cpp
   - flow/Dinic.cpp
   - flow/MCF.cpp
   - graph/01BFS.cpp
