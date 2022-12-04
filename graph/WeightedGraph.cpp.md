@@ -8,7 +8,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: flow/MCF.cpp
     title: flow/MCF.cpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: flow/NondecreasingMCF.cpp
     title: flow/NondecreasingMCF.cpp
   - icon: ':warning:'
@@ -27,6 +27,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/AOJ/2647.test.cpp
     title: test/AOJ/2647.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/AOJ/3297.test.cpp
+    title: test/AOJ/3297.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/AOJ/GRL_1_B.test.cpp
     title: test/AOJ/GRL_1_B.test.cpp
@@ -144,6 +147,7 @@ data:
   - test/AOJ/GRL_5_A.test.cpp
   - test/AOJ/GRL_1_C.test.cpp
   - test/AOJ/GRL_6_A.test.cpp
+  - test/AOJ/3297.test.cpp
   - test/AOJ/GRL_2_B.test.cpp
   - test/AOJ/2647.test.cpp
   - test/AOJ/GRL_7_A.test.cpp
