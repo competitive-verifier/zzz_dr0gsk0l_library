@@ -104,7 +104,7 @@ data:
     - icon: ':warning:'
       path: datastructure/unionfind/MonoidUnionFind.cpp
       title: datastructure/unionfind/MonoidUnionFind.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: datastructure/unionfind/PotentialUnionFind.cpp
       title: datastructure/unionfind/PotentialUnionFind.cpp
     - icon: ':question:'
@@ -271,7 +271,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/AOJ/ALDS1_5_D.test.cpp
       title: test/AOJ/ALDS1_5_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/AOJ/DSL_1_B.test.cpp
       title: test/AOJ/DSL_1_B.test.cpp
     - icon: ':heavy_check_mark:'

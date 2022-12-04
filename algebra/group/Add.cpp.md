@@ -9,7 +9,7 @@ data:
     path: algebra/lazy/AddSum.cpp
     title: algebra/lazy/AddSum.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_1_B.test.cpp
     title: test/AOJ/DSL_1_B.test.cpp
   - icon: ':heavy_check_mark:'

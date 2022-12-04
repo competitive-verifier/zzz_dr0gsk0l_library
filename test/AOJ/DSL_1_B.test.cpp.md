@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: algebra/group/Add.cpp
     title: algebra/group/Add.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/unionfind/PotentialUnionFind.cpp
     title: datastructure/unionfind/PotentialUnionFind.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B
@@ -33,7 +33,7 @@ data:
     \u308B\u5834\u5408\u306F\u5909\u66F4\u306F\u305B\u305A false \u3092\u8FD4\u3059\
     \n    assert(0<=x and x<n and 0<=y and y<n);\n    auto [rx,dx]=from_root(x);\n\
     \    auto [ry,dy]=from_root(y);\n    d=AbelGroup::op(d,dx);\n    d=AbelGroup::op(d,AbelGroup::inverse(dy));\n\
-    \    if(rx==ry)return d==AbelMonoid::unit();\n    if(sz[rx]<sz[ry]){\n      swap(rx,ry);\n\
+    \    if(rx==ry)return d==AbelGroup::unit();\n    if(sz[rx]<sz[ry]){\n      swap(rx,ry);\n\
     \      d=AbelGroup::inverse(d);\n    }\n    sz[rx]+=sz[ry];\n    parent[ry]=rx;\n\
     \    potential[ry]=d;\n    num--;\n    return true;\n  }\n\n  optional<T> diff(int\
     \ x,int y){\n    // x \u3092\u57FA\u6E96\u3068\u3059\u308B\n    auto [rx,dx]=from_root(x);\n\
@@ -65,8 +65,8 @@ data:
   isVerificationFile: true
   path: test/AOJ/DSL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2022-12-04 10:33:45+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-04 13:05:57+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/AOJ/DSL_1_B.test.cpp
 layout: document

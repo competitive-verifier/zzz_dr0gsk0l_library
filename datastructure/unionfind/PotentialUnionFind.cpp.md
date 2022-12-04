@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/AOJ/DSL_1_B.test.cpp
     title: test/AOJ/DSL_1_B.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"datastructure/unionfind/PotentialUnionFind.cpp\"\ntemplate<typename\
@@ -26,7 +26,7 @@ data:
     \u308B\u5834\u5408\u306F\u5909\u66F4\u306F\u305B\u305A false \u3092\u8FD4\u3059\
     \n    assert(0<=x and x<n and 0<=y and y<n);\n    auto [rx,dx]=from_root(x);\n\
     \    auto [ry,dy]=from_root(y);\n    d=AbelGroup::op(d,dx);\n    d=AbelGroup::op(d,AbelGroup::inverse(dy));\n\
-    \    if(rx==ry)return d==AbelMonoid::unit();\n    if(sz[rx]<sz[ry]){\n      swap(rx,ry);\n\
+    \    if(rx==ry)return d==AbelGroup::unit();\n    if(sz[rx]<sz[ry]){\n      swap(rx,ry);\n\
     \      d=AbelGroup::inverse(d);\n    }\n    sz[rx]+=sz[ry];\n    parent[ry]=rx;\n\
     \    potential[ry]=d;\n    num--;\n    return true;\n  }\n\n  optional<T> diff(int\
     \ x,int y){\n    // x \u3092\u57FA\u6E96\u3068\u3059\u308B\n    auto [rx,dx]=from_root(x);\n\
@@ -48,19 +48,19 @@ data:
     \u308B\u5834\u5408\u306F\u5909\u66F4\u306F\u305B\u305A false \u3092\u8FD4\u3059\
     \n    assert(0<=x and x<n and 0<=y and y<n);\n    auto [rx,dx]=from_root(x);\n\
     \    auto [ry,dy]=from_root(y);\n    d=AbelGroup::op(d,dx);\n    d=AbelGroup::op(d,AbelGroup::inverse(dy));\n\
-    \    if(rx==ry)return d==AbelMonoid::unit();\n    if(sz[rx]<sz[ry]){\n      swap(rx,ry);\n\
+    \    if(rx==ry)return d==AbelGroup::unit();\n    if(sz[rx]<sz[ry]){\n      swap(rx,ry);\n\
     \      d=AbelGroup::inverse(d);\n    }\n    sz[rx]+=sz[ry];\n    parent[ry]=rx;\n\
     \    potential[ry]=d;\n    num--;\n    return true;\n  }\n\n  optional<T> diff(int\
     \ x,int y){\n    // x \u3092\u57FA\u6E96\u3068\u3059\u308B\n    auto [rx,dx]=from_root(x);\n\
     \    auto [ry,dy]=from_root(y);\n    if(rx!=ry)return nullopt;\n    return AbelGroup::op(dy,AbelGroup::inverse(dx));\n\
     \  }\n\n  int size(const int x){\n    assert(0<=x and x<n);\n    return sz[leader(x)];\n\
-    \  }\n  \n  int count()const{\n    return num;\n  }\n};"
+    \  }\n  \n  int count()const{\n    return num;\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: datastructure/unionfind/PotentialUnionFind.cpp
   requiredBy: []
-  timestamp: '2022-12-04 10:33:45+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-12-04 13:05:57+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/AOJ/DSL_1_B.test.cpp
 documentation_of: datastructure/unionfind/PotentialUnionFind.cpp
