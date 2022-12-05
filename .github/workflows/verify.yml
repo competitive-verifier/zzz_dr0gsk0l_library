@@ -21,7 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
+        with:
+          submodules: true
       - name: Set up competitive-verifier
         uses: competitive-verifier/actions/setup@v1
         with:
@@ -74,6 +75,8 @@ jobs:
            "10", "11", "12", "13", "14", "15", "16", "17", "18", "19"]
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: true
 
       - name: Download verify_files.json
         uses: competitive-verifier/actions/download-verify-artifact@v1
@@ -107,6 +110,8 @@ jobs:
     needs: [verify]
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: true
 
       - name: Download verify_files.json and all artifacts
         id: all-artifacts
