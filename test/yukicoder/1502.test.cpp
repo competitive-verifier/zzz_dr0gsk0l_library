@@ -1,4 +1,4 @@
-#define PROBLEM "https://yukicoder.me/problems/no/1502"
+// competitive-verifier: PROBLEM https://yukicoder.me/problems/no/1502
 #include <bits/stdc++.h>
 using namespace std;
 #define REP(i,n) for(int i=0;i<(n);i++)

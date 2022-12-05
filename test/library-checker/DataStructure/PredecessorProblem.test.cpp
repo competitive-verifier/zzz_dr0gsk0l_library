@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/predecessor_problem"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/predecessor_problem
 #include <bits/stdc++.h>
 using namespace std;
 

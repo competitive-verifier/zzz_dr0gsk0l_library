@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2647"
+// competitive-verifier: PROBLEM https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2647
 #include <bits/stdc++.h>
 using namespace std;
 #define REP(i,n) for(int i=0;i<(n);i++)

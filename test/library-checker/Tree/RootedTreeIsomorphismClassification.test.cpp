@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/rooted_tree_isomorphism_classification"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/rooted_tree_isomorphism_classification
 #include <bits/stdc++.h>
 using namespace std;
 
